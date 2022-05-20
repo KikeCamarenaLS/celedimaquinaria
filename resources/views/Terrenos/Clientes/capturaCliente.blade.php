@@ -169,16 +169,19 @@
 
 										<div class="col-md-3" >
 											<label>Fecha de venta(Enganche) </label>
-											<input  type="date" class="form-control" id="Fecha_Venta" name="Fecha_Venta"  >
+											<input  type="date" class="form-control" id="Fecha_Venta"  name="Fecha_Venta"  >
+											<span class="required-label"  id="validaFecha_Venta" style="color:red; display: none;" ><font size="1">Es obligatorio llenar este campo</font></span>
 
 										</div>
 										<div class="col-md-3">
 											<label>Enganche </label>
 											<input required="" type="text" onkeyup="numerico2()" maxlength="9" onKeypress="if (event.keyCode < 45 || event.keyCode > 57) event.returnValue = false;" class="form-control" id="Enganche" name="Enganche" >
+											<span class="required-label"  id="validaEnganche" style="color:red; display: none;" ><font size="1">Es obligatorio llenar este campo</font></span>
 										</div>
 										<div class="col-md-3">
 											<label>Fecha de contrato</label>
 											<input type="date" class="form-control" id="Fecha_Contrato" name="Fecha_Contrato" >
+											<span class="required-label"  id="validaFecha_Contrato" style="color:red; display: none;" ><font size="1">Es obligatorio llenar este campo</font></span>
 										</div>
 
 
@@ -219,14 +222,17 @@
 										<div class="col-md-2" >
 											<label>Mz</label>
 											<input required="" type="number" class="form-control" id="Mz" name="Mz"  >
+											<span class="required-label"  id="validaMz" style="color:red; display: none;" ><font size="1">Es obligatorio llenar este campo</font></span>
 										</div>
 										<div class="col-md-2">
 											<label>Lote</label>
 											<input required="" type="number" class="form-control" id="Lote" name="Lote" >
+											<span class="required-label"  id="validaLote" style="color:red; display: none;" ><font size="1">Es obligatorio llenar este campo</font></span>
 										</div>
 										<div class="col-md-2">
 											<label>Superficie en m²</label>
 											<input  type="text" maxlength="9" onKeypress="if (event.keyCode < 45 || event.keyCode > 57) event.returnValue = false;"  class="form-control" id="Superficie" name="Superficie"  >
+											<span class="required-label"  id="validaSuperficie" style="color:red; display: none;" ><font size="1">Es obligatorio llenar este campo</font></span>
 										</div>
 										<div class="col-md-3">
 											<label>Tipo de superficie</label>
@@ -267,6 +273,7 @@
 										<div class="col-md-2">
 											<label>Numero de parcialidades </label>
 											<input  type="text" maxlength="9" onKeypress="if (event.keyCode < 45 || event.keyCode > 57) event.returnValue = false;"  class="form-control" id="Nparcialidades" name="Nparcialidades"  >
+											<span class="required-label"  id="validaNparcialidades" style="color:red; display: none;" ><font size="1">Es obligatorio llenar este campo</font></span>
 										</div>
 
 
@@ -277,6 +284,7 @@
 										<div class="col-md-3">
 											<label>Costo total  </label>
 											<input  type="text" onkeyup="numerico()" maxlength="9" onKeypress="if (event.keyCode < 45 || event.keyCode > 57) event.returnValue = false;" class="form-control" id="CostoTotal" name="CostoTotal"  >
+											<span class="required-label"  id="validaCostoTotal" style="color:red; display: none;" ><font size="1">Es obligatorio llenar este campo</font></span>
 										</div>
 
 										<div class="col-md-3">
@@ -323,10 +331,12 @@
 										<div class="col-md-3">
 											<label>Monto mensual </label>
 											<input required="" type="text" onkeyup="MontoMensualFormato()" maxlength="9" onKeypress="if (event.keyCode < 45 || event.keyCode > 57) event.returnValue = false;" class="form-control" id="MontoMensual" name="MontoMensual" >
+											<span class="required-label"  id="validaMontoMensual" style="color:red; display: none;" ><font size="1">Es obligatorio llenar este campo</font></span>
 										</div>
 										<div class="col-md-3">
 											<label>Telefono Aval</label>
-											<input required="" maxlength="9" onKeypress="if (event.keyCode < 45 || event.keyCode > 57) event.returnValue = false;"  type="text" class="form-control" id="Telefono_2" name="Telefono_2" >
+											<input required="" maxlength="10" onKeypress="if (event.keyCode < 45 || event.keyCode > 57) event.returnValue = false;"  type="text" class="form-control" id="Telefono_2" name="Telefono_2" >
+											<span class="required-label"  id="validaTelefono_2" style="color:red; display: none;" ><font size="1">Es obligatorio llenar este campo</font></span>
 										</div>
 
 									</div>
@@ -337,6 +347,7 @@
 										<div class="col-md-3">
 											<label>Porcentaje de interés  </label>
 											<input required="" type="number" class="form-control" id="Porcentaje" name="Porcentaje" >
+											<span class="required-label"  id="validaPorcentaje" style="color:red; display: none;" ><font size="1">Es obligatorio llenar este campo</font></span>
 										</div>
 
 
@@ -366,7 +377,7 @@
 
 											<div class="card">
 												<div class="card-header" style="background-color: red; color:#ffffff;">
-													<div class="card-title">Modulo Cobranza</div>
+													<div class="card-title" style="background-color: red; color:#ffffff;">Modulo Cobranza</div>
 												</div>
 												<div class="card-body">
 
@@ -375,19 +386,19 @@
 
 														<div class="col-md-3">
 															<label>Fecha de apartado </label>
-															<input required="" type="date"  class="form-control"  id="FechaApartado" name="FechaApartado" >
+															<input required="" type="date"  class="form-control"  id="FechaApartadoCo" name="FechaApartadoCo" >
 														</div>
 														<div class="col-md-3">
 															<label>Apartado </label>
-															<input required="" type="text"  onkeyup="ApartadoFormato()" maxlength="9" onKeypress="if (event.keyCode < 45 || event.keyCode > 57) event.returnValue = false;" class="form-control" id="Apartado" name="Apartado" >
+															<input required="" type="text"  onkeyup="ApartadoFormato()" maxlength="9" onKeypress="if (event.keyCode < 45 || event.keyCode > 57) event.returnValue = false;" class="form-control" id="ApartadoCo" name="ApartadoCo" >
 														</div>
 														<div class="col-md-3">
 															<label>Fecha de enganche</label>
-															<input required="" type="date"  class="form-control"  id="FechaEnganche" name="FechaEnganche" >
+															<input required="" type="date"  class="form-control"  id="FechaEngancheCo" name="FechaEngancheCo" >
 														</div>
 														<div class="col-md-3">
 															<label>Complemento de enganche</label>
-															<input required="" type="text"  onkeyup="ComEngancheFormato()" maxlength="9" onKeypress="if (event.keyCode < 45 || event.keyCode > 57) event.returnValue = false;" class="form-control" id="ComEnganche" name="ComEnganche" >
+															<input required="" type="text"  onkeyup="ComEngancheFormato()" maxlength="9" onKeypress="if (event.keyCode < 45 || event.keyCode > 57) event.returnValue = false;" class="form-control" id="ComEngancheCo" name="ComEngancheCo" >
 														</div>
 
 													</div>
@@ -395,17 +406,17 @@
 
 														<div class="col-md-3">
 															<label>Enganche  </label>
-															<input required="" type="text"  class="form-control" id="EngancheCobranza" name="EngancheCobranza" >
+															<input required="" type="text"  class="form-control" id="EngancheCobranzaCo" name="EngancheCobranzaCo" >
 														</div>
 														<div class="col-md-3">
 															<label>Costo del Lote </label>
-															<input required="" type="text"  onkeyup="CostodelLoteFormato()" maxlength="9" onKeypress="if (event.keyCode < 45 || event.keyCode > 57) event.returnValue = false;" class="form-control" id="CostodelLote" name="CostodelLote" >
+															<input required="" type="text"  onkeyup="CostodelLoteFormato()" maxlength="9" onKeypress="if (event.keyCode < 45 || event.keyCode > 57) event.returnValue = false;" class="form-control" id="CostodelLoteCo" name="CostodelLoteCo" >
 														</div>
 														<div class="col-md-3">
 															<label>Día de pagos (Mensualidades)</label>
 
 															<div class="select2-input">
-																<select class="form-control" id="FechaPagoC" name="FechaPagoC" style="width: 100%;">
+																<select class="form-control" id="FechaPagoCCo" name="FechaPagoCCo" style="width: 100%;">
 																	<option>1</option>
 																	<option>2</option>
 																	<option>3</option>
@@ -444,7 +455,7 @@
 														</div>
 														<div class="col-md-3">
 															<label>Vendedor </label>
-															<select class="form-control" id="VendedorC" name="VendedorC" style="width: 100%;">
+															<select class="form-control" id="VendedorCCo" name="VendedorCCo" style="width: 100%;">
 																@foreach($vendedores as $vendedore)
 																<option value="{{$vendedore->id_vendedores}}">{{$vendedore->vendedores}}</option>
 																@endforeach
@@ -458,19 +469,19 @@
 
 														<div class="col-md-3">
 															<label>Fecha Apartado  </label>
-															<input required="" type="date"  class="form-control" id="FechaApartado" name="FechaApartado" >
+															<input required="" type="date"  class="form-control" id="FechaApartadoCo" name="FechaApartadoCo" >
 														</div>
 														<div class="col-md-3">
 															<label>Comisión 1 </label>
-															<input required="" type="text"  onkeyup="Comisión1Formato()" maxlength="9" onKeypress="if (event.keyCode < 45 || event.keyCode > 57) event.returnValue = false;" class="form-control" id="Comisión1" name="Comisión1" >
+															<input required="" type="text"  onkeyup="Comisión1Formato()" maxlength="9" onKeypress="if (event.keyCode < 45 || event.keyCode > 57) event.returnValue = false;" class="form-control" id="Comisión1Co" name="Comisión1Co" >
 														</div>
 														<div class="col-md-3">
 															<label>Comisión 2</label>
-															<input required="" type="text" onkeyup="Comisión2Formato()" maxlength="9" onKeypress="if (event.keyCode < 45 || event.keyCode > 57) event.returnValue = false;" class="form-control" id="Comisión2" name="Comisión2" >
+															<input required="" type="text" onkeyup="Comisión2Formato()" maxlength="9" onKeypress="if (event.keyCode < 45 || event.keyCode > 57) event.returnValue = false;" class="form-control" id="Comisión2Co" name="Comisión2Co" >
 														</div>
-														<div class="col-md-3">
+													<div class="col-md-3">
 															<label>Estatus de venta</label>
-															<select class="form-control" id="EstatusVenta" name="EstatusVenta"  style="width: 100%;">
+															<select class="form-control" id="EstatusVentaCo" name="EstatusVentaCo"  style="width: 100%;">
 																<option>Vendido</option>
 																<option>Rescisión</option>
 																<option>Donación </option>
@@ -480,7 +491,7 @@
 													</div>
 												</div>
 												<div class="card-footer">
-													<input type="submit" id="registroCobranza" class="btn btn-success">
+													<input type="submit" id="registroCobranza" class="btn btn-success" onclick="cobranzaRegistra()">
 												</div>
 
 											</div>
@@ -799,6 +810,63 @@
 				}
 			}
 			var numeroCostoTotal;
+			function cobranzaRegistra(){
+				
+				$.ajax({
+					data:  {
+						"FechaApartadoCo":$('#FechaApartadoCo').val(),
+						"ApartadoCo":$('#ApartadoCo').val(),
+						"NclienteHide":numcliente,
+						"FechaEngancheCo":$('#FechaEngancheCo').val(),
+						"ComEngancheCo":$('#ComEngancheCo').val(),
+						"EngancheCobranzaCo":$('#EngancheCobranzaCo').val(),
+						"CostodelLoteCo":$('#CostodelLoteCo').val(),
+						"FechaPagoCCo":$('#FechaPagoCCo').val(),
+						"VendedorCCo":$('#VendedorCCo').val(),
+						"FechaApartadoCo":$('#FechaApartadoCo').val(),
+						"Comisión1Co":$('#Comisión1Co').val(),
+						"Comisión2Co":$('#Comisión2Co').val(),
+						"EstatusVentaCo":$('#EstatusVentaCo').val(),
+					}, 
+					url:   "{{url('alta/capturaContratos')}}",
+					type:  'get',
+					success:  function (data) { 
+						console.log(data);
+						$('#modalCobranza').modal('show');
+						
+						//limpiar();
+						$('#Fecha_Venta').val("")		
+				$('#Fecha_Contrato').val("")
+				$('#proyecto').val("")
+				$('#Etapa').val("")
+				$('#Mz').val("")
+				$('#Lote').val("")
+				$('#Superficie').val("")
+				$('#TipoSuperficie').val("")
+				$('#TipoPredio').val("")
+				$('#Vendedor').val("")
+				$('#Adquisición').val("")
+				$('#Nparcialidades').val("")
+				$('#CostoTotal').val("")
+				$('#Enganche').val("")
+				$('#Comisión1').val("")
+				$('#Comisión2').val("")
+				$('#FechaPago').val("")
+				$('#MontoMensual').val("")
+				$('#Porcentaje').val("")
+				$('#EstatusVenta').val("")
+						mensaje('success','Registro exitoso!!');
+
+
+
+					},
+					error: function(XMLHttpRequest, textStatus, errorThrown) { 
+
+						$('#modalCobranza').modal('show');
+						mensaje('danger','Algo salio mal, intentelo mas tarde!!');
+					}   
+				});
+			}
 			function validaAdquisicion(){
 
 				var Adquisición=$("#Adquisición").val();
@@ -960,8 +1028,86 @@
 
 				$('#modalDetalle').modal('show');
 			}
+			function validaRegistrarContrato(){
+				var valida=0;
+				if ($('#Fecha_Venta').val()!="") {
+					$('#validaFecha_Venta').css('display','none');
+					valida=valida+1;
+				}else{
+					$('#validaFecha_Venta').css('display','block');
+				}
+				if ($('#Enganche').val()!="") {
+				$('#validaEnganche').css('display','none');
+					valida=valida+1;
+				}else{
+					$('#validaEnganche').css('display','block');
+				}
+				if ($('#Fecha_Contrato').val()!="") {
+				$('#validaFecha_Contrato').css('display','none');
+					valida=valida+1;
+				}else{
+					$('#validaFecha_Contrato').css('display','block');
+				}
+				if ($('#Mz').val()!="") {
+				$('#validaMz').css('display','none');
+				valida=valida+1;
+				}else{
+					$('#validaMz').css('display','block');
+				}
+				if ($('#Lote').val()!="") {
+					$('#validaLote').css('display','none');
+					valida=valida+1;
+				}else{
+					$('#validaLote').css('display','block');
+				}
+				if ($('#Superficie').val()!="") {
+					$('#validaSuperficie').css('display','none');
+					valida=valida+1;
+				}else{
+					$('#validaSuperficie').css('display','block');
+				}
+				if ($('#Nparcialidades').val()!="") {
+					$('#validaNparcialidades').css('display','none');
+					valida=valida+1;
+				}else{
+					$('#validaNparcialidades').css('display','block');
+				}
+				if ($('#CostoTotal').val()!="") {
+					$('#validaCostoTotal').css('display','none');
+					valida=valida+1;
+				}else{
+					$('#validaCostoTotal').css('display','block');
+				}
+				if ($('#MontoMensual').val()!="") {
+					$('#validaMontoMensual').css('display','none');
+					valida=valida+1;
+				}else{
+					$('#validaMontoMensual').css('display','block');
+				}
+				if ($('#Telefono_2').val()!="" ) {
+					$('#validaTelefono_2').css('display','none');
+					valida=valida+1;
+				}else{
+					$('#validaTelefono_2').css('display','block');
+				}
+				if ($('#Porcentaje').val()!="" ) {
+					$('#validaPorcentaje').css('display','none');
+					valida=valida+1;
+				}else{
+					$('#validaPorcentaje').css('display','block');
+				}
+				console.log(valida);
+				return valida;
+			}
+
 			function RegistrarContrato(){
-				$.ajax({
+				console.log(validaRegistrarContrato());
+				if($('#Adquisición').val()=="Contado"){
+					if(validaRegistrarContrato()==8){
+						$('#validaNparcialidades').css('display','none');
+						$('#validaMontoMensual').css('display','none');
+						$('#validaTelefono_2').css('display','none');
+					$.ajax({
 					data:  {
 						"Fecha_Venta":$('#Fecha_Venta').val(),
 						"Enganche":$('#Enganche').val(),
@@ -990,7 +1136,27 @@
 						console.log(data);
 						$('#modalCobranza').modal('show');
 						
-						limpiar();
+						//limpiar();
+						$('#Fecha_Venta').val("")		
+				$('#Fecha_Contrato').val("")
+				$('#proyecto').val("")
+				$('#Etapa').val("")
+				$('#Mz').val("")
+				$('#Lote').val("")
+				$('#Superficie').val("")
+				$('#TipoSuperficie').val("")
+				$('#TipoPredio').val("")
+				$('#Vendedor').val("")
+				$('#Adquisición').val("")
+				$('#Nparcialidades').val("")
+				$('#CostoTotal').val("")
+				$('#Enganche').val("")
+				$('#Comisión1').val("")
+				$('#Comisión2').val("")
+				$('#FechaPago').val("")
+				$('#MontoMensual').val("")
+				$('#Porcentaje').val("")
+				$('#EstatusVenta').val("")
 						mensaje('success','Registro exitoso!!');
 
 
@@ -1002,6 +1168,76 @@
 						mensaje('danger','Algo salio mal, intentelo mas tarde!!');
 					}   
 				});
+				}
+
+				}else if($('#Adquisición').val()=="Parcialidades"){
+					if(validaRegistrarContrato()==11){
+					$.ajax({
+					data:  {
+						"Fecha_Venta":$('#Fecha_Venta').val(),
+						"Enganche":$('#Enganche').val(),
+						"NclienteHide":numcliente,
+						"Fecha_Contrato":$('#Fecha_Contrato').val(),
+						"proyecto":$('#proyecto').val(),
+						"Etapa":$('#Etapa').val(),
+						"Mz":$('#Mz').val(),
+						"Lote":$('#Lote').val(),
+						"Superficie":$('#Superficie').val(),
+						"TipoSuperficie":$('#TipoSuperficie').val(),
+						"TipoPredio":$('#TipoPredio').val(),
+						"Vendedor":$('#Vendedor').val(),
+						"Adquisición":$('#Adquisición').val(),
+						"Nparcialidades":$('#Nparcialidades').val(),
+						
+						"CostoTotal":$('#CostoTotal').val(),
+						"FechaPago":$('#FechaPago').val(),
+						"MontoMensual":$('#MontoMensual').val(),
+						"Porcentaje":$('#Porcentaje').val(),
+						"Telefono_2":$('#Telefono_2').val(),
+					}, 
+					url:   "{{url('alta/capturaContratos')}}",
+					type:  'get',
+					success:  function (data) { 
+						console.log(data);
+						$('#modalCobranza').modal('show');
+						
+						//limpiar();
+						$('#Fecha_Venta').val("")		
+				$('#Fecha_Contrato').val("")
+				$('#proyecto').val("")
+				$('#Etapa').val("")
+				$('#Mz').val("")
+				$('#Lote').val("")
+				$('#Superficie').val("")
+				$('#TipoSuperficie').val("")
+				$('#TipoPredio').val("")
+				$('#Vendedor').val("")
+				$('#Adquisición').val("")
+				$('#Nparcialidades').val("")
+				$('#CostoTotal').val("")
+				$('#Enganche').val("")
+				$('#Comisión1').val("")
+				$('#Comisión2').val("")
+				$('#FechaPago').val("")
+				$('#MontoMensual').val("")
+				$('#Porcentaje').val("")
+				$('#EstatusVenta').val("")
+						mensaje('success','Registro exitoso!!');
+
+
+
+					},
+					error: function(XMLHttpRequest, textStatus, errorThrown) { 
+
+						$('#modalCobranza').modal('show');
+						mensaje('danger','Algo salio mal, intentelo mas tarde!!');
+					}   
+				});
+				}
+
+				}
+				
+				
 			}
 			function Registrar(){
 				if($('#Nombre').val()==""){
