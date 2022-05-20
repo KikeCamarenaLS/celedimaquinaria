@@ -17,7 +17,6 @@
 			
 			<div class="form-group row " >
 				<div class="col-md-4" ></div>
-				
 						<div class="col-md-4" >
 							<label>Proyecto <span class="required-label">*</span></label>
 							<select class="form-control success" id="proyecto">
