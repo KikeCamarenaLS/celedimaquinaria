@@ -15,7 +15,18 @@ class TbUsers extends Migration
     {
         Schema::create('users', function (Blueprint $table) {
             $table->bigIncrements('id')->index();
-            $table->string('name');
+            $table->string('Nombre');
+            $table->string('Apaterno');
+            $table->string('Amaterno');
+            $table->bigInteger('Tel1');
+            $table->bigInteger('Tel2');
+            $table->string('Calle');
+            $table->string('Ninterior');
+            $table->string('Nexterior');
+            $table->string('Colonia');
+            $table->string('Municipio');
+            $table->string('Estado');
+            $table->string('Referencia');
             $table->string('email')->uniqued();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
