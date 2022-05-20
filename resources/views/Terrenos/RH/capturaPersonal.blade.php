@@ -20,7 +20,7 @@
 					{{-- inicio del row --}}
 
 					<div class="form-group row " >
-						{{-- <div class="col-md-4 has-error has-feedback" > --}}
+						
 							<div class="col-md-4" >
 								<label>Nombres(s) <span class="required-label">*</span></label>
 								<input required="" type="text" class="form-control success" id="Nombre" name="Nombre"  >
@@ -41,7 +41,7 @@
 						{{-- inicio del row --}}
 
 						<div class="form-group row " >
-							{{-- <div class="col-md-4 has-error has-feedback" > --}}
+
 								<div class="col-md-3" >
 									<label>Teléfono 1(Celular)  <span class="required-label">*</span></label>
 									<input required="" type="text" class="form-control success" id="Telefono1" name="Telefono1" >
