@@ -56,26 +56,45 @@ class UsuarioController extends Controller
 
      public function insert_usuario(Request $request)
     {
+$Nombre= $request->input("Nombre");
+        $Apellido_Paterno= $request->input("Apellido_Paterno");
+        $Apellido_Materno= $request->input("Apellido_Materno");
+        $Telefono1= $request->input("Telefono1");
+        $Telefono2= $request->input("Telefono2");
+        $Calle= $request->input("Calle");
+        $Ninterior= $request->input("Ninterior");
+        $NExterior= $request->input("NExterior");
+        $Colonia= $request->input("Colonia");
+        $Municipio= $request->input("Municipio");
+        $Estado= $request->input("Estado");
+        $Referencia= $request->input("Referencia");
 
+         $insert =DB::select('insert into vendedores (Nombre,Apaterno,Amaterno, Tel1, Tel2, Calle, Ninterior, Nexterior, Colonia, Municipio, Estado, Referencia,created_at) values ("'.$Nombre.'","'.$Apellido_Paterno.'","'.$Apellido_Materno.'","'.$Telefono1.'","'.$Telefono2.'","'.$Calle.'","'.$Ninterior.'","'.$NExterior.'","'.$Colonia.'","'.$Municipio.'","'.$Estado.'","'.$Referencia.'",now())');
 
-        $validator = Validator::make($request->all(), [
-                  
-               ]);
         
-               if ($validator->fails()) {
-                   return redirect('/nuevo_usuario')->withErrors($validator)->withInput();
-               }else{
+
+        return $insert;
 
                 $password=bcrypt($request['password']);            
                    $guardar=User::create([
+                                   'Nombre'=>$request['Nombre'],
+                                   'Apaterno'=>$request['Apaterno'],
+                                   'password'=>$password,
+                                   'email'=>$request['email'],
+                                   'name'=>$request['name'],
+                                   'password'=>$password,
+                                   'email'=>$request['email'],
+                                   'name'=>$request['name'],
+                                   'password'=>$password,
+                                   'email'=>$request['email'],
+                                   'name'=>$request['name'],
+                                   'password'=>$password,
                                    'email'=>$request['email'],
                                    'name'=>$request['name'],
                                    'password'=>$password,
                                    'estatus'=>'1'
                                   ]);
 
-                   //dd($request['rolesuser']);
-                  
                     foreach ($request['rolesuser'] as $key) {
                           $guardar->assignRole($key);
                          }
@@ -83,8 +102,6 @@ class UsuarioController extends Controller
 
                    
 
-                   return redirect('/nuevo_usuario')->with(['message' => 'Guardado con éxito', 'color' => 'success']);
-               }
 
     }
 
