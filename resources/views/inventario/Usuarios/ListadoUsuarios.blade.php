@@ -50,7 +50,7 @@
 
 					@foreach($usuarios as $usuario)
 					<tr>
-						<td class="info text-center">{{$usuario->name}}</td>
+						<td class="info text-center">{{$usuario->Nombre}} {{$usuario->Apaterno}} {{$usuario->Amaterno}}</td>
 						<td class="info text-center">{{$usuario->email}}</td>
                         <td class="primary" >
                         	<?php if($usuario->estatus==1){
@@ -101,12 +101,7 @@
 					<div class="card-body">
 
                         <input type="hidden"  id="id" name="id">
-						<div class="form-group form-show-validation row">
-							<label for="name" class="col-lg-3 col-md-3 col-sm-4 mt-sm-2 text-right">Usuario <span class="required-label">*</span></label>
-							<div class="col-lg-4 col-md-9 col-sm-8">
-								<input type="text" class="form-control" id="name" name="name"  value="" required>
-							</div>
-						</div>
+						
 
 						<div class="form-group form-show-validation row">
 							<label for="email" class="col-lg-3 col-md-3 col-sm-4 mt-sm-2 text-right">Correo <span class="required-label">*</span></label>

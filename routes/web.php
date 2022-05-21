@@ -348,6 +348,9 @@ Route::get('/alta_de_clientes', 'ClienteController@viewalta_de_clientes');
 Route::get('/alta/capturaCliente', 'ClienteController@alta_de_clientes');
 Route::get('/cliente/validaExistencia', 'ClienteController@validaExistencia');
 Route::get('/alta/capturaContratos', 'ClienteController@capturaContratos');
+Route::get('/alta/capturaCobranza', 'ClienteController@capturaCobranza');
+
+
 Route::get('/buscar/encontrarContrato', 'ClienteController@encontrarContrato');
 
 

@@ -36,6 +36,34 @@ class ClienteController extends Controller
 			return "no existe";
 		}
 	}
+	public function capturaCobranza(Request $request){
+
+		$FechaApartadoCo= $request->input("FechaApartadoCo");
+        $ApartadoCo= $request->input("ApartadoCo");
+        $NclienteHide= $request->input("NclienteHide");
+        $ncontrato= $request->input("ncontrato");
+        $FechaEngancheCo= $request->input("FechaEngancheCo");
+        $ComEngancheCo= $request->input("ComEngancheCo");
+        $EngancheCobranzaCo= $request->input("EngancheCobranzaCo");
+        $CostodelLoteCo= $request->input("CostodelLoteCo");
+        $FechaPagoCCo= $request->input("FechaPagoCCo");
+        $VendedorCCo= $request->input("VendedorCCo");
+        $Comisión1Co= $request->input("Comisión1Co");
+        $Comisión2Co= $request->input("Comisión2Co");
+        $EstatusVentaCo= $request->input("EstatusVentaCo");
+
+
+       
+
+         $id = Auth::user()->id;
+
+        $insert =DB::select('insert into contrato_cobranza (id_contrato_cobranza,id_contrato,N_Cliente,FechaApartado, Apartado, FechaEnganche, ComplementoEnganche, Enganche, CostoLote, DiaPago, vendedor, Comision1, Comision2, EstatusVenta, empleadoRegistra,created_at) values (null,'.$ncontrato.','.$NclienteHide.',"'.$FechaApartadoCo.'","'.$ApartadoCo.'","'.$FechaEngancheCo.'","'.$ComEngancheCo.'","'.$EngancheCobranzaCo.'","'.$CostodelLoteCo.'","'.$FechaPagoCCo.'","'.$VendedorCCo.'","'.$Comisión1Co.'","'.$Comisión2Co.'","'.$EstatusVentaCo.'","'.$id.'",now())');
+
+		
+        return $insert;
+
+		
+	}
 	public function capturaContratos(Request $request){
 
 		$Fecha_Venta= $request->input("Fecha_Venta");
@@ -58,15 +86,43 @@ class ClienteController extends Controller
         $Porcentaje= $request->input("Porcentaje");
         $Telefono_2= $request->input("Telefono_2");
         $Ncliente= $request->input("NclienteHide");
-        $no_cliente=DB::select("select Date_format(now(),'%d%m%y%H%i%s') as no_cliente");
-		$no_contrato=$no_cliente[0]->no_cliente;
+        //$no_cliente=DB::select("select Date_format(now(),'%d%m%y%H%i%s') as no_cliente");
+		//$no_contrato=$no_cliente[99]->no_cliente;
+		$anioCont=substr($Fecha_Venta, 2, 2);
+		$mesCont=substr($Fecha_Venta, 5, 2);
+		$proyCont='';
+			if(strlen($proyecto)==1){
+				$proyCont="00".$proyecto;
+			}
+			if(strlen($proyecto)==2){
+				$proyCont="0".$proyecto;
+			}
+			if(strlen($proyecto)==3){
+				$proyCont=$proyecto;
+			}
+			$mzCont='';
+			if(strlen($Mz)==1){
+				$mzCont="0".$Mz;
+			}
+			if(strlen($Mz)==2){
+				$mzCont=$Mz;
+			}
+			$ltCont='';
+			if(strlen($Lote)==1){
+				$ltCont="0".$Lote;
+			}
+			if(strlen($Lote)==2){
+				$ltCont=$Lote;
+			}
 
+		$no_contrato=$anioCont.''.$mesCont.''.$proyCont.''.$mzCont.''.$ltCont;
+		
          $id = Auth::user()->id;
 
         $insert =DB::select('insert into contratos (id_contratos,N_Cliente,FechaVenta, FechaContrato, Proyecto, Etapa, Mz, Lt, Superficie, TipoSuperficie, TipoPredio, Vendedor, Adquisicion, N_Parcialidades, Costo, Enganche, DiaPago, MontoMensual, Interes, TelefonoAval,created_at) values ('.$no_contrato.','.$Ncliente.',"'.$Fecha_Venta.'","'.$Fecha_Contrato.'","'.$proyecto.'","'.$Etapa.'","'.$Mz.'","'.$Lote.'","'.$Superficie.'","'.$TipoSuperficie.'","'.$TipoPredio.'","'.$Vendedor.'","'.$Adquisición.'","'.$Nparcialidades.'","'.$CostoTotal.'","'.$Enganche.'","'.$FechaPago.'","'.$MontoMensual.'","'.$Porcentaje.'","'.$Telefono_2.'",now())');
 
 		
-        return $insert;
+        return $no_contrato;
 
 		
 	}

@@ -15,6 +15,7 @@ class Cobranza extends Migration
     {
          Schema::create('contrato_cobranza', function (Blueprint $table) {
             $table->bigIncrements('id_contrato_cobranza')->index();
+            $table->bigInteger('id_contrato');
             $table->bigInteger('N_Cliente');
             $table->date('FechaApartado');
             $table->string('Apartado');
@@ -27,6 +28,7 @@ class Cobranza extends Migration
             $table->string('Comision1');
             $table->string('Comision2');
             $table->string('EstatusVenta');
+            $table->bigInteger('empleadoRegistra');
             $table->rememberToken();
             $table->timestamps();
         });

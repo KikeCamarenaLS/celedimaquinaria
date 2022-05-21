@@ -14,11 +14,15 @@ class UsersTableSeeder extends Seeder
         //
 
               $user=DB::table('users')->insert([
-                    'name' => 'Luis Enrique',
+                    'Nombre' => 'Luis Enrique',
+                    'Apaterno' => 'Camarena',
+                    'Amaterno' => 'Serratos',
                     'email' => 'camarenaluis6@gmail.com',
                     'password' => bcrypt('123456'),
                     'estatus' => '1',
                 ]);
+
+
                       DB::table('cat_proyectos')->insert([
             'proyecto' => 'NOPALITOS',
         ]);

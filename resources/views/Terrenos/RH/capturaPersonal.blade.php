@@ -11,7 +11,7 @@
 		<div class="col-md-12" >
 			<div class="card">
 				<div class="card-header">
-					<div class="card-title">Alta de personal  </div>
+					<div class="card-title">Alta de personal (Vendedores) </div>
 					
 				</div>
 				

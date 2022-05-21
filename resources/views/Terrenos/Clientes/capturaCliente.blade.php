@@ -381,6 +381,15 @@
 												</div>
 												<div class="card-body">
 
+													<div class="form-group row " >
+
+														<div class="col-md-12">
+															<label>Numero de contrato </label>
+															<input required="" type="text"  class="form-control"  id="numeroContr" name="numeroContr" >
+														</div>
+														
+
+													</div>
 
 													<div class="form-group row " >
 
@@ -467,10 +476,7 @@
 													</div>
 													<div class="form-group row " >
 
-														<div class="col-md-3">
-															<label>Fecha Apartado  </label>
-															<input required="" type="date"  class="form-control" id="FechaApartadoCo" name="FechaApartadoCo" >
-														</div>
+														
 														<div class="col-md-3">
 															<label>Comisión 1 </label>
 															<input required="" type="text"  onkeyup="Comisión1Formato()" maxlength="9" onKeypress="if (event.keyCode < 45 || event.keyCode > 57) event.returnValue = false;" class="form-control" id="Comisión1Co" name="Comisión1Co" >
@@ -687,6 +693,7 @@
 		@section('jscustom')
 		<script type="text/javascript">
 
+			var ncontrato='';
 			$('#FechaPago').select2({
 				theme: "bootstrap"
 			});
@@ -817,24 +824,25 @@
 						"FechaApartadoCo":$('#FechaApartadoCo').val(),
 						"ApartadoCo":$('#ApartadoCo').val(),
 						"NclienteHide":numcliente,
+						"ncontrato":$('#numeroContr').val(),
 						"FechaEngancheCo":$('#FechaEngancheCo').val(),
 						"ComEngancheCo":$('#ComEngancheCo').val(),
 						"EngancheCobranzaCo":$('#EngancheCobranzaCo').val(),
 						"CostodelLoteCo":$('#CostodelLoteCo').val(),
 						"FechaPagoCCo":$('#FechaPagoCCo').val(),
 						"VendedorCCo":$('#VendedorCCo').val(),
-						"FechaApartadoCo":$('#FechaApartadoCo').val(),
+						
 						"Comisión1Co":$('#Comisión1Co').val(),
 						"Comisión2Co":$('#Comisión2Co').val(),
 						"EstatusVentaCo":$('#EstatusVentaCo').val(),
 					}, 
-					url:   "{{url('alta/capturaContratos')}}",
+					url:   "{{url('alta/capturaCobranza')}}",
 					type:  'get',
 					success:  function (data) { 
 						console.log(data);
-						$('#modalCobranza').modal('show');
+						$('#modalCobranza').modal('hide');
 						
-						//limpiar();
+						limpiar();
 						$('#Fecha_Venta').val("")		
 				$('#Fecha_Contrato').val("")
 				$('#proyecto').val("")
@@ -1099,7 +1107,6 @@
 				console.log(valida);
 				return valida;
 			}
-
 			function RegistrarContrato(){
 				console.log(validaRegistrarContrato());
 				if($('#Adquisición').val()=="Contado"){
@@ -1134,6 +1141,11 @@
 					type:  'get',
 					success:  function (data) { 
 						console.log(data);
+						ncontrato=data;
+						
+
+						$('#numeroContr').val(data);
+
 						$('#modalCobranza').modal('show');
 						
 						//limpiar();
@@ -1157,6 +1169,8 @@
 				$('#MontoMensual').val("")
 				$('#Porcentaje').val("")
 				$('#EstatusVenta').val("")
+				$('#Telefono_2').val("")
+
 						mensaje('success','Registro exitoso!!');
 
 
