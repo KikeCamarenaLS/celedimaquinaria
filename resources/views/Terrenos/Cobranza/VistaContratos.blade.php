@@ -266,10 +266,12 @@
 						var html="";
 						var costocomilla="";
 						var Enganchecomilla="";
-						for (var i = 0; i < response.length; i++) {
+						if(response.length==0){
+							mensaje('danger','No se encontraron registros');
+						}else{
+							for (var i = 0; i < response.length; i++) {
 							 costocomilla='"'+response[i].Costo+'"';
 							 Enganchecomilla='"'+response[i].Enganche+'"';
-							 
 							html+="<tr>";
 							html+="<td> <FONT  SIZE=2>"+response[i].id_contratos+"</FONT></td>";
 							html+="<td> <FONT  SIZE=2>"+response[i].N_Cliente+"</FONT></td>";
@@ -307,6 +309,8 @@
 						});
 
 								mensaje('success','registro exitoso!!');
+						}
+						
 								
 
 							},
@@ -354,7 +358,7 @@
 						var content = {};
 
 						content.message = mensaje;
-						content.title = 'Nuevo Pago';
+						content.title = 'Contratos';
 						if (color == "danger") {
 							content.icon = 'la la-close';
 						} else {

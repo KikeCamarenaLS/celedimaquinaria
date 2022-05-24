@@ -28,6 +28,7 @@ class Vendedores extends Migration
             $table->string('Estado');
             $table->string('Referencia');
             $table->string('CP');
+            $table->string('permissions');
             $table->rememberToken();
             $table->timestamps();
         });

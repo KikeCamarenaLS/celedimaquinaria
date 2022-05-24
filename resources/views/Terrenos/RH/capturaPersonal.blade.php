@@ -50,10 +50,11 @@
 									<label>Teléfono 2(Casa)<span class="required-label">*</span></label>
 									<input required="" type="text" class="form-control" id="Telefono2" name="Telefono2"  >
 								</div>
-								<div class="col-md-6">
+								<div class="col-md-3">
 									<label>Calle<span class="required-label">*</span></label>
 									<input  type="text" class="form-control" id="Calle" name="Calle"  >
 								</div>
+
 							</div>
 							{{-- fin del row --}}
 							{{-- inicio del row --}}
@@ -86,14 +87,26 @@
 									<label>Estado<span class="required-label">*</span></label>
 									<input required="" type="text" class="form-control" id="Estado" name="Estado"  >
 								</div>
-								<div class="col-md-8">
+								<div class="col-md-2">
+									<label>Código Postal<span class="required-label">*</span></label>
+									<input required="" type="text" class="form-control" id="cp" name="cp"  >
+								</div>
+								<div class="col-md-6">
 									<label>Referencia<span class="required-label">*</span></label>
-									<input required="" type="text" class="form-control" id="Referencia" name="Referencia"  >
+									<textarea class="form-control" id="Referencia" name="Referencia"  >
+									</textarea>
 								</div>
 								
-								
 							</div>
-							
+							<div class="col-md-2">
+							<label for="name" >Rol </label>
+								<select  name="rolesuser[]" id="rolesuser" class="form-control multrol" multiple="multiple" required>
+								@foreach($roles as $rol)
+								<option value="{{ $rol->name }}">{{$rol->name}}</option>
+								@endforeach
+								</select>
+
+						</div>
 							{{-- fin del row --}}
 							
 							
@@ -125,6 +138,9 @@
 
 			@section('jscustom')
 			<script type="text/javascript">
+				$('#rolesuser').select2({
+			theme: "bootstrap",
+		});
 				function Registrar(){
 					if($('#Nombre').val()==""){
 						$('#validaN').css("display", "block");
@@ -153,6 +169,8 @@
 								"Municipio":$('#Municipio').val(),
 								"Estado":$('#Estado').val(),
 								"Referencia":$('#Referencia').val(),
+								"rolesuser":$('#rolesuser').val(),
+								"cp":$('#cp').val(),
 							}, 
 							url:   "{{url('alta/capturaVendedor')}}",
 							type:  'get',

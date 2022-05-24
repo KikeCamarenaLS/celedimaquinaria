@@ -5,6 +5,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use DB;
 use Auth;
+use Spatie\Permission\Models\Role;
 
 class recursosHumanosController extends Controller
 {
@@ -16,7 +17,9 @@ class recursosHumanosController extends Controller
 
     public function viewNuevaCaptura(){
 
-	  return view('Terrenos.RH.capturaPersonal');
+        $roles= Role::all();
+
+	  return view('Terrenos.RH.capturaPersonal',compact('roles'));
 	}
 
 	public function capturaVendedor(Request $request){
@@ -32,13 +35,29 @@ class recursosHumanosController extends Controller
         $Municipio= $request->input("Municipio");
         $Estado= $request->input("Estado");
         $Referencia= $request->input("Referencia");
+        $rolesuser= $request->input("rolesuser");
+        $cp= $request->input("cp");
 
-         $insert =DB::select('insert into vendedores (Nombre,Apaterno,Amaterno, Tel1, Tel2, Calle, Ninterior, Nexterior, Colonia, Municipio, Estado, Referencia,created_at) values ("'.$Nombre.'","'.$Apellido_Paterno.'","'.$Apellido_Materno.'","'.$Telefono1.'","'.$Telefono2.'","'.$Calle.'","'.$Ninterior.'","'.$NExterior.'","'.$Colonia.'","'.$Municipio.'","'.$Estado.'","'.$Referencia.'",now())');
+         $insert =DB::select('insert into vendedores (Nombre,Apaterno,Amaterno, Tel1, Tel2, Calle, Ninterior, Nexterior, Colonia, Municipio, Estado, Referencia, CP, permissions,created_at) values ("'.$Nombre.'","'.$Apellido_Paterno.'","'.$Apellido_Materno.'","'.$Telefono1.'","'.$Telefono2.'","'.$Calle.'","'.$Ninterior.'","'.$NExterior.'","'.$Colonia.'","'.$Municipio.'","'.$Estado.'","'.$Referencia.'","'.$cp.'","'.$rolesuser[0].'",now())');
 
 		
 
 		return $insert;
 	}
+
+    public function viewArchiveroPersonal(){
+
+        $vendedores=DB::select('SELECT concat(nombre," ",apaterno," ",amaterno)as vendedores,id_vendedores FROM vendedores');
+        
+        $roles= Role::all();
+         return view('Terrenos.RH.archiveroPersonal',compact('vendedores','roles'));
+    }
+    
+    public function buscarVendedor(Request $request){
+        $Vendedor= $request->input("Vendedor");
+         return DB::select('select * from vendedores where id_vendedores='.$Vendedor);
+
+    }
 	
     
 }

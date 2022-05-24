@@ -227,7 +227,7 @@
                                 <ul class="nav nav-collapse">
                                     <li>
                                         <a href="{{url('/nueva_captura/adpers')}}">
-                                            <span class="sub-item">Nuevo personal(Vendedores)</span>
+                                            <span class="sub-item">Nuevo Personal</span>
                                         </a>
                                     </li>
                                     <li>
@@ -235,6 +235,12 @@
                                             <span class="sub-item">Listado</span>
                                         </a>
                                     </li>
+                                    <li>
+                                        <a href="{{url('/AgregarDatos/personal')}}">
+                                            <span class="sub-item">Archivero Personal</span>
+                                        </a>
+                                    </li>
+                                   
                                 </ul>
                             </div>
                         </li>
