@@ -267,6 +267,32 @@
 
                          @endcan
 
+                         @can('Cobranza')
+
+                        <li class="nav-item ">
+                            <a data-toggle="collapse" href="#Cobranza">
+                                <i class="la la-plus-square"></i>
+                                <p>Cobranza </p>
+                                <span class="caret"></span>
+                            </a>
+                            <div class="collapse" id="Cobranza">
+                                <ul class="nav nav-collapse">
+                                    <li>
+                                        <a href="{{url('/cobranza_contratos')}}">
+                                            <span class="sub-item">Contratos</span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="{{url('/actualiza_contratos')}}">
+                                            <span class="sub-item">Actualización y Modificación Contratos</span>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </li>
+
+                         @endcan
+
 
 
 
