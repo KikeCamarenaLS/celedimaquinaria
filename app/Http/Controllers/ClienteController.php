@@ -19,7 +19,7 @@ class ClienteController extends Controller
 
 	public function viewalta_de_clientes(){
         $proyectos=DB::select('SELECT * FROM cat_proyectos');
-		$vendedores=DB::select('SELECT concat(nombre," ",apaterno," ",amaterno)as vendedores,id_vendedores FROM vendedores');
+		$vendedores=DB::select('SELECT concat(nombre," ",apaterno," ",amaterno)as vendedores,id FROM users where rol="vendedor"');
 	  return view('Terrenos.Clientes.capturaCliente',compact('proyectos','vendedores'));
 	}
 	
