@@ -47,7 +47,7 @@ class recursosHumanosController extends Controller
 
     public function viewArchiveroPersonal(){
 
-        $vendedores=DB::select('SELECT concat(nombre," ",apaterno," ",amaterno)as vendedores,id_vendedores FROM vendedores');
+        $vendedores=DB::select('SELECT concat(nombre," ",apaterno," ",amaterno)as vendedores,id FROM users where rol="vendedor"');
         
         $roles= Role::all();
          return view('Terrenos.RH.archiveroPersonal',compact('vendedores','roles'));
@@ -55,7 +55,7 @@ class recursosHumanosController extends Controller
     
     public function buscarVendedor(Request $request){
         $Vendedor= $request->input("Vendedor");
-         return DB::select('select * from vendedores where id_vendedores='.$Vendedor);
+         return DB::select('select * from users where id='.$Vendedor);
 
     }
 	

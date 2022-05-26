@@ -27,10 +27,12 @@ class TbUsers extends Migration
             $table->string('Municipio');
             $table->string('Estado');
             $table->string('Referencia');
+            $table->string('Rol');
             $table->string('email')->uniqued();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
             $table->string('estatus');
+            $table->string('CP');
             $table->rememberToken();
             $table->timestamps();
         });

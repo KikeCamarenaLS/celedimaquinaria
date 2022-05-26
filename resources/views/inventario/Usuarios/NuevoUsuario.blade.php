@@ -130,6 +130,10 @@
 
 							<div class="form-group row " >
 								<div class="col-md-4">
+									<label>Código Postal</label>
+									<input required="" type="text" class="form-control" id="CP" name="CP"  >
+								</div>
+								<div class="col-md-4">
 									<label>Colonia</label>
 									<input required="" type="text" class="form-control" id="Colonia" name="Colonia"  >
 								</div>
@@ -137,16 +141,16 @@
 									<label>Alcaldía/Municipio</label>
 									<input required="" type="text" class="form-control" id="Municipio" name="Municipio"  >
 								</div>
-								<div class="col-md-4">
-									<label>Estado</label>
-									<input required="" type="text" class="form-control" id="Estado" name="Estado"  >
-								</div>
+								
 								
 								
 								
 							</div>
 							<div class="form-group row " >
-								
+								<div class="col-md-4">
+									<label>Estado</label>
+									<input required="" type="text" class="form-control" id="Estado" name="Estado"  >
+								</div>
 								<div class="col-md-8">
 									<label>Referencia</label>
 									<input required="" type="text" class="form-control" id="Referencia" name="Referencia"  >
@@ -307,12 +311,13 @@
 								"Municipio":$('#Municipio').val(),
 								"Estado":$('#Estado').val(),
 								"Referencia":$('#Referencia').val(),
+								"CP":$('#CP').val(),
 							}, 
 							url:   "{{url('/guardar_usuario')}}",
 							type:  'get',
 							success:  function (data) { 
 								console.log(data);
-
+								limpiar();
 								mensaje('success','registro exitoso!!');
 								
 
@@ -324,6 +329,26 @@
 
 		
 	}
+	function limpiar(){
+		$('#Nombre').val("");
+								$('#Apellido_Paterno').val("");
+								$('#Apellido_Materno').val("");
+								$('#confirmpassword').val("");
+								
+								$('#email').val("");
+								$('#CP').val("");
+								$('#password').val("");
+								$('#rolesuser').val("");
+								$('#Telefono1').val("");
+								$('#Telefono2').val("");
+								$('#Calle').val("");
+								$('#Ninterior').val("");
+								$('#NExterior').val("");
+								$('#Colonia').val("");
+								$('#Municipio').val("");
+								$('#Estado').val("");
+								$('#Referencia').val("");
+							}
 	
 	
 	

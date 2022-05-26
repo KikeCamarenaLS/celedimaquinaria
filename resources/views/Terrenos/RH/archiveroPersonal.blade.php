@@ -29,7 +29,7 @@
 											<label>Vendedor </label>
 											<select class="form-control" id="Vendedor" name="Vendedor" style="width: 100%;">
 												@foreach($vendedores as $vendedore)
-												<option value="{{$vendedore->id_vendedores}}">{{$vendedore->vendedores}}</option>
+												<option value="{{$vendedore->id}}">{{$vendedore->vendedores}}</option>
 												@endforeach
 											</select>
 										</div>
@@ -169,7 +169,7 @@
 								$('#nombre_completo').html(data[0].Nombre+" "+data[0].Apaterno+" "+data[0].Amaterno);
 								$('#telefonos').html(data[0].Tel1+"<br> "+data[0].Tel2);
 								$('#direccion').html("Calle "+data[0].Calle+", "+data[0].Nexterior+", "+data[0].Ninterior+", "+data[0].Colonia+", "+data[0].Municipio+", "+data[0].Estado+", "+data[0].CP);
-								$('#rol').html(" "+data[0].permissions);
+								$('#rol').html(" "+data[0].Rol);
 								mensaje('success','Consulta encontrada');
 								
 
