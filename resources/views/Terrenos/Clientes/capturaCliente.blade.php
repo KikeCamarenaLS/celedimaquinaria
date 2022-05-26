@@ -258,7 +258,7 @@
 											<label>Vendedor </label>
 											<select class="form-control" id="Vendedor" name="Vendedor" style="width: 100%;">
 												@foreach($vendedores as $vendedore)
-												<option value="{{$vendedore->id_vendedores}}">{{$vendedore->vendedores}}</option>
+												<option value="{{$vendedore->id}}">{{$vendedore->vendedores}}</option>
 												@endforeach
 											</select>
 										</div>
@@ -466,7 +466,7 @@
 															<label>Vendedor </label>
 															<select class="form-control" id="VendedorCCo" name="VendedorCCo" style="width: 100%;">
 																@foreach($vendedores as $vendedore)
-																<option value="{{$vendedore->id_vendedores}}">{{$vendedore->vendedores}}</option>
+																<option value="{{$vendedore->id}}">{{$vendedore->vendedores}}</option>
 																@endforeach
 															</select>
 														</div>

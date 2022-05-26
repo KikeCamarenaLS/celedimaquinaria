@@ -138,7 +138,7 @@
 															<label>Vendedor </label>
 															<select class="form-control" id="VendedorCCo" name="VendedorCCo" style="width: 100%;">
 																@foreach($vendedores as $vendedore)
-																<option value="{{$vendedore->id_vendedores}}">{{$vendedore->vendedores}}</option>
+																<option value="{{$vendedore->id}}">{{$vendedore->vendedores}}</option>
 																@endforeach
 															</select>
 														</div>
@@ -272,6 +272,15 @@
 							for (var i = 0; i < response.length; i++) {
 							 costocomilla='"'+response[i].Costo+'"';
 							 Enganchecomilla='"'+response[i].Enganche+'"';
+							  var FechaApartado='"'+response[i].FechaApartado+'"';
+							  var Apartado='"'+response[i].Apartado+'"';
+							  var FechaEnganche='"'+response[i].FechaEnganche+'"';
+							  var ComplementoEnganche='"'+response[i].ComplementoEnganche+'"';
+							  var DiaPago='"'+response[i].DiaPago+'"';
+							  var vendedor='"'+response[i].vendedor+'"';
+							  var Comision1='"'+response[i].Comision1+'"';
+							  var Comision2='"'+response[i].Comision2+'"';
+							  var EstatusVenta='"'+response[i].EstatusVenta+'"';
 							html+="<tr>";
 							html+="<td> <FONT  SIZE=2>"+response[i].id_contratos+"</FONT></td>";
 							html+="<td> <FONT  SIZE=2>"+response[i].N_Cliente+"</FONT></td>";
@@ -280,7 +289,7 @@
 							html+="<td> <FONT  SIZE=2>"+response[i].nom_proyecto+"</FONT></td>";
 							html+="<td> <FONT  SIZE=2>"+response[i].Mz+"</FONT></td>";
 							html+="<td> <FONT  SIZE=2>"+response[i].Lt+"</FONT></td>";
-							html+="<td><input type='submit' class='btn btn-success' value='Ver Detalles' onclick='abrirModal("+response[i].id_contratos+","+costocomilla+","+Enganchecomilla+")'></td>";
+							html+="<td><input type='submit' class='btn btn-success' value='Ver Detalles' onclick='abrirModal("+response[i].id_contratos+","+costocomilla+","+Enganchecomilla+","+FechaApartado+","+Apartado+","+FechaEnganche+","+ComplementoEnganche+","+DiaPago+","+vendedor+","+Comision1+","+Comision2+","+EstatusVenta+")'></td>";
 							html+="</tr>";
 						}$('#llenaTabla').html("");
 						$('#llenaTabla').html(html);
@@ -336,9 +345,20 @@
 				TotalDevengado = TotalDevengado.replace(/,/g, "");
 				$("#CostodelLoteCo").val(Intl.NumberFormat('es-MX').format(TotalDevengado));
 			}
-				function abrirModal(contrato,costo,enganche){
+				function abrirModal(contrato,costo,enganche,FechaApartado,Apartado,FechaEnganche,ComplementoEnganche,DiaPago,vendedor,Comision1,Comision2,EstatusVenta){
 					$('#modalCobranza').modal('show');
 					$('#numeroContr').val(contrato);
+					console.log(FechaApartado);
+					$('#FechaApartadoCo').val(FechaApartado);
+					$('#ApartadoCo').val(Apartado);
+
+					$('#FechaEngancheCo').val(FechaEnganche);
+					$('#ComEngancheCo').val(ComplementoEnganche);
+					$('#FechaPagoCCo').val(DiaPago);
+					$('#VendedorCCo').val(vendedor);
+					$('#Comisión1Co').val(Comision1);
+					$('#Comisión2Co').val(Comision2);
+					$('#EstatusVentaCo').val(EstatusVenta);
 
 					$("#numeroContr").prop('disabled', true);
 					$("#CostodelLoteCo").prop('disabled', true);

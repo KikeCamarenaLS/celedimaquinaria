@@ -18,6 +18,24 @@ class MovimientoBitacora extends Seeder
     	$movimiento=DB::table('cat_movimiento')->insert([
     		'Movimiento' => 'Personal',
     	]);
+        $movimiento=DB::table('cat_movimiento')->insert([
+            'Movimiento' => 'Vendedor',
+        ]);
+         $movimiento=DB::table('cat_movimiento')->insert([
+            'Movimiento' => 'Ejecutivo de cuenta(Capturista)',
+        ]);
+          $movimiento=DB::table('cat_movimiento')->insert([
+            'Movimiento' => 'Recursos Humanos',
+        ]);
+           $movimiento=DB::table('cat_movimiento')->insert([
+            'Movimiento' => 'Clientes',
+        ]);
+            $movimiento=DB::table('cat_movimiento')->insert([
+            'Movimiento' => 'Ejecutivo de proyectos',
+        ]);
+             
+
+        
 
 
 

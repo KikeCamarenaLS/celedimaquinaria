@@ -7,6 +7,7 @@ use App\Http\Controllers\Controller;
 
 use App\User;
 use Auth;
+use DB;
 use Illuminate\Support\Facades\Validator;
 
 use Spatie\Permission\Models\Role;
@@ -56,6 +57,7 @@ class UsuarioController extends Controller
 
      public function insert_usuario(Request $request)
     {
+
 $Nombre= $request->input("Nombre");
         $Apellido_Paterno= $request->input("Apellido_Paterno");
         $Apellido_Materno= $request->input("Apellido_Materno");
@@ -68,30 +70,39 @@ $Nombre= $request->input("Nombre");
         $Municipio= $request->input("Municipio");
         $Estado= $request->input("Estado");
         $Referencia= $request->input("Referencia");
+        $email= $request->input("email");
+        $rolesuser= $request->input("rolesuser");
+        $CP= $request->input("CP");
 
-         $insert =DB::select('insert into vendedores (Nombre,Apaterno,Amaterno, Tel1, Tel2, Calle, Ninterior, Nexterior, Colonia, Municipio, Estado, Referencia,created_at) values ("'.$Nombre.'","'.$Apellido_Paterno.'","'.$Apellido_Materno.'","'.$Telefono1.'","'.$Telefono2.'","'.$Calle.'","'.$Ninterior.'","'.$NExterior.'","'.$Colonia.'","'.$Municipio.'","'.$Estado.'","'.$Referencia.'",now())');
+
+
+
+
 
         
 
-        return $insert;
+                $password=bcrypt($request['password']); 
+          
 
-                $password=bcrypt($request['password']);            
+           
                    $guardar=User::create([
-                                   'Nombre'=>$request['Nombre'],
-                                   'Apaterno'=>$request['Apaterno'],
+                                   'Nombre'=>$request->input("Nombre"),
+                                   'Apaterno'=>$Apellido_Paterno,
+                                   'Amaterno'=>$Apellido_Materno,
+                                   'Tel1'=>$Telefono1,
+                                   'Tel2'=>$Telefono2,
+                                   'Calle'=>$Calle,
+                                   'Ninterior'=>$Ninterior,
+                                   'Nexterior'=>$NExterior,
+                                   'Colonia'=>$Colonia,
+                                   'Municipio'=>$Municipio,
+                                   'Estado'=>$Estado,
+                                   'Referencia'=>$Referencia,
+                                   'Rol'=>$rolesuser[0],
+                                   'email'=>$email,
                                    'password'=>$password,
-                                   'email'=>$request['email'],
-                                   'name'=>$request['name'],
-                                   'password'=>$password,
-                                   'email'=>$request['email'],
-                                   'name'=>$request['name'],
-                                   'password'=>$password,
-                                   'email'=>$request['email'],
-                                   'name'=>$request['name'],
-                                   'password'=>$password,
-                                   'email'=>$request['email'],
-                                   'name'=>$request['name'],
-                                   'password'=>$password,
+                                   'CP'=>$CP,
+
                                    'estatus'=>'1'
                                   ]);
 

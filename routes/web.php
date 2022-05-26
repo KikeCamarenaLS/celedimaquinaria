@@ -27,7 +27,7 @@ Route::post('/actualizar_miperfil', 'Inventario\UsuarioController@update_mi_perf
 
 //Usuarios
 Route::get('/nuevo_usuario', 'Inventario\UsuarioController@nuevo_usuario');
-Route::post('/guardar_usuario', 'Inventario\UsuarioController@insert_usuario');
+Route::get('/guardar_usuario', 'Inventario\UsuarioController@insert_usuario');
 Route::get('/listado_usuario', 'Inventario\UsuarioController@listado_usuario');
 Route::post('/actualizar_usuario', 'Inventario\UsuarioController@update_usuario');
 Route::post('/cambiar_estatus_usuario', 'Inventario\UsuarioController@update_estatus')->name('modificar.estatus.usuario');

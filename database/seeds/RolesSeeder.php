@@ -13,7 +13,7 @@ class RolesSeeder extends Seeder
     {
         //
 
-          $roles=['Administrador','Personal'];
+          $roles=['Administrador','Vendedor','Clientes','Recursos Humanos','Ejecutivo de cuenta(Capturista)','Ejecutivo de proyectos'];
 
     	for ($i=0; $i < count($roles); $i++) { 
     		DB::table('roles')->insert([
