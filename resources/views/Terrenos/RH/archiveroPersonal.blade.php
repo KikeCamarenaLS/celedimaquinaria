@@ -119,6 +119,14 @@
 																	<td class="text-center"><strong>ESTADO CIVIL</strong></td>
 																	<td class="text-right">SOLTERO</td>
 																</tr>
+																<div class="col-md-4" id="div_foto-carga" >
+						<label>FOTO :</label>
+						<div class="input-file input-file-image">
+							<img id="previa" class="img-upload-preview img-circle" width="100" height="100" src="/images/defecto.png" alt="preview">
+							<input type="file" class="form-control form-control-file" id="uploadImg" accept="image/*" name="uploadImg"  required v-on:change="ValidarFoto()" >
+							<label for="uploadImg" class=" label-input-file btn btn-primary">Actualizar imagen</label>
+						</div>
+					</div>
 																<tr>
 																	<td>5</td>
 																	<td class="text-center"><input type="text" class="form-control" name=""><br><br></td>
