@@ -362,6 +362,9 @@ Route::get('/cobranza_contratos', 'TerrenoController\Cobranza@vistaCobranza');
 Route::get('/busqueda/capturaCobranza', 'TerrenoController\Cobranza@busquedaContrato');
 Route::get('/AgregarDatos/personal', 'recursosHumanosController@viewArchiveroPersonal');
 Route::get('/buscar/Vendedor', 'recursosHumanosController@buscarVendedor');
+Route::get('/buscar/Vendedor/archivero', 'recursosHumanosController@buscarVendedorArchivero');
+
+
 
 
 Route::post('/Archivero/AgregarArchivo', 'recursosHumanosController@AgregarArchivo')->name('AgregarArchivo.AgregarArchivo');

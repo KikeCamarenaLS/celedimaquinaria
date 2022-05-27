@@ -54,7 +54,7 @@
 								
 							</div>
 						</div>
-						<div class="row">
+						<div class="row" id="campoExpediente" style="display: none;">
 								<div class="card-body">
 									<div class="seperator-solid"></div>
 									<div class="row">
@@ -80,7 +80,7 @@
 											</p>
 										</div>
 									</div>
-									<div class="row">
+									<div class="row" >
 										<div class="col-md-12">
 											<div class="invoice-detail">
 												<div class="invoice-top">
@@ -94,47 +94,23 @@
 																	<td><strong>#</strong></td>
 																	<td class="text-center"><strong>DATO</strong></td>
 																	<td class="text-center"><strong>INFORMACION</strong></td>
+																	<td class="text-center"><strong>ARCHIVO</strong></td>
 																</tr>
 															</thead>
-															<tbody>
-																<tr>
-																	<td>1</td>
-																	<td class="text-center">ULTIMO GRADO DE ESTUDIOS</td>
-																	<td class="text-center">UNIVERSIDAD</td>
-																</tr>
+															<tbody id="llenarlatabla">
 																
-																<tr>
-																	<td>2</td>
-																	<td class="text-center"><strong>CURP</strong></td>
-																	<td class="text-right">CASL972211AMCMRS09</td>
-																</tr>
-																<tr>
-																	<td>3</td>
-																	<td class="text-center">RFC</td>
-																	<td class="text-center">CASL972211AM1</td>
-																</tr>
 																
-																<tr>
-																	<td>4</td>
-																	<td class="text-center"><strong>ESTADO CIVIL</strong></td>
-																	<td class="text-right">SOLTERO</td>
-																</tr>
-																
-																<tr>
-																	<td>5</td>
-																	<td class="text-center"><input type="text" class="form-control" name=""><br><br></td>
-																	<td class="text-right"><input type="text" class="form-control" name="">
-
-  																	<button type="button" class="btn btn-info" data-toggle="modal" data-target="#myModal">Agregar Archivo</button>
-																		<input type="submit" name="" class="btn btn-success" value="Agregar Información">
-																	</td>
-																</tr>
 
 															</tbody>
 														</table>
-
+														<center>
+															
+														<button type="button" class="btn btn-info" data-toggle="modal" data-target="#myModal">Agregar Nuevo Dato</button>
+														</center>
 
   <!-- Modal -->
+
+        <form id="exampleValidation" method="post" action="{{Route('AgregarArchivo.AgregarArchivo')}}" enctype="multipart/form-data">
   <div class="modal fade" id="myModal" role="dialog">
     <div class="modal-dialog">
     
@@ -145,32 +121,40 @@
           <h4 class="modal-title">Agregar Archivo</h4>
           <button type="button" class="close" data-dismiss="modal">&times;</button>
         </div>
-        <form id="exampleValidation" method="post" action="{{Route('AgregarArchivo.AgregarArchivo')}}">
 				@csrf
         <div class="modal-body">
-        	<div class="col-md-8" >
-						<label>Archivo</label>
+        	<div class="col-md-6" >
+						<label>ARCHIVO</label>
 
-							<input type="text" class="form-control " id="nombreImagen"   required >
+							<input type="text" class="form-control " id="nombreImagen" name="nombreImagen"   required >
+							<input type="hidden" class="form-control " id="idUsuario" name="idUsuario"    >
+
+					</div>
+					<div class="col-md-6" >
+						<label>DATO</label>
+
+							<input type="text" class="form-control " id="DATO" name="DATO"    >
+
 
 					</div>
           <div class="col-md-4" id="div_foto-carga" >
 						<label>FOTO :</label>
 						<div class="input-file input-file-image">
 							<img id="previa" class="img-upload-preview img-circle" width="100" height="100" src="{{url('/images/defecto.png')}}" alt="preview">
-							<input type="file" class="form-control form-control-file" id="uploadImg" accept="image/*" name="uploadImg"  required  >
-							<label for="uploadImg" class=" label-input-file btn btn-primary">Actualizar imagen</label>
+							<input type="file" class="form-control form-control-file" id="uploadImg2" accept="image/*" name="uploadImg2"    >
+							<label for="uploadImg2" class=" label-input-file btn btn-primary">Actualizar imagen</label>
 						</div>
 					</div>
         </div>
         <div class="modal-footer">
-          <button type="button" class="btn btn-success" >Agregar</button>
+          <button type="submit" class="btn btn-success" >Agregar</button>
         </div>
-    </form>
       </div>
       
     </div>
   </div>
+
+    </form>
 													</div>
 												</div>
 											</div>	
@@ -209,17 +193,57 @@
 							url:   "{{url('buscar/Vendedor')}}",
 							type:  'get',
 							success:  function (data) { 
+								
 								console.log(data);
+								$('#idUsuario').val(data[0].id);
 								$('#nombre_completo').html(data[0].Nombre+" "+data[0].Apaterno+" "+data[0].Amaterno);
 								$('#telefonos').html(data[0].Tel1+"<br> "+data[0].Tel2);
 								$('#direccion').html("Calle "+data[0].Calle+", "+data[0].Nexterior+", "+data[0].Ninterior+", "+data[0].Colonia+", "+data[0].Municipio+", "+data[0].Estado+", "+data[0].CP);
 								$('#rol').html(" "+data[0].Rol);
 								mensaje('success','Consulta encontrada');
+								$('#campoExpediente').css("display", "block");
+								llenarTabla();
 								
 
 							},
 						});
 
+				}
+				function llenarTabla(){
+					$.ajax({
+							data:  {
+								"Vendedor":$('#idUsuario').val(),
+							}, 
+							url:   "{{url('buscar/Vendedor/archivero')}}",
+							type:  'get',
+							success:  function (data) { 
+								console.log(data,$('#idUsuario').val());
+								var html='';
+								for (var i = 0; i < data.length; i++) {
+									var con=i+1;
+								var ruta=" <?php echo (url('/archivero')) ?> "+"/"+data[i].nombre_archivo;
+									html+='<tr>';
+									html+='<td>'+con+'</td>';
+									html+='	<td class="text-center"><strong>'+data[i].dato+'</strong></td>';
+									html+='<td class="text-center">'+data[i].archivo+'</td>';
+									if(data[i].nombre_archivo=="Sin foto"){
+										html+='<td class="text-center">Sin Foto</td>';
+									}else{
+										html+='<td class="text-center"><a href="'+ruta+'">'+data[i].nombre_archivo+'</a></td>';
+
+									}
+									html+='</tr>';
+																
+								}
+								
+								$('#llenarlatabla').html(html);
+								
+
+								
+								
+
+							},
+						});
 				}
 				function limpiar(){
 
