@@ -52,7 +52,18 @@ class recursosHumanosController extends Controller
     $vendedores=DB::select('SELECT concat(nombre," ",apaterno," ",amaterno)as vendedores,id FROM users ');
 
     $roles= Role::all();
-    return view('Terrenos.RH.archiveroPersonal',compact('vendedores','roles'));
+   
+     $ID='NADA';
+
+    return view('Terrenos.RH.archiveroPersonal',compact('vendedores','roles','ID'));
+}
+
+public function viewArchiveroPersonal2(){
+
+    $vendedores=DB::select('SELECT concat(nombre," ",apaterno," ",amaterno)as vendedores,id FROM users ');
+
+    $roles= Role::all();
+    return view('Terrenos.RH.archiveroPersonal',compact('vendedores','roles','ID'));
 }
 
 public function buscarVendedor(){
@@ -66,7 +77,9 @@ public function buscarVendedorArchivero(){
 }
 public function AgregarArchivo()
     {
+         $vendedores=DB::select('SELECT concat(nombre," ",apaterno," ",amaterno)as vendedores,id FROM users ');
 
+    $roles= Role::all();
         $validator = Validator::make(Request::all(), [
                      'uploadImg2' => 'required|image|mimes:jpg,png,jpeg',
                  ]);
@@ -79,33 +92,28 @@ public function AgregarArchivo()
 
                     $messages = $validator->messages();
                     $registrar= DB::select("insert into archivero (id_archivero,N_Cliente,archivo,dato,nombre_archivo,created_at) values(null,'".$ID."','".$DATO."','".$NOMBRE."','Sin foto',NOW())");
-                     return Redirect::to('/AgregarDatos/personal')->with(['message' => 'no diga', 'color' => 'success']);
+                     return view('Terrenos.RH.archiveroPersonal', compact('ID','vendedores','roles'));
 
 
                    }else if ($validator->passes()){
                         $time =Request::input('idUsuario')."-". date("d-m-Y")."-".time();
                         if(Request::file('uploadImg2')!=null){
-                             $foto = $time.''.rand(11111,99999).'.jpg'; 
-                             $destinationPath = public_path().'/archivero';
+                            $foto = $time.''.rand(11111,99999).'.jpg'; 
+                            $destinationPath = public_path().'/archivero';
                              
                         }else{
-                             
-
-                              $foto=null;
+                            $foto=null;
                         }
-
-
-
-                               $registrar= DB::select("insert into archivero (id_archivero,N_Cliente,archivo,dato,nombre_archivo,created_at) values(null,'".$ID."','".$DATO."','".$NOMBRE."','".$foto."',NOW())");
+                            $registrar= DB::select("insert into archivero (id_archivero,N_Cliente,archivo,dato,nombre_archivo,created_at) values(null,'".$ID."','".$DATO."','".$NOMBRE."','".$foto."',NOW())");
                     
-                    if(Request::file('uploadImg2')!=null){
+                        if(Request::file('uploadImg2')!=null){
 
-                     $file = Request::file('uploadImg2');
-                     $file->move($destinationPath,$foto);
-                     if ($NOMBRE == "") {
+                            $file = Request::file('uploadImg2');
+                            $file->move($destinationPath,$foto);
+                        if ($NOMBRE == "") {
 
-                     }else{
-                            $directoriofoto = public_path('/archivero').'/'.$NOMBRE;
+                        }else{
+                               $directoriofoto = public_path('/archivero').'/'.$NOMBRE;
 
                         if (file_exists($directoriofoto)) {
 
@@ -119,7 +127,7 @@ public function AgregarArchivo()
                     }
 
 
-                     return Redirect::to('/AgregarDatos/personal')->with(['message' => 'no diga', 'color' => 'success']);
+                        return view('Terrenos.RH.archiveroPersonal', compact('ID','vendedores','roles'));
 
 
 

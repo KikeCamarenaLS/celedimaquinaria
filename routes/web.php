@@ -361,6 +361,7 @@ Route::get('/alta/capturaVendedor', 'recursosHumanosController@capturaVendedor')
 Route::get('/cobranza_contratos', 'TerrenoController\Cobranza@vistaCobranza');
 Route::get('/busqueda/capturaCobranza', 'TerrenoController\Cobranza@busquedaContrato');
 Route::get('/AgregarDatos/personal', 'recursosHumanosController@viewArchiveroPersonal');
+Route::get('/AgregarDatos/personal2', 'recursosHumanosController@viewArchiveroPersonal2');
 Route::get('/buscar/Vendedor', 'recursosHumanosController@buscarVendedor');
 Route::get('/buscar/Vendedor/archivero', 'recursosHumanosController@buscarVendedorArchivero');
 

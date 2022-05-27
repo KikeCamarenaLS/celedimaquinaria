@@ -7,7 +7,7 @@
 
 
 <div class="row" id="app">
-	<body>
+	<body onload="cargarselect('{{$ID}}')">
 		<div class="col-md-12" >
 			<div class="card">
 				<div class="card-header">
@@ -29,7 +29,12 @@
 											<label>Vendedor </label>
 											<select class="form-control" id="Vendedor" name="Vendedor" style="width: 100%;">
 												@foreach($vendedores as $vendedore)
+												@if($vendedore->id == $ID)
+												<option value="{{$vendedore->id}}" selected>{{$vendedore->vendedores}}</option>
+												@else
+
 												<option value="{{$vendedore->id}}">{{$vendedore->vendedores}}</option>
+												@endif
 												@endforeach
 											</select>
 										</div>
@@ -184,6 +189,16 @@
 				$('#Vendedor').select2({
 				theme: "bootstrap"
 			});
+				function cargarselect(ID){
+					console.log(ID);
+					if(ID!='NADA'){
+
+						$("#Vendedor option").removeAttr("selected");
+						$("#Vendedor option[value='"+ID+"']").attr("selected",true);
+						buscar();
+					}
+					
+				}
 				function buscar(){
 					
 						$.ajax({
