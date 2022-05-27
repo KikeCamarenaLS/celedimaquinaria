@@ -244,7 +244,7 @@
 									if(data[i].nombre_archivo=="Sin foto"){
 										html+='<td class="text-center">Sin Foto</td>';
 									}else{
-										html+='<td class="text-center"><a href="'+ruta+'">'+data[i].nombre_archivo+'</a></td>';
+										html+='<td class="text-center"><a href="'+ruta+'" target="_blank">'+data[i].nombre_archivo+'</a></td>';
 
 									}
 									html+='</tr>';
