@@ -119,22 +119,58 @@
 																	<td class="text-center"><strong>ESTADO CIVIL</strong></td>
 																	<td class="text-right">SOLTERO</td>
 																</tr>
-																<div class="col-md-4" id="div_foto-carga" >
-						<label>FOTO :</label>
-						<div class="input-file input-file-image">
-							<img id="previa" class="img-upload-preview img-circle" width="100" height="100" src="/images/defecto.png" alt="preview">
-							<input type="file" class="form-control form-control-file" id="uploadImg" accept="image/*" name="uploadImg"  required v-on:change="ValidarFoto()" >
-							<label for="uploadImg" class=" label-input-file btn btn-primary">Actualizar imagen</label>
-						</div>
-					</div>
+																
 																<tr>
 																	<td>5</td>
 																	<td class="text-center"><input type="text" class="form-control" name=""><br><br></td>
-																	<td class="text-right"><input type="text" class="form-control" name=""><input type="submit" name="" class="btn btn-success" value="Agregar"></td>
+																	<td class="text-right"><input type="text" class="form-control" name="">
+
+  																	<button type="button" class="btn btn-info" data-toggle="modal" data-target="#myModal">Agregar Archivo</button>
+																		<input type="submit" name="" class="btn btn-success" value="Agregar Información">
+																	</td>
 																</tr>
 
 															</tbody>
 														</table>
+
+
+  <!-- Modal -->
+  <div class="modal fade" id="myModal" role="dialog">
+    <div class="modal-dialog">
+    
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+
+          <h4 class="modal-title">Agregar Archivo</h4>
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+        </div>
+        <form id="exampleValidation" method="post" action="{{Route('AgregarArchivo.AgregarArchivo')}}">
+				@csrf
+        <div class="modal-body">
+        	<div class="col-md-8" >
+						<label>Archivo</label>
+
+							<input type="text" class="form-control " id="nombreImagen"   required >
+
+					</div>
+          <div class="col-md-4" id="div_foto-carga" >
+						<label>FOTO :</label>
+						<div class="input-file input-file-image">
+							<img id="previa" class="img-upload-preview img-circle" width="100" height="100" src="{{url('/images/defecto.png')}}" alt="preview">
+							<input type="file" class="form-control form-control-file" id="uploadImg" accept="image/*" name="uploadImg"  required  >
+							<label for="uploadImg" class=" label-input-file btn btn-primary">Actualizar imagen</label>
+						</div>
+					</div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-success" >Agregar</button>
+        </div>
+    </form>
+      </div>
+      
+    </div>
+  </div>
 													</div>
 												</div>
 											</div>	

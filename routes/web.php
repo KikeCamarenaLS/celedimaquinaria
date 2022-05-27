@@ -364,6 +364,8 @@ Route::get('/AgregarDatos/personal', 'recursosHumanosController@viewArchiveroPer
 Route::get('/buscar/Vendedor', 'recursosHumanosController@buscarVendedor');
 
 
+Route::post('/Archivero/AgregarArchivo', 'recursosHumanosController@AgregarArchivo')->name('AgregarArchivo.AgregarArchivo');
+
 
 
 
