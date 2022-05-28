@@ -226,7 +226,8 @@
                             <div class="collapse" id="rh">
                                 <ul class="nav nav-collapse">
                                     <li>
-                                        <a href="{{url('/nueva_captura/adpers')}}">
+                                       <!-- <a href="{{url('/nueva_captura/adpers')}}">-->
+                                         <a href="{{url('/nuevo_usuario')}}">
                                             <span class="sub-item">Nuevo Personal</span>
                                         </a>
                                     </li>
@@ -238,6 +239,29 @@
                                     <li>
                                         <a href="{{url('/AgregarDatos/personal')}}">
                                             <span class="sub-item">Archivero Personal</span>
+                                        </a>
+                                    </li>
+                                   
+                                </ul>
+                            </div>
+                        </li>
+
+                         @endcan
+
+                         @can('Ejecutivo de proyectos')
+
+                        <li class="nav-item ">
+                            <a data-toggle="collapse" href="#Ventas">
+                                <i class="la la-plus-square"></i>
+                                <p>Ventas </p>
+                                <span class="caret"></span>
+                            </a>
+                            <div class="collapse" id="Ventas">
+                                <ul class="nav nav-collapse">
+
+                                    <li>
+                                        <a href="{{url('/ventalotesView')}}">
+                                            <span class="sub-item">Venta de Lotes</span>
                                         </a>
                                     </li>
                                    
