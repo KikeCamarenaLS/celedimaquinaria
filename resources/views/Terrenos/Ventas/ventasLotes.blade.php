@@ -47,36 +47,36 @@
  
  <tbody>
   <tr>
-   <td style="width: 85px; height:43px;" id="1" onclick="cambiar('1')"><FONT FACE="arial" SIZE=1 ><center>A=146.87m2<br> LT2<center></FONT></td>
-   <td style="width: 43px; height:85px;" rowspan="2" id="3" onclick="cambiar('3')"><FONT FACE="arial" SIZE=1 ><center>122.50m2<br> LT3<center></FONT></td>
-  <td style="width: 43px; height:85px;" rowspan="2" id="4" onclick="cambiar('4')"><FONT FACE="arial" SIZE=1 ><center>122.50m2<br> LT3<center></FONT></td>
-  <td style="width: 43px; height:85px;" rowspan="2" id="5" onclick="cambiar('5')"><FONT FACE="arial" SIZE=1 ><center>122.50m2<br> LT3<center></FONT></td>
-  <td style="width: 43px; height:85px;" rowspan="2" id="6" onclick="cambiar('6')"><FONT FACE="arial" SIZE=1 ><center>122.50m2<br> LT3<center></FONT></td>
-  <td style="width: 43px; height:85px;" rowspan="2" id="7" onclick="cambiar('7')"><FONT FACE="arial" SIZE=1 ><center>122.50m2<br> LT3<center></FONT></td>
-  <td style="width: 43px; height:85px;" rowspan="2"><FONT FACE="arial" SIZE=1 ><center>122.50m2<br> LT3<center></FONT></td>
-  <td style="width: 43px; height:85px;" rowspan="2"><FONT FACE="arial" SIZE=1 ><center>122.50m2<br> LT3<center></FONT></td>
-  <td style="width: 43px; height:85px;" rowspan="2"><FONT FACE="arial" SIZE=1 ><center>122.50m2<br> LT3<center></FONT></td>
-  <td style="width: 43px; height:85px;" rowspan="2"><FONT FACE="arial" SIZE=1 ><center>122.50m2<br> LT3<center></FONT></td>
-  <td style="width: 43px; height:85px;" rowspan="2"><FONT FACE="arial" SIZE=1 ><center>122.50m2<br> LT3<center></FONT></td>
-  <td style="width: 43px; height:85px;" rowspan="2"><FONT FACE="arial" SIZE=1 ><center>122.50m2<br> LT3<center></FONT></td>
-  	<td style="width: 43px; height:85px;" rowspan="2"><FONT FACE="arial" SIZE=1 ><center>122.50m2<br> LT3<center></FONT></td>
-  <td style="width: 43px; height:85px;" rowspan="2"><FONT FACE="arial" SIZE=1 ><center>122.50m2<br> LT3<center></FONT></td>
-  <td style="width: 43px; height:85px;" rowspan="2"><FONT FACE="arial" SIZE=1 ><center>122.50m2<br> LT3<center></FONT></td>
-  <td style="width: 43px; height:85px;" rowspan="2"><FONT FACE="arial" SIZE=1 ><center>122.50m2<br> LT3<center></FONT></td>
-  <td style="width: 43px; height:85px;" rowspan="2"><FONT FACE="arial" SIZE=1 ><center>122.50m2<br> LT3<center></FONT></td>
-  	<td style="width: 43px; height:85px;" rowspan="2"><FONT FACE="arial" SIZE=1 ><center>122.50m2<br> LT3<center></FONT></td>
-  <td style="width: 43px; height:85px;" rowspan="2"><FONT FACE="arial" SIZE=1 ><center>122.50m2<br> LT3<center></FONT></td>
-  <td style="width: 43px; height:85px;" rowspan="2"><FONT FACE="arial" SIZE=1 ><center>122.50m2<br> LT3<center></FONT></td>
-  <td style="width: 43px; height:85px;" rowspan="2"><FONT FACE="arial" SIZE=1 ><center>122.50m2<br> LT3<center></FONT></td>
-  <td style="width: 43px; height:85px;" rowspan="2"><FONT FACE="arial" SIZE=1 ><center>122.50m2<br> LT3<center></FONT></td>
-  	<td style="width: 43px; height:85px;" rowspan="2"><FONT FACE="arial" SIZE=1 ><center>122.50m2<br> LT3<center></FONT></td>
-  <td style="width: 43px; height:85px;" rowspan="2"><FONT FACE="arial" SIZE=1 ><center>122.50m2<br> LT3<center></FONT></td>
-  <td style="width: 43px; height:85px;" rowspan="2"><FONT FACE="arial" SIZE=1 ><center>122.50m2<br> LT3<center></FONT></td>
-  <td style="width: 43px; height:85px;" rowspan="2"><FONT FACE="arial" SIZE=1 ><center>122.50m2<br> LT3<center></FONT></td>
-  <td style="width: 43px; height:85px;" rowspan="2"><FONT FACE="arial" SIZE=1 ><center>122.50m2<br> LT3<center></FONT></td>
+   <td style="width: 85px; height:43px; cursor:pointer;" id="1" onclick="cambiar('1')"><FONT FACE="arial" SIZE=1 ><center>A=146.87m2<br> LT2<center></FONT></td>
+   <td style="width: 43px; height:85px; cursor:pointer;" rowspan="2" id="3" onclick="cambiar('3')"><FONT FACE="arial" SIZE=1 ><center>122.50m2<br> LT3<center></FONT></td>
+  <td style="width: 43px; height:85px; cursor:pointer;" rowspan="2" id="4" onclick="cambiar('4')"><FONT FACE="arial" SIZE=1 ><center>122.50m2<br> LT3<center></FONT></td>
+  <td style="width: 43px; height:85px; cursor:pointer;" rowspan="2" id="5" onclick="cambiar('5')"><FONT FACE="arial" SIZE=1 ><center>122.50m2<br> LT3<center></FONT></td>
+  <td style="width: 43px; height:85px; cursor:pointer;" rowspan="2" id="6" onclick="cambiar('6')"><FONT FACE="arial" SIZE=1 ><center>122.50m2<br> LT3<center></FONT></td>
+  <td style="width: 43px; height:85px; cursor:pointer;" rowspan="2" id="7" onclick="cambiar('7')"><FONT FACE="arial" SIZE=1 ><center>122.50m2<br> LT3<center></FONT></td>
+  <td style="width: 43px; height:85px; cursor:pointer;" rowspan="2"><FONT FACE="arial" SIZE=1 ><center>122.50m2<br> LT3<center></FONT></td>
+  <td style="width: 43px; height:85px; cursor:pointer;" rowspan="2"><FONT FACE="arial" SIZE=1 ><center>122.50m2<br> LT3<center></FONT></td>
+  <td style="width: 43px; height:85px; cursor:pointer;" rowspan="2"><FONT FACE="arial" SIZE=1 ><center>122.50m2<br> LT3<center></FONT></td>
+  <td style="width: 43px; height:85px; cursor:pointer;" rowspan="2"><FONT FACE="arial" SIZE=1 ><center>122.50m2<br> LT3<center></FONT></td>
+  <td style="width: 43px; height:85px; cursor:pointer;" rowspan="2"><FONT FACE="arial" SIZE=1 ><center>122.50m2<br> LT3<center></FONT></td>
+  <td style="width: 43px; height:85px; cursor:pointer;" rowspan="2"><FONT FACE="arial" SIZE=1 ><center>122.50m2<br> LT3<center></FONT></td>
+  	<td style="width: 43px; height:85px; cursor:pointer;" rowspan="2"><FONT FACE="arial" SIZE=1 ><center>122.50m2<br> LT3<center></FONT></td>
+  <td style="width: 43px; height:85px; cursor:pointer;" rowspan="2"><FONT FACE="arial" SIZE=1 ><center>122.50m2<br> LT3<center></FONT></td>
+  <td style="width: 43px; height:85px; cursor:pointer;" rowspan="2"><FONT FACE="arial" SIZE=1 ><center>122.50m2<br> LT3<center></FONT></td>
+  <td style="width: 43px; height:85px; cursor:pointer;" rowspan="2"><FONT FACE="arial" SIZE=1 ><center>122.50m2<br> LT3<center></FONT></td>
+  <td style="width: 43px; height:85px; cursor:pointer;" rowspan="2"><FONT FACE="arial" SIZE=1 ><center>122.50m2<br> LT3<center></FONT></td>
+  	<td style="width: 43px; height:85px; cursor:pointer;" rowspan="2"><FONT FACE="arial" SIZE=1 ><center>122.50m2<br> LT3<center></FONT></td>
+  <td style="width: 43px; height:85px; cursor:pointer;" rowspan="2"><FONT FACE="arial" SIZE=1 ><center>122.50m2<br> LT3<center></FONT></td>
+  <td style="width: 43px; height:85px; cursor:pointer;" rowspan="2"><FONT FACE="arial" SIZE=1 ><center>122.50m2<br> LT3<center></FONT></td>
+  <td style="width: 43px; height:85px; cursor:pointer;" rowspan="2"><FONT FACE="arial" SIZE=1 ><center>122.50m2<br> LT3<center></FONT></td>
+  <td style="width: 43px; height:85px; cursor:pointer;" rowspan="2"><FONT FACE="arial" SIZE=1 ><center>122.50m2<br> LT3<center></FONT></td>
+  	<td style="width: 43px; height:85px; cursor:pointer;" rowspan="2"><FONT FACE="arial" SIZE=1 ><center>122.50m2<br> LT3<center></FONT></td>
+  <td style="width: 43px; height:85px; cursor:pointer;" rowspan="2"><FONT FACE="arial" SIZE=1 ><center>122.50m2<br> LT3<center></FONT></td>
+  <td style="width: 43px; height:85px; cursor:pointer;" rowspan="2"><FONT FACE="arial" SIZE=1 ><center>122.50m2<br> LT3<center></FONT></td>
+  <td style="width: 43px; height:85px; cursor:pointer;" rowspan="2"><FONT FACE="arial" SIZE=1 ><center>122.50m2<br> LT3<center></FONT></td>
+  <td style="width: 43px; height:85px; cursor:pointer;" rowspan="2"><FONT FACE="arial" SIZE=1 ><center>122.50m2<br> LT3<center></FONT></td>
   </tr>
   <tr>
-  <td style="width: 85px; height:43px;" id="2"><FONT FACE="arial" SIZE=1 ><center>A=146.87m2<br> LT2<center></FONT></td>
+  <td style="width: 85px; height:43px;  cursor:pointer;" id="2"><FONT FACE="arial" SIZE=1 ><center>A=146.87m2<br> LT2<center></FONT></td>
  
   </tr>
   <tr>
