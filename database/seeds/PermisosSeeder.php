@@ -14,7 +14,7 @@ class PermisosSeeder extends Seeder
     {
         //
 
-        $permisos=['Administrador','Personal','Clientes','Recursos Humanos','Ejecutivo de cuenta(Capturista)','Ejecutivo de proyectos'];
+        $permisos=['Administrador','Personal','Clientes','Recursos Humanos','Ejecutivo de cuenta(Capturista)','Ejecutivo de proyectos','Cobranza'];
 
     	for ($i=0; $i < count($permisos); $i++) {
     		DB::table('permissions')->insert([
