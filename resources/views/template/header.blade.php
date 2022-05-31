@@ -264,6 +264,11 @@
                                             <span class="sub-item">Venta de Lotes</span>
                                         </a>
                                     </li>
+                                    <li>
+                                        <a href="{{url('/Captura/proyectos')}}">
+                                            <span class="sub-item">Captura de Proyectos</span>
+                                        </a>
+                                    </li>
                                    
                                 </ul>
                             </div>

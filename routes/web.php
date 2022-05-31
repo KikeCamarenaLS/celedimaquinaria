@@ -372,6 +372,7 @@ Route::post('/Archivero/AgregarArchivo', 'recursosHumanosController@AgregarArchi
 
 
 Route::get('/ventalotesView', 'VentasController@ventalotesView');
+Route::get('/Captura/proyectos', 'VentasController@capturaProyectos');
 
 
 

@@ -19,4 +19,10 @@ class VentasController extends Controller
       $lotes=DB::select('SELECT * FROM proyectolote');
       return view('Terrenos.Ventas.ventasLotes',compact('proyectos','lotes'));
     }
+    public function capturaProyectos()
+    {
+
+      $proyectos=DB::select('SELECT * FROM cat_proyectos');
+        return view('Terrenos.Ventas.capturaProyectos',compact('proyectos'));
+    }
 }
