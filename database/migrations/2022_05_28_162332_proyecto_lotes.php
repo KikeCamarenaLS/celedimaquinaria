@@ -18,8 +18,15 @@ class ProyectoLotes extends Migration
             $table->bigInteger('proyecto');
             $table->bigInteger('mz');
             $table->bigInteger('lt');
-            $table->string('area');
-            $table->string('Estatus');
+            $table->bigInteger('superficie');
+            $table->bigInteger('estatus');
+            $table->bigInteger('tipoSuperficie');
+            $table->bigInteger('tipoVenta');
+            $table->bigInteger('Ancho');
+            $table->bigInteger('Largo');
+            $table->bigInteger('colinancia');
+            $table->bigInteger('claveCatastral');
+            $table->bigInteger('fechaClaveCatastral');
             $table->rememberToken();
             $table->timestamps();
         });
