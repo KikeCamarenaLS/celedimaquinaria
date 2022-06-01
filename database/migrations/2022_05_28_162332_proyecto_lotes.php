@@ -15,18 +15,20 @@ class ProyectoLotes extends Migration
     {
         Schema::create('proyectoLote', function (Blueprint $table) {
             $table->bigIncrements('id_proyecto_lote')->index();
+            $table->bigInteger('idElemento');
             $table->bigInteger('proyecto');
             $table->bigInteger('mz');
             $table->bigInteger('lt');
             $table->bigInteger('superficie');
-            $table->bigInteger('estatus');
-            $table->bigInteger('tipoSuperficie');
-            $table->bigInteger('tipoVenta');
+            $table->string('estatus');
+            $table->string('tipoSuperficie');
+            $table->string('Costo');
+            $table->string('tipoVenta');
             $table->bigInteger('Ancho');
             $table->bigInteger('Largo');
-            $table->bigInteger('colinancia');
-            $table->bigInteger('claveCatastral');
-            $table->bigInteger('fechaClaveCatastral');
+            $table->string('colinancia');
+            $table->string('claveCatastral');
+            $table->date('fechaClaveCatastral');
             $table->rememberToken();
             $table->timestamps();
         });

@@ -201,7 +201,7 @@
 							"Superficie":$('#Superficie').val(),
 							"Estatus":$('#Estatus').val(),
 							"TipoSuperficie":$('#TipoSuperficie').val(),
-							"CostoTotal":$('#CostoTotal').val(),
+							"Costo":$('#CostoTotal').val(),
 							"TipoVenta":$('#TipoVenta').val(),
 							"Ancho":$('#Ancho').val(),
 							"Largo":$('#Largo').val(),

@@ -171,7 +171,7 @@
     <td style="width: 50px; height:85px;" rowspan="2" id="119" onclick="cambiar('19')"><FONT FACE="arial" SIZE=1  id="area11"> </FONT></td>
     <td style="width: 50px; height:85px;" rowspan="2" id="120" onclick="cambiar('20')"><FONT FACE="arial" SIZE=1  id="area11"> </FONT></td>
     <td style="width: 50px; height:85px;" rowspan="2" id="121" onclick="cambiar('21')"><FONT FACE="arial" SIZE=1  id="area11"> </FONT></td>
-    <td style="width: 50px; height:85px;" rowspan="2" id="122" onclick="cambiar('22')"><FONT FACE="arial" SIZE=1  id="area11"> </FONT></td>
+    <td style="width: 50px; height:85px;" rowspan="2" id="222" onclick="cambiar('22')"><FONT FACE="arial" SIZE=1  id="area11"> </FONT></td>
     <td style="width: 50px; height:85px;" rowspan="2" id="123" onclick="cambiar('23')"><FONT FACE="arial" SIZE=1  id="area11"> </FONT></td>
     <td style="width: 50px; height:85px;" rowspan="2" id="124" onclick="cambiar('24')"><FONT FACE="arial" SIZE=1  id="area11"> </FONT></td>
     <td style="width: 50px; height:85px;" rowspan="2" id="125" onclick="cambiar('25')"><FONT FACE="arial" SIZE=1  id="area11"> </FONT></td>
@@ -201,7 +201,7 @@
     <td style="width: 50px; height:85px;" rowspan="2" id="119" onclick="cambiar('19')"><FONT FACE="arial" SIZE=1  id="area11"> </FONT></td>
     <td style="width: 50px; height:85px;" rowspan="2" id="120" onclick="cambiar('20')"><FONT FACE="arial" SIZE=1  id="area11"> </FONT></td>
     <td style="width: 50px; height:85px;" rowspan="2" id="121" onclick="cambiar('21')"><FONT FACE="arial" SIZE=1  id="area11"> </FONT></td>
-    <td style="width: 50px; height:85px;" rowspan="2" id="122" onclick="cambiar('22')"><FONT FACE="arial" SIZE=1  id="area11"> </FONT></td>
+    <td style="width: 50px; height:85px;" rowspan="2" id="322" onclick="cambiar('22')"><FONT FACE="arial" SIZE=1  id="area11"> </FONT></td>
     <td style="width: 50px; height:85px;" rowspan="2" id="123" onclick="cambiar('23')"><FONT FACE="arial" SIZE=1  id="area11"> </FONT></td>
     <td style="width: 50px; height:85px;" rowspan="2" id="124" onclick="cambiar('24')"><FONT FACE="arial" SIZE=1  id="area11"> </FONT></td>
     <td style="width: 50px; height:85px;" rowspan="2" id="125" onclick="cambiar('25')"><FONT FACE="arial" SIZE=1  id="area11"> </FONT></td>
@@ -241,7 +241,7 @@
     <td style="width: 50px; height:85px;" rowspan="2" id="119" onclick="cambiar('19')"><FONT FACE="arial" SIZE=1  id="area11"> </FONT></td>
     <td style="width: 50px; height:85px;" rowspan="2" id="120" onclick="cambiar('20')"><FONT FACE="arial" SIZE=1  id="area11"> </FONT></td>
     <td style="width: 50px; height:85px;" rowspan="2" id="121" onclick="cambiar('21')"><FONT FACE="arial" SIZE=1  id="area11"> </FONT></td>
-    <td style="width: 50px; height:85px;" rowspan="2" id="122" onclick="cambiar('22')"><FONT FACE="arial" SIZE=1  id="area11"> </FONT></td>
+    <td style="width: 50px; height:85px;" rowspan="2" id="422" onclick="cambiar('22')"><FONT FACE="arial" SIZE=1  id="area11"> </FONT></td>
     <td style="width: 50px; height:85px;" rowspan="2" id="123" onclick="cambiar('23')"><FONT FACE="arial" SIZE=1  id="area11"> </FONT></td>
     <td style="width: 50px; height:85px;" rowspan="2" id="124" onclick="cambiar('24')"><FONT FACE="arial" SIZE=1  id="area11"> </FONT></td>
     <td style="width: 50px; height:85px;" rowspan="2" id="125" onclick="cambiar('25')"><FONT FACE="arial" SIZE=1  id="area11"> </FONT></td>
@@ -300,13 +300,14 @@
                 $('#126').html('<FONT FACE="arial" SIZE=1 id="area11"> 146.87m2<br><center>LT4</center></FONT>');
 				
 				@foreach($lotes as $lote)
-				if('{{$lote->Estatus}}'=='Disponible'){
+				if('{{$lote->estatus}}'=='Disponible'){
+					console.log('hol'+{{$lote->mz}}+{{$lote->lt}});
 					$('#'+{{$lote->mz}}+{{$lote->lt}}).css('background-color','rgb(105,239,67)');
 					}
-				if('{{$lote->Estatus}}'=='Vendido'){
+				if('{{$lote->estatus}}'=='Liquidado'){
 					$('#'+{{$lote->mz}}+{{$lote->lt}}).css('background-color','rgb(131,131,254)');
 					}
-				if('{{$lote->Estatus}}'=='Apartado'){
+				if('{{$lote->estatus}}'=='Apartado'){
 					$('#'+{{$lote->mz}}+{{$lote->lt}}).css('background-color','yellow');
 					}
 				

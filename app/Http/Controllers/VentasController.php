@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Request;
 use DB;
+use Auth;
 
 class VentasController extends Controller
 {
@@ -31,24 +32,26 @@ class VentasController extends Controller
     
     public function capturaProyectosLotes(Request $request)
     {
-      $Nombre= Request::input("Nombre");
-      $Apellido_Paterno= Request::input("Apellido_Paterno");
-      $Apellido_Materno= Request::input("Apellido_Materno");
-      $Telefono1= Request::input("Telefono1");
-      $Telefono2= Request::input("Telefono2");
-      $Calle= Request::input("Calle");
-      $Ninterior= Request::input("Ninterior");
-      $NExterior= Request::input("NExterior");
-      $Colonia= Request::input("Colonia");
-      $Municipio= Request::input("Municipio");
-      $Estado= Request::input("Estado");
-      $Referencia= Request::input("Referencia");
-      $rolesuser= Request::input("rolesuser");
+      $proyecto= Request::input("proyecto");
+      $Mz= Request::input("Mz");
+      $Lt= Request::input("Lt");
+      $Superficie= Request::input("Superficie");
+      $Estatus= Request::input("Estatus");
+      $TipoSuperficie= Request::input("TipoSuperficie");
+      $Costo= Request::input("Costo");
+      $TipoVenta= Request::input("TipoVenta");
+      $Ancho= Request::input("Ancho");
+      $Largo= Request::input("Largo");
+      $Colinancia= Request::input("Colinancia");
+      $ClaveCatastral= Request::input("ClaveCatastral");
+      $FechaClaveCatastral= Request::input("FechaClaveCatastral");
+      $id = Auth::user()->id;
+
+      $insert =DB::select('insert into proyectolote (idElemento,proyecto,mz,lt, superficie, estatus, tipoSuperficie,Costo, tipoVenta, Ancho, Largo, colinancia, claveCatastral, fechaClaveCatastral,created_at) values ("'.$id.'","'.$proyecto.'","'.$Mz.'","'.$Lt.'","'.$Superficie.'","'.$Estatus.'","'.$TipoSuperficie.'","'.$Costo.'","'.$TipoVenta.'","'.$Ancho.'","'.$Largo.'","'.$Colinancia.'","'.$ClaveCatastral.'","'.$FechaClaveCatastral.'",now())');
 
 
-      $proyectos=DB::select('SELECT * FROM cat_proyectos');
-      $lotes=DB::select('SELECT * FROM proyectolote');
-      return view('Terrenos.Ventas.ventasLotes',compact('proyectos','lotes'));
+
+      return $insert;
     
     }
 }
