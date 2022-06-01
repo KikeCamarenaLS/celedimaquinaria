@@ -371,7 +371,7 @@ Route::get('/buscar/Vendedor/archivero', 'recursosHumanosController@buscarVended
 Route::post('/Archivero/AgregarArchivo', 'recursosHumanosController@AgregarArchivo')->name('AgregarArchivo.AgregarArchivo');
 
 
-Route::get('/ventalotesView', 'VentasController@ventalotesView');
+Route::get('/ventalotesView1', 'VentasController@ventalotesView');
 Route::get('/Captura/proyectos', 'VentasController@capturaProyectos');
 Route::get('/alta/capturaProyectosLotes', 'VentasController@capturaProyectosLotes');
 Route::get('/buscar/ProyectosLotes', 'VentasController@buscarProyectosLotes');

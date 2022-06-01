@@ -260,7 +260,7 @@
                                 <ul class="nav nav-collapse">
 
                                     <li>
-                                        <a href="{{url('/ventalotesView')}}">
+                                        <a href="{{url('/ventalotesView1')}}">
                                             <span class="sub-item">Venta de Lotes</span>
                                         </a>
                                     </li>
