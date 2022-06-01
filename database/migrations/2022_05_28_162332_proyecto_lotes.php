@@ -24,8 +24,8 @@ class ProyectoLotes extends Migration
             $table->string('tipoSuperficie');
             $table->string('Costo');
             $table->string('tipoVenta');
-            $table->bigInteger('Ancho');
-            $table->bigInteger('Largo');
+            $table->string('Ancho');
+            $table->string('Largo');
             $table->string('colinancia');
             $table->string('claveCatastral');
             $table->date('fechaClaveCatastral');

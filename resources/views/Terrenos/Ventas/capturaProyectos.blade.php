@@ -228,52 +228,17 @@
 			}
 			function limpiar(){
 
-				$('#Nombre').val("");
-				$('#Apellido_Paterno').val("");
-				$('#Apellido_Materno').val("");
-				$('#Telefono_1').val("");
-				$('#Telefono_2').val("");
-				$('#Telefono_3').val("");
-				$('#Correo').val("");
-				$('#Calle').val("");
-				$('#CodigoPostal').val("");
-				$('#Ninterior').val("");
-				$('#NExterior').val("");
-				$('#Colonia').val("");
-				$('#Municipio').val("");
-				$('#Estado').val("");
-				$('#Referencia').val("");
-
-
-				$('#Fecha_Venta').val("")								
-				numcliente=0;
-				$('#Fecha_Contrato').val("")
-				$('#proyecto').val("")
-				$('#Etapa').val("")
 				$('#Mz').val("")
-				$('#Lote').val("")
+				$('#Lt').val("")
 				$('#Superficie').val("")
-				$('#TipoSuperficie').val("")
-				$('#TipoPredio').val("")
-				$('#Vendedor').val("")
-				$('#Adquisición').val("")
-				$('#Nparcialidades').val("")
 				$('#CostoTotal').val("")
-				$('#Enganche').val("")
-				$('#Comisión1').val("")
-				$('#Comisión2').val("")
-				$('#FechaPago').val("")
-				$('#MontoMensual').val("")
-				$('#Porcentaje').val("")
-				$('#EstatusVenta').val("")
-
-
-
-				$("#Nombre").prop('disabled', false);
-				$("#Apellido_Paterno").prop('disabled', false);
-				$("#Apellido_Materno").prop('disabled', false);
-				$('#validaexiste').css("display", "none");
-				$('#validaExisteContrato').css("display", "none");
+				$('#Superficie').val("")
+				$('#Ancho').val("")
+				$('#Largo').val("")
+				$('#Colinancia').val("")
+				$('#ClaveCatastral').val("")
+				$('#FechaClaveCatastral').val("")
+				
 
 			}
 			

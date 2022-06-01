@@ -46,7 +46,7 @@
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header" style="background-color:red; color: #ffffff;">
-        <h5 class="modal-title" id="exampleModalLongTitle">Confirmación </h5>
+        <h5 class="modal-title" id="exampleModalLongTitle">Información </h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
@@ -114,34 +114,34 @@
             Mz 01
         </font>
   <tr>
-    <td style="width: 85px; height:43px;" id="11" onclick="cambiar('1,1')"><FONT FACE="arial" SIZE=1  id="area11"> </FONT></td>
-    <td style="width: 50px; height:85px;" rowspan="2" id="13" onclick="cambiar('1,3')"><FONT FACE="arial" SIZE=1  id="area13"> </FONT></td>
-    <td style="width: 50px; height:85px;" rowspan="2" id="14" onclick="cambiar('1,4')"><FONT FACE="arial" SIZE=1  id="area14"> </FONT></td>
-    <td style="width: 50px; height:85px;" rowspan="2" id="15" onclick="cambiar('1,5')"><FONT FACE="arial" SIZE=1  id="area15"> </FONT></td>
-    <td style="width: 50px; height:85px;" rowspan="2" id="16" onclick="cambiar('1,6')"><FONT FACE="arial" SIZE=1  id="area16"> </FONT></td>
-    <td style="width: 50px; height:85px;" rowspan="2" id="17" onclick="cambiar('1,7')"><FONT FACE="arial" SIZE=1  id="area17"> </FONT></td>
-    <td style="width: 50px; height:85px;" rowspan="2" id="18" onclick="cambiar('1,8')"><FONT FACE="arial" SIZE=1  id="area18"> </FONT></td>
-    <td style="width: 50px; height:85px;" rowspan="2" id="19" onclick="cambiar('1,9')"><FONT FACE="arial" SIZE=1  id="area19"> </FONT></td>
-    <td style="width: 50px; height:85px;" rowspan="2" id="110" onclick="cambiar('1,10')"><FONT FACE="arial" SIZE=1  id="area110"> </FONT></td>
-    <td style="width: 50px; height:85px;" rowspan="2" id="111" onclick="cambiar('1,11')"><FONT FACE="arial" SIZE=1  id="area111"> </FONT></td>
-    <td style="width: 50px; height:85px;" rowspan="2" id="112" onclick="cambiar('1,12')"><FONT FACE="arial" SIZE=1  id="area112"> </FONT></td>
-    <td style="width: 50px; height:85px;" rowspan="2" id="113" onclick="cambiar('1,13')"><FONT FACE="arial" SIZE=1  id="area113"> </FONT></td>
-    <td style="width: 50px; height:85px;" rowspan="2" id="114" onclick="cambiar('1,14')"><FONT FACE="arial" SIZE=1  id="area114"> </FONT></td>
-    <td style="width: 50px; height:85px;" rowspan="2" id="115" onclick="cambiar('1,15')"><FONT FACE="arial" SIZE=1  id="area115"> </FONT></td>
-    <td style="width: 50px; height:85px;" rowspan="2" id="116" onclick="cambiar('1,16')"><FONT FACE="arial" SIZE=1  id="area116"> </FONT></td>
-    <td style="width: 50px; height:85px;" rowspan="2" id="117" onclick="cambiar('1,17')"><FONT FACE="arial" SIZE=1  id="area117"> </FONT></td>
-    <td style="width: 50px; height:85px;" rowspan="2" id="118" onclick="cambiar('1,18')"><FONT FACE="arial" SIZE=1  id="area118"> </FONT></td>
-    <td style="width: 50px; height:85px;" rowspan="2" id="119" onclick="cambiar('1,19')"><FONT FACE="arial" SIZE=1  id="area119"> </FONT></td>
-    <td style="width: 50px; height:85px;" rowspan="2" id="120" onclick="cambiar('1,20')"><FONT FACE="arial" SIZE=1  id="area120"> </FONT></td>
-    <td style="width: 50px; height:85px;" rowspan="2" id="121" onclick="cambiar('1,21')"><FONT FACE="arial" SIZE=1  id="area121"> </FONT></td>
-    <td style="width: 50px; height:85px;" rowspan="2" id="122" onclick="cambiar('1,22')"><FONT FACE="arial" SIZE=1  id="area122"> </FONT></td>
-    <td style="width: 50px; height:85px;" rowspan="2" id="123" onclick="cambiar('1,23')"><FONT FACE="arial" SIZE=1  id="area123"> </FONT></td>
-    <td style="width: 50px; height:85px;" rowspan="2" id="124" onclick="cambiar('1,24')"><FONT FACE="arial" SIZE=1  id="area124"> </FONT></td>
-    <td style="width: 50px; height:85px;" rowspan="2" id="125" onclick="cambiar('1,25')"><FONT FACE="arial" SIZE=1  id="area125"> </FONT></td>
-    <td style="width: 50px; height:85px;" rowspan="2" id="126" onclick="cambiar('1,26')"><FONT FACE="arial" SIZE=1  id="area126"> </FONT></td>
+    <td style="width: 85px; height:43px;" id="11" onclick="cambiar('1','1')"></td>
+    <td style="width: 50px; height:85px;" rowspan="2" id="13" onclick="cambiar('1','3')"></td>
+    <td style="width: 50px; height:85px;" rowspan="2" id="14" onclick="cambiar('1','4')"></td>
+    <td style="width: 50px; height:85px;" rowspan="2" id="15" onclick="cambiar('1','5')"></td>
+    <td style="width: 50px; height:85px;" rowspan="2" id="16" onclick="cambiar('1','6')"></td>
+    <td style="width: 50px; height:85px;" rowspan="2" id="17" onclick="cambiar('1','7')"></td>
+    <td style="width: 50px; height:85px;" rowspan="2" id="18" onclick="cambiar('1','8')"></td>
+    <td style="width: 50px; height:85px;" rowspan="2" id="19" onclick="cambiar('1','9')"></td>
+    <td style="width: 50px; height:85px;" rowspan="2" id="110" onclick="cambiar('1','10')"></td>
+    <td style="width: 50px; height:85px;" rowspan="2" id="111" onclick="cambiar('1','11')"></td>
+    <td style="width: 50px; height:85px;" rowspan="2" id="112" onclick="cambiar('1','12')"></td>
+    <td style="width: 50px; height:85px;" rowspan="2" id="113" onclick="cambiar('1','13')"></td>
+    <td style="width: 50px; height:85px;" rowspan="2" id="114" onclick="cambiar('1','14')"></td>
+    <td style="width: 50px; height:85px;" rowspan="2" id="115" onclick="cambiar('1','15')"></td>
+    <td style="width: 50px; height:85px;" rowspan="2" id="116" onclick="cambiar('1','16')"></td>
+    <td style="width: 50px; height:85px;" rowspan="2" id="117" onclick="cambiar('1','17')"></td>
+    <td style="width: 50px; height:85px;" rowspan="2" id="118" onclick="cambiar('1','18')"></td>
+    <td style="width: 50px; height:85px;" rowspan="2" id="119" onclick="cambiar('1','19')"></td>
+    <td style="width: 50px; height:85px;" rowspan="2" id="120" onclick="cambiar('1','20')"></td>
+    <td style="width: 50px; height:85px;" rowspan="2" id="121" onclick="cambiar('1','21')"></td>
+    <td style="width: 50px; height:85px;" rowspan="2" id="122" onclick="cambiar('1','22')"></td>
+    <td style="width: 50px; height:85px;" rowspan="2" id="123" onclick="cambiar('1','23')"></td>
+    <td style="width: 50px; height:85px;" rowspan="2" id="124" onclick="cambiar('1','24')"></td>
+    <td style="width: 50px; height:85px;" rowspan="2" id="125" onclick="cambiar('1','25')"></td>
+    <td style="width: 50px; height:85px;" rowspan="2" id="126" onclick="cambiar('1','26')"></td>
   </tr>
   <tr>
-    <td style="width: 85px; height:43px;" id="12"onclick="cambiar('1,2')" ><FONT FACE="arial" SIZE=1 id="area12"></FONT></td>
+    <td style="width: 85px; height:43px;" id="12" onclick="cambiar('1','2')" ></td>
   </tr>
   <tr>
   	<td style="border:0px black solid;width: 70px; height: 70px; bottom: 0pt; ">
@@ -151,64 +151,60 @@
   	</td>
   </tr>
   <tr>
-    <td style="width: 85px; height:43px;" id="11" onclick="cambiar('1')"><FONT FACE="arial" SIZE=1  id="area11"> </FONT></td>
-    <td style="width: 50px; height:85px;" rowspan="2" id="13" onclick="cambiar('3')"><FONT FACE="arial" SIZE=1  id="area11"> </FONT></td>
-    <td style="width: 50px; height:85px;" rowspan="2" id="14" onclick="cambiar('4')"><FONT FACE="arial" SIZE=1  id="area11"> </FONT></td>
-    <td style="width: 50px; height:85px;" rowspan="2" id="15" onclick="cambiar('5')"><FONT FACE="arial" SIZE=1  id="area11"> </FONT></td>
-    <td style="width: 50px; height:85px;" rowspan="2" id="16" onclick="cambiar('6')"><FONT FACE="arial" SIZE=1  id="area11"> </FONT></td>
-    <td style="width: 50px; height:85px;" rowspan="2" id="17" onclick="cambiar('7')"><FONT FACE="arial" SIZE=1  id="area11"> </FONT></td>
-    <td style="width: 50px; height:85px;" rowspan="2" id="18" onclick="cambiar('8')"><FONT FACE="arial" SIZE=1  id="area11"> </FONT></td>
-    <td style="width: 50px; height:85px;" rowspan="2" id="19" onclick="cambiar('9')"><FONT FACE="arial" SIZE=1  id="area11"> </FONT></td>
-    <td style="width: 50px; height:85px;" rowspan="2" id="110" onclick="cambiar('10')"><FONT FACE="arial" SIZE=1  id="area11"> </FONT></td>
-    <td style="width: 50px; height:85px;" rowspan="2" id="111" onclick="cambiar('11')"><FONT FACE="arial" SIZE=1  id="area11"> </FONT></td>
-    <td style="width: 50px; height:85px;" rowspan="2" id="112" onclick="cambiar('12')"><FONT FACE="arial" SIZE=1  id="area11"> </FONT></td>
-    <td style="width: 50px; height:85px;" rowspan="2" id="113" onclick="cambiar('13')"><FONT FACE="arial" SIZE=1  id="area11"> </FONT></td>
-    <td style="width: 50px; height:85px;" rowspan="2" id="114" onclick="cambiar('14')"><FONT FACE="arial" SIZE=1  id="area11"> </FONT></td>
-    <td style="width: 50px; height:85px;" rowspan="2" id="115" onclick="cambiar('15')"><FONT FACE="arial" SIZE=1  id="area11"> </FONT></td>
-    <td style="width: 50px; height:85px;" rowspan="2" id="116" onclick="cambiar('16')"><FONT FACE="arial" SIZE=1  id="area11"> </FONT></td>
-    <td style="width: 50px; height:85px;" rowspan="2" id="117" onclick="cambiar('17')"><FONT FACE="arial" SIZE=1  id="area11"> </FONT></td>
-    <td style="width: 50px; height:85px;" rowspan="2" id="118" onclick="cambiar('18')"><FONT FACE="arial" SIZE=1  id="area11"> </FONT></td>
-    <td style="width: 50px; height:85px;" rowspan="2" id="119" onclick="cambiar('19')"><FONT FACE="arial" SIZE=1  id="area11"> </FONT></td>
-    <td style="width: 50px; height:85px;" rowspan="2" id="120" onclick="cambiar('20')"><FONT FACE="arial" SIZE=1  id="area11"> </FONT></td>
-    <td style="width: 50px; height:85px;" rowspan="2" id="121" onclick="cambiar('21')"><FONT FACE="arial" SIZE=1  id="area11"> </FONT></td>
-    <td style="width: 50px; height:85px;" rowspan="2" id="222" onclick="cambiar('22')"><FONT FACE="arial" SIZE=1  id="area11"> </FONT></td>
-    <td style="width: 50px; height:85px;" rowspan="2" id="123" onclick="cambiar('23')"><FONT FACE="arial" SIZE=1  id="area11"> </FONT></td>
-    <td style="width: 50px; height:85px;" rowspan="2" id="124" onclick="cambiar('24')"><FONT FACE="arial" SIZE=1  id="area11"> </FONT></td>
-    <td style="width: 50px; height:85px;" rowspan="2" id="125" onclick="cambiar('25')"><FONT FACE="arial" SIZE=1  id="area11"> </FONT></td>
-    <td style="width: 50px; height:85px;" rowspan="2" id="126" onclick="cambiar('26')"><FONT FACE="arial" SIZE=1  id="area11"> </FONT></td>
+    <td style="width: 90px; height:43px;" id="11" onclick="cambiar('1','1')"></td>
+    <td style="width: 50px; height:85px;" rowspan="2" id="13" onclick="cambiar('1','3')"></td>
+    <td style="width: 50px; height:85px;" rowspan="2" id="14" onclick="cambiar('1','4')"></td>
+    <td style="width: 50px; height:85px;" rowspan="2" id="15" onclick="cambiar('1','5')"></td>
+    <td style="width: 50px; height:85px;" rowspan="2" id="16" onclick="cambiar('1','6')"></td>
+    <td style="width: 50px; height:85px;" rowspan="2" id="17" onclick="cambiar('1','7')"></td>
+    <td style="width: 50px; height:85px;" rowspan="2" id="18" onclick="cambiar('1','8')"></td>
+    <td style="width: 50px; height:85px;" rowspan="2" id="19" onclick="cambiar('1','9')"></td>
+    <td style="width: 50px; height:85px;" rowspan="2" id="110" onclick="cambiar('1','10')"></td>
+    <td style="width: 50px; height:85px;" rowspan="2" id="111" onclick="cambiar('1','11')"></td>
+    <td style="width: 50px; height:85px;" rowspan="2" id="112" onclick="cambiar('1','12')"></td>
+    <td style="width: 50px; height:85px;" rowspan="2" id="113" onclick="cambiar('1','13')"></td>
+    <td style="width: 50px; height:85px;" rowspan="2" id="114" onclick="cambiar('1','14')"></td>
+    <td style="width: 50px; height:85px;" rowspan="2" id="115" onclick="cambiar('1','15')"></td>
+    <td style="width: 50px; height:85px;" rowspan="2" id="116" onclick="cambiar('1','16')"></td>
+    <td style="width: 50px; height:85px;" rowspan="2" id="117" onclick="cambiar('1','17')"></td>
+    <td style="width: 50px; height:85px;" rowspan="2" id="118" onclick="cambiar('1','18')"></td>
+    <td style="width: 50px; height:85px;" rowspan="2" id="119" onclick="cambiar('1','19')"></td>
+    <td style="width: 50px; height:85px;" rowspan="2" id="120" onclick="cambiar('1','20')"></td>
+    <td style="width: 50px; height:85px;" rowspan="2" id="121" onclick="cambiar('1','21')"></td>
+    <td style="width: 50px; height:85px;" rowspan="2" id="122" onclick="cambiar('1','22')"></td>
+    <td style="width: 50px; height:85px;" rowspan="2" id="123" onclick="cambiar('1','23')"></td>
+    <td style="width: 50px; height:85px;" rowspan="2" id="124" onclick="cambiar('1','24')"></td>
   </tr>
   <tr>
-    <td style="width: 85px; height:43px;" id="12"><FONT FACE="arial" SIZE=1 ><center>A=146.87m2<br> LT1<center></FONT></td>
+    <td style="width: 90px; height:43px;" id="12" onclick="cambiar('1','2')" ></td>
+  </tr>
+ <tr>
+    <td style="width: 90px; height:43px;" id="11" onclick="cambiar('1','1')"></td>
+    <td style="width: 50px; height:85px;" rowspan="2" id="13" onclick="cambiar('1','3')"></td>
+    <td style="width: 50px; height:85px;" rowspan="2" id="14" onclick="cambiar('1','4')"></td>
+    <td style="width: 50px; height:85px;" rowspan="2" id="15" onclick="cambiar('1','5')"></td>
+    <td style="width: 50px; height:85px;" rowspan="2" id="16" onclick="cambiar('1','6')"></td>
+    <td style="width: 50px; height:85px;" rowspan="2" id="17" onclick="cambiar('1','7')"></td>
+    <td style="width: 50px; height:85px;" rowspan="2" id="18" onclick="cambiar('1','8')"></td>
+    <td style="width: 50px; height:85px;" rowspan="2" id="19" onclick="cambiar('1','9')"></td>
+    <td style="width: 50px; height:85px;" rowspan="2" id="110" onclick="cambiar('1','10')"></td>
+    <td style="width: 50px; height:85px;" rowspan="2" id="111" onclick="cambiar('1','11')"></td>
+    <td style="width: 50px; height:85px;" rowspan="2" id="112" onclick="cambiar('1','12')"></td>
+    <td style="width: 50px; height:85px;" rowspan="2" id="113" onclick="cambiar('1','13')"></td>
+    <td style="width: 50px; height:85px;" rowspan="2" id="114" onclick="cambiar('1','14')"></td>
+    <td style="width: 50px; height:85px;" rowspan="2" id="115" onclick="cambiar('1','15')"></td>
+    <td style="width: 50px; height:85px;" rowspan="2" id="116" onclick="cambiar('1','16')"></td>
+    <td style="width: 50px; height:85px;" rowspan="2" id="117" onclick="cambiar('1','17')"></td>
+    <td style="width: 50px; height:85px;" rowspan="2" id="118" onclick="cambiar('1','18')"></td>
+    <td style="width: 50px; height:85px;" rowspan="2" id="119" onclick="cambiar('1','19')"></td>
+    <td style="width: 50px; height:85px;" rowspan="2" id="120" onclick="cambiar('1','20')"></td>
+    <td style="width: 50px; height:85px;" rowspan="2" id="121" onclick="cambiar('1','21')"></td>
+    <td style="width: 50px; height:85px;" rowspan="2" id="122" onclick="cambiar('1','22')"></td>
+    <td style="width: 50px; height:85px;" rowspan="2" id="123" onclick="cambiar('1','23')"></td>
+    <td style="width: 50px; height:85px;" rowspan="2" id="124" onclick="cambiar('1','24')"></td>
   </tr>
   <tr>
-    <td style="width: 85px; height:43px;" id="11" onclick="cambiar('1')"><FONT FACE="arial" SIZE=1  id="area11"> </FONT></td>
-    <td style="width: 50px; height:85px;" rowspan="2" id="13" onclick="cambiar('3')"><FONT FACE="arial" SIZE=1  id="area11"> </FONT></td>
-    <td style="width: 50px; height:85px;" rowspan="2" id="14" onclick="cambiar('4')"><FONT FACE="arial" SIZE=1  id="area11"> </FONT></td>
-    <td style="width: 50px; height:85px;" rowspan="2" id="15" onclick="cambiar('5')"><FONT FACE="arial" SIZE=1  id="area11"> </FONT></td>
-    <td style="width: 50px; height:85px;" rowspan="2" id="16" onclick="cambiar('6')"><FONT FACE="arial" SIZE=1  id="area11"> </FONT></td>
-    <td style="width: 50px; height:85px;" rowspan="2" id="17" onclick="cambiar('7')"><FONT FACE="arial" SIZE=1  id="area11"> </FONT></td>
-    <td style="width: 50px; height:85px;" rowspan="2" id="18" onclick="cambiar('8')"><FONT FACE="arial" SIZE=1  id="area11"> </FONT></td>
-    <td style="width: 50px; height:85px;" rowspan="2" id="19" onclick="cambiar('9')"><FONT FACE="arial" SIZE=1  id="area11"> </FONT></td>
-    <td style="width: 50px; height:85px;" rowspan="2" id="110" onclick="cambiar('10')"><FONT FACE="arial" SIZE=1  id="area11"> </FONT></td>
-    <td style="width: 50px; height:85px;" rowspan="2" id="111" onclick="cambiar('11')"><FONT FACE="arial" SIZE=1  id="area11"> </FONT></td>
-    <td style="width: 50px; height:85px;" rowspan="2" id="112" onclick="cambiar('12')"><FONT FACE="arial" SIZE=1  id="area11"> </FONT></td>
-    <td style="width: 50px; height:85px;" rowspan="2" id="113" onclick="cambiar('13')"><FONT FACE="arial" SIZE=1  id="area11"> </FONT></td>
-    <td style="width: 50px; height:85px;" rowspan="2" id="114" onclick="cambiar('14')"><FONT FACE="arial" SIZE=1  id="area11"> </FONT></td>
-    <td style="width: 50px; height:85px;" rowspan="2" id="115" onclick="cambiar('15')"><FONT FACE="arial" SIZE=1  id="area11"> </FONT></td>
-    <td style="width: 50px; height:85px;" rowspan="2" id="116" onclick="cambiar('16')"><FONT FACE="arial" SIZE=1  id="area11"> </FONT></td>
-    <td style="width: 50px; height:85px;" rowspan="2" id="117" onclick="cambiar('17')"><FONT FACE="arial" SIZE=1  id="area11"> </FONT></td>
-    <td style="width: 50px; height:85px;" rowspan="2" id="118" onclick="cambiar('18')"><FONT FACE="arial" SIZE=1  id="area11"> </FONT></td>
-    <td style="width: 50px; height:85px;" rowspan="2" id="119" onclick="cambiar('19')"><FONT FACE="arial" SIZE=1  id="area11"> </FONT></td>
-    <td style="width: 50px; height:85px;" rowspan="2" id="120" onclick="cambiar('20')"><FONT FACE="arial" SIZE=1  id="area11"> </FONT></td>
-    <td style="width: 50px; height:85px;" rowspan="2" id="121" onclick="cambiar('21')"><FONT FACE="arial" SIZE=1  id="area11"> </FONT></td>
-    <td style="width: 50px; height:85px;" rowspan="2" id="322" onclick="cambiar('22')"><FONT FACE="arial" SIZE=1  id="area11"> </FONT></td>
-    <td style="width: 50px; height:85px;" rowspan="2" id="123" onclick="cambiar('23')"><FONT FACE="arial" SIZE=1  id="area11"> </FONT></td>
-    <td style="width: 50px; height:85px;" rowspan="2" id="124" onclick="cambiar('24')"><FONT FACE="arial" SIZE=1  id="area11"> </FONT></td>
-    <td style="width: 50px; height:85px;" rowspan="2" id="125" onclick="cambiar('25')"><FONT FACE="arial" SIZE=1  id="area11"> </FONT></td>
-    <td style="width: 50px; height:85px;" rowspan="2" id="126" onclick="cambiar('26')"><FONT FACE="arial" SIZE=1  id="area11"> </FONT></td>
-  </tr>
-  <tr>
-    <td style="width: 85px; height:43px;" id="12"><FONT FACE="arial" SIZE=1 ><center>A=146.87m2<br> LT1<center></FONT></td>
+    <td style="width: 90px; height:43px;" id="12" onclick="cambiar('1','2')" ></td>
   </tr>
 
 
@@ -221,35 +217,30 @@
   </tr>
 
   <tr>
-    <td style="width: 85px; height:43px;" id="11" onclick="cambiar('1')"><FONT FACE="arial" SIZE=1  id="area11"> </FONT></td>
-    <td style="width: 50px; height:85px;" rowspan="2" id="13" onclick="cambiar('3')"><FONT FACE="arial" SIZE=1  id="area11"> </FONT></td>
-    <td style="width: 50px; height:85px;" rowspan="2" id="14" onclick="cambiar('4')"><FONT FACE="arial" SIZE=1  id="area11"> </FONT></td>
-    <td style="width: 50px; height:85px;" rowspan="2" id="15" onclick="cambiar('5')"><FONT FACE="arial" SIZE=1  id="area11"> </FONT></td>
-    <td style="width: 50px; height:85px;" rowspan="2" id="16" onclick="cambiar('6')"><FONT FACE="arial" SIZE=1  id="area11"> </FONT></td>
-    <td style="width: 50px; height:85px;" rowspan="2" id="17" onclick="cambiar('7')"><FONT FACE="arial" SIZE=1  id="area11"> </FONT></td>
-    <td style="width: 50px; height:85px;" rowspan="2" id="18" onclick="cambiar('8')"><FONT FACE="arial" SIZE=1  id="area11"> </FONT></td>
-    <td style="width: 50px; height:85px;" rowspan="2" id="19" onclick="cambiar('9')"><FONT FACE="arial" SIZE=1  id="area11"> </FONT></td>
-    <td style="width: 50px; height:85px;" rowspan="2" id="110" onclick="cambiar('10')"><FONT FACE="arial" SIZE=1  id="area11"> </FONT></td>
-    <td style="width: 50px; height:85px;" rowspan="2" id="111" onclick="cambiar('11')"><FONT FACE="arial" SIZE=1  id="area11"> </FONT></td>
-    <td style="width: 50px; height:85px;" rowspan="2" id="112" onclick="cambiar('12')"><FONT FACE="arial" SIZE=1  id="area11"> </FONT></td>
-    <td style="width: 50px; height:85px;" rowspan="2" id="113" onclick="cambiar('13')"><FONT FACE="arial" SIZE=1  id="area11"> </FONT></td>
-    <td style="width: 50px; height:85px;" rowspan="2" id="114" onclick="cambiar('14')"><FONT FACE="arial" SIZE=1  id="area11"> </FONT></td>
-    <td style="width: 50px; height:85px;" rowspan="2" id="115" onclick="cambiar('15')"><FONT FACE="arial" SIZE=1  id="area11"> </FONT></td>
-    <td style="width: 50px; height:85px;" rowspan="2" id="116" onclick="cambiar('16')"><FONT FACE="arial" SIZE=1  id="area11"> </FONT></td>
-    <td style="width: 50px; height:85px;" rowspan="2" id="117" onclick="cambiar('17')"><FONT FACE="arial" SIZE=1  id="area11"> </FONT></td>
-    <td style="width: 50px; height:85px;" rowspan="2" id="118" onclick="cambiar('18')"><FONT FACE="arial" SIZE=1  id="area11"> </FONT></td>
-    <td style="width: 50px; height:85px;" rowspan="2" id="119" onclick="cambiar('19')"><FONT FACE="arial" SIZE=1  id="area11"> </FONT></td>
-    <td style="width: 50px; height:85px;" rowspan="2" id="120" onclick="cambiar('20')"><FONT FACE="arial" SIZE=1  id="area11"> </FONT></td>
-    <td style="width: 50px; height:85px;" rowspan="2" id="121" onclick="cambiar('21')"><FONT FACE="arial" SIZE=1  id="area11"> </FONT></td>
-    <td style="width: 50px; height:85px;" rowspan="2" id="422" onclick="cambiar('22')"><FONT FACE="arial" SIZE=1  id="area11"> </FONT></td>
-    <td style="width: 50px; height:85px;" rowspan="2" id="123" onclick="cambiar('23')"><FONT FACE="arial" SIZE=1  id="area11"> </FONT></td>
-    <td style="width: 50px; height:85px;" rowspan="2" id="124" onclick="cambiar('24')"><FONT FACE="arial" SIZE=1  id="area11"> </FONT></td>
-    <td style="width: 50px; height:85px;" rowspan="2" id="125" onclick="cambiar('25')"><FONT FACE="arial" SIZE=1  id="area11"> </FONT></td>
-    <td style="width: 50px; height:85px;" rowspan="2" id="126" onclick="cambiar('26')"><FONT FACE="arial" SIZE=1  id="area11"> </FONT></td>
+    <td style="width: 85px; height:43px;" rowspan="4" id="11" onclick="cambiar('1','1')"></td>
+    <td style="width: 50px; height:85px;" rowspan="2" id="13" onclick="cambiar('1','3')"></td>
+    <td style="width: 50px; height:85px;" rowspan="2" id="14" onclick="cambiar('1','4')"></td>
+    <td style="width: 50px; height:85px;" rowspan="2" id="15" onclick="cambiar('1','5')"></td>
+    <td style="width: 50px; height:85px;" rowspan="2" id="16" onclick="cambiar('1','6')"></td>
+    <td style="width: 50px; height:85px;" rowspan="2" id="17" onclick="cambiar('1','7')"></td>
+    <td style="width: 50px; height:85px;" rowspan="2" id="18" onclick="cambiar('1','8')"></td>
+    <td style="width: 50px; height:85px;" rowspan="2" id="19" onclick="cambiar('1','9')"></td>
+    <td style="width: 50px; height:85px;" rowspan="2" id="110" onclick="cambiar('1','10')"></td>
+    <td style="width: 50px; height:85px;" rowspan="2" id="111" onclick="cambiar('1','11')"></td>
+    <td style="width: 50px; height:85px;" rowspan="2" id="112" onclick="cambiar('1','12')"></td>
+    <td style="width: 50px; height:85px;" rowspan="2" id="113" onclick="cambiar('1','13')"></td>
+    <td style="width: 50px; height:85px;" rowspan="2" id="114" onclick="cambiar('1','14')"></td>
+    <td style="width: 50px; height:85px;" rowspan="2" id="115" onclick="cambiar('1','15')"></td>
+    <td style="width: 50px; height:85px;" rowspan="2" id="116" onclick="cambiar('1','16')"></td>
+    <td style="width: 50px; height:85px;" rowspan="2" id="117" onclick="cambiar('1','17')"></td>
+    <td style="width: 50px; height:85px;" rowspan="2" id="118" onclick="cambiar('1','18')"></td>
+    <td style="width: 50px; height:85px;" rowspan="2" id="119" onclick="cambiar('1','19')"></td>
+    <td style="width: 50px; height:85px;" rowspan="2" id="120" onclick="cambiar('1','20')"></td>
+    <td style="width: 50px; height:85px;" rowspan="2" id="121" onclick="cambiar('1','21')"></td>
+    <td style="width: 50px; height:85px;" rowspan="2" id="122" onclick="cambiar('1','22')"></td>
+    <td style="width: 50px; height:85px;" rowspan="2" id="123" onclick="cambiar('1','23')"></td>
   </tr>
-  <tr>
-    <td style="width: 85px; height:43px;" id="12"><FONT FACE="arial" SIZE=1 ><center>A=146.87m2<br> LT1<center></FONT></td>
-  </tr>
+  
   
  </tbody>
 </table><br></div>
@@ -271,38 +262,14 @@
 			function inicio(){
 				
 				let lotes=$('#lotes').val();
-                $('#11').html('<FONT FACE="arial" SIZE=1 id="area11"> 146.87m2<br><center>LT4</center></FONT>');
-                $('#12').html('<FONT FACE="arial" SIZE=1 id="area11"> 146.87m2<br><center>LT4</center></FONT>');
-                $('#13').html('<FONT FACE="arial" SIZE=1 id="area11"> 146.87m2<br><center>LT4</center></FONT>');
-                $('#14').html('<FONT FACE="arial" SIZE=1 id="area11"> 146.87m2<br><center>LT4</center></FONT>');
-                $('#15').html('<FONT FACE="arial" SIZE=1 id="area11"> 146.87m2<br><center>LT4</center></FONT>');
-                $('#16').html('<FONT FACE="arial" SIZE=1 id="area11"> 146.87m2<br><center>LT4</center></FONT>');
-                $('#16').html('<FONT FACE="arial" SIZE=1 id="area11"> 146.87m2<br><center>LT4</center></FONT>');
-                $('#17').html('<FONT FACE="arial" SIZE=1 id="area11"> 146.87m2<br><center>LT4</center></FONT>');
-                $('#18').html('<FONT FACE="arial" SIZE=1 id="area11"> 146.87m2<br><center>LT4</center></FONT>');
-                $('#19').html('<FONT FACE="arial" SIZE=1 id="area11"> 146.87m2<br><center>LT4</center></FONT>');
-                $('#110').html('<FONT FACE="arial" SIZE=1 id="area11"> 146.87m2<br><center>LT4</center></FONT>');
-                $('#111').html('<FONT FACE="arial" SIZE=1 id="area11"> 146.87m2<br><center>LT4</center></FONT>');
-                $('#112').html('<FONT FACE="arial" SIZE=1 id="area11"> 146.87m2<br><center>LT4</center></FONT>');
-                $('#113').html('<FONT FACE="arial" SIZE=1 id="area11"> 146.87m2<br><center>LT4</center></FONT>');
-                $('#114').html('<FONT FACE="arial" SIZE=1 id="area11"> 146.87m2<br><center>LT4</center></FONT>');
-                $('#115').html('<FONT FACE="arial" SIZE=1 id="area11"> 146.87m2<br><center>LT4</center></FONT>');
-                $('#116').html('<FONT FACE="arial" SIZE=1 id="area11"> 146.87m2<br><center>LT4</center></FONT>');
-                $('#117').html('<FONT FACE="arial" SIZE=1 id="area11"> 146.87m2<br><center>LT4</center></FONT>');
-                $('#118').html('<FONT FACE="arial" SIZE=1 id="area11"> 146.87m2<br><center>LT4</center></FONT>');
-                $('#119').html('<FONT FACE="arial" SIZE=1 id="area11"> 146.87m2<br><center>LT4</center></FONT>');
-                $('#120').html('<FONT FACE="arial" SIZE=1 id="area11"> 146.87m2<br><center>LT4</center></FONT>');
-                $('#121').html('<FONT FACE="arial" SIZE=1 id="area11"> 146.87m2<br><center>LT4</center></FONT>');
-                $('#122').html('<FONT FACE="arial" SIZE=1 id="area11"> 146.87m2<br><center>LT4</center></FONT>');
-                $('#123').html('<FONT FACE="arial" SIZE=1 id="area11"> 146.87m2<br><center>LT4</center></FONT>');
-                $('#124').html('<FONT FACE="arial" SIZE=1 id="area11"> 146.87m2<br><center>LT4</center></FONT>');
-                $('#125').html('<FONT FACE="arial" SIZE=1 id="area11"> 146.87m2<br><center>LT4</center></FONT>');
-                $('#126').html('<FONT FACE="arial" SIZE=1 id="area11"> 146.87m2<br><center>LT4</center></FONT>');
+                
 				
 				@foreach($lotes as $lote)
 				if('{{$lote->estatus}}'=='Disponible'){
 					console.log('hol'+{{$lote->mz}}+{{$lote->lt}});
 					$('#'+{{$lote->mz}}+{{$lote->lt}}).css('background-color','rgb(105,239,67)');
+
+
 					}
 				if('{{$lote->estatus}}'=='Liquidado'){
 					$('#'+{{$lote->mz}}+{{$lote->lt}}).css('background-color','rgb(131,131,254)');
@@ -310,15 +277,41 @@
 				if('{{$lote->estatus}}'=='Apartado'){
 					$('#'+{{$lote->mz}}+{{$lote->lt}}).css('background-color','yellow');
 					}
-				
+				var area={{$lote->Ancho}}*{{$lote->Largo}};
+				area=''+area+'';
+					console.log(area);
+					var areas=area.substr(0,6);
+					$('#'+{{$lote->mz}}+{{$lote->lt}}).html('<FONT FACE="arial" SIZE=1 id="area11"><center>'+areas+'m<sup>2</sup></center><br><center>LT'+{{$lote->lt}}+'</center></FONT>');
 				@endforeach
 
 
 
 			}
-			function cambiar(lote){
+			function cambiar(mz,lote){
+
+				$.ajax({
+						data:  {
+							"mz":mz,
+							"lote":lote,
+							"proyecto":1,
+						}, 
+						url:   "{{url('buscar/ProyectosLotes')}}",
+						type:  'get',
+						success:  function (data) { 
+							console.log(data);
+							if(data.length==0){
+								
+								$('#texto').html('Este lote no cuenta con informacion ');
+							}else{
+								$('#texto').html('mz='+data[0].mz+'<br>Lt='+data[0].lt+'<br>Superficie: '+data[0].superficie+'<br>Tipo de superficie: '+data[0].tipoSuperficie+'<br>Costo Total: '+data[0].Costo+'<br>Tipo de venta: '+data[0].tipoVenta+'<br>Ancho: '+data[0].Ancho+'<br>Largo: '+data[0].Largo+'<br>Colinancia: '+data[0].colinancia+'<br>Clave Catastral: '+data[0].claveCatastral+'<br>Fecha Clave Catastral: '+data[0].fechaClaveCatastral+' ');
+							}
+
 				$('#modal').modal('show');
-				$('#texto').html('¿Está seguro de querer apartar el LT '+lote+' de la MZ 1?');
+				
+
+
+						},
+					});
 				
 			}
 			

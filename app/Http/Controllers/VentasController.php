@@ -54,4 +54,13 @@ class VentasController extends Controller
       return $insert;
     
     }
+    public function buscarProyectosLotes(Request $request)
+    {
+      $proyecto= Request::input("proyecto");
+      $Mz= Request::input("mz");
+      $lt= Request::input("lote");
+      $insert =DB::select('select * from proyectolote where proyecto="'.$proyecto.'" and mz="'.$Mz.'" and lt="'.$lt.'"');
+      return $insert;
+    
+    }
 }
