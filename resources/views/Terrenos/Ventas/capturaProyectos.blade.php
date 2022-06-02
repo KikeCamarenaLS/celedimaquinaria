@@ -213,7 +213,7 @@
 						type:  'get',
 						success:  function (data) { 
 							console.log(data);
-							limpiar();
+							//limpiar();
 								mensaje('success','registro exitoso!!');
 							
 

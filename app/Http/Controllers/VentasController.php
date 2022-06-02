@@ -18,10 +18,19 @@ class VentasController extends Controller
     public function ventalotesView()
     {
       $proyectos=DB::select('SELECT * FROM cat_proyectos ORDER BY PROYECTO ASC');
-      $lotes=DB::select('SELECT * FROM proyectolote ');
+      $lotes=DB::select('SELECT * FROM proyectolote where proyecto=1');
       return view('Terrenos.Ventas.ventasLotes',compact('proyectos','lotes'));
     
     }
+    public function ventalotesView6()
+    {
+      $proyectos=DB::select('SELECT * FROM cat_proyectos ORDER BY PROYECTO ASC');
+      $lotes=DB::select('SELECT * FROM proyectolote where proyecto=6');
+      return view('Terrenos.Ventas.ventaLotesTonanitla',compact('proyectos','lotes'));
+    
+    }
+
+    
     
     public function capturaProyectos()
     {
@@ -64,4 +73,72 @@ class VentasController extends Controller
       return $insert;
     
     }
+
+    public function clientesListaEspera(Request $request)
+    {
+      $nombre= Request::input("nombre");
+      $Apaterno= Request::input("Apaterno");
+      $Amaterno= Request::input("Amaterno");
+      return DB::select('select * from clientes where concat(Nombre," ",A_paterno," ",A_materno)="'.$nombre.' '.$Apaterno.' '.$Amaterno.'" ');
+    
+    }
+    public function agregarclientesListaEspera(Request $request)
+    {
+      $nombre= Request::input("nombre");
+      $Apaterno= Request::input("Apaterno");
+      $Amaterno= Request::input("Amaterno");
+      $mzModal= Request::input("mzModal");
+      $ltModal= Request::input("ltModal");
+      $proyectoModal= Request::input("proyectoModal");
+      $id = Auth::user()->id;
+
+
+      $cliente= DB::select('select * from clientes where concat(Nombre," ",A_paterno," ",A_materno)="'.$nombre.' '.$Apaterno.' '.$Amaterno.'" ');
+
+      if ($cliente) {
+          $numeroCliente=$cliente[0]->N_Cliente;
+           return DB::select('insert into ListaEspera (idElemento,id_vendedor,proyecto, mz, lt, fecha_listado,created_at) values ("'.$numeroCliente.'","'.$id.'","'.$proyectoModal.'","'.$mzModal.'","'.$ltModal.'",now(),now())');
+      }else{
+        $no_cliente=DB::select("select CONCAT( Date_format(now(),'%y%m%d%H%i%s'),'', FLOOR(5 + RAND()*(10-5))) as no_cliente");
+        $no_cli=$no_cliente[0]->no_cliente;
+        $insert=DB::select('insert into clientes (N_Cliente,Nombre, A_paterno, A_materno, Telefono1, Telefono2, correo, Calle, Ninterior, NExterior, Colonia, Municipio, Estado, cp, id_personal, Referencia,created_at) values ("'.$no_cli.'","'.$nombre.'","'.$Apaterno.'","'.$Amaterno.'","","","","","","","","","","","'.$id.'","",now())');
+        $cliente= DB::select('select * from clientes where concat(Nombre," ",A_paterno," ",A_materno)="'.$nombre.' '.$Apaterno.' '.$Amaterno.'" ');
+
+
+        return DB::select('insert into ListaEspera (idElemento,id_vendedor,proyecto, mz, lt, fecha_listado,created_at) values ("'.$cliente[0]->N_Cliente.'","'.$id.'","'.$proyectoModal.'","'.$mzModal.'","'.$ltModal.'",now(),now())');
+      }
+    
+    }
+    public function agregartratoVendedor(Request $request)
+    {
+      $nombre= Request::input("nombre");
+      $Apaterno= Request::input("Apaterno");
+      $Amaterno= Request::input("Amaterno");
+      $mzModal= Request::input("mzModal");
+      $ltModal= Request::input("ltModal");
+      $proyectoModal= Request::input("proyectoModal");
+      $Observaciones= Request::input("Observaciones");
+      $id = Auth::user()->id;
+
+
+      $cliente= DB::select('select * from clientes where concat(Nombre," ",A_paterno," ",A_materno)="'.$nombre.' '.$Apaterno.' '.$Amaterno.'" ');
+
+      if ($cliente) {
+          $numeroCliente=$cliente[0]->N_Cliente;
+           $hola= DB::select('insert into tratosVendedores (idCliente,id_vendedor,proyecto, mz, lt,Observaciones,created_at) values ("'.$numeroCliente.'","'.$id.'","'.$proyectoModal.'","'.$mzModal.'","'.$ltModal.'","'.$Observaciones.'",now())');
+      }else{
+        $no_cliente=DB::select("select CONCAT( Date_format(now(),'%y%m%d%H%i%s'),'', FLOOR(5 + RAND()*(10-5))) as no_cliente");
+        $no_cli=$no_cliente[0]->no_cliente;
+        $insert=DB::select('insert into clientes (N_Cliente,Nombre, A_paterno, A_materno, Telefono1, Telefono2, correo, Calle, Ninterior, NExterior, Colonia, Municipio, Estado, cp, id_personal, Referencia,created_at) values ("'.$no_cli.'","'.$nombre.'","'.$Apaterno.'","'.$Amaterno.'","","","","","","","","","","","'.$id.'","",now())');
+        $cliente= DB::select('select * from clientes where concat(Nombre," ",A_paterno," ",A_materno)="'.$nombre.' '.$Apaterno.' '.$Amaterno.'" ');
+
+
+        $hola= DB::select('insert into tratosVendedores (idCliente,id_vendedor,proyecto, mz, lt,Observaciones, created_at) values ("'.$cliente[0]->N_Cliente.'","'.$id.'","'.$proyectoModal.'","'.$mzModal.'","'.$ltModal.'","'.$Observaciones.'",now())');
+      }
+      DB::update('update proyectoLote set estatus="Apartado" where mz="'.$mzModal.'" and lt="'.$ltModal.'" and proyecto="'.$proyectoModal.'" ');
+    
+    }
+
+
+    
 }
