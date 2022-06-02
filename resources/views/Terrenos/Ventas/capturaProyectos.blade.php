@@ -214,12 +214,8 @@
 						success:  function (data) { 
 							console.log(data);
 							limpiar();
-							if(data=="listo"){
 								mensaje('success','registro exitoso!!');
-							}else{
-
-								mensaje('danger','usuario ya existe!!');
-							}
+							
 
 
 						},
@@ -254,7 +250,7 @@
 					var content = {};
 
 					content.message = mensaje;
-					content.title = 'Modulo Cliente';
+					content.title = 'Modulo Ventas';
 					if (color == "danger") {
 						content.icon = 'la la-close';
 					} else {
