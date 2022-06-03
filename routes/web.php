@@ -379,6 +379,11 @@ Route::get('/buscar/clientesListaEspera', 'VentasController@clientesListaEspera'
 Route::get('/agregar/clienteListaEspera', 'VentasController@agregarclientesListaEspera');
 Route::get('/agregar/tratoVendedor', 'VentasController@agregartratoVendedor');
 Route::get('/ventalotesView6', 'VentasController@ventalotesView6');
+Route::get('/ventalotesView2', 'VentasController@ventalotesView2');
+Route::get('/ventalotesView3', 'VentasController@ventalotesView3');
+Route::get('/ventalotesView8', 'VentasController@ventalotesView8');
+Route::get('/ventalotesView9', 'VentasController@ventalotesView9');
+Route::get('/ventalotesView18', 'VentasController@ventalotesView18');
 
 
 

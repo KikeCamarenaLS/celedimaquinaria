@@ -29,6 +29,41 @@ class VentasController extends Controller
       return view('Terrenos.Ventas.ventaLotesTonanitla',compact('proyectos','lotes'));
     
     }
+    public function ventalotesView2()
+    {
+      $proyectos=DB::select('SELECT * FROM cat_proyectos ORDER BY PROYECTO ASC');
+      $lotes=DB::select('SELECT * FROM proyectolote where proyecto=2');
+      return view('Terrenos.Ventas.LaMagalenaIII',compact('proyectos','lotes'));
+    
+    }
+    public function ventalotesView3()
+    {
+      $proyectos=DB::select('SELECT * FROM cat_proyectos ORDER BY PROYECTO ASC');
+      $lotes=DB::select('SELECT * FROM proyectolote where proyecto=3');
+      return view('Terrenos.Ventas.GolondrinasII',compact('proyectos','lotes'));
+    
+    }
+    public function ventalotesView8()
+    {
+      $proyectos=DB::select('SELECT * FROM cat_proyectos ORDER BY PROYECTO ASC');
+      $lotes=DB::select('SELECT * FROM proyectolote where proyecto=8');
+      return view('Terrenos.Ventas.CaballeriasI',compact('proyectos','lotes'));
+    
+    }
+
+    public function ventalotesView9(){
+
+      $proyectos=DB::select('SELECT * FROM cat_proyectos ORDER BY PROYECTO ASC');
+      $lotes=DB::select('SELECT * FROM proyectolote where proyecto=9');
+      return view('Terrenos.Ventas.CaballeriasII',compact('proyectos','lotes'));
+    }
+    public function ventalotesView18(){
+
+      $proyectos=DB::select('SELECT * FROM cat_proyectos ORDER BY PROYECTO ASC');
+      $lotes=DB::select('SELECT * FROM proyectolote where proyecto=18');
+      return view('Terrenos.Ventas.CaballeriasIII',compact('proyectos','lotes'));
+    }
+
 
     
     
