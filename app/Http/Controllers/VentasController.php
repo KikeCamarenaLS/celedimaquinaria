@@ -63,6 +63,12 @@ class VentasController extends Controller
       $lotes=DB::select('SELECT * FROM proyectolote where proyecto=18');
       return view('Terrenos.Ventas.CaballeriasIII',compact('proyectos','lotes'));
     }
+    public function ventalotesView11(){
+
+      $proyectos=DB::select('SELECT * FROM cat_proyectos ORDER BY PROYECTO ASC');
+      $lotes=DB::select('SELECT * FROM proyectolote where proyecto=11');
+      return view('Terrenos.Ventas.SanDionicio',compact('proyectos','lotes'));
+    }
 
 
     
