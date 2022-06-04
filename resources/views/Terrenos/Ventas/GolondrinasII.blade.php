@@ -128,7 +128,7 @@
 
 				</div>
 				<br>
-				<div class="table-scroll " style="overflow: scroll;">
+				<div class="table-responsive " style="scroll-x: scroll; scroll-y: scroll; width:1600;">
 					<table class="">
 
 
@@ -241,7 +241,7 @@
 							</tr>
 							</tbody>
 					</table>
-<table class="table-responsive">
+<table class="">
 
 
 						<tbody>
@@ -375,9 +375,13 @@
 							
 </tbody>
 					</table>
-					<div class="table-scroll">
-						<div style="float: left; width:20%; height:150px; ">
-						<table class="" >
+					<div class="">
+						<table>
+							<tr>
+						<td style="border: 0px black solid;">
+									<div style="float: left; width:200px; height:180px; background-color: ; ">
+
+							<table class="" >
 
 
 						<tbody>
@@ -417,8 +421,11 @@
 						</tbody>
 					</table>
 					</div>
-					<div style="float: right; width:80%; height:150px;">
-						<table >
+				</td>
+								<td style="border: 0px black solid;">
+										
+									<div style="float: left; width:1400px; height:180px; ">
+					<table >
 						<tbody>
 														<tr>
 								
@@ -494,17 +501,14 @@
 						</tbody>
 					</table>
 					</div>
+
+								</td>
+							</tr>
+						</table>
+					
+					
 					</div>
 					
-					
-					
-
-
-
-
-
-
-
 
 					<br>
 				</div>
