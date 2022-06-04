@@ -241,7 +241,7 @@
 							</tr>
 							</tbody>
 					</table>
-<table class="">
+<table class="table-responsive">
 
 
 						<tbody>
@@ -375,15 +375,16 @@
 							
 </tbody>
 					</table>
-					<div style="float: left; width:20%; height:150px;">
+					<div class="table-scroll">
+						<div style="float: left; width:20%; height:150px; ">
 						<table class="" >
 
 
 						<tbody>
 							<tr>
-								<td style="width: 85px; height:58px;cursor:pointer; border-top: 1px;" rowspan="6" id="24" onclick="cambiar('2','4')"></td>
-								<td style="width: 85px; height:58px;cursor:pointer; border-top:1px black solid;" rowspan="6" id="29" onclick="cambiar('2','9')"></td>
-								<td style="width: 68px; height:58px;cursor:pointer; border-top: 1px; border-bottom: 1px;" rowspan="6"  ></td>
+								<td style="width: 50px; height:58px;cursor:pointer; border-top: 1px;" rowspan="6" id="24" onclick="cambiar('2','4')"></td>
+								<td style="width: 50px; height:58px;cursor:pointer; border-top:1px black solid;" rowspan="6" id="29" onclick="cambiar('2','9')"></td>
+								<td style="width: 50px; height:58px;cursor:pointer; border-top: 1px; border-bottom: 1px;" rowspan="6"  ></td>
 								<td style="width: 50px; height:58px;cursor:pointer;"  id="51"   onclick="cambiar('5','1')"></td>
 								
 								
@@ -395,9 +396,9 @@
 							<tr></tr>
 							<tr></tr>
 							<tr>
-								<td style="width: 85px; height:58px;cursor:pointer; border-top: 1px;" rowspan="6" id="25" onclick="cambiar('2','5')"></td>
-								<td style="width: 85px; height:58px;cursor:pointer; border-top:0px;" rowspan="6" id="28" onclick="cambiar('2','8')"></td>
-								<td style="width: 68px; height:58px;cursor:pointer; border-top: 0px; border-bottom: 0px;" rowspan="6"  ></td>
+								<td style="width: 50px; height:58px;cursor:pointer; border-top: 1px;" rowspan="6" id="25" onclick="cambiar('2','5')"></td>
+								<td style="width: 50px; height:58px;cursor:pointer; border-top:0px;" rowspan="6" id="28" onclick="cambiar('2','8')"></td>
+								<td style="width: 50px; height:58px;cursor:pointer; border-top: 0px; border-bottom: 0px;" rowspan="6"  ></td>
 								<td style="width: 50px; height:58px;cursor:pointer;"   id="52" onclick="cambiar('5','2')"></td>
 								
 							</tr>
@@ -407,9 +408,9 @@
 							<tr></tr>
 							<tr></tr>
 							<tr>
-								<td style="width: 85px; height:58px;cursor:pointer; border-top: 1px;" rowspan="6" id="26" onclick="cambiar('2','6')"></td>
-								<td style="width: 85px; height:58px;cursor:pointer; border-top:0px;" rowspan="6" id="27" onclick="cambiar('2','7')"></td>
-								<td style="width: 68px; height:58px;cursor:pointer; border-top: 0px; border-bottom: 0px;" rowspan="6"  ></td>
+								<td style="width: 50px; height:58px;cursor:pointer; border-top: 1px;" rowspan="6" id="26" onclick="cambiar('2','6')"></td>
+								<td style="width: 50px; height:58px;cursor:pointer; border-top:0px;" rowspan="6" id="27" onclick="cambiar('2','7')"></td>
+								<td style="width: 50px; height:58px;cursor:pointer; border-top: 0px; border-bottom: 0px;" rowspan="6"  ></td>
 								<td style="width: 50px; height:58px;cursor:pointer;"  id="53"  onclick="cambiar('5','3')"></td>
 								
 							</tr>
@@ -493,6 +494,8 @@
 						</tbody>
 					</table>
 					</div>
+					</div>
+					
 					
 					
 

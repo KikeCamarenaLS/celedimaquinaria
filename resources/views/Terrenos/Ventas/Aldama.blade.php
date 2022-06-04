@@ -129,7 +129,7 @@
 				</div>
 				<br>
 				<div class="table-scroll">
-					<table class="table-responsive">
+					<table class="">
 
 
 						<tbody>
@@ -227,25 +227,32 @@
 									</font>
 								</td>
 							</tr>
-							<tr>
-								<td style="width: 50px; height:85px; cursor:pointer;"  id="110" rowspan="1" onclick="cambiar('1','10')"></td>
-								<td style="width: 50px; height:85px; cursor:pointer;" rowspan="2" id="19" onclick="cambiar('1','9')"></td>
-								<td style="width: 50px; height:85px; cursor:pointer;" rowspan="2" id="18" onclick="cambiar('1','8')"></td>
-								<td style="width: 50px; height:85px; cursor:pointer;" rowspan="2" id="17" onclick="cambiar('1','7')"></td>
-								<td style="width: 50px; height:85px; cursor:pointer;" rowspan="2" id="16" onclick="cambiar('1','6')"></td>
-								<td style="width: 50px; height:85px; cursor:pointer;" rowspan="2" id="15" onclick="cambiar('1','5')"></td>
-								<td style="width: 50px; height:85px; cursor:pointer;" rowspan="2" id="14" onclick="cambiar('1','4')"></td>
-								<td style="width: 50px; height:85px; cursor:pointer;" rowspan="2" id="13" onclick="cambiar('1','3')"></td>
-								<td style="width: 50px; height:85px; cursor:pointer;" rowspan="2" id="12" onclick="cambiar('1','2')"></td>
-								<td style="width: 50px; height:85px; cursor:pointer;" rowspan="2" id="11" onclick="cambiar('1','1')"></td>
 							
-							<tr>
-								<tr>
-									<td style="width: 50px; height:85px; cursor:pointer;"  id="110" onclick="cambiar('1','10')"></td>
-								</tr>
 
 						</tbody>
-					</table><br></div>
+					</table>
+					<table>
+						<tbody>
+							<tr>
+								<td style="width: 85px; height:43px; cursor:pointer;" id="410" onclick="cambiar('4','10')"></td>
+								<td style="width: 50px; height:85px; cursor:pointer;" rowspan="2" id="49" onclick="cambiar('4','9')"></td>
+								<td style="width: 50px; height:85px; cursor:pointer;" rowspan="2" id="48" onclick="cambiar('4','8')"></td>
+								<td style="width: 50px; height:85px; cursor:pointer;" rowspan="2" id="47" onclick="cambiar('4','7')"></td>
+								<td style="width: 50px; height:85px; cursor:pointer;" rowspan="2" id="46" onclick="cambiar('4','6')"></td>
+								<td style="width: 50px; height:85px; cursor:pointer;" rowspan="2" id="45" onclick="cambiar('4','5')"></td>
+								<td style="width: 50px; height:85px; cursor:pointer;" rowspan="2" id="44" onclick="cambiar('4','4')"></td>
+								<td style="width: 50px; height:85px; cursor:pointer;" rowspan="2" id="43" onclick="cambiar('4','3')"></td>
+								<td style="width: 50px; height:85px; cursor:pointer;" rowspan="2" id="42" onclick="cambiar('4','2')"></td>
+								<td style="width: 50px; height:85px; cursor:pointer;" rowspan="2" id="41" onclick="cambiar('4','1')"></td>
+								
+							</tr>
+							<tr>
+								<td style="width: 85px; height:43px;" id="411" onclick="cambiar('4','11')" ></td>
+							</tr>
+						</tbody>
+					</table>
+
+					<br></div>
 
 					<input type="hidden" id="lotes" value="{{json_encode($lotes)}}">
 

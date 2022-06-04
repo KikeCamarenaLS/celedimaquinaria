@@ -386,6 +386,7 @@ Route::get('/ventalotesView9', 'VentasController@ventalotesView9');
 Route::get('/ventalotesView18', 'VentasController@ventalotesView18');
 Route::get('/ventalotesView11', 'VentasController@ventalotesView11');
 Route::get('/ventalotesView16', 'VentasController@ventalotesView16');
+Route::get('/ventalotesView17', 'VentasController@ventalotesView17');
 
 
 
