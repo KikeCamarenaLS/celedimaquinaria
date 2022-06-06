@@ -59,10 +59,30 @@
 								<label>Telefono 2(Recados)</label>
 								<input  type="text" class="form-control" maxlength="10" onKeypress="if (event.keyCode < 45 || event.keyCode > 57) event.returnValue = false;"  id="Telefono_3" name="Telefono_3"  >
 							</div>
+							<div class="col-md-3">
+								<label>CURP</label>
+								<input  type="text" class="form-control" maxlength="16"   id="CURP" name="CURP"  >
+							</div>
+							<div class="col-md-3">
+								<label>RFC</label>
+								<input  type="text" class="form-control"   id="RFC" name="RFC"  >
+							</div>
+							
+						</div>
 
+<div class="form-group row " >
+							<div class="col-md-3">
+								<label>Fecha de Nacimiento</label>
+								<input  type="date" class="form-control"   id="fechaNac" name="fechaNac"  >
+							</div>
+							
+							<div class="col-md-3">
+								<label>Ocupación</label>
+								<input  type="text" class="form-control"   id="Ocupación" name="Ocupación"  >
+							</div>
 
 							<div class="col-md-4" >
-								<label>Correo</label>
+								<label>Correo electrónico</label>
 								<input  type="mail" class="form-control success" id="Correo" name="Correo"  >
 
 							</div>
@@ -76,29 +96,40 @@
 									<input  type="text" class="form-control" id="Calle" name="Calle"  >
 								</div>
 								<div class="col-md-2">
-									<label>Código postal<span class="required-label">*</span></label>
-									<input  type="text" class="form-control" id="CodigoPostal" name="CodigoPostal"  >
+									<label>Num. Exterior<span class="required-label">*</span></label>
+									<input required="" type="text" class="form-control" id="NExterior" name="NExterior"  >
 								</div>
+								<div class="col-md-2">
+									<label>Num. Interior<span class="required-label"></span></label>
+									<input required="" type="text" class="form-control" id="Ninterior" name="Ninterior"  >
+								</div>
+								
 							</div>
 							{{-- fin del row --}}
 							{{-- inicio del row --}}
 
 							<div class="form-group row " >
 								<div class="col-md-2">
-									<label>Num. Interior<span class="required-label">*</span></label>
-									<input required="" type="text" class="form-control" id="Ninterior" name="Ninterior"  >
+									<label>Código postal<span class="required-label">*</span></label>
+									<input  type="text" class="form-control" id="CodigoPostal" name="CodigoPostal" onkeyup="codigoPOstal()" >
 								</div>
-								<div class="col-md-2">
-									<label>Num. Exterior<span class="required-label">*</span></label>
-									<input required="" type="text" class="form-control" id="NExterior" name="NExterior"  >
-								</div>
-								<div class="col-md-4">
+								
+								<div class="col-md-3">
 									<label>Colonia<span class="required-label">*</span></label>
-									<input required="" type="text" class="form-control" id="Colonia" name="Colonia"  >
+									<div class="select2-input">
+									<select id="Colonia" name="Colonia"  class="form-control" style="width: 100%;">
+										<div id="coloniaoption"></div>
+										
+									</select>
 								</div>
-								<div class="col-md-4">
+								</div>
+								<div class="col-md-3">
 									<label>Alcaldía/Municipio<span class="required-label">*</span></label>
 									<input required="" type="text" class="form-control" id="Municipio" name="Municipio"  >
+								</div>
+								<div class="col-md-3">
+									<label>Localidad/Poblacion/Ciudad<span class="required-label">*</span></label>
+									<input required="" type="text" class="form-control" id="Poblacion" name="Poblacion"  >
 								</div>
 								
 							</div>
@@ -107,13 +138,13 @@
 							{{-- inicio del row --}}
 
 							<div class="form-group row " >
-								<div class="col-md-4">
+								<div class="col-md-3">
 									<label>Estado<span class="required-label">*</span></label>
 									<input required="" type="text" class="form-control" id="Estado" name="Estado"  >
 								</div>
 								<div class="col-md-8">
-									<label>Referencia<span class="required-label">*</span></label>
-									<input required="" type="text" class="form-control" id="Referencia" name="Referencia"  >
+									<label>Referencia domiciliaria </label>
+									<textarea id="Referencia" class="form-control" name="Referencia"  ></textarea>
 								</div>
 								
 								
@@ -697,6 +728,10 @@
 			$('#FechaPago').select2({
 				theme: "bootstrap"
 			});
+			$('#Colonia').select2({
+				theme: "bootstrap"
+			});
+			
 			$('#proyecto').select2({
 				theme: "bootstrap"
 			});
@@ -1283,6 +1318,11 @@
 							"Municipio":$('#Municipio').val(),
 							"Estado":$('#Estado').val(),
 							"Referencia":$('#Referencia').val(),
+							"CURP":$('#CURP').val(),
+							"RFC":$('#RFC').val(),
+							"fechaNac":$('#fechaNac').val(),
+							"Ocupación":$('#Ocupación').val(),
+							"Poblacion":$('#Poblacion').val(),
 						}, 
 						url:   "{{url('alta/capturaCliente')}}",
 						type:  'get',
@@ -1302,6 +1342,35 @@
 				}
 
 			}
+			function codigoPOstal(){
+				if($('#CodigoPostal').val().length == 5){
+					$.ajax({
+						data:  {
+							"codigo":$('#CodigoPostal').val(),
+						}, 
+						url:   "{{url('consulta/codigoPostal')}}",
+						type:  'get',
+						success:  function (data) { 
+							console.log(data);
+							
+							$('#Estado').val(data[0].estado);
+							$('#Municipio').val(data[0].municipio);
+							$('#Poblacion').val(data[0].ciudad);
+							var html='';
+							console.log(data.length);
+							for (var i = 0; i < data.length; i++) {
+								html+='<option>'+data[i].colonia+'</option>';
+								
+							}
+							$('#Colonia').html(html);
+							console.log(html);
+						},
+					});
+				}else{
+
+				}
+				
+			}
 			function limpiar(){
 
 				$('#Nombre').val("");
@@ -1315,10 +1384,16 @@
 				$('#CodigoPostal').val("");
 				$('#Ninterior').val("");
 				$('#NExterior').val("");
-				$('#Colonia').val("");
+				$('#Colonia').html("");
 				$('#Municipio').val("");
 				$('#Estado').val("");
 				$('#Referencia').val("");
+
+				$('#CURP').val("");
+				$('#RFC').val("");
+				$('#fechaNac').val("");
+				$('#Ocupación').val("");
+				$('#Poblacion').val("");
 
 
 				$('#Fecha_Venta').val("")								

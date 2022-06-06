@@ -94,7 +94,10 @@ class VentasController extends Controller
       return view('Terrenos.Ventas.mozoyuca',compact('proyectos','lotes'));
     }
     
-
+    public function consultacodigoPostal(Request $request){
+      $codigo= Request::input("codigo");
+      return DB::select('select * from cat_codigopostal where codigo_postal="'.$codigo.'"');
+    }
     
 
     
