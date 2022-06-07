@@ -20,7 +20,6 @@ class Contratos extends Migration
             $table->string('Enganche');
             $table->date('FechaContrato');
             $table->bigInteger('Proyecto');
-            $table->string('Etapa');
             $table->string('Mz');
             $table->string('Lt');
             $table->string('Superficie');

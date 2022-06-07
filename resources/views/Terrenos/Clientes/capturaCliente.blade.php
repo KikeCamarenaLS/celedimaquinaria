@@ -59,13 +59,10 @@
 								<label>Telefono 2(Recados)</label>
 								<input  type="text" class="form-control" maxlength="10" onKeypress="if (event.keyCode < 45 || event.keyCode > 57) event.returnValue = false;"  id="Telefono_3" name="Telefono_3"  >
 							</div>
-							<div class="col-md-3">
-								<label>CURP</label>
-								<input  type="text" class="form-control" maxlength="16"   id="CURP" name="CURP"  >
-							</div>
-							<div class="col-md-3">
-								<label>RFC</label>
-								<input  type="text" class="form-control"   id="RFC" name="RFC"  >
+							<div class="col-md-4" >
+								<label>Correo electrónico</label>
+								<input  type="mail" class="form-control success" id="Correo" name="Correo"  >
+
 							</div>
 							
 						</div>
@@ -80,27 +77,30 @@
 								<label>Ocupación</label>
 								<input  type="text" class="form-control"   id="Ocupación" name="Ocupación"  >
 							</div>
-
-							<div class="col-md-4" >
-								<label>Correo electrónico</label>
-								<input  type="mail" class="form-control success" id="Correo" name="Correo"  >
-
+							<div class="col-md-3">
+								<label>CURP</label>
+								<input  type="text" class="form-control" maxlength="16"   id="CURP" name="CURP"  >
 							</div>
+							<div class="col-md-3">
+								<label>RFC</label>
+								<input  type="text" class="form-control"   id="RFC" name="RFC"  >
+							</div>
+							
 
 						</div>
 <div class="form-group row " >
 							
 								
 								<div class="col-md-6">
-									<label>Calle<span class="required-label">*</span></label>
+									<label>Calle</label>
 									<input  type="text" class="form-control" id="Calle" name="Calle"  >
 								</div>
 								<div class="col-md-2">
-									<label>Num. Exterior<span class="required-label">*</span></label>
+									<label>Num. Exterior</label>
 									<input required="" type="text" class="form-control" id="NExterior" name="NExterior"  >
 								</div>
 								<div class="col-md-2">
-									<label>Num. Interior<span class="required-label"></span></label>
+									<label>Num. Interior</label>
 									<input required="" type="text" class="form-control" id="Ninterior" name="Ninterior"  >
 								</div>
 								
@@ -110,12 +110,12 @@
 
 							<div class="form-group row " >
 								<div class="col-md-2">
-									<label>Código postal<span class="required-label">*</span></label>
+									<label>Código postal</label>
 									<input  type="text" class="form-control" id="CodigoPostal" name="CodigoPostal" onkeyup="codigoPOstal()" >
 								</div>
 								
 								<div class="col-md-3">
-									<label>Colonia<span class="required-label">*</span></label>
+									<label>Colonia</label>
 									<div class="select2-input">
 									<select id="Colonia" name="Colonia"  class="form-control" style="width: 100%;">
 										<div id="coloniaoption"></div>
@@ -124,11 +124,11 @@
 								</div>
 								</div>
 								<div class="col-md-3">
-									<label>Alcaldía/Municipio<span class="required-label">*</span></label>
+									<label>Alcaldía/Municipio</label>
 									<input required="" type="text" class="form-control" id="Municipio" name="Municipio"  >
 								</div>
 								<div class="col-md-3">
-									<label>Localidad/Poblacion/Ciudad<span class="required-label">*</span></label>
+									<label>Localidad/Poblacion/Ciudad</label>
 									<input required="" type="text" class="form-control" id="Poblacion" name="Poblacion"  >
 								</div>
 								
@@ -139,12 +139,38 @@
 
 							<div class="form-group row " >
 								<div class="col-md-3">
-									<label>Estado<span class="required-label">*</span></label>
+									<label>Estado</label>
 									<input required="" type="text" class="form-control" id="Estado" name="Estado"  >
 								</div>
 								<div class="col-md-8">
 									<label>Referencia domiciliaria </label>
 									<textarea id="Referencia" class="form-control" name="Referencia"  ></textarea>
+								</div>
+								
+								
+							</div>
+							<div class="form-group row " >
+								<div class="col-md-12">
+									<label>¿Cómo se enteró de nosotros?</label>
+								</div>
+								<div class="col-md-2">
+									<input required="" type="checkbox"  id="Redes" name="Redes"  value="Redes sociales">Redes sociales
+								</div>
+								<div class="col-md-2">
+									<input required="" type="checkbox"  id="Boletín" name="Boletín"  value="Boletín">Boletín
+								</div>
+								<div class="col-md-2">
+									<input required="" type="checkbox"  id="Amigos" name="Amigos"  value="Amigos y/o familiares">Amigos y/o familiares 
+								</div>
+								<div class="col-md-2">
+									<input required="" type="checkbox"  id="Agentes" name="Agentes"  value="Agentes de venta">Agentes de venta 
+								</div>
+								<div class="col-md-1">
+									<input required="" type="checkbox"  id="Otro" name="Otro"  value="Otros">Otros
+								</div>
+								<div class="col-md-3">
+									<label>¿Cómo se enteró de nosotros?</label>
+									<input required="" type="text" class="form-control"  id="otros" name="otros"  >
 								</div>
 								
 								
@@ -230,25 +256,7 @@
 
 									</div>
 									<div class="form-group row " >
-										<div class="col-md-2">
-											<label>Etapa </label>
-
-											<div class="select2-input">
-												<select class="form-control" id="Etapa" name="Etapa" style="width: 100%;">
-													<option>1</option>
-													<option>2</option>
-													<option>3</option>
-													<option>4</option>
-													<option>5</option>
-													<option>6</option>
-													<option>7</option>
-													<option>8</option>
-													<option>9</option>
-													<option>10</option>
-													<option>11</option>
-												</select>
-											</div>
-										</div>
+										
 
 										<div class="col-md-2" >
 											<label>Mz</label>
@@ -593,10 +601,7 @@
 																@endforeach
 															</select>
 														</div>
-														<div class="col-md-3">
-															<label>Etapa </label>
-															<input required="" type="text" disabled class="form-control" id="EtapaH" name="EtapaH" >
-														</div>
+														
 
 													</div>
 													<div class="form-group row " >
@@ -735,9 +740,7 @@
 			$('#proyecto').select2({
 				theme: "bootstrap"
 			});
-			$('#Etapa').select2({
-				theme: "bootstrap"
-			});
+			
 			$('#TipoSuperficie').select2({
 				theme: "bootstrap"
 			});
@@ -881,7 +884,6 @@
 						$('#Fecha_Venta').val("")		
 				$('#Fecha_Contrato').val("")
 				$('#proyecto').val("")
-				$('#Etapa').val("")
 				$('#Mz').val("")
 				$('#Lote').val("")
 				$('#Superficie').val("")
@@ -1043,7 +1045,6 @@
 						$("#proyectoH option").removeAttr("selected");
 						$("#proyectoH option[value='"+data[0].Proyecto+"']").attr("selected",true);
 
-						$('#EtapaH').val(data[0].Etapa);
 						$('#MzH').val(data[0].Mz);
 						$('#LoteH').val(data[0].Lt);
 						$('#SuperficieH').val(data[0].Superficie);
@@ -1156,7 +1157,6 @@
 						"NclienteHide":numcliente,
 						"Fecha_Contrato":$('#Fecha_Contrato').val(),
 						"proyecto":$('#proyecto').val(),
-						"Etapa":$('#Etapa').val(),
 						"Mz":$('#Mz').val(),
 						"Lote":$('#Lote').val(),
 						"Superficie":$('#Superficie').val(),
@@ -1187,7 +1187,6 @@
 						$('#Fecha_Venta').val("")		
 				$('#Fecha_Contrato').val("")
 				$('#proyecto').val("")
-				$('#Etapa').val("")
 				$('#Mz').val("")
 				$('#Lote').val("")
 				$('#Superficie').val("")
@@ -1228,7 +1227,6 @@
 						"NclienteHide":numcliente,
 						"Fecha_Contrato":$('#Fecha_Contrato').val(),
 						"proyecto":$('#proyecto').val(),
-						"Etapa":$('#Etapa').val(),
 						"Mz":$('#Mz').val(),
 						"Lote":$('#Lote').val(),
 						"Superficie":$('#Superficie').val(),
@@ -1254,7 +1252,6 @@
 						$('#Fecha_Venta').val("")		
 				$('#Fecha_Contrato').val("")
 				$('#proyecto').val("")
-				$('#Etapa').val("")
 				$('#Mz').val("")
 				$('#Lote').val("")
 				$('#Superficie').val("")
@@ -1323,6 +1320,12 @@
 							"fechaNac":$('#fechaNac').val(),
 							"Ocupación":$('#Ocupación').val(),
 							"Poblacion":$('#Poblacion').val(),
+							"Redes":$('#Redes').val(),
+							"Boletín":$('#Boletín').val(),
+							"Amigos":$('#Amigos').val(),
+							"Agentes":$('#Agentes').val(),
+							"Otro":$('#Otro').val(),
+							"otros":$('#otros').val(),
 						}, 
 						url:   "{{url('alta/capturaCliente')}}",
 						type:  'get',
@@ -1388,7 +1391,8 @@
 				$('#Municipio').val("");
 				$('#Estado').val("");
 				$('#Referencia').val("");
-
+				$('#EnteroNosotros').val("");
+							$('#otros').val("");
 				$('#CURP').val("");
 				$('#RFC').val("");
 				$('#fechaNac').val("");
@@ -1400,7 +1404,6 @@
 				numcliente=0;
 				$('#Fecha_Contrato').val("")
 				$('#proyecto').val("")
-				$('#Etapa').val("")
 				$('#Mz').val("")
 				$('#Lote').val("")
 				$('#Superficie').val("")

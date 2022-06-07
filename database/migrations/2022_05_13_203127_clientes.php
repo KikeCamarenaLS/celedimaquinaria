@@ -35,6 +35,7 @@ class Clientes extends Migration
             $table->string('fechaNac');
             $table->string('Ocupación');
             $table->string('Poblacion');
+
             $table->bigInteger('id_personal');
             $table->rememberToken();
             $table->timestamps();

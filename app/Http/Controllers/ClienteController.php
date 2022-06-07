@@ -70,7 +70,6 @@ class ClienteController extends Controller
         $Enganche= $request->input("Enganche");
         $Fecha_Contrato= $request->input("Fecha_Contrato");
         $proyecto= $request->input("proyecto");
-        $Etapa= $request->input("Etapa");
         $Mz= $request->input("Mz");
         $Lote= $request->input("Lote");
         $Superficie= $request->input("Superficie");
@@ -119,7 +118,7 @@ class ClienteController extends Controller
 		
          $id = Auth::user()->id;
 
-        $insert =DB::select('insert into contratos (id_contratos,N_Cliente,FechaVenta, FechaContrato, Proyecto, Etapa, Mz, Lt, Superficie, TipoSuperficie, TipoPredio, Vendedor, Adquisicion, N_Parcialidades, Costo, Enganche, DiaPago, MontoMensual, Interes, TelefonoAval,created_at) values ('.$no_contrato.','.$Ncliente.',"'.$Fecha_Venta.'","'.$Fecha_Contrato.'","'.$proyecto.'","'.$Etapa.'","'.$Mz.'","'.$Lote.'","'.$Superficie.'","'.$TipoSuperficie.'","'.$TipoPredio.'","'.$Vendedor.'","'.$Adquisición.'","'.$Nparcialidades.'","'.$CostoTotal.'","'.$Enganche.'","'.$FechaPago.'","'.$MontoMensual.'","'.$Porcentaje.'","'.$Telefono_2.'",now())');
+        $insert =DB::select('insert into contratos (id_contratos,N_Cliente,FechaVenta, FechaContrato, Proyecto, Mz, Lt, Superficie, TipoSuperficie, TipoPredio, Vendedor, Adquisicion, N_Parcialidades, Costo, Enganche, DiaPago, MontoMensual, Interes, TelefonoAval,created_at) values ('.$no_contrato.','.$Ncliente.',"'.$Fecha_Venta.'","'.$Fecha_Contrato.'","'.$proyecto.'","'.$Mz.'","'.$Lote.'","'.$Superficie.'","'.$TipoSuperficie.'","'.$TipoPredio.'","'.$Vendedor.'","'.$Adquisición.'","'.$Nparcialidades.'","'.$CostoTotal.'","'.$Enganche.'","'.$FechaPago.'","'.$MontoMensual.'","'.$Porcentaje.'","'.$Telefono_2.'",now())');
 
 		
         return $no_contrato;
@@ -165,6 +164,13 @@ INNER JOIN cat_proyectos on contratos.proyecto=cat_proyectos.id_proyecto where n
         $Estado= $request->input("Estado");
         $Referencia= $request->input("Referencia");
 
+        $Redes= $request->input("Redes");
+        $Boletín= $request->input("Boletín");
+        $Amigos= $request->input("Amigos");
+        $Agentes= $request->input("Agentes");
+        $Otro= $request->input("Otro");
+        $otros= $request->input("otros");
+
         $CURP= $request->input("CURP");
         $RFC= $request->input("RFC");
         $fechaNac= $request->input("fechaNac");
@@ -172,8 +178,25 @@ INNER JOIN cat_proyectos on contratos.proyecto=cat_proyectos.id_proyecto where n
         $Poblacion= $request->input("Poblacion");
 
         $id = Auth::user()->id;
-
-         DB::select('insert into clientes (N_Cliente,Nombre, A_paterno, A_materno, Telefono1, Telefono2, correo, Calle, Ninterior, NExterior, Colonia, Municipio, Estado, cp, id_personal, Referencia,CURP,RFC,fechaNac,Ocupación,Poblacion,created_at) values ("'.$no_cli.'","'.$Nombre.'","'.$Apellido_Paterno.'","'.$Apellido_Materno.'","'.$Telefono_1.'","'.$Telefono_2.'","'.$Correo.'","'.$Calle.'","'.$Ninterior.'","'.$NExterior.'","'.$Colonia.'","'.$Municipio.'","'.$Estado.'","'.$CodigoPostal.'","'.$id.'","'.$Referencia.'","'.$CURP.'","'.$RFC.'","'.$fechaNac.'","'.$Ocupación.'","'.$Poblacion.'",now())');
+        $insertUsuario=DB::select('insert into clientes (N_Cliente,Nombre, A_paterno, A_materno, Telefono1, Telefono2, correo, Calle, Ninterior, NExterior, Colonia, Municipio, Estado, cp, id_personal, Referencia,CURP,RFC,fechaNac,Ocupación,Poblacion,created_at) values ("'.$no_cli.'","'.$Nombre.'","'.$Apellido_Paterno.'","'.$Apellido_Materno.'","'.$Telefono_1.'","'.$Telefono_2.'","'.$Correo.'","'.$Calle.'","'.$Ninterior.'","'.$NExterior.'","'.$Colonia.'","'.$Municipio.'","'.$Estado.'","'.$CodigoPostal.'","'.$id.'","'.$Referencia.'","'.$CURP.'","'.$RFC.'","'.$fechaNac.'","'.$Ocupación.'","'.$Poblacion.'",now())');
+       
+       if ($Redes == "Redes sociales") {
+       	 $insertEncuesta=DB::select('insert into EncuestaSatisfaccion (N_Cliente,pregunta, respuesta,created_at) values ("'.$no_cli.'","¿Cómo se enteró de nosotros?","'.$Redes.'",now())');
+       }
+       if ($Boletín == "Boletín") {
+       	 $insertEncuesta=DB::select('insert into EncuestaSatisfaccion (N_Cliente,pregunta, respuesta,created_at) values ("'.$no_cli.'","¿Cómo se enteró de nosotros?","'.$Boletín.'",now())');
+       }
+       if ($Amigos == "Amigos y/o familiares") {
+       	 $insertEncuesta=DB::select('insert into EncuestaSatisfaccion (N_Cliente,pregunta, respuesta,created_at) values ("'.$no_cli.'","¿Cómo se enteró de nosotros?","'.$Amigos.'",now())');
+       }
+       if ($Agentes == "Agentes de venta") {
+       	 $insertEncuesta=DB::select('insert into EncuestaSatisfaccion (N_Cliente,pregunta, respuesta,created_at) values ("'.$no_cli.'","¿Cómo se enteró de nosotros?","'.$Agentes.'",now())');
+       }
+       if ($Otro == "Otros") {
+       	 $insertEncuesta=DB::select('insert into EncuestaSatisfaccion (N_Cliente,pregunta, respuesta,created_at) values ("'.$no_cli.'","¿Cómo se enteró de nosotros?","'.$otros.'",now())');
+       }
+       
+       
          return "listo";
         }
     }

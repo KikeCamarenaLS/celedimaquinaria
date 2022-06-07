@@ -41,11 +41,49 @@
 							
 						</div>
 						<div class="col-md-2">
-							<label>Superficie<span class="required-label">*</span></label>
+							<label>Superficie (m<sup>2</sup>)<span class="required-label">*</span></label>
 							<input  type="text" class="form-control" onKeypress="if (event.keyCode < 45 || event.keyCode > 57) event.returnValue = false;" id="Superficie" name="Superficie" >
 							
 						</div>
 						<div class="col-md-2">
+							<label>Medidas (m)<span class="required-label">*</span></label>
+							<input  type="text" class="form-control" onKeypress="if (event.keyCode < 45 || event.keyCode > 57) event.returnValue = false;" id="Ancho" name="Ancho" >
+							
+						</div>
+					</div>
+					<div class="form-group row " >
+						<div class="col-md-2">
+							<label>Colindancia<span class="required-label">*</span></label>
+							<input  type="text" class="form-control" id="Colinancia" name="Colinancia" >
+							
+						</div>
+									<div class="col-md-2">
+											<label>Tipo de superficie</label>
+											<select class="form-control" id="TipoSuperficie" name="TipoSuperficie"  style="width: 100%;">
+												<option>Regular</option>
+												<option>Irregular</option>
+											</select>
+									</div>
+									<div class="col-md-2" >
+											<label>Tipo de predio</label>
+											<select class="form-control" id="TipoPredio" name="TipoPredio"  style="width: 100%;">
+												
+												<option>Intermedio</option>
+												<option>Esquina</option>
+												<option>Frente</option>
+											</select>
+
+									</div>
+									<div class="col-md-3" >
+											<label>Localización</label>
+											<select class="form-control" id="Localización" name="Localización"  style="width: 100%;">
+												
+												<option>Calle</option>
+												<option>Avenida Principal </option>
+											</select>
+
+									</div>
+									<div class="col-md-2">
 							<label>Estatus<span class="required-label">*</span></label>
 							<select class="form-control" id="Estatus" name="Estatus" style="width: 100%;">
 								<option>Disponible</option>
@@ -59,52 +97,63 @@
 							</select>
 
 						</div>
-					
-					</div>
+									</div>
 					<div class="form-group row " >
+									<div class="col-md-3" >
+											<label>Tipo de venta</label>
+											<select class="form-control" id="TipoVenta" name="TipoVenta"  style="width: 100%;">
+												
+												<option>Contado y Financiado</option>
+												<option>Contado</option>
+												<option>Financiado </option>
+											</select>
+
+									</div>
 						<div class="col-md-2">
-							<label>Tipo de superficie</label>
-							<select type="text" class="form-control" id="TipoSuperficie">
-								<option>Regular</option>
-								<option>Irregular</option>
-							</select>
-						</div>
-						<div class="col-md-2" >
-							<label>Costo Total<span class="required-label">*</span></label>
-							<input required="" type="text" class="form-control success" onKeypress="if (event.keyCode < 45 || event.keyCode > 57) event.returnValue = false;" onkeyup="numerico()" onchange="numerico()" id="CostoTotal" name="CostoTotal" >
-							
-						</div>
-						<div class="col-md-2">
-							<label>Tipo de venta<span class="required-label">*</span></label>
-							<select type="text" class="form-control" id="TipoVenta">
-								<option>Contado</option>
-								<option>Plazo</option>
-							</select>
-						</div>
-						<div class="col-md-2">
-							<label>Ancho<span class="required-label">*</span></label>
+							<label>Costo por m<sup>2</sup> de contado<span class="required-label">*</span></label>
 							<input  type="text" class="form-control" onKeypress="if (event.keyCode < 45 || event.keyCode > 57) event.returnValue = false;" id="Ancho" name="Ancho" >
 							
 						</div>
 						<div class="col-md-2">
-							<label>Largo<span class="required-label">*</span></label>
-							<input  type="text" class="form-control" onKeypress="if (event.keyCode < 45 || event.keyCode > 57) event.returnValue = false;" id="Largo" name="Largo" >
+							<label>Costo total de contado<span class="required-label">*</span></label>
+							<input  type="text" class="form-control" onKeypress="if (event.keyCode < 45 || event.keyCode > 57) event.returnValue = false;" id="Ancho" name="Ancho" >
 							
 						</div>
 						<div class="col-md-2">
-							<label>Colinancia<span class="required-label">*</span></label>
-							<input  type="text" class="form-control" id="Colinancia" name="Colinancia" >
+							<label>Costo por m<sup>2</sup> financiado<span class="required-label">*</span></label>
+							<input  type="text" class="form-control" onKeypress="if (event.keyCode < 45 || event.keyCode > 57) event.returnValue = false;" id="Ancho" name="Ancho" >
+							
+						</div>
+						
+						<div class="col-md-2">
+							<label>Costo total financiado<span class="required-label">*</span></label>
+							<input  type="text" class="form-control" onKeypress="if (event.keyCode < 45 || event.keyCode > 57) event.returnValue = false;" id="Ancho" name="Ancho" >
 							
 						</div>
 						</div>
 					<div class="form-group row " >
+						
+					
+					</div>
+				
+					<div class="form-group row " >
 						<div class="col-md-3">
-							<label>Clave Catastral<span class="required-label">*</span></label>
+							<label>Clave Catastral de predio<span class="required-label">*</span></label>
 							<input  type="text" class="form-control" id="ClaveCatastral" name="ClaveCatastral" >
 							
 						</div>
 						<div class="col-md-3">
-							<label>Fecha Clave Catastral<span class="required-label">*</span></label>
+							<label>Fecha Clave Catastral de predio <span class="required-label">*</span></label>
+							<input  type="date" class="form-control" id="FechaClaveCatastral" name="FechaClaveCatastral" >
+							
+						</div>
+						<div class="col-md-3">
+							<label>Clave Catastral de lote<span class="required-label">*</span></label>
+							<input  type="text" class="form-control" id="ClaveCatastral" name="ClaveCatastral" >
+							
+						</div>
+						<div class="col-md-3">
+							<label>Fecha Clave Catastral de lote <span class="required-label">*</span></label>
 							<input  type="date" class="form-control" id="FechaClaveCatastral" name="FechaClaveCatastral" >
 							
 						</div>
@@ -155,6 +204,12 @@
 				theme: "bootstrap"
 			});
 			$('#TipoSuperficie').select2({
+				theme: "bootstrap"
+			});
+			$('#TipoPredio').select2({
+				theme: "bootstrap"
+			});
+			$('#Localización').select2({
 				theme: "bootstrap"
 			});
 			
