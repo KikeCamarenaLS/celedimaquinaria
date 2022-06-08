@@ -11,7 +11,7 @@
 		<div class="col-md-12" >
 			<div class="card">
 				<div class="card-header">
-					<div class="card-title">Registrar Cliente</div>
+					<div class="card-title">Registro Lotes</div>
 
 				</div>
 
@@ -84,16 +84,19 @@
 
 									</div>
 									<div class="col-md-2">
-							<label>Estatus</label>
+							<label>Situación</label>
 							<select class="form-control" id="Estatus" name="Estatus" style="width: 100%;">
 								<option>Disponible</option>
-								<option>Donación</option>
-								<option>Liquidado</option>
 								<option>Apartado</option>
+								<option>Enganches</option>
+								<option>Financiado</option>
+								<option>Liquidado</option>
 								<option>Al corriente</option>
+								<option>Atraso</option>
 								<option>Rescisión</option>
 								<option>Proceso de rescisión</option>
-								<option>Enganches</option>
+								<option>Donación</option>
+								<option>En Pausa</option>
 							</select>
 
 						</div>
