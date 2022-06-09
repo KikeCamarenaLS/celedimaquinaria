@@ -14,7 +14,7 @@ class EncuestaSatisfaccion extends Migration
     public function up()
     {
         Schema::create('EncuestaSatisfaccion', function (Blueprint $table) {
-            $table->string('id_encuestaSatisfaccion');
+            $table->bigIncrements('id_encuestaSatisfaccion')->index();
             $table->string('pregunta');
             $table->string('respuesta');
             $table->string('N_Cliente');
