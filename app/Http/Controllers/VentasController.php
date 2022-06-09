@@ -96,7 +96,7 @@ class VentasController extends Controller
     
     public function consultacodigoPostal(Request $request){
       $codigo= Request::input("codigo");
-      return DB::select('select * from cat_codigopostal where codigo_postal="'.$codigo.'"');
+      return DB::select('select * from cat_CodigoPostal where codigo_postal="'.$codigo.'"');
     }
     
 
