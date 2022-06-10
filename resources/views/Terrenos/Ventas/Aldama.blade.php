@@ -338,20 +338,28 @@
 								'<span class="status-specification">'+data[0].lt+'<input type="hidden" id="ltModal" value="'+data[0].lt+'"></span>'+
 								'</li>'+
 								'<li>'+
-								'<span class="name-specification">Superficie</span>'+
-								'<span class="status-specification">'+data[0].superficie+'m<sup>2</sup><input type="hidden" id="proyectoModal" value="'+data[0].proyecto+'"></span>'+
+								'<span class="name-specification">Medidas</span>'+
+								'<span class="status-specification">'+data[0].Medidas+'m<sup>2</sup><input type="hidden" id="proyectoModal" value="'+data[0].proyecto+'"></span>'+
 								'</li>'+
 								'<li>'+
-								'<span class="name-specification">Tipo de superficie</span>'+
-								'<span class="status-specification">'+data[0].tipoSuperficie+'</span>'+
+								'<span class="name-specification">Colindancia</span>'+
+								'<span class="status-specification">'+data[0].Colinancia+'</span>'+
 								'</li>'+
 								'<li>'+
-								'<span class="name-specification">Costo Total</span>'+
-								'<span class="status-specification">'+data[0].Costo+'</span>'+
+								'<span class="name-specification">Tipo de Superficie</span>'+
+								'<span class="status-specification">'+data[0].TipoSuperficie+'</span>'+
 								'</li>'+
 								'<li>'+
-								'<span class="name-specification">Tipo de venta</span>'+
-								'<span class="status-specification">'+data[0].tipoVenta+'</span>'+
+								'<span class="name-specification">Tipo de Predio</span>'+
+								'<span class="status-specification">'+data[0].TipoPredio+'</span>'+
+								'</li>'+
+								'<li>'+
+								'<span class="name-specification">Clave Catastral (Predio)</span>'+
+								'<span class="status-specification">'+data[0].ClaveCatastralPredio+'</span>'+
+								'</li>'+
+								'<li>'+
+								'<span class="name-specification">Fecha  (Predio)</span>'+
+								'<span class="status-specification">'+data[0].FechaClaveCatastralPredio+'</span>'+
 								'</li>'+
 								'</div>'+
 								'</div>'+
@@ -359,26 +367,37 @@
 
 								'<ul class="specification-list">'+
 								'<li>'+
-								'<span class="name-specification">Ancho</span>'+
-								'<span class="status-specification">'+data[0].Ancho+'m<sup></sup></span>'+
+								'<span class="name-specification">Localización</span>'+
+								'<span class="status-specification">'+data[0].Localización+'<sup></sup></span>'+
 								'</li>'+
 								'<li>'+
-								'<span class="name-specification">Largo</span>'+
-								'<span class="status-specification">'+data[0].Largo+'m<sup></sup></span>'+
+								'<span class="name-specification">TipoVenta</span>'+
+								'<span class="status-specification">'+data[0].TipoVenta+'<sup></sup></span>'+
 								'</li>'+
 								'<li>'+
-								'<span class="name-specification">Colinancia</span>'+
-								'<span class="status-specification">'+data[0].colinancia+'</span>'+
+								'<span class="name-specification">Costo de Contado (m<sup>2</sup>)</span>'+
+								'<span class="status-specification">'+data[0].CostoContado+'</span>'+
 								'</li>'+
 								'<li>'+
-								'<span class="name-specification">Clave Catastral</span>'+
-								'<span class="status-specification">'+data[0].claveCatastral+'</span>'+
+								'<span class="name-specification">Costo Total de Contado </span>'+
+								'<span class="status-specification">'+data[0].CostoContadoTotal+'</span>'+
 								'</li>'+
 								'<li>'+
-								'<span class="name-specification">Fecha Clave Catastral</span>'+
-								'<span class="status-specification">'+data[0].fechaClaveCatastral+'</span>'+
+								'<span class="name-specification">Costo Financiado (m)</span>'+
+								'<span class="status-specification">'+data[0].CostoFinanciado+'</span>'+
 								'</li>'+
-
+								'<li>'+
+								'<span class="name-specification">Costo Total Financiado </span>'+
+								'<span class="status-specification">'+data[0].CostoFinanciadoTotal+'</span>'+
+								'</li>'+
+								'<li>'+
+								'<span class="name-specification">Clave Catastral (Lote)</span>'+
+								'<span class="status-specification">'+data[0].ClaveCatastralLote+'</span>'+
+								'</li>'+
+								'<li>'+
+								'<span class="name-specification">Fecha  (Lote)</span>'+
+								'<span class="status-specification">'+data[0].FechaClaveCatastralLote+'</span>'+
+								'</li>'+
 								'</ul>'+
 								'</div>'+
 								'</div>'+
