@@ -48,7 +48,7 @@
 						<div class="col-md-2">
 
 							<label>Medidas (m)</label>
-							<input  type="text" class="form-control" onKeypress="if (event.keyCode < 45 || event.keyCode > 57) event.returnValue = false;" id="Medidas" name="Medidas" >
+							<input  type="text" class="form-control"  id="Medidas" name="Medidas" >
 							
 						</div>
 					</div>
