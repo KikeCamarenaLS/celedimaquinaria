@@ -110,6 +110,29 @@ class VentasController extends Controller
       $codigo= Request::input("codigo");
       return DB::select('select * from cat_CodigoPostal where codigo_postal="'.$codigo.'"');
     }
+
+     public function ventalotesView32(){
+
+      $proyectos=DB::select('SELECT * FROM cat_proyectos ORDER BY PROYECTO ASC');
+      $lotes=DB::select('SELECT * FROM proyectoLote where proyecto=32');
+      $id_proy=32;
+      return view('Terrenos.Ventas.campestreSanPabloIX',compact('proyectos','lotes','id_proy'));
+    }
+    public function ventalotesView29(){
+
+      $proyectos=DB::select('SELECT * FROM cat_proyectos ORDER BY PROYECTO ASC');
+      $lotes=DB::select('SELECT * FROM proyectoLote where proyecto=29');
+      $id_proy=29;
+      return view('Terrenos.Ventas.campestreSanPabloXI',compact('proyectos','lotes','id_proy'));
+    }
+    public function ventalotesView30(){
+
+      $proyectos=DB::select('SELECT * FROM cat_proyectos ORDER BY PROYECTO ASC');
+      $lotes=DB::select('SELECT * FROM proyectoLote where proyecto=30');
+      $id_proy=30;
+      return view('Terrenos.Ventas.SanPabloTecalco',compact('proyectos','lotes','id_proy'));
+    }
+    
     
 
     
