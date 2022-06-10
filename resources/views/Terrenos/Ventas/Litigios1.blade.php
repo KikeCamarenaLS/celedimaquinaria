@@ -16,7 +16,7 @@
 		<div class="col-md-12" >
 			<div class="card">
 				<div class="card-header">
-					<div class="card-title">Registrar Cliente</div>
+					<div class="card-title">Ventas</div>
 
 				</div>
 
@@ -128,7 +128,7 @@
 
 				</div>
 				<br>
-				<div class="table-scroll">
+				<div class="" style="overflow: scroll;">
 					<table >
 						<tr >
 							<td style="width:90%; border:0px black solid;">
@@ -363,6 +363,7 @@
 						</tbody>
 					</table>
 							</td>
+							&nbsp;&nbsp;&nbsp;&nbsp;
 							<td style="border:0px black solid;">
 								<table>
 									<tr>
@@ -374,7 +375,7 @@
 										<td style="width: 50px; height:50px; border:0px black solid;" rowspan="2" id="211" ></td>
 										<td style="width: 85px; height:55px; border:0px black solid" rowspan="2" id="211" >
 											<br><font size="1">
-										<br><br> Mz 04
+										<br><br> &nbsp;&nbsp;&nbsp;Mz 04&nbsp;&nbsp;&nbsp;
 									</font>
 										</td>
 									</tr>

@@ -11,7 +11,7 @@
 		<div class="col-md-12" >
 			<div class="card">
 				<div class="card-header">
-					<div class="card-title">Registrar Cliente</div>
+					<div class="card-title">Registro de Productos</div>
 
 				</div>
 
@@ -46,7 +46,7 @@
 							
 						</div>
 						<div class="col-md-2">
-							<label>Estatus<span class="required-label">*</span></label>
+							<label>Situación<span class="required-label">*</span></label>
 							<select class="form-control" id="Estatus" name="Estatus" style="width: 100%;">
 								<option>Disponible</option>
 								<option>Donación</option>
