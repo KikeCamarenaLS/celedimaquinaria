@@ -16,7 +16,7 @@
 		<div class="col-md-12" >
 			<div class="card">
 				<div class="card-header">
-					<div class="card-title">Registrar Cliente</div>
+					<div class="card-title">Ventas de Lotes</div>
 
 				</div>
 
@@ -89,10 +89,35 @@
 
 					</div>
 					<div class="col-md-2">
-						<label>Vendido</label>
+						<label>Enganche (Sin contrato)</label>
 						<table>
 							<tr>
-								<td style="width: 30px; height:30px; background-color: rgb(131,131,254);">
+								<td style="width: 30px; height:30px; background-color: rgb(255,174,94);">
+									&nbsp;
+								</td>
+							</tr>
+
+						</table>
+
+					</div>
+					<div class="col-md-2">
+						<label>En Pausa</label>
+						<table>
+							<tr>
+								<td style="width: 30px; height:30px; background-color: rgb(192,192,192);">
+									&nbsp;
+								</td>
+							</tr>
+
+						</table>
+
+					</div>
+					
+					<div class="col-md-2">
+						<label>Proceso de rescisión</label>
+						<table>
+							<tr>
+								<td style="width: 30px; height:30px; background-color: rgb(159,240,238);">
 									&nbsp;
 								</td>
 							</tr>
@@ -104,19 +129,7 @@
 						<label>No Disponible</label>
 						<table>
 							<tr>
-								<td style="width: 30px; height:30px; background-color: rgb(199,199,199);">
-									&nbsp;
-								</td>
-							</tr>
-
-						</table>
-
-					</div>
-					<div class="col-md-2">
-						<label>Proceso de rescisión</label>
-						<table>
-							<tr>
-								<td style="width: 30px; height:30px; background-color: rgb(159,240,238);">
+								<td style="width: 30px; height:30px; background-color: rgb(255,65,55);">
 									&nbsp;
 								</td>
 							</tr>
@@ -267,7 +280,7 @@
 		@endsection
 
 		@section('jscustom')
-		<script type="text/javascript">
+<script type="text/javascript">
 			function inicio(){
 				$('#proyectoH').select2({
 					theme: "bootstrap"
@@ -278,14 +291,16 @@
 				@foreach($lotes as $lote)
 				if('{{$lote->estatus}}'=='Disponible'){
 					$('#'+{{$lote->mz}}+{{$lote->lt}}).css('background-color','rgb(105,239,67)');
-				}else if('{{$lote->estatus}}'=='Liquidado'){
-					$('#'+{{$lote->mz}}+{{$lote->lt}}).css('background-color','rgb(131,131,254)');
+				}else if('{{$lote->estatus}}'=='En Pausa'){
+					$('#'+{{$lote->mz}}+{{$lote->lt}}).css('background-color','rgb(192,192,192)');
 				}else if('{{$lote->estatus}}'=='Apartado' ){
 					$('#'+{{$lote->mz}}+{{$lote->lt}}).css('background-color','yellow');
+				}else if('{{$lote->estatus}}'=='Enganches' ){
+					$('#'+{{$lote->mz}}+{{$lote->lt}}).css('background-color','rgb(255,174,94)');
 				}else if('{{$lote->estatus}}'=='Proceso de rescisión' ){
 					$('#'+{{$lote->mz}}+{{$lote->lt}}).css('background-color','rgb(159,240,238)');
-				}else if('{{$lote->estatus}}'=='Donación' ||'{{$lote->estatus}}'=='Al corriente' ||'{{$lote->estatus}}'=='Rescisión' ||'{{$lote->estatus}}'=='Enganches' ){
-					$('#'+{{$lote->mz}}+{{$lote->lt}}).css('background-color','rgb(199,199,199)');
+				}else if('{{$lote->estatus}}'=='Donación' || '{{$lote->estatus}}'=='Liquidado'||'{{$lote->estatus}}'=='Financiado' ||'{{$lote->estatus}}'=='Al corriente' ||'{{$lote->estatus}}'=='Rescisión' ||'{{$lote->estatus}}'=='Atraso' ){
+					$('#'+{{$lote->mz}}+{{$lote->lt}}).css('background-color','rgb(255,65,55)');
 				} 
 				var area={{$lote->superficie}};
 				area=''+area+'';

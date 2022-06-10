@@ -87,17 +87,9 @@
 									<div class="col-md-2">
 							<label>Situación</label>
 							<select class="form-control" id="Estatus" name="Estatus" style="width: 100%;">
-								<option>Disponible</option>
-								<option>Apartado</option>
-								<option>Enganches</option>
-								<option>Financiado</option>
-								<option>Liquidado</option>
-								<option>Al corriente</option>
-								<option>Atraso</option>
-								<option>Rescisión</option>
-								<option>Proceso de rescisión</option>
-								<option>Donación</option>
-								<option>En Pausa</option>
+								@foreach($situaciones as $situacion)
+									<option value="{{$situacion->situacion}}">{{$situacion->situacion}}</option>
+								@endforeach
 							</select>
 
 						</div>

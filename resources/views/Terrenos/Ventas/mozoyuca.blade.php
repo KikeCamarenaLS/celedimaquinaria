@@ -16,7 +16,7 @@
 		<div class="col-md-12" >
 			<div class="card">
 				<div class="card-header">
-					<div class="card-title">Registrar Cliente</div>
+					<div class="card-title">Ventas de Lotes</div>
 
 				</div>
 
@@ -379,16 +379,18 @@
 				@foreach($lotes as $lote)
 				if('{{$lote->estatus}}'=='Disponible'){
 					$('#'+{{$lote->mz}}+{{$lote->lt}}).css('background-color','rgb(105,239,67)');
-				}else if('{{$lote->estatus}}'=='Liquidado'){
-					$('#'+{{$lote->mz}}+{{$lote->lt}}).css('background-color','rgb(131,131,254)');
+				}else if('{{$lote->estatus}}'=='En Pausa'){
+					$('#'+{{$lote->mz}}+{{$lote->lt}}).css('background-color','rgb(192,192,192)');
 				}else if('{{$lote->estatus}}'=='Apartado' ){
 					$('#'+{{$lote->mz}}+{{$lote->lt}}).css('background-color','yellow');
+				}else if('{{$lote->estatus}}'=='Enganches' ){
+					$('#'+{{$lote->mz}}+{{$lote->lt}}).css('background-color','rgb(255,174,94)');
 				}else if('{{$lote->estatus}}'=='Proceso de rescisión' ){
 					$('#'+{{$lote->mz}}+{{$lote->lt}}).css('background-color','rgb(159,240,238)');
-				}else if('{{$lote->estatus}}'=='Donación' ||'{{$lote->estatus}}'=='Al corriente' ||'{{$lote->estatus}}'=='Rescisión' ||'{{$lote->estatus}}'=='Enganches' ){
-					$('#'+{{$lote->mz}}+{{$lote->lt}}).css('background-color','rgb(199,199,199)');
+				}else if('{{$lote->estatus}}'=='Donación' || '{{$lote->estatus}}'=='Liquidado'||'{{$lote->estatus}}'=='Financiado' ||'{{$lote->estatus}}'=='Al corriente' ||'{{$lote->estatus}}'=='Rescisión' ||'{{$lote->estatus}}'=='Atraso' ){
+					$('#'+{{$lote->mz}}+{{$lote->lt}}).css('background-color','rgb(255,65,55)');
 				} 
-				var area={{$lote->Ancho}}*{{$lote->Largo}};
+				var area={{$lote->superficie}};
 				area=''+area+'';
 				console.log(area);
 				var areas=area.substr(0,6);
@@ -439,20 +441,32 @@
 								'<span class="status-specification">'+data[0].lt+'<input type="hidden" id="ltModal" value="'+data[0].lt+'"></span>'+
 								'</li>'+
 								'<li>'+
-								'<span class="name-specification">Superficie</span>'+
-								'<span class="status-specification">'+data[0].superficie+'m<sup>2</sup><input type="hidden" id="proyectoModal" value="'+data[0].proyecto+'"></span>'+
+								'<span class="name-specification">Medidas</span>'+
+								'<span class="status-specification">'+data[0].Medidas+'m<input type="hidden" id="proyectoModal" value="'+data[0].proyecto+'"></span>'+
 								'</li>'+
 								'<li>'+
-								'<span class="name-specification">Tipo de superficie</span>'+
-								'<span class="status-specification">'+data[0].tipoSuperficie+'</span>'+
+								'<span class="name-specification">Superficie (m<sup>2</sup>)</span>'+
+								'<span class="status-specification">'+data[0].superficie+'m<sup>2</sup>'+
 								'</li>'+
 								'<li>'+
-								'<span class="name-specification">Costo Total</span>'+
-								'<span class="status-specification">'+data[0].Costo+'</span>'+
+								'<span class="name-specification">Colindancia</span>'+
+								'<span class="status-specification">'+data[0].Colinancia+'</span>'+
 								'</li>'+
 								'<li>'+
-								'<span class="name-specification">Tipo de venta</span>'+
-								'<span class="status-specification">'+data[0].tipoVenta+'</span>'+
+								'<span class="name-specification">Tipo de Superficie</span>'+
+								'<span class="status-specification">'+data[0].TipoSuperficie+'</span>'+
+								'</li>'+
+								'<li>'+
+								'<span class="name-specification">Tipo de Predio</span>'+
+								'<span class="status-specification">'+data[0].TipoPredio+'</span>'+
+								'</li>'+
+								'<li>'+
+								'<span class="name-specification">Clave Catastral (Predio)</span>'+
+								'<span class="status-specification">'+data[0].ClaveCatastralPredio+'</span>'+
+								'</li>'+
+								'<li>'+
+								'<span class="name-specification">Fecha  (Predio)</span>'+
+								'<span class="status-specification">'+data[0].FechaClaveCatastralPredio+'</span>'+
 								'</li>'+
 								'</div>'+
 								'</div>'+
@@ -460,26 +474,37 @@
 
 								'<ul class="specification-list">'+
 								'<li>'+
-								'<span class="name-specification">Ancho</span>'+
-								'<span class="status-specification">'+data[0].Ancho+'m<sup></sup></span>'+
+								'<span class="name-specification">Localización</span>'+
+								'<span class="status-specification">'+data[0].Localización+'<sup></sup></span>'+
 								'</li>'+
 								'<li>'+
-								'<span class="name-specification">Largo</span>'+
-								'<span class="status-specification">'+data[0].Largo+'m<sup></sup></span>'+
+								'<span class="name-specification">TipoVenta</span>'+
+								'<span class="status-specification">'+data[0].TipoVenta+'<sup></sup></span>'+
 								'</li>'+
 								'<li>'+
-								'<span class="name-specification">Colinancia</span>'+
-								'<span class="status-specification">'+data[0].colinancia+'</span>'+
+								'<span class="name-specification">Costo de Contado (m<sup>2</sup>)</span>'+
+								'<span class="status-specification">$ '+data[0].CostoContado+'</span>'+
 								'</li>'+
 								'<li>'+
-								'<span class="name-specification">Clave Catastral</span>'+
-								'<span class="status-specification">'+data[0].claveCatastral+'</span>'+
+								'<span class="name-specification">Costo Total de Contado </span>'+
+								'<span class="status-specification">$ '+data[0].CostoContadoTotal.substr(0,9)+'</span>'+
 								'</li>'+
 								'<li>'+
-								'<span class="name-specification">Fecha Clave Catastral</span>'+
-								'<span class="status-specification">'+data[0].fechaClaveCatastral+'</span>'+
+								'<span class="name-specification">Costo Financiado (m)</span>'+
+								'<span class="status-specification">$ '+data[0].CostoFinanciado+'</span>'+
 								'</li>'+
-
+								'<li>'+
+								'<span class="name-specification">Costo Total Financiado </span>'+
+								'<span class="status-specification">$ '+data[0].CostoFinanciadoTotal.substr(0,9)+'</span>'+
+								'</li>'+
+								'<li>'+
+								'<span class="name-specification">Clave Catastral (Lote)</span>'+
+								'<span class="status-specification">'+data[0].ClaveCatastralLote+'</span>'+
+								'</li>'+
+								'<li>'+
+								'<span class="name-specification">Fecha  (Lote)</span>'+
+								'<span class="status-specification">'+data[0].FechaClaveCatastralLote+'</span>'+
+								'</li>'+
 								'</ul>'+
 								'</div>'+
 								'</div>'+
@@ -651,5 +676,4 @@ function mensaje(color,mensaje){
 }
 
 </script>
-
 @endsection

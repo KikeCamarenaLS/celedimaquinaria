@@ -71,7 +71,7 @@ class VentasController extends Controller
     }
     public function ventalotesView16(){
 
-      $proyectos=DB::select('SELECT * FROM cat_proyectos ORDER BY PROYECTO ASC');
+      $proyectos=DB::select('SELECT * FROM cat_proyectos ORDER BY PROYECTO asc');
       $lotes=DB::select('SELECT * FROM proyectoLote where proyecto=16');
       return view('Terrenos.Ventas.Aldama',compact('proyectos','lotes'));
     }
@@ -110,8 +110,9 @@ class VentasController extends Controller
     public function capturaProyectos()
     {
         $proyectos=DB::select('SELECT * FROM cat_proyectos ORDER BY PROYECTO ASC');
+        $situaciones=DB::select('SELECT * FROM cat_situacion');
 
-        return view('Terrenos.Ventas.capturaProyectos',compact('proyectos'));
+        return view('Terrenos.Ventas.capturaProyectos',compact('proyectos','situaciones'));
     
     }
     

@@ -16,7 +16,7 @@
 		<div class="col-md-12" >
 			<div class="card">
 				<div class="card-header">
-					<div class="card-title">Registrar Cliente</div>
+					<div class="card-title"> Ventas de Lotes</div>
 
 				</div>
 
@@ -218,14 +218,16 @@
 				@foreach($lotes as $lote)
 				if('{{$lote->estatus}}'=='Disponible'){
 					$('#'+{{$lote->mz}}+{{$lote->lt}}).css('background-color','rgb(105,239,67)');
-				}else if('{{$lote->estatus}}'=='Liquidado'){
-					$('#'+{{$lote->mz}}+{{$lote->lt}}).css('background-color','rgb(131,131,254)');
+				}else if('{{$lote->estatus}}'=='En Pausa'){
+					$('#'+{{$lote->mz}}+{{$lote->lt}}).css('background-color','rgb(192,192,192)');
 				}else if('{{$lote->estatus}}'=='Apartado' ){
 					$('#'+{{$lote->mz}}+{{$lote->lt}}).css('background-color','yellow');
+				}else if('{{$lote->estatus}}'=='Enganches' ){
+					$('#'+{{$lote->mz}}+{{$lote->lt}}).css('background-color','rgb(255,174,94)');
 				}else if('{{$lote->estatus}}'=='Proceso de rescisión' ){
 					$('#'+{{$lote->mz}}+{{$lote->lt}}).css('background-color','rgb(159,240,238)');
-				}else if('{{$lote->estatus}}'=='Donación' ||'{{$lote->estatus}}'=='Al corriente' ||'{{$lote->estatus}}'=='Rescisión' ||'{{$lote->estatus}}'=='Enganches' ){
-					$('#'+{{$lote->mz}}+{{$lote->lt}}).css('background-color','rgb(199,199,199)');
+				}else if('{{$lote->estatus}}'=='Donación' || '{{$lote->estatus}}'=='Liquidado'||'{{$lote->estatus}}'=='Financiado' ||'{{$lote->estatus}}'=='Al corriente' ||'{{$lote->estatus}}'=='Rescisión' ||'{{$lote->estatus}}'=='Atraso' ){
+					$('#'+{{$lote->mz}}+{{$lote->lt}}).css('background-color','rgb(255,65,55)');
 				} 
 				var area={{$lote->superficie}};
 				area=''+area+'';
@@ -279,7 +281,11 @@
 								'</li>'+
 								'<li>'+
 								'<span class="name-specification">Medidas</span>'+
-								'<span class="status-specification">'+data[0].Medidas+'m<sup>2</sup><input type="hidden" id="proyectoModal" value="'+data[0].proyecto+'"></span>'+
+								'<span class="status-specification">'+data[0].Medidas+'m<input type="hidden" id="proyectoModal" value="'+data[0].proyecto+'"></span>'+
+								'</li>'+
+								'<li>'+
+								'<span class="name-specification">Superficie (m<sup>2</sup>)</span>'+
+								'<span class="status-specification">'+data[0].superficie+'m<sup>2</sup>'+
 								'</li>'+
 								'<li>'+
 								'<span class="name-specification">Colindancia</span>'+
@@ -316,19 +322,19 @@
 								'</li>'+
 								'<li>'+
 								'<span class="name-specification">Costo de Contado (m<sup>2</sup>)</span>'+
-								'<span class="status-specification">'+data[0].CostoContado+'</span>'+
+								'<span class="status-specification">$ '+data[0].CostoContado+'</span>'+
 								'</li>'+
 								'<li>'+
 								'<span class="name-specification">Costo Total de Contado </span>'+
-								'<span class="status-specification">'+data[0].CostoContadoTotal+'</span>'+
+								'<span class="status-specification">$ '+data[0].CostoContadoTotal.substr(0,9)+'</span>'+
 								'</li>'+
 								'<li>'+
 								'<span class="name-specification">Costo Financiado (m)</span>'+
-								'<span class="status-specification">'+data[0].CostoFinanciado+'</span>'+
+								'<span class="status-specification">$ '+data[0].CostoFinanciado+'</span>'+
 								'</li>'+
 								'<li>'+
 								'<span class="name-specification">Costo Total Financiado </span>'+
-								'<span class="status-specification">'+data[0].CostoFinanciadoTotal+'</span>'+
+								'<span class="status-specification">$ '+data[0].CostoFinanciadoTotal.substr(0,9)+'</span>'+
 								'</li>'+
 								'<li>'+
 								'<span class="name-specification">Clave Catastral (Lote)</span>'+
@@ -509,5 +515,4 @@ function mensaje(color,mensaje){
 }
 
 </script>
-
 @endsection

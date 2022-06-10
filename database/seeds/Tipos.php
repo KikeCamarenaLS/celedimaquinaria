@@ -21,5 +21,6 @@ class Tipos extends Seeder
                 'Tipo' => $tipo[$i],
             ]);
         }
+        
     }
 }
