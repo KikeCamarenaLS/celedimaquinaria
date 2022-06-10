@@ -132,6 +132,20 @@ class VentasController extends Controller
       $id_proy=30;
       return view('Terrenos.Ventas.SanPabloTecalco',compact('proyectos','lotes','id_proy'));
     }
+    public function ventalotesView25(){
+
+      $proyectos=DB::select('SELECT * FROM cat_proyectos ORDER BY PROYECTO ASC');
+      $lotes=DB::select('SELECT * FROM proyectoLote where proyecto=25');
+      $id_proy=25;
+      return view('Terrenos.Ventas.SanPabloV',compact('proyectos','lotes','id_proy'));
+    }
+     public function ventalotesView22(){
+
+      $proyectos=DB::select('SELECT * FROM cat_proyectos ORDER BY PROYECTO ASC');
+      $lotes=DB::select('SELECT * FROM proyectoLote where proyecto=22');
+      $id_proy=22;
+      return view('Terrenos.Ventas.Nopalitos',compact('proyectos','lotes','id_proy'));
+    }
     
     
 
