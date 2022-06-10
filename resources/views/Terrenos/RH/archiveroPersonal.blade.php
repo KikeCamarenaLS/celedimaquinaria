@@ -62,52 +62,140 @@
 						<div class="row" id="campoExpediente" style="display: none;">
 								<div class="card-body">
 									<div class="seperator-solid"></div>
-									<div class="row">
-										<div class="col-md-3 info-invoice">
-											<h5 class="sub">Nombre</h5>
-											<p id="nombre_completo"></p>
-										</div>
-										<div class="col-md-2 info-invoice">
-											<h5 class="sub">Telefono(s)</h5>
-											<p id="telefonos"></p>
-										</div>
-										
-										<div class="col-md-5 info-invoice">
-											<h5 class="sub">Dirección</h5>
-											<p id="direccion">
-												
-											</p>
-										</div>
-										<div class="col-md-2 info-invoice">
-											<h5 class="sub">Rol</h5>
-											<p id="rol">
-												
-											</p>
-										</div>
-									</div>
+									
 									<div class="row" >
 										<div class="col-md-12">
 											<div class="invoice-detail">
 												<div class="invoice-top">
 													<h3 class="title"><strong>Expediente</strong></h3>
 												</div>
+												<div class="form-group row " >
+
+						<div class="col-md-4" >
+							<label>Nombre(s)<span class="required-label">*</span></label>
+							<input required="" type="text" class="form-control success" id="Nombre" name="Nombre" >
+							<span class="required-label"  id="validaN" style="color:red; display: none;" ><font size="1">Es necesario llenar este campo</font></span>
+						</div>
+						<div class="col-md-3">
+							<label>Apellido Paterno<span class="required-label">*</span></label>
+							<input required="" type="text" class="form-control" id="Apellido_Paterno" name="Apellido_Paterno"  >
+							<span class="required-label"  id="validaP" style="color:red;  display: none;" ><font size="1">Es necesario llenar este campo</font></span>
+						</div>
+						<div class="col-md-3">
+							<label>Apellido Materno<span class="required-label">*</span></label>
+							<input  type="text" class="form-control" id="Apellido_Materno" name="Apellido_Materno" >
+							<span class="required-label" id="validaM" style="color:red;  display: none;" ><font size="1">Es necesario llenar este campo</font></span>
+						</div>
+						
+					</div>
+					{{-- fin del row --}}
+					{{-- inicio del row --}}
+					<div id="validaexiste" >
+						<div class="form-group row " >
+
+							<div class="col-md-3" >
+								<label>Telefono 1(Cliente)</label>
+								<input required="" type="text" maxlength="10" onKeypress="if (event.keyCode < 45 || event.keyCode > 57) event.returnValue = false;"  class="form-control success" id="Telefono_1" name="Telefono_1"  >
+
+							</div>
+
+							<div class="col-md-3">
+								<label>Telefono 2(Recados)</label>
+								<input  type="text" class="form-control" maxlength="10" onKeypress="if (event.keyCode < 45 || event.keyCode > 57) event.returnValue = false;"  id="Telefono_3" name="Telefono_3"  >
+							</div>
+							<div class="col-md-4" >
+								<label>Correo electrónico</label>
+								<input  type="mail" class="form-control success" id="Correo" name="Correo"  >
+
+							</div>
+							
+						</div>
+
+<div class="form-group row " >
+							<div class="col-md-3">
+								<label>Fecha de Nacimiento</label>
+								<input  type="date" class="form-control"   id="fechaNac" name="fechaNac"  >
+							</div>
+							
+							<div class="col-md-3">
+								<label>Ocupación</label>
+								<input  type="text" class="form-control"   id="Ocupación" name="Ocupación"  >
+							</div>
+							<div class="col-md-3">
+								<label>CURP</label>
+								<input  type="text" class="form-control" maxlength="16"   id="CURP" name="CURP"  >
+							</div>
+							<div class="col-md-3">
+								<label>RFC</label>
+								<input  type="text" class="form-control"   id="RFC" name="RFC"  >
+							</div>
+							
+
+						</div>
+<div class="form-group row " >
+							
+								
+								<div class="col-md-6">
+									<label>Calle</label>
+									<input  type="text" class="form-control" id="Calle" name="Calle"  >
+								</div>
+								<div class="col-md-2">
+									<label>Num. Exterior</label>
+									<input required="" type="text" class="form-control" id="NExterior" name="NExterior"  >
+								</div>
+								<div class="col-md-2">
+									<label>Num. Interior</label>
+									<input required="" type="text" class="form-control" id="Ninterior" name="Ninterior"  >
+								</div>
+								
+							</div>
+							{{-- fin del row --}}
+							{{-- inicio del row --}}
+
+							<div class="form-group row " >
+								<div class="col-md-2">
+									<label>Código postal</label>
+									<input  type="text" class="form-control" id="CodigoPostal" name="CodigoPostal" onkeyup="codigoPOstal()" >
+								</div>
+								
+								<div class="col-md-3">
+									<label>Colonia</label>
+									<div class="select2-input">
+									<select id="Colonia" name="Colonia"  class="form-control" style="width: 100%;">
+										<div id="coloniaoption"></div>
+										
+									</select>
+								</div>
+								</div>
+								<div class="col-md-3">
+									<label>Alcaldía/Municipio</label>
+									<input required="" type="text" class="form-control" id="Municipio" name="Municipio"  >
+								</div>
+								<div class="col-md-3">
+									<label>Localidad/Poblacion/Ciudad</label>
+									<input required="" type="text" class="form-control" id="Poblacion" name="Poblacion"  >
+								</div>
+								
+							</div>
+
+							{{-- fin del row --}}
+							{{-- inicio del row --}}
+
+							<div class="form-group row " >
+								<div class="col-md-3">
+									<label>Estado</label>
+									<input required="" type="text" class="form-control" id="Estado" name="Estado"  >
+								</div>
+								<div class="col-md-8">
+									<label>Referencia domiciliaria </label>
+									<textarea id="Referencia" class="form-control" name="Referencia"  ></textarea>
+								</div>
+								
+								
+							</div>
 												<div class="invoice-item">
 													<div class="table-responsive">
-														<table class="table table-striped">
-															<thead>
-																<tr>
-																	<td><strong>#</strong></td>
-																	<td class="text-center"><strong>DATO</strong></td>
-																	<td class="text-center"><strong>INFORMACION</strong></td>
-																	<td class="text-center"><strong>ARCHIVO</strong></td>
-																</tr>
-															</thead>
-															<tbody id="llenarlatabla">
-																
-																
-
-															</tbody>
-														</table>
+														
 														<center>
 															
 														<button type="button" class="btn btn-info" data-toggle="modal" data-target="#myModal">Agregar Nuevo Dato</button>
@@ -321,6 +409,35 @@
 						}
 					});
 				}
+				function codigoPOstal(){
+				if($('#CodigoPostal').val().length == 5){
+					$.ajax({
+						data:  {
+							"codigo":$('#CodigoPostal').val(),
+						}, 
+						url:   "{{url('consulta/codigoPostal')}}",
+						type:  'get',
+						success:  function (data) { 
+							console.log(data);
+							
+							$('#Estado').val(data[0].estado);
+							$('#Municipio').val(data[0].municipio);
+							$('#Poblacion').val(data[0].ciudad);
+							var html='';
+							console.log(data.length);
+							for (var i = 0; i < data.length; i++) {
+								html+='<option>'+data[i].colonia+'</option>';
+								
+							}
+							$('#Colonia').html(html);
+							console.log(html);
+						},
+					});
+				}else{
+
+				}
+				
+			}
 				function mensaje(color,mensaje){
 					if(mensaje=="sin_mensaje"){
 
