@@ -339,7 +339,7 @@
 								'</li>'+
 								'<li>'+
 								'<span class="name-specification">Medidas</span>'+
-								'<span class="status-specification">'+data[0].Medidas+'m<sup>2</sup><input type="hidden" id="proyectoModal" value="'+data[0].proyecto+'"></span>'+
+								'<span class="status-specification">'+data[0].Medidas+'m<input type="hidden" id="proyectoModal" value="'+data[0].proyecto+'"></span>'+
 								'</li>'+
 								'<li>'+
 								'<span class="name-specification">Superficie (m<sup>2</sup>)</span>'+
