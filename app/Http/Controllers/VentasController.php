@@ -94,7 +94,10 @@ class VentasController extends Controller
       return view('Terrenos.Ventas.mozoyuca',compact('proyectos','lotes'));
     }
     
-
+    public function consultacodigoPostal(Request $request){
+      $codigo= Request::input("codigo");
+      return DB::select('select * from cat_codigopostal where codigo_postal="'.$codigo.'"');
+    }
     
 
     
@@ -118,19 +121,26 @@ class VentasController extends Controller
       $Mz= Request::input("Mz");
       $Lt= Request::input("Lt");
       $Superficie= Request::input("Superficie");
-      $Estatus= Request::input("Estatus");
-      $TipoSuperficie= Request::input("TipoSuperficie");
-      $Costo= Request::input("Costo");
-      $TipoVenta= Request::input("TipoVenta");
-      $Ancho= Request::input("Ancho");
-      $Largo= Request::input("Largo");
+      
+      $Medidas= Request::input("Medidas");
       $Colinancia= Request::input("Colinancia");
-      $ClaveCatastral= Request::input("ClaveCatastral");
-      $FechaClaveCatastral= Request::input("FechaClaveCatastral");
+      $TipoSuperficie= Request::input("TipoSuperficie");
+      $TipoPredio= Request::input("TipoPredio");
+      $Localización= Request::input("Localización");
+      $Estatus= Request::input("Estatus");
+      $TipoVenta= Request::input("TipoVenta");
+      $CostoContado= Request::input("CostoContado");
+      $CostoContadoTotal= Request::input("CostoContadoTotal");
+      $CostoFinanciado= Request::input("CostoFinanciado");
+      $CostoFinanciadoTotal= Request::input("CostoFinanciadoTotal");
+      $ClaveCatastralPredio= Request::input("ClaveCatastralPredio");
+      $FechaClaveCatastralPredio= Request::input("FechaClaveCatastralPredio");
+      $ClaveCatastralLote= Request::input("ClaveCatastralLote");
+      $FechaClaveCatastralLote= Request::input("FechaClaveCatastralLote");
       $id = Auth::user()->id;
 
-      $insert =DB::select('insert into proyectoLote (idElemento,proyecto,mz,lt, superficie, estatus, tipoSuperficie,Costo, tipoVenta, Ancho, Largo, colinancia, claveCatastral, fechaClaveCatastral,created_at) values ("'.$id.'","'.$proyecto.'","'.$Mz.'","'.$Lt.'","'.$Superficie.'","'.$Estatus.'","'.$TipoSuperficie.'","'.$Costo.'","'.$TipoVenta.'","'.$Ancho.'","'.$Largo.'","'.$Colinancia.'","'.$ClaveCatastral.'","'.$FechaClaveCatastral.'",now())');
 
+      $insert =DB::select('insert into proyectoLote (idElemento,proyecto,mz,lt, superficie, Medidas, Colinancia,TipoSuperficie, TipoPredio, Localización, Estatus, TipoVenta, CostoContado, CostoContadoTotal, CostoFinanciado, CostoFinanciadoTotal, ClaveCatastralPredio, FechaClaveCatastralPredio, ClaveCatastralLote, FechaClaveCatastralLote,created_at) values ("'.$id.'","'.$proyecto.'","'.$Mz.'","'.$Lt.'","'.$Superficie.'","'.$Medidas.'","'.$Colinancia.'","'.$TipoSuperficie.'","'.$TipoPredio.'","'.$Localización.'","'.$Estatus.'","'.$TipoVenta.'","'.$CostoContado.'","'.$CostoContadoTotal.'","'.$CostoFinanciado.'","'.$CostoFinanciadoTotal.'","'.$ClaveCatastralPredio.'","'.$FechaClaveCatastralPredio.'","'.$ClaveCatastralLote.'","'.$FechaClaveCatastralLote.'",now())');
 
 
       return $insert;

@@ -30,6 +30,12 @@ class Clientes extends Migration
             $table->string('Estado');
             $table->string('CP');
             $table->string('Referencia');
+            $table->string('CURP');
+            $table->string('RFC');
+            $table->string('fechaNac');
+            $table->string('Ocupación');
+            $table->string('Poblacion');
+
             $table->bigInteger('id_personal');
             $table->rememberToken();
             $table->timestamps();
