@@ -20,7 +20,8 @@ class ClienteController extends Controller
 	public function viewalta_de_clientes(){
         $proyectos=DB::select('SELECT * FROM cat_proyectos');
 		$vendedores=DB::select('SELECT concat(nombre," ",apaterno," ",amaterno)as vendedores,id FROM users where rol="vendedor"');
-	  return view('Terrenos.Clientes.capturaCliente',compact('proyectos','vendedores'));
+		 $situaciones=DB::select('SELECT * FROM cat_situacion');
+	  return view('Terrenos.Clientes.capturaCliente',compact('proyectos','vendedores','situaciones'));
 	}
 	
 	public function validaExistencia(Request $request){
@@ -134,7 +135,7 @@ class ClienteController extends Controller
 
         $insert =DB::select('insert into contratos (id_contratos,N_Cliente,FechaVenta, FechaContrato, Proyecto, Mz, Lt, Superficie, TipoSuperficie, TipoPredio, Vendedor, Adquisicion, N_Parcialidades, Costo, Enganche, DiaPago, MontoMensual, Interes, TelefonoAval,created_at) values ('.$no_contrato.','.$Ncliente.',"'.$Fecha_Venta.'","'.$Fecha_Contrato.'","'.$proyecto.'","'.$Mz.'","'.$Lote.'","'.$Superficie.'","'.$TipoSuperficie.'","'.$TipoPredio.'","'.$Vendedor.'","'.$Adquisición.'","'.$Nparcialidades.'","'.$CostoTotal.'","'.$Enganche.'","'.$FechaPago.'","'.$MontoMensual.'","'.$Porcentaje.'","'.$Telefono_2.'",now())');
 
-		
+		$updates=DB::select('update proyectoLote set estatus="Al corriente" where lt="'.$Lote.'" and mz="'.$Mz.'" and proyecto="'.$proyecto.'" ');
         return $no_contrato;
 
 		
@@ -142,7 +143,7 @@ class ClienteController extends Controller
 
 	public function ConsultarContratos(Request $request){
 		 $numcliente= $request->input("numcliente");
-		return DB::select('select id_contratos,N_Cliente,FechaVenta, FechaContrato, cat_proyectos.Proyecto as ProyectoN,contratos.Proyecto as Proyecto, Etapa, Mz, Lt, 
+		return DB::select('select id_contratos,N_Cliente,FechaVenta, FechaContrato, cat_proyectos.Proyecto as ProyectoN,contratos.Proyecto as Proyecto, Mz, Lt, 
 Superficie, TipoSuperficie, TipoPredio, Vendedor, Adquisicion, N_Parcialidades, Costo, Enganche, 
  DiaPago, MontoMensual, Interes,created_at FROM contratos
 INNER JOIN cat_proyectos on contratos.proyecto=cat_proyectos.id_proyecto where n_cliente="'.$numcliente.'"');

@@ -270,7 +270,7 @@
 										</div>
 										<div class="col-md-2">
 											<label>&nbsp;</label>
-											<input required="" type="submit"  class="btn btn-success" onclick="autoRellena()">
+											<input required="" type="submit" value="Consultar" class="btn btn-success" onclick="autoRellena()">
 											
 										</div>
 										<div class="col-md-2">
@@ -300,7 +300,12 @@
 										
 										<div class="col-md-3">
 											<label>Tipo de venta</label>
-											<input type="text" class="form-control" id="Adquisición" name="Adquisición" disabled >
+											<select class="form-control" id="Adquisición" onchange="validaAdquisicion()" name="Adquisición" >
+												<option value="Contado y Financiado">-Selecciona-</option>
+												
+												<option value="Financiado">Financiado</option>
+												<option value="Contado">Contado</option>
+											</select>
 										</div>
 										<div class="col-md-2">
 											<label>Numero de parcialidades </label>
@@ -520,9 +525,9 @@
 													<div class="col-md-3">
 															<label>Estatus de venta</label>
 															<select class="form-control" id="EstatusVentaCo" name="EstatusVentaCo"  style="width: 100%;">
-																<option>Vendido</option>
-																<option>Rescisión</option>
-																<option>Donación </option>
+																@foreach($situaciones as $situacion)
+									<option value="{{$situacion->situacion}}">{{$situacion->situacion}}</option>
+								@endforeach
 															</select>
 														</div>
 
@@ -787,6 +792,36 @@
 					"loadingRecords" : "Cargando..."
 				}
 			});
+			function validaAdquisicion(){
+
+				var Adquisición=$("#Adquisición").val();
+				if(Adquisición=="Financiado"){
+					$("#Nparcialidades").prop('disabled', false);
+					$("#MontoMensual").prop('disabled', false);
+					$("#Telefono_2").prop('disabled', false);
+					$("#FechaPago").prop('disabled', false);
+
+					$("#FechaPago option[value='0']").attr("selected",false);
+				}else if(Adquisición=="Contado"){
+
+					$("#FechaPago option[value='0']").attr("selected",true);
+					$("#Nparcialidades").prop('disabled', true);
+					$("#MontoMensual").prop('disabled', true);
+					$("#Telefono_2").prop('disabled', true);
+					$("#FechaPago").prop('disabled', true);
+					$("#Telefono_2").val('');
+					$("#Nparcialidades").val('');
+					$("#MontoMensual").val('');
+
+				}else{
+					$("#Nparcialidades").prop('disabled', false);
+					$("#MontoMensual").prop('disabled', false);
+					$("#Telefono_2").prop('disabled', false);
+					$("#FechaPago").prop('disabled', false);
+
+					$("#FechaPago option[value='0']").attr("selected",false);
+				}
+			}
 			function autoRellena(){
 				$.ajax({
 						data:  {
@@ -804,14 +839,45 @@
 								$("#TipoSuperficie option").removeAttr("selected");
 								$("#TipoPredio option").removeAttr("selected");
 								$("#Vendedor option").removeAttr("selected");
-								$("#Adquisición option").removeAttr("selected");
+								mensaje('Lote no encontrado');
 							}else{
 
 								$("#Superficie").val(data[0].superficie);
 								$("#TipoSuperficie").val(data[0].TipoSuperficie);
 								$("#TipoPredio").val(data[0].TipoPredio);
 								$("#Vendedor").val(data[0].idElemento);
-								$("#Adquisición").val(data[0].TipoVenta);
+								if (data[0].TipoVenta=="Contado y Financiado") {
+
+									$("#Nparcialidades").prop('disabled', false);
+					$("#MontoMensual").prop('disabled', false);
+					$("#Telefono_2").prop('disabled', false);
+					$("#FechaPago").prop('disabled', false);
+
+					$("#FechaPago option[value='0']").attr("selected",false);
+
+								$("#Adquisición").html("<option>Financiado</option><option>Contado</option>");
+								}else if(data[0].TipoVenta=="Financiado"){
+									$("#Nparcialidades").prop('disabled', false);
+					$("#MontoMensual").prop('disabled', false);
+					$("#Telefono_2").prop('disabled', false);
+					$("#FechaPago").prop('disabled', false);
+
+					$("#FechaPago option[value='0']").attr("selected",false);
+								$("#Adquisición").html("<option>Financiado</option>");
+								}else if(data[0].TipoVenta=="Contado"){
+									$("#FechaPago option[value='0']").attr("selected",true);
+					$("#Nparcialidades").prop('disabled', true);
+					$("#MontoMensual").prop('disabled', true);
+					$("#Telefono_2").prop('disabled', true);
+					$("#FechaPago").prop('disabled', true);
+					$("#Telefono_2").val('');
+					$("#Nparcialidades").val('');
+					$("#MontoMensual").val('');
+								$("#Adquisición").html("<option>Contado</option>");
+
+
+								}
+								mensaje("success","Lote Encontrao");
 
 
 							}
@@ -928,33 +994,7 @@
 					}   
 				});
 			}
-			function validaAdquisicion(){
 
-				var Adquisición=$("#Adquisición").val();
-				if(Adquisición=="Parcialidades"){
-					$("#Nparcialidades").prop('disabled', false);
-					$("#MontoMensual").prop('disabled', false);
-					$("#Telefono_2").prop('disabled', false);
-					$("#FechaPago").prop('disabled', false);
-
-					$("#FechaPago option[value='0']").attr("selected",false);
-
-
-
-
-				}else if(Adquisición=="Contado"){
-
-					$("#FechaPago option[value='0']").attr("selected",true);
-					$("#Nparcialidades").prop('disabled', true);
-					$("#MontoMensual").prop('disabled', true);
-					$("#Telefono_2").prop('disabled', true);
-					$("#FechaPago").prop('disabled', true);
-					$("#Telefono_2").val('');
-					$("#Nparcialidades").val('');
-					$("#MontoMensual").val('');
-
-				}
-			}
 			function numerico(){
 				var TotalDevengado=$("#CostoTotal").val();
 				TotalDevengado = TotalDevengado.replace(/,/g, "");
@@ -967,14 +1007,14 @@
 			}
 			
 			function ApartadoFormato(){
-				var TotalDevengado=$("#Apartado").val();
+				var TotalDevengado=$("#ApartadoCo").val();
 				TotalDevengado = TotalDevengado.replace(/,/g, "");
-				$("#Apartado").val(Intl.NumberFormat('es-MX').format(TotalDevengado));
+				$("#ApartadoCo").val(Intl.NumberFormat('es-MX').format(TotalDevengado));
 			}
 			function ComEngancheFormato(){
-				var TotalDevengado=$("#ComEnganche").val();
+				var TotalDevengado=$("#ComEngancheCo").val();
 				TotalDevengado = TotalDevengado.replace(/,/g, "");
-				$("#ComEnganche").val(Intl.NumberFormat('es-MX').format(TotalDevengado));
+				$("#ComEngancheCo").val(Intl.NumberFormat('es-MX').format(TotalDevengado));
 			}
 			
 			function Comisión1Formato(){
@@ -992,6 +1032,12 @@
 				TotalDevengado = TotalDevengado.replace(/,/g, "");
 				$("#MontoMensual").val(Intl.NumberFormat('es-MX').format(TotalDevengado));
 			}
+			function CostodelLoteFormato(){
+				var TotalDevengado=$("#CostodelLoteCo").val();
+				TotalDevengado = TotalDevengado.replace(/,/g, "");
+				$("#CostodelLoteCo").val(Intl.NumberFormat('es-MX').format(TotalDevengado));
+			}
+			
 
 			function actualizaTabla(){
 				console.log(numcliente);
@@ -1014,7 +1060,7 @@
 							html+="<td>"+response[i].ProyectoN+"</td>";
 							html+="<td>"+response[i].Mz+"</td>";
 							html+="<td>"+response[i].Lt+"</td>";
-							html+="<td>"+response[i].Superficie+"</td>";
+							html+="<td>"+response[i].Superficie+" m<sup>2</sup></td>";
 							html+="<td><input type='submit' class='btn btn-success' value='Ver Detalles' onclick='abrirModal("+response[i].id_contratos+")'></td>";
 							html+="</tr>";
 						}
@@ -1160,9 +1206,8 @@
 				return valida;
 			}
 			function RegistrarContrato(){
-				console.log(validaRegistrarContrato());
 				if($('#Adquisición').val()=="Contado"){
-					if(validaRegistrarContrato()==8){
+
 						$('#validaNparcialidades').css('display','none');
 						$('#validaMontoMensual').css('display','none');
 						$('#validaTelefono_2').css('display','none');
@@ -1232,10 +1277,8 @@
 						mensaje('danger','Algo salio mal, intentelo mas tarde!!');
 					}   
 				});
-				}
 
-				}else if($('#Adquisición').val()=="Parcialidades"){
-					if(validaRegistrarContrato()==11){
+				}else if($('#Adquisición').val()=="Financiado"){
 					$.ajax({
 					data:  {
 						"Fecha_Venta":$('#Fecha_Venta').val(),
@@ -1295,7 +1338,6 @@
 						mensaje('danger','Algo salio mal, intentelo mas tarde!!');
 					}   
 				});
-				}
 
 				}
 				
@@ -1446,56 +1488,8 @@
 				$('#validaExisteContrato').css("display", "none");
 
 			}
-			function cargarAdscripcion(){
-				$.get("{{Route('combo.Adscripcion')}}", function(data){
-					console.log(data.length);
-					var html = '<option value="">Seleccione una Adscripción</option>';
-					for(i=0; i<data.length; i++) {
-						if(data[i].ADSCRIPCION=="VACIO"){
-							html+='<option selected value="'+data[i].ADSCRIPCION+'">'+data[i].ADSCRIPCION+'</option>';
-						}else{
-							html+='<option value="'+data[i].ADSCRIPCION+'">'+data[i].ADSCRIPCION+'</option>';
-						}
-					}
-					$('#Adscripcion').html(html);
-
-				});
-
-			}
-			function autoRellenado(){
-				var nombre= document.getElementById('AutorrellenariD').value;
-				$.get("{{url('/autollenado/personal')}}/"+nombre, function(data){
-					if(data.length>0){
-						document.getElementById('No_Empleado').value=data[0].ID_ELEMENTO;
-						document.getElementById('Nombre').value=data[0].NOMBRE;
-						document.getElementById('Apellido_Paterno').value=data[0].APELLIDOP;
-						document.getElementById('Apellido_Materno').value=data[0].APELLIDOM;
-						document.getElementById('Ubicacion').value="Sector: "+data[0].SECTOR+", Destacamento: "+data[0].DEST;
-						document.getElementById('Placa').value=data[0].PLACA;
-						console.log(data);
-
-						var x = document.getElementById("Adscripcion");
-						var option = document.createElement("option");
-						option.text = data[0].R_SOCIAL;
-						x.add(option);
-
-						document.getElementById('Adscripcion').value=data[0].R_SOCIAL;
-
-						mensaje("success","Campos llenos");
-					}else{
-						mensaje("danger","Persona no encontrada");
-						document.getElementById('No_Empleado').value="";
-						document.getElementById('Nombre').value="";
-						document.getElementById('Apellido_Paterno').value="";
-						document.getElementById('Apellido_Materno').value="";
-						document.getElementById('Ubicacion').value="";
-						document.getElementById('Placa').value="";
-						document.getElementById('Area').value="Sin Área";
-						document.getElementById('Adscripcion').value="Seleccione una Adscripción";
-
-					}
-				});
-			}
+			
+			
 			function mensaje(color,mensaje){
 				if(mensaje=="sin_mensaje"){
 
