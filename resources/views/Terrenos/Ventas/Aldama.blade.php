@@ -287,7 +287,7 @@
 				}else if('{{$lote->estatus}}'=='Donación' ||'{{$lote->estatus}}'=='Al corriente' ||'{{$lote->estatus}}'=='Rescisión' ||'{{$lote->estatus}}'=='Enganches' ){
 					$('#'+{{$lote->mz}}+{{$lote->lt}}).css('background-color','rgb(199,199,199)');
 				} 
-				var area={{$lote->Ancho}}*{{$lote->Largo}};
+				var area={{$lote->superficie}};
 				area=''+area+'';
 				console.log(area);
 				var areas=area.substr(0,6);
