@@ -342,6 +342,10 @@
 								'<span class="status-specification">'+data[0].Medidas+'m<sup>2</sup><input type="hidden" id="proyectoModal" value="'+data[0].proyecto+'"></span>'+
 								'</li>'+
 								'<li>'+
+								'<span class="name-specification">Superficie (m<sup>2</sup>)</span>'+
+								'<span class="status-specification">'+data[0].superficie+'m<sup>2</sup>'+
+								'</li>'+
+								'<li>'+
 								'<span class="name-specification">Colindancia</span>'+
 								'<span class="status-specification">'+data[0].Colinancia+'</span>'+
 								'</li>'+
@@ -376,19 +380,19 @@
 								'</li>'+
 								'<li>'+
 								'<span class="name-specification">Costo de Contado (m<sup>2</sup>)</span>'+
-								'<span class="status-specification">'+data[0].CostoContado+'</span>'+
+								'<span class="status-specification">$ '+data[0].CostoContado+'</span>'+
 								'</li>'+
 								'<li>'+
 								'<span class="name-specification">Costo Total de Contado </span>'+
-								'<span class="status-specification">'+data[0].CostoContadoTotal.substr(0,9)+'</span>'+
+								'<span class="status-specification">$ '+data[0].CostoContadoTotal.substr(0,9)+'</span>'+
 								'</li>'+
 								'<li>'+
 								'<span class="name-specification">Costo Financiado (m)</span>'+
-								'<span class="status-specification">'+data[0].CostoFinanciado+'</span>'+
+								'<span class="status-specification">$ '+data[0].CostoFinanciado+'</span>'+
 								'</li>'+
 								'<li>'+
 								'<span class="name-specification">Costo Total Financiado </span>'+
-								'<span class="status-specification">'+data[0].CostoFinanciadoTotal.substr(0,9)+'</span>'+
+								'<span class="status-specification">$ '+data[0].CostoFinanciadoTotal.substr(0,9)+'</span>'+
 								'</li>'+
 								'<li>'+
 								'<span class="name-specification">Clave Catastral (Lote)</span>'+
