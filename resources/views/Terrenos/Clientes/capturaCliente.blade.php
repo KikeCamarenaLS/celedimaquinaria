@@ -244,7 +244,7 @@
 
 										<div class="col-md-3">
 											<label>Proyecto</label>
-											<select class="form-control" id="proyecto" name="proyecto" style="width: 100%;">
+											<select class="form-control" id="proyecto" name="proyecto"  style="width: 100%;">
 												@foreach($proyectos as $proyecto)
 												<option value="{{$proyecto->id_proyecto}}">{{$proyecto->proyecto}}</option>
 												@endforeach
@@ -260,25 +260,28 @@
 
 										<div class="col-md-2" >
 											<label>Mz</label>
-											<input required="" type="number" class="form-control" id="Mz" name="Mz"  >
+											<input required="" type="number"  class="form-control" id="Mz" name="Mz"  >
 											<span class="required-label"  id="validaMz" style="color:red; display: none;" ><font size="1">Es obligatorio llenar este campo</font></span>
 										</div>
 										<div class="col-md-2">
 											<label>Lote</label>
-											<input required="" type="number" class="form-control" id="Lote" name="Lote" >
+											<input required="" type="number"  class="form-control" id="Lote" name="Lote" >
 											<span class="required-label"  id="validaLote" style="color:red; display: none;" ><font size="1">Es obligatorio llenar este campo</font></span>
 										</div>
 										<div class="col-md-2">
+											<label>&nbsp;</label>
+											<input required="" type="submit"  class="btn btn-success" onclick="autoRellena()">
+											
+										</div>
+										<div class="col-md-2">
 											<label>Superficie en m²</label>
-											<input  type="text" maxlength="9" onKeypress="if (event.keyCode < 45 || event.keyCode > 57) event.returnValue = false;"  class="form-control" id="Superficie" name="Superficie"  >
+											<input  type="text" maxlength="9" onKeypress="if (event.keyCode < 45 || event.keyCode > 57) event.returnValue = false;"  class="form-control" id="Superficie" name="Superficie"   disabled>
 											<span class="required-label"  id="validaSuperficie" style="color:red; display: none;" ><font size="1">Es obligatorio llenar este campo</font></span>
 										</div>
 										<div class="col-md-3">
 											<label>Tipo de superficie</label>
-											<select class="form-control" id="TipoSuperficie" name="TipoSuperficie"  style="width: 100%;">
-												<option>Regular</option>
-												<option>Irregular</option>
-											</select>
+											<input type="text" class="form-control" id="TipoSuperficie" name="TipoSuperficie" disabled>
+												
 										</div>
 
 									</div>
@@ -286,28 +289,18 @@
 
 										<div class="col-md-3" >
 											<label>Tipo de predio</label>
-											<select class="form-control" id="TipoPredio" name="TipoPredio"  style="width: 100%;">
-												<option>Esquina</option>
-												<option>Intermedio</option>
-												<option>Frente</option>
-											</select>
+											<input type="text" class="form-control" id="TipoPredio" name="TipoPredio" disabled>
 
 										</div>
 										<div class="col-md-3">
 											<label>Vendedor </label>
-											<select class="form-control" id="Vendedor" name="Vendedor" style="width: 100%;">
-												@foreach($vendedores as $vendedore)
-												<option value="{{$vendedore->id}}">{{$vendedore->vendedores}}</option>
-												@endforeach
-											</select>
+											<input type="text" class="form-control" id="Vendedor" name="Vendedor" disabled>
+												
 										</div>
 										
 										<div class="col-md-3">
-											<label>Adquisición</label>
-											<select class="form-control" id="Adquisición" onchange="validaAdquisicion()" name="Adquisición"  style="width: 100%;">
-												<option>Parcialidades</option>
-												<option>Contado</option>
-											</select>
+											<label>Tipo de venta</label>
+											<input type="text" class="form-control" id="Adquisición" name="Adquisición" disabled >
 										</div>
 										<div class="col-md-2">
 											<label>Numero de parcialidades </label>
@@ -741,18 +734,8 @@
 				theme: "bootstrap"
 			});
 			
-			$('#TipoSuperficie').select2({
-				theme: "bootstrap"
-			});
-			$('#TipoPredio').select2({
-				theme: "bootstrap"
-			});
-			$('#Adquisición').select2({
-				theme: "bootstrap"
-			});
-			$('#Vendedor').select2({
-				theme: "bootstrap"
-			});
+			
+			
 			$('#EstatusVenta').select2({
 				theme: "bootstrap"
 			});
@@ -804,6 +787,39 @@
 					"loadingRecords" : "Cargando..."
 				}
 			});
+			function autoRellena(){
+				$.ajax({
+						data:  {
+							"proyecto":$('#proyecto').val(),
+							"Mz":$('#Mz').val(),
+							"Lote":$('#Lote').val(),
+						}, 
+						url:   "{{url('cliente/buscaLote')}}",
+						type:  'get',
+						success:  function (data) { 
+							console.log(data);
+
+							if(data=="no existe"){
+								$("#Superficie").val("");
+								$("#TipoSuperficie option").removeAttr("selected");
+								$("#TipoPredio option").removeAttr("selected");
+								$("#Vendedor option").removeAttr("selected");
+								$("#Adquisición option").removeAttr("selected");
+							}else{
+
+								$("#Superficie").val(data[0].superficie);
+								$("#TipoSuperficie").val(data[0].TipoSuperficie);
+								$("#TipoPredio").val(data[0].TipoPredio);
+								$("#Vendedor").val(data[0].idElemento);
+								$("#Adquisición").val(data[0].TipoVenta);
+
+
+							}
+
+
+						},
+					});
+			}
 			var numcliente;
 			function validaExistencia(){
 				if($('#Nombre').val()==""){

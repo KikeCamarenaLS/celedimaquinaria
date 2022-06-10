@@ -36,6 +36,20 @@ class ClienteController extends Controller
 			return "no existe";
 		}
 	}
+	public function buscaLote(Request $request){
+		$proyecto= $request->input("proyecto");
+        $Mz= $request->input("Mz");
+        $Lote= $request->input("Lote");
+		$validaExistente=DB::select('select * from proyectoLote where proyecto="'.$proyecto.'" and mz="'.$Mz.'" and lt="'.$Lote.'"');
+
+
+		if($validaExistente){
+			return $validaExistente;
+		}else{
+			return "no existe";
+		}
+	
+	}
 	public function capturaCobranza(Request $request){
 
 		$FechaApartadoCo= $request->input("FechaApartadoCo");
