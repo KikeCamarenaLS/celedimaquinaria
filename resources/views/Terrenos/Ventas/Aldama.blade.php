@@ -380,7 +380,7 @@
 								'</li>'+
 								'<li>'+
 								'<span class="name-specification">Costo Total de Contado </span>'+
-								'<span class="status-specification">'+data[0].CostoContadoTotal.substr(0,9);+'</span>'+
+								'<span class="status-specification">'+data[0].CostoContadoTotal.substr(0,9)+'</span>'+
 								'</li>'+
 								'<li>'+
 								'<span class="name-specification">Costo Financiado (m)</span>'+
@@ -388,7 +388,7 @@
 								'</li>'+
 								'<li>'+
 								'<span class="name-specification">Costo Total Financiado </span>'+
-								'<span class="status-specification">'+data[0].CostoFinanciadoTotal+'</span>'+
+								'<span class="status-specification">'+data[0].CostoFinanciadoTotal.substr(0,9)+'</span>'+
 								'</li>'+
 								'<li>'+
 								'<span class="name-specification">Clave Catastral (Lote)</span>'+
