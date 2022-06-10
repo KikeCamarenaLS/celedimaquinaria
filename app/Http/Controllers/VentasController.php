@@ -19,35 +19,40 @@ class VentasController extends Controller
     {
       $proyectos=DB::select('SELECT * FROM cat_proyectos ORDER BY PROYECTO ASC');
       $lotes=DB::select('SELECT * FROM proyectoLote where proyecto=1');
-      return view('Terrenos.Ventas.ventasLotes',compact('proyectos','lotes'));
+      $id_proy=1;
+      return view('Terrenos.Ventas.ventasLotes',compact('proyectos','lotes','id_proy'));
     
     }
     public function ventalotesView6()
     {
       $proyectos=DB::select('SELECT * FROM cat_proyectos ORDER BY PROYECTO ASC');
       $lotes=DB::select('SELECT * FROM proyectoLote where proyecto=6');
-      return view('Terrenos.Ventas.ventaLotesTonanitla',compact('proyectos','lotes'));
+      $id_proy=6;
+      return view('Terrenos.Ventas.ventaLotesTonanitla',compact('proyectos','lotes','id_proy'));
     
     }
     public function ventalotesView2()
     {
       $proyectos=DB::select('SELECT * FROM cat_proyectos ORDER BY PROYECTO ASC');
       $lotes=DB::select('SELECT * FROM proyectoLote where proyecto=2');
-      return view('Terrenos.Ventas.LaMagalenaIII',compact('proyectos','lotes'));
+      $id_proy=2;
+      return view('Terrenos.Ventas.LaMagalenaIII',compact('proyectos','lotes','id_proy'));
     
     }
     public function ventalotesView3()
     {
       $proyectos=DB::select('SELECT * FROM cat_proyectos ORDER BY PROYECTO ASC');
       $lotes=DB::select('SELECT * FROM proyectoLote where proyecto=3');
-      return view('Terrenos.Ventas.GolondrinasII',compact('proyectos','lotes'));
+      $id_proy=3;
+      return view('Terrenos.Ventas.GolondrinasII',compact('proyectos','lotes','id_proy'));
     
     }
     public function ventalotesView8()
     {
       $proyectos=DB::select('SELECT * FROM cat_proyectos ORDER BY PROYECTO ASC');
       $lotes=DB::select('SELECT * FROM proyectoLote where proyecto=8');
-      return view('Terrenos.Ventas.CaballeriasI',compact('proyectos','lotes'));
+      $id_proy=8;
+      return view('Terrenos.Ventas.CaballeriasI',compact('proyectos','lotes','id_proy'));
     
     }
 
@@ -55,43 +60,50 @@ class VentasController extends Controller
 
       $proyectos=DB::select('SELECT * FROM cat_proyectos ORDER BY PROYECTO ASC');
       $lotes=DB::select('SELECT * FROM proyectoLote where proyecto=9');
-      return view('Terrenos.Ventas.CaballeriasII',compact('proyectos','lotes'));
+      $id_proy=9;
+      return view('Terrenos.Ventas.CaballeriasII',compact('proyectos','lotes','id_proy'));
     }
     public function ventalotesView18(){
 
       $proyectos=DB::select('SELECT * FROM cat_proyectos ORDER BY PROYECTO ASC');
       $lotes=DB::select('SELECT * FROM proyectoLote where proyecto=18');
-      return view('Terrenos.Ventas.CaballeriasIII',compact('proyectos','lotes'));
+      $id_proy=18;
+      return view('Terrenos.Ventas.CaballeriasIII',compact('proyectos','lotes','id_proy'));
     }
     public function ventalotesView11(){
 
       $proyectos=DB::select('SELECT * FROM cat_proyectos ORDER BY PROYECTO ASC');
       $lotes=DB::select('SELECT * FROM proyectoLote where proyecto=11');
-      return view('Terrenos.Ventas.SanDionicio',compact('proyectos','lotes'));
+      $id_proy=11;
+      return view('Terrenos.Ventas.SanDionicio',compact('proyectos','lotes','id_proy'));
     }
     public function ventalotesView16(){
 
       $proyectos=DB::select('SELECT * FROM cat_proyectos ORDER BY PROYECTO asc');
       $lotes=DB::select('SELECT * FROM proyectoLote where proyecto=16');
-      return view('Terrenos.Ventas.Aldama',compact('proyectos','lotes'));
+      $id_proy=16;
+      return view('Terrenos.Ventas.Aldama',compact('proyectos','lotes','id_proy'));
     }
     public function ventalotesView17(){
 
       $proyectos=DB::select('SELECT * FROM cat_proyectos ORDER BY PROYECTO ASC');
       $lotes=DB::select('SELECT * FROM proyectoLote where proyecto=17');
-      return view('Terrenos.Ventas.Litigios1',compact('proyectos','lotes'));
+      $id_proy=17;
+      return view('Terrenos.Ventas.Litigios1',compact('proyectos','lotes','id_proy'));
     }
     public function ventalotesView19(){
 
       $proyectos=DB::select('SELECT * FROM cat_proyectos ORDER BY PROYECTO ASC');
       $lotes=DB::select('SELECT * FROM proyectoLote where proyecto=19');
-      return view('Terrenos.Ventas.CaballeriasIV',compact('proyectos','lotes'));
+      $id_proy=19;
+      return view('Terrenos.Ventas.CaballeriasIV',compact('proyectos','lotes','id_proy'));
     }
     public function ventalotesView21(){
 
       $proyectos=DB::select('SELECT * FROM cat_proyectos ORDER BY PROYECTO ASC');
       $lotes=DB::select('SELECT * FROM proyectoLote where proyecto=21');
-      return view('Terrenos.Ventas.mozoyuca',compact('proyectos','lotes'));
+      $id_proy=21;
+      return view('Terrenos.Ventas.mozoyuca',compact('proyectos','lotes','id_proy'));
     }
     
     public function consultacodigoPostal(Request $request){
