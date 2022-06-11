@@ -153,7 +153,11 @@ class VentasController extends Controller
       $id_proy=20;
       return view('Terrenos.Ventas.Litigios2',compact('proyectos','lotes','id_proy'));
     }
-
+ public function ventalotesViewSinMapas(){
+      $proyectos=DB::select('SELECT * FROM cat_proyectos ORDER BY PROYECTO ASC');
+      $vendedores=DB::select('SELECT concat(nombre," ",apaterno," ",amaterno)as vendedores,id FROM users where rol="vendedor"');
+      return view('Terrenos.Ventas.ventalotesViewSinMapas',compact('proyectos','vendedores'));
+    }
     
 
     

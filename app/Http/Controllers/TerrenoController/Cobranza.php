@@ -26,8 +26,7 @@ class Cobranza extends Controller
             $Busqueda= $request->input("Busqueda");
             
             $insert =DB::select('SELECT contratos.id_contratos,contratos.N_Cliente,contratos.FechaVenta,
-contratos.Enganche,contratos.FechaContrato,contratos.Proyecto,contrato_cobranza.FechaApartado,contrato_cobranza.Apartado,contrato_cobranza.FechaEnganche,contrato_cobranza.ComplementoEnganche,contrato_cobranza.DiaPago,contrato_cobranza.vendedor,contrato_cobranza.Comision1,contrato_cobranza.Comision2,contrato_cobranza.EstatusVenta,
-contratos.Etapa,contratos.Mz,contratos.Lt,contratos.Superficie,
+contratos.Enganche,contratos.FechaContrato,contratos.Proyecto,contrato_cobranza.FechaApartado,contrato_cobranza.Apartado,contrato_cobranza.FechaEnganche,contrato_cobranza.ComplementoEnganche,contrato_cobranza.DiaPago,contrato_cobranza.vendedor,contrato_cobranza.Comision1,contrato_cobranza.Comision2,contrato_cobranza.EstatusVenta,contratos.Mz,contratos.Lt,contratos.Superficie,
 contratos.TipoSuperficie,contratos.TipoPredio,contratos.Vendedor,cat_proyectos.proyecto AS nom_proyecto,
 contratos.Adquisicion,contratos.N_Parcialidades,contratos.Costo,
 contratos.DiaPago,contratos.MontoMensual,contratos.TelefonoAval,
