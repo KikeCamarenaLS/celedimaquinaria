@@ -578,10 +578,6 @@
 								<td style="width: 85px; height:50px; cursor:pointer;" colspan="2" id="540" onclick="cambiar('5','40')"></td>
 								
 							</tr>
-							
-
-
-
 
 
 
