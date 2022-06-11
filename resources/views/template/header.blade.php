@@ -261,7 +261,12 @@
 
                                     <li>
                                         <a href="{{url('/ventalotesView16')}}">
-                                            <span class="sub-item">Venta de Lotes</span>
+                                            <span class="sub-item">Venta de Lotes(Mapas)</span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="{{url('/ventalotesViewSinMapas')}}">
+                                            <span class="sub-item">Venta de Lotes(Sin Mapas)</span>
                                         </a>
                                     </li>
                                     <li>
