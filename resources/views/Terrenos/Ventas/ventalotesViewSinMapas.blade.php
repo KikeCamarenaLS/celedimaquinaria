@@ -11,400 +11,451 @@
 		<div class="col-md-12" >
 			<div class="card">
 				<div class="card-header">
-					<div class="card-title">Consulta de lotes  </div>
-					
+					<div class="card-title">Venta de Lotes</div>
+
 				</div>
-				
-				
+
+
+
+
 				<div class="card-body">
 					{{-- inicio del row --}}
 
-					<div class=" row " >
-							<div class="col-md-3">
-								<label>Proyecto </label>
-								<select class="form-control success"  id="proyectoH" onchange="cambiarProyecto()">
-									@foreach($proyectos as $proyecto)
-									<option value="{{$proyecto->id_proyecto}}" >{{$proyecto->proyecto}}</option>
-									@endforeach
-								</select>
-							</div>
-							<div class="col-md-8" >
-								<label>Búsqueda por nombre, número de contrato o número de cliente</label>
-								<input required="" type="text" class="form-control success" id="Busqueda" name="Busqueda"  >
-								
-							</div>
-							<div class="col-md-2" >
-								
-								
-							</div>
-
-							
-							
-						</div><br>
-						<div class="row">
-							<div class="col-md-12">
-									<center>
-										<input  type="submit" class="btn btn-success" value="Buscar" onclick="Buscar()">
-									</center>
-								</div>
+					<div class="form-group row " >
+						<div class="col-md-4">
+							<label>Proyecto</label>
+							<select class="form-control" id="proyecto" name="proyecto" style="width: 100%;">
+								@foreach($proyectos as $proyecto)
+								<option value="{{$proyecto->id_proyecto}}">{{$proyecto->proyecto}}</option>
+								@endforeach
+							</select>
 						</div>
-						<div class="modal fade bd-example-modal-lg" id="modalCobranza" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
-									<div class="modal-dialog modal-lg">
-										<div class="modal-content">
-
-
-											<div class="card">
-												<div class="card-header" style="background-color: red; color:#ffffff;">
-													<div class="card-title" style="background-color: red; color:#ffffff;">Modulo Cobranza</div>
-												</div>
-												<div class="card-body">
-
-													<div class="form-group row " >
-
-														<div class="col-md-12">
-															<label>Numero de contrato </label>
-															<input required="" type="text"  class="form-control"  id="numeroContr" name="numeroContr" >
-														</div>
-														
-
-													</div>
-
-													<div class="form-group row " >
-
-														<div class="col-md-3">
-															<label>Fecha de apartado </label>
-															<input required="" type="date"  class="form-control"  id="FechaApartadoCo" name="FechaApartadoCo" >
-														</div>
-														<div class="col-md-3">
-															<label>Apartado </label>
-															<input required="" type="text"  onkeyup="ApartadoFormato()" maxlength="9" onKeypress="if (event.keyCode < 45 || event.keyCode > 57) event.returnValue = false;" class="form-control" id="ApartadoCo" name="ApartadoCo" >
-														</div>
-														<div class="col-md-3">
-															<label>Fecha de enganche</label>
-															<input required="" type="date"  class="form-control"  id="FechaEngancheCo" name="FechaEngancheCo" >
-														</div>
-														<div class="col-md-3">
-															<label>Complemento de enganche</label>
-															<input required="" type="text"  onkeyup="ComEngancheFormato()" maxlength="9" onKeypress="if (event.keyCode < 45 || event.keyCode > 57) event.returnValue = false;" class="form-control" id="ComEngancheCo" name="ComEngancheCo" >
-														</div>
-
-													</div>
-													<div class="form-group row " >
-
-														<div class="col-md-3">
-															<label>Enganche  </label>
-															<input required="" type="text"  class="form-control" id="EngancheCobranzaCo" name="EngancheCobranzaCo" maxlength="9" onKeypress="if (event.keyCode < 45 || event.keyCode > 57) event.returnValue = false;" onkeyup="EngancheCobranzaCof()"  >
-														</div>
-														<div class="col-md-3">
-															<label>Costo del Lote </label>
-															<input required="" type="text"  onkeyup="CostodelLoteFormato()" maxlength="9" onKeypress="if (event.keyCode < 45 || event.keyCode > 57) event.returnValue = false;" class="form-control" id="CostodelLoteCo" name="CostodelLoteCo" >
-														</div>
-														<div class="col-md-3">
-															<label>Día de pagos (Mensualidades)</label>
-
-															<div class="select2-input">
-																<select class="form-control" id="FechaPagoCCo" name="FechaPagoCCo" style="width: 100%;">
-																	<option>1</option>
-																	<option>2</option>
-																	<option>3</option>
-																	<option>4</option>
-																	<option>5</option>
-																	<option>6</option>
-																	<option>7</option>
-																	<option>8</option>
-																	<option>9</option>
-																	<option>10</option>
-																	<option>11</option>
-																	<option>12</option>
-																	<option>13</option>
-																	<option>14</option>
-																	<option>15</option>
-																	<option>16</option>
-																	<option>17</option>
-																	<option>18</option>
-																	<option>19</option>
-																	<option>20</option>
-																	<option>21</option>
-																	<option>22</option>
-																	<option>23</option>
-																	<option>24</option>
-																	<option>25</option>
-																	<option>26</option>
-																	<option>27</option>
-																	<option>28</option>
-																	<option>29</option>
-																	<option>30</option>
-																	<option>31</option>
-																	<option>32</option>
-																	<option value="0">N/A</option>
-																</select>
-															</div>
-														</div>
-														<div class="col-md-3">
-															<label>Vendedor </label>
-															<select class="form-control" id="VendedorCCo" name="VendedorCCo" style="width: 100%;">
-																@foreach($vendedores as $vendedore)
-																<option value="{{$vendedore->id}}">{{$vendedore->vendedores}}</option>
-																@endforeach
-															</select>
-														</div>
-
-
-
-													</div>
-													<div class="form-group row " >
-
-														
-														<div class="col-md-3">
-															<label>Comisión 1 </label>
-															<input required="" type="text"  onkeyup="Comisión1Formato()" maxlength="9" onKeypress="if (event.keyCode < 45 || event.keyCode > 57) event.returnValue = false;" class="form-control" id="Comisión1Co" name="Comisión1Co" >
-														</div>
-														<div class="col-md-3">
-															<label>Comisión 2</label>
-															<input required="" type="text" onkeyup="Comisión2Formato()" maxlength="9" onKeypress="if (event.keyCode < 45 || event.keyCode > 57) event.returnValue = false;" class="form-control" id="Comisión2Co" name="Comisión2Co" >
-														</div>
-													<div class="col-md-3">
-															<label>Estatus de venta</label>
-															<select class="form-control" id="EstatusVentaCo" name="EstatusVentaCo"  style="width: 100%;">
-																<option>Vendido</option>
-																<option>Rescisión</option>
-																<option>Donación </option>
-															</select>
-														</div>
-
-													</div>
-												</div>
-												<div class="card-footer">
-													<input type="submit" id="registroCobranza" class="btn btn-success" onclick="cobranzaRegistra()">
-												</div>
-
-											</div>
-
-
-
-										</div>
-									</div>
-								</div>
-						<div class="form-group ">
-							<div class="table-responsive" >
-										<table class="table" id="list_user">
-											<thead>
-												<tr>
-													<th class="bg-danger sorting" style="color:#ffffff; width: 20%;"><center>No. Contrato</center> </th>
-													<th class="bg-danger sorting" style="color:#ffffff; width: 20%;"><center>No. Cliente </center> </th>
-													<th class="bg-danger sorting" style="color:#ffffff; width: 10%;"><center>Costo </center> </th>
-													<th class="bg-danger sorting" style="color:#ffffff; width: 40%;"><center>Nombre</center> </th>
-													<th class="bg-danger sorting" style="color:#ffffff; width: 8%;"><center>Proyecto</center></th>
-													<th class="bg-danger sorting" style="color:#ffffff; width: 5%;"><center>Mz</center></th>
-													<th class="bg-danger sorting" style="color:#ffffff; width: 5%;"><center>Lote</center></th>
-													
-													<th class="bg-danger sorting" style="color:#ffffff; width: 12%;"><center>Acción</center></th>
-
-
-												</tr>
-											</thead>
-
-											<tbody id="llenaTabla">
-
-
-											</tbody>
-										</table>
-									</div>
-						</div>
-						
-							
-
+						<div class="col-md-2" >
+							<label>Mz</label>
+							<input required="" type="text" onKeypress="if (event.keyCode < 45 || event.keyCode > 57) event.returnValue = false;" class="form-control success" id="Mz" name="Mz" >
 							
 						</div>
-						<div class="card-footer">{{-- inicio del row --}}
-							<div class="row">
-								
-							</div>
-							{{-- fin del row --}}
+						<div class="col-md-2">
+							<label>Lt</label>
+							<input required="" type="text" onKeypress="if (event.keyCode < 45 || event.keyCode > 57) event.returnValue = false;" class="form-control" id="Lt" name="Lt"  >
+							
 						</div>
-
-						
+						<div class="col-md-2">
+							<label></label>
+							<input required="" type="submit"  class="btn btn-success form-control" value="Buscar"  onclick="Buscar()">
+							
+						</div>
 					</div>
-					
+					<div id="formulario" style="display: none;">
+						
 
+						<div class="form-group row " >
+							<div class="col-md-2">
+								<label>Superficie (m<sup>2</sup>)</label>
+								<input  type="text" class="form-control" onKeypress="if (event.keyCode < 45 || event.keyCode > 57) event.returnValue = false;" id="Superficie" name="Superficie" disabled >
+
+							</div>
+							<div class="col-md-2">
+
+								<label>Medidas (m)</label>
+								<input  type="text" class="form-control"  id="Medidas" name="Medidas" disabled>
+
+							</div>
+							<div class="col-md-4">
+								<label>Colindancia</label>
+								<input  type="text" class="form-control" id="Colinancia" name="Colinancia" disabled >
+
+							</div>
+							<div class="col-md-2">
+								<label>Tipo de superficie</label>
+								<input  type="text" class="form-control" disabled id="TipoSuperficie" name="TipoSuperficie"  style="width: 100%;">
+
+							</div>
+						</div>
+						<div class="form-group row " >
+
+							
+							<div class="col-md-2" >
+								<label>Tipo de predio</label>
+								<input  type="text" disabled class="form-control" id="TipoPredio" name="TipoPredio"  style="width: 100%;">
+
+							</div>
+							<div class="col-md-3" >
+								<label>Localización</label>
+								<input  type="text"  disabled class="form-control" id="Localización" name="Localización"  style="width: 100%;">
+
+							</div>
+							<div class="col-md-2">
+								<label>Situación</label>
+								<input  type="text" class="form-control" disabled id="Estatus" name="Estatus" style="width: 100%;">
+								
+
+							</div>
+							<div class="col-md-3" >
+								<label>Tipo de venta</label>
+								<input  type="text" disabled class="form-control" id="TipoVenta" name="TipoVenta"  style="width: 100%;">
+
+							</div>
+						</div>
+						<div class="form-group row " >
+
+							<div class="col-md-2">
+								<label>Costo por m<sup>2</sup> de contado</label>
+								<input  type="text" disabled class="form-control" onkeyup="calculaCostoContado()" onKeypress="if (event.keyCode < 45 || event.keyCode > 57) event.returnValue = false;" id="CostoContado" name="CostoContado" >
+
+							</div>
+							<div class="col-md-2">
+								<label>Costo total de contado</label>
+								<input  type="text" disabled class="form-control" onKeypress="if (event.keyCode < 45 || event.keyCode > 57) event.returnValue = false;" id="CostoContadoTotal" name="CostoContadoTotal" >
+
+							</div>
+							<div class="col-md-2">
+								<label>Costo por m<sup>2</sup> financiado</label>
+								<input  type="text" disabled class="form-control" onkeyup="calculaCostofinanciado()" onKeypress="if (event.keyCode < 45 || event.keyCode > 57) event.returnValue = false;" id="CostoFinanciado" name="CostoFinanciado" >
+
+							</div>
+
+							<div class="col-md-2">
+								<label>Costo total financiado</label>
+								<input  type="text" disabled class="form-control" onKeypress="if (event.keyCode < 45 || event.keyCode > 57) event.returnValue = false;" id="CostoFinanciadoTotal" name="CostoFinanciadoTotal" >
+
+							</div>
+						</div>
+						<div class="form-group row " >
+
+
+						</div>
+
+						<div class="form-group row " >
+							<div class="col-md-3">
+								<label>Clave Catastral de predio</label>
+								<input  type="text" disabled class="form-control" id="ClaveCatastralPredio" name="ClaveCatastralPredio" >
+							</div>
+							<div class="col-md-3">
+								<label>Fecha Clave Catastral de predio </label>
+								<input  type="date" disabled class="form-control" id="FechaClaveCatastralPredio" name="FechaClaveCatastralPredio" >
+							</div>
+							<div class="col-md-3">
+								<label>Clave Catastral de lote</label>
+								<input  type="text" disabled class="form-control" id="ClaveCatastralLote" name="ClaveCatastralLote" >
+							</div>
+							<div class="col-md-3">
+								<label>Fecha Clave Catastral de lote </label>
+								<input  type="date" disabled class="form-control" id="FechaClaveCatastralLote" name="FechaClaveCatastralLote" >
+
+							</div>
+
+						</div>
+						<div class="form-group row" id="validaExistencia">
+							
+						</div>
+						<div class="form-group row">
+							<div class="col-md-4">
+								<label>Nombre(s)</label>
+								<input type="text" class="form-control" onkeyup="buscarNombre()" id="Nombre" name="Nombre"  >
+							</div>
+							<div class="col-md-4">
+								<label>Apellido Paterno</label>
+								<input type="text" class="form-control" onkeyup="buscarNombre()" id="Apaterno" name="Apaterno">
+							</div>
+							<div class="col-md-4">
+								<label>Apellido Materno</label>
+								<input type="text" class="form-control" onkeyup="buscarNombre()" id="Amaterno" name="Amaterno">
+							</div>
+							
+						</div>
+						<div class="form-group row">
+							<div class="col-md-12">
+								<label>Observaciones</label>
+								<input type="text" class="form-control"  id="Observaciones" name="Observaciones">
+							</div>
+						</div>
+						
+
+
+
+
+						<div class="card-footer">{{-- inicio del row --}}
+							<button type="button" class="btn btn-danger" onclick=" location.reload();">Limpiar</button>
+							<button type="button" class="btn btn-success" onclick="apartado()">Apartado</button>
+
+						</div>
+					</div>
 				</div>
+
+
+
+
 			</div>
 
 
-			@endsection
+		</div>
+	</div>
 
-			@section('jscustom')
-			<script type="text/javascript">
-				$('#list_user').DataTable({
-				scrollX:  false,
-				scrollCollapse: true,
-				filter: true,
-				lengthMenu:   [[7, 14, 21, 28, 35, -1], [7, 14, 21, 28, 35, "Todos"]],
-				iDisplayLength: 7,
-				"language" : {
-					"lengthMenu" : "Mostrar _MENU_ datos",
-					"zeroRecords" : "No existe el dato introducido",
-					"info" : "Página _PAGE_ de _PAGES_ ",
-					"infoEmpty" : "Sin datos disponibles",
-					"infoFiltered": "(mostrando los datos filtrados: _MAX_)",
-					"paginate" : {
-						"first": "Primero",
-						"last": "Ultimo",
-						"next": "Siguiente",
-						"previous": "Anterior"
-					},
-					"search": "Buscar",
-					"processing" : "Buscando...",
-					"loadingRecords" : "Cargando..."
-				}
-			});
-				function Buscar(){
-					$('#list_user').DataTable().destroy();
-					
-						$.ajax({
-							data:  {
-								"Busqueda":$('#Busqueda').val(),
-							}, 
-							url:   "{{url('busqueda/capturaCobranza')}}",
-							type:  'get',
-							success:  function (response) { 
-								console.log(response);
-						var html="";
-						var costocomilla="";
-						var Enganchecomilla="";
-						if(response.length==0){
-							mensaje('danger','No se encontraron registros');
-						}else{
-							for (var i = 0; i < response.length; i++) {
-							 costocomilla='"'+response[i].Costo+'"';
-							 Enganchecomilla='"'+response[i].Enganche+'"';
-							  var FechaApartado='"'+response[i].FechaApartado+'"';
-							  var Apartado='"'+response[i].Apartado+'"';
-							  var FechaEnganche='"'+response[i].FechaEnganche+'"';
-							  var ComplementoEnganche='"'+response[i].ComplementoEnganche+'"';
-							  var DiaPago='"'+response[i].DiaPago+'"';
-							  var vendedor='"'+response[i].vendedor+'"';
-							  var Comision1='"'+response[i].Comision1+'"';
-							  var Comision2='"'+response[i].Comision2+'"';
-							  var EstatusVenta='"'+response[i].EstatusVenta+'"';
-							html+="<tr>";
-							html+="<td> <FONT  SIZE=2>"+response[i].id_contratos+"</FONT></td>";
-							html+="<td> <FONT  SIZE=2>"+response[i].N_Cliente+"</FONT></td>";
-							html+="<td> <FONT  SIZE=2>$"+response[i].Costo+"(MXN)</FONT></td>";
-							html+="<td> <FONT  SIZE=2>"+response[i].NombreCompleto+"</FONT></td>";
-							html+="<td> <FONT  SIZE=2>"+response[i].nom_proyecto+"</FONT></td>";
-							html+="<td> <FONT  SIZE=2>"+response[i].Mz+"</FONT></td>";
-							html+="<td> <FONT  SIZE=2>"+response[i].Lt+"</FONT></td>";
-							html+="<td><input type='submit' class='btn btn-success' value='Ver Detalles' onclick='abrirModal("+response[i].id_contratos+","+costocomilla+","+Enganchecomilla+","+FechaApartado+","+Apartado+","+FechaEnganche+","+ComplementoEnganche+","+DiaPago+","+vendedor+","+Comision1+","+Comision2+","+EstatusVenta+")'></td>";
-							html+="</tr>";
-						}$('#llenaTabla').html("");
-						$('#llenaTabla').html(html);
-						$('#list_user').DataTable({
-							scrollX:  false,
-							scrollCollapse: true,
-							filter: true,
-							lengthMenu:   [[7, 14, 21, 28, 35, -1], [7, 14, 21, 28, 35, "Todos"]],
-							iDisplayLength: 7,
-							"language" : {
-								"lengthMenu" : "Mostrar _MENU_ datos",
-								"zeroRecords" : "No existe el dato introducido",
-								"info" : "Página _PAGE_ de _PAGES_ ",
-								"infoEmpty" : "Sin datos disponibles",
-								"infoFiltered": "(mostrando los datos filtrados: _MAX_)",
-								"paginate" : {
-									"first": "Primero",
-									"last": "Ultimo",
-									"next": "Siguiente",
-									"previous": "Anterior"
-								},
-								"search": "Buscar",
-								"processing" : "Buscando...",
-								"loadingRecords" : "Cargando..."
-							}
-						});
 
-								mensaje('success','registro exitoso!!');
-						}
-						
-								
+	@endsection
 
-							},
-						});
+	@section('jscustom')
+	<script type="text/javascript">
+
+		var ncontrato='';
+		$('#proyecto').select2({
+			theme: "bootstrap"
+		});
+		function buscarNombre(){
+			var nombre=$('#Nombre').val();
+			var Apaterno=$('#Apaterno').val();
+			var Amaterno=$('#Amaterno').val();
+			$.ajax({
+				data:  {
+					"nombre":nombre,
+					"Apaterno":Apaterno,
+					"Amaterno":Amaterno,
+				}, 
+				url:   "{{url('buscar/clientesListaEspera')}}",
+				type:  'get',
+				success:  function (data) {
+					console.log(data);
+					if(data.length==0){
+						$('#validaExistencia').html('');
+					}else{
+						$('#validaExistencia').html('<br><label><center>El cliente ya existe, numero e cliente: <b>'+data[0].N_Cliente+'</b></center></label>');
 					}
-					function EngancheCobranzaCof(){
-				var TotalDevengado=$("#EngancheCobranzaCo").val();
-				TotalDevengado = TotalDevengado.replace(/,/g, "");
-				$("#EngancheCobranzaCo").val(Intl.NumberFormat('es-MX').format(TotalDevengado));
-			}
-			function EngancheCobranzaCofvariable(variable){
-				var TotalDevengado=variable
-				TotalDevengado = TotalDevengado.replace(/,/g, "");
-				$("#EngancheCobranzaCo").val(Intl.NumberFormat('es-MX').format(TotalDevengado));
-			}
-			function CostodelLoteFormato(){
-				var TotalDevengado=$("#CostodelLoteCo").val();
-				TotalDevengado = TotalDevengado.replace(/,/g, "");
-				$("#CostodelLoteCo").val(Intl.NumberFormat('es-MX').format(TotalDevengado));
-			}
-			function CostodelLoteFormatoVariable(costo){
-				var TotalDevengado=costo;
-				TotalDevengado = TotalDevengado.replace(/,/g, "");
-				$("#CostodelLoteCo").val(Intl.NumberFormat('es-MX').format(TotalDevengado));
-			}
-				function abrirModal(contrato,costo,enganche,FechaApartado,Apartado,FechaEnganche,ComplementoEnganche,DiaPago,vendedor,Comision1,Comision2,EstatusVenta){
-					$('#modalCobranza').modal('show');
-					$('#numeroContr').val(contrato);
-					console.log(FechaApartado);
-					$('#FechaApartadoCo').val(FechaApartado);
-					$('#ApartadoCo').val(Apartado);
+				},
+			});
 
-					$('#FechaEngancheCo').val(FechaEnganche);
-					$('#ComEngancheCo').val(ComplementoEnganche);
-					$('#FechaPagoCCo').val(DiaPago);
-					$('#VendedorCCo').val(vendedor);
-					$('#Comisión1Co').val(Comision1);
-					$('#Comisión2Co').val(Comision2);
-					$('#EstatusVentaCo').val(EstatusVenta);
-
-					$("#numeroContr").prop('disabled', true);
-					$("#CostodelLoteCo").prop('disabled', true);
-					$("#EngancheCobranzaCo").prop('disabled', true);
+		}
+		function Buscar(){
+			$.ajax({
+				data:  {
+					"mz":$('#Mz').val(),
+					"lote":$('#Lt').val(),
+					"proyecto":$('#proyecto').val(),
+				}, 
+				url:   "{{url('buscar/ProyectosLotes')}}",
+				type:  'get',
+				success:  function (data) { 
 					
-					EngancheCobranzaCofvariable(enganche);
-					CostodelLoteFormatoVariable(costo);
-				}
-				function mensaje(color,mensaje){
-					if(mensaje=="sin_mensaje"){
+					if(data.length==0){
+
+						$('#formulario').css('display','none');
+						mensaje('danger','Informacion no encontrada en la base de datos')
 
 					}else{
-						var placementFrom = $('#notify_placement_from option:selected').val();
-						var placementAlign = $('#notify_placement_align option:selected').val();
-						var state =color;
-						var style = $('#notify_style option:selected').val();
-						var content = {};
+						if(data[0].estatus == "Disponible" || data[0].estatus=="Proceso de rescisión" ){
+							console.log(data);
+						
+						$('#Medidas').val(data[0].Medidas);
+						$('#Superficie').val(data[0].superficie);
+						$('#Colinancia').val(data[0].Colinancia);
+						$('#TipoSuperficie').val(data[0].TipoSuperficie);
+						$('#TipoPredio').val(data[0].TipoPredio);
+						$('#ClaveCatastralPredio').val(data[0].ClaveCatastralPredio);
+						$('#FechaClaveCatastralPredio').val(data[0].FechaClaveCatastralPredio);
+						$('#Localización').val(data[0].Localización);
+						$('#TipoVenta').val(data[0].TipoVenta);
 
-						content.message = mensaje;
-						content.title = 'Contratos';
-						if (color == "danger") {
-							content.icon = 'la la-close';
-						} else {
-							content.icon = 'la la-check';
-						}
-						content.url = 'index.html';
-						content.target = '_blank';
 
-						$.notify(content,{
-							type: state,
-							placement: {
-								from: placementFrom,
-								align: placementAlign
-							},
-							time: 1000,
-						});
+						$('#Mz').attr("disabled",true);
+						$('#Lt').attr("disabled",true);
+						$('#proyecto').attr("disabled",true);
+
+
+						var CostoContado=data[0].CostoContado.substr(0,9);
+						CostoContado = CostoContado.replace(/,/g, "");
+						$("#CostoContado").val(Intl.NumberFormat('es-MX').format(CostoContado));
+
+						var CostoContadoTotal=data[0].CostoContadoTotal.substr(0,9);
+						CostoContadoTotal = CostoContadoTotal.replace(/,/g, "");
+						$("#CostoContadoTotal").val(Intl.NumberFormat('es-MX').format(CostoContadoTotal));
+
+						var CostoFinanciado=data[0].CostoFinanciado.substr(0,9);
+						CostoFinanciado = CostoFinanciado.replace(/,/g, "");
+						$("#CostoFinanciado").val(Intl.NumberFormat('es-MX').format(CostoFinanciado));
+						var CostoFinanciadoTotal=data[0].CostoFinanciadoTotal.substr(0,9);
+						CostoFinanciadoTotal = CostoFinanciadoTotal.replace(/,/g, "");
+						$("#CostoFinanciadoTotal").val(Intl.NumberFormat('es-MX').format(CostoFinanciadoTotal));
+						$('#ClaveCatastralLote').val(data[0].ClaveCatastralLote);
+						$('#FechaClaveCatastralLote').val(data[0].FechaClaveCatastralLote);
+						$('#Estatus').val(data[0].estatus);
+						$('#formulario').css('display','block');
+					}else{
+						mensaje('danger','No Disponible')
 					}
-					
-				}
-				
-			</script>
+					}
 
-			@endsection
+				},
+			});
+
+		}
+		function apartado(){
+			var nombre=$('#Nombre').val();
+			var Apaterno=$('#Apaterno').val();
+			var Amaterno=$('#Amaterno').val();
+			var mzModal=$('#Mz').val();
+			var ltModal=$('#Lt').val();
+			var Observaciones=$('#Observaciones').val();
+			var proyectoModal=$('#proyecto').val();
+			if(nombre != "" && Apaterno != "" && Amaterno != "" && Observaciones != ""){
+				$.ajax({
+				data:  {
+					"nombre":nombre,
+					"Apaterno":Apaterno,
+					"Amaterno":Amaterno,
+					"mzModal":mzModal,
+					"ltModal":ltModal,
+					"Observaciones":Observaciones,
+					"proyectoModal":proyectoModal,
+				}, 
+				url:   "{{url('agregar/tratoVendedor')}}",
+				type:  'get',
+				success:  function (data) {
+					console.log(data);
+
+						$('#formulario').css('display','none');
+						$('#Mz').removeAttr("disabled");
+
+						$('#Lt').removeAttr("disabled");
+
+						$('#proyecto').removeAttr("disabled");
+						$('#Mz').val('');
+						$('#Lt').val('');
+					mensaje('success','Se aparto el lote con exito!!');
+				},
+			});
+			}else{
+				mensaje('danger','Es necesario llenar todos los campos!!');
+			}
+			
+		}
+
+		$( function() {
+			$( "#slider" ).slider({
+				range: "min",
+				max: 100,
+				value: 40,
+			});
+			$( "#slider-range" ).slider({
+				range: true,
+				min: 0,
+				max: 500,
+				values: [ 75, 300 ]
+			});
+		} );
+
+
+
+
+
+
+
+
+
+		function numerico(){
+			var TotalDevengado=$("#CostoTotal").val();
+			TotalDevengado = TotalDevengado.replace(/,/g, "");
+			$("#CostoTotal").val(Intl.NumberFormat('es-MX').format(TotalDevengado));
+		}
+
+
+
+
+
+		function Registrar(){
+
+			$.ajax({
+				data:  {
+					"proyecto":$('#proyecto').val(),
+					"Mz":$('#Mz').val(),
+					"Lt":$('#Lt').val(),
+					"Superficie":$('#Superficie').val(),
+					"Medidas":$('#Medidas').val(),
+					"Colinancia":$('#Colinancia').val(),
+					"TipoSuperficie":$('#TipoSuperficie').val(),
+					"TipoPredio":$('#TipoPredio').val(),
+					"Localización":$('#Localización').val(),
+
+					"Estatus":$('#Estatus').val(),
+					"TipoVenta":$('#TipoVenta').val(),
+					"CostoContado":$('#CostoContado').val(),
+					"CostoContadoTotal":$('#CostoContadoTotal').val(),
+
+					"CostoFinanciado":$('#CostoFinanciado').val(),
+					"CostoFinanciadoTotal":$('#CostoFinanciadoTotal').val(),
+					"ClaveCatastralPredio":$('#ClaveCatastralPredio').val(),
+					"FechaClaveCatastralPredio":$('#FechaClaveCatastralPredio').val(),
+					"ClaveCatastralLote":$('#ClaveCatastralLote').val(),
+					"FechaClaveCatastralLote":$('#FechaClaveCatastralLote').val(),
+				}, 
+				url:   "{{url('alta/capturaProyectosLotes')}}",
+				type:  'get',
+				success:  function (data) { 
+					console.log(data);
+							//limpiar();
+							mensaje('success','registro exitoso!!');
+							
+
+
+						},
+					});
+
+		}
+		function calculaCostoContado(){
+			$('#CostoContadoTotal').val( $('#CostoContado').val() * $('#Superficie').val());
+		}
+		function calculaCostofinanciado(){
+			$('#CostoFinanciadoTotal').val( $('#CostoFinanciado').val() * $('#Superficie').val());
+		}
+
+		function limpiar(){
+
+			$('#Mz').val("")
+			$('#Lt').val("")
+			$('#Superficie').val("")
+			$('#CostoTotal').val("")
+			$('#Superficie').val("")
+			$('#Ancho').val("")
+			$('#Largo').val("")
+			$('#Colinancia').val("")
+			$('#ClaveCatastral').val("")
+			$('#FechaClaveCatastral').val("")
+
+
+		}
+
+
+		function mensaje(color,mensaje){
+			if(mensaje=="sin_mensaje"){
+
+			}else{
+				var placementFrom = $('#notify_placement_from option:selected').val();
+				var placementAlign = $('#notify_placement_align option:selected').val();
+				var state =color;
+				var style = $('#notify_style option:selected').val();
+				var content = {};
+
+				content.message = mensaje;
+				content.title = 'Modulo Ventas';
+				if (color == "danger") {
+					content.icon = 'la la-close';
+				} else {
+					content.icon = 'la la-check';
+				}
+				content.url = 'index.html';
+				content.target = '_blank';
+
+				$.notify(content,{
+					type: state,
+					placement: {
+						from: placementFrom,
+						align: placementAlign
+					},
+					time: 1000,
+				});
+			}
+
+		}
+
+	</script>
+
+	@endsection
