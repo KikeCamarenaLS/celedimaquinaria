@@ -186,12 +186,12 @@
                             </div>
                         </li>
                         <li class="nav-item ">
-                            <a data-toggle="collapse" href="#usuario_collapse">
+                            <a data-toggle="collapse" href="#Bitacora_collapse">
                                 <i class="la la-book"></i>
                                 <p>Bitacora</p>
                                 <span class="caret"></span>
                             </a>
-                            <div class="collapse" id="usuario_collapse">
+                            <div class="collapse" id="Bitacora_collapse">
                                 <ul class="nav nav-collapse">
                                     <li>
                                         <a href="{{url('/bitacoraView')}}">

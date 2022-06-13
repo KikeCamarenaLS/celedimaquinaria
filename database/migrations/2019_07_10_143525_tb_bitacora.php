@@ -17,13 +17,11 @@ class TbBitacora extends Migration
             $table->engine = 'InnoDB';
             $table->bigIncrements('ID_Bitacora')->index();
             $table->bigInteger('ID_EMPLEADO');
-            $table->date('FECHA');
 
-            $table->bigInteger('CVE_MOVIMIENTO')->unsigned();
-            $table->foreign('CVE_MOVIMIENTO')
-            ->references('CVE_MOVIMIENTO')->on('cat_movimiento');
-
+            $table->bigInteger('CVE_MOVIMIENTO');
             $table->string('Movimiento',1200);
+            $table->rememberToken();
+            $table->timestamps();
 
         });
     }

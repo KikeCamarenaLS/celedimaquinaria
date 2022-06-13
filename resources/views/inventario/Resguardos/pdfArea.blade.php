@@ -125,29 +125,25 @@ footer {
 <table>
 	<thead>
 	  <tr>
-	     <td align="center" style='width: 5px;'><font size="1">FECHA DE PAGARÉ </font></td> 
-	     <td align="center" style='width: 20px;'><font size="1">PAGARÉ </font></td> 
-       <td align="center" style='width: 200px; '><font size="1">MZ</font></td> 
-	     <td align="center" style='width: 15%;'><font size="1">LOTE</font></td> 
-	     <td align="center" style='width: 8%;'><font size="1">CLIENTE/CONCEPTO</font></td> 
-	     <td align="center" style='width: 8%;'><font size="1">TOTAL</font></td> 
-       <td align="center" style='width: 8%;'><font size="1">INTERÉS </font></td> 
+	     <td align="center" style='width: 10%;'><font size="1">ID REGISTRO </font></td> 
+	     <td align="center" style='width: 10%;'><font size="1">ID EMPLEADO </font></td> 
+       <td align="center" style='width: 60%%; '><font size="1">MOVIMIENTO</font></td> 
+	     <td align="center" style='width: 10%%;'><font size="1"> FECHA</font></td> 
+	     <td align="center" style='width: 10%%;'><font size="1">MODULO</font></td> 
 	  </tr>
   	</thead>
   	<tbody>
   		@foreach($datos as $dato)
   		
   		<tr> 
-      <td  align="center" style='width: 20px;'><font size="1">{{$dato->fecha_pagare}} </font></td>
+      <td  align="center" style='width: 20px;'><font size="1">{{$dato->ID_Bitacora}} </font></td>
 			
-			<td  align="center" style='width: 15%;'><font size="1">{{$dato->pagare}}</font></td>
-			<td  align="center" style='width: 8%;'><font size="1">{{$dato->mz}}</font></td>
-			<td  align="center" style='width: 8%;'><font size="1">{{$dato->lt}}</font></td>
-      <td  align="center" style='width: 8%;'><font size="1">{{$dato->cliente}}/{{$dato->concepto}}</font></td>   
+			<td  align="center" style='width: 15%;'><font size="1">{{$dato->ID_EMPLEADO}}</font></td>
+			<td  align="center" style='width: 8%;'><font size="1">{{$dato->Movimiento}}</font></td>
+			<td  align="center" style='width: 8%;'><font size="1">{{$dato->created_at}}</font></td>
 
-      <td  align="center" style='width: 8%;'><font size="1">{{$dato->total}}</font></td>
 
-      <td  align="center" style='width: 8%;'><font size="1">{{$dato->intereses}}</font></td>
+      <td  align="center" style='width: 8%;'><font size="1">{{$dato->CVE_MOVIMIENTO}}</font></td>
 
 			
 

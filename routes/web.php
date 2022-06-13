@@ -400,6 +400,11 @@ Route::get('/ventalotesView20', 'VentasController@ventalotesView20');
 Route::get('/ventalotesViewSinMapas', 'VentasController@ventalotesViewSinMapas');
 Route::get('/bitacoraView', 'bitacoraController@bitacoraView');
 Route::get('/buscar/tratos', 'ClienteController@buscarTratos');
+Route::get('/consultar/bitacora', 'bitacoraController@bitacoraconsultar');
+Route::get('/crea/PDF/BITACORA/{modulo}', 'bitacoraController@bitacoraPDF');
+Route::get('/generar/excel/{modulo}', 'bitacoraController@generarExcel');
+
+
 
 
 
