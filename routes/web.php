@@ -398,6 +398,10 @@ Route::get('/ventalotesView25', 'VentasController@ventalotesView25');
 Route::get('/ventalotesView22', 'VentasController@ventalotesView22');
 Route::get('/ventalotesView20', 'VentasController@ventalotesView20');
 Route::get('/ventalotesViewSinMapas', 'VentasController@ventalotesViewSinMapas');
+Route::get('/bitacoraView', 'bitacoraController@bitacoraView');
+Route::get('/buscar/tratos', 'ClienteController@buscarTratos');
+
+
 
 
 

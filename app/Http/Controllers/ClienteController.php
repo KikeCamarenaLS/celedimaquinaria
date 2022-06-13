@@ -41,7 +41,12 @@ class ClienteController extends Controller
 		$proyecto= $request->input("proyecto");
         $Mz= $request->input("Mz");
         $Lote= $request->input("Lote");
-		$validaExistente=DB::select('select * from proyectoLote where proyecto="'.$proyecto.'" and mz="'.$Mz.'" and lt="'.$Lote.'"');
+        $NclienteHide= $request->input("NclienteHide");
+
+		$validaExistente=DB::select('select p.superficie,p.TipoSuperficie,p.TipoPredio,t.mz,t.lt,t.proyecto,p.TipoVenta, 
+CONCAT(u.Nombre," ",u.Apaterno," ",u.Amaterno) as idElemento,p.TipoVenta,p.CostoContadoTotal,p.CostoFinanciadoTotal from tratosvendedores t 
+inner join  proyectolote p ON p.mz=t.mz AND p.lt=t.lt AND p.proyecto=t.proyecto
+inner join users u on u.id=p.idElemento  where t.proyecto="'.$proyecto.'" and t.mz="'.$Mz.'" and t.lt="'.$Lote.'" AND t.idCliente="'.$NclienteHide.'"');
 
 
 		if($validaExistente){
@@ -50,6 +55,23 @@ class ClienteController extends Controller
 			return "no existe";
 		}
 	
+	}
+	public function buscarTratos(Request $request){
+		$numcliente= $request->input("numcliente");
+
+		$validaExistente=DB::select('select p.superficie,p.TipoSuperficie,p.TipoPredio,t.mz,t.lt,p.TipoVenta, t.idCliente,cp.proyecto,t.Observaciones,t.created_at,
+CONCAT(u.Nombre," ",u.Apaterno," ",u.Amaterno) as id_vendedor,p.TipoVenta,p.CostoContadoTotal,p.CostoFinanciadoTotal from tratosvendedores t 
+inner join  proyectolote p ON p.mz=t.mz AND p.lt=t.lt AND p.proyecto=t.proyecto
+inner join users u on u.id=p.idElemento 
+INNER JOIN cat_proyectos cp ON cp.id_proyecto=t.proyecto
+ where idCliente="'.$numcliente.'"');
+
+
+		if($validaExistente){
+			return $validaExistente;
+		}else{
+			return "no existe";
+		}
 	}
 	public function capturaCobranza(Request $request){
 

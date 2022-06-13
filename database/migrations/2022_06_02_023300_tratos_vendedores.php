@@ -21,6 +21,7 @@ class TratosVendedores extends Migration
             $table->bigInteger('mz');
             $table->bigInteger('lt');
             $table->string('Observaciones');
+            $table->string('Estatus');
             $table->rememberToken();
             $table->timestamps();
         });

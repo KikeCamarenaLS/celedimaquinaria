@@ -221,27 +221,37 @@
 							</ul>
 							<div class="tab-content mb-3" id="pills-with-icon-tabContent">
 								<div class="tab-pane fade active show" id="pills-home-icon" role="tabpanel" aria-labelledby="pills-home-tab-icon">
+										<div class="form-group row " id="tablaTratos">
 
+											<div class="table-responsive" >
+										<table class="table" id="list_user2">
+											<thead>
+												<tr>
+													<th class="bg-danger sorting" style="color:#ffffff; width: 12%;"><center>No. Cliente</center> </th>
+													<th class="bg-danger sorting" style="color:#ffffff; width: 20%;"><center>Vendedor </center> </th>
+													<th class="bg-danger sorting" style="color:#ffffff; width: 10%;"><center>proyecto </center> </th>
+													<th class="bg-danger sorting" style="color:#ffffff; width: 5%;"><center>mz</center> </th>
+													<th class="bg-danger sorting" style="color:#ffffff; width: 5%;"><center>lt</center></th>
+													<th class="bg-danger sorting" style="color:#ffffff; width: 35%;"><center>Observaciones</center></th>
+													<th class="bg-danger sorting" style="color:#ffffff; width: 18%;"><center>Fecha</center></th>
+													
+													
+
+
+												</tr>
+											</thead>
+
+											<tbody id="llenaTabla2">
+
+
+											</tbody>
+										</table>
+									</div>
+
+
+										</div>
+										<hr>
 									<div class="form-group row " >
-
-										<div class="col-md-3" >
-											<label>Fecha de venta(Enganche) </label>
-											<input  type="date" class="form-control" id="Fecha_Venta"  name="Fecha_Venta"  >
-											<span class="required-label"  id="validaFecha_Venta" style="color:red; display: none;" ><font size="1">Es obligatorio llenar este campo</font></span>
-
-										</div>
-										<div class="col-md-3">
-											<label>Enganche </label>
-											<input required="" type="text" onkeyup="numerico2()" maxlength="9" onKeypress="if (event.keyCode < 45 || event.keyCode > 57) event.returnValue = false;" class="form-control" id="Enganche" name="Enganche" >
-											<span class="required-label"  id="validaEnganche" style="color:red; display: none;" ><font size="1">Es obligatorio llenar este campo</font></span>
-										</div>
-										<div class="col-md-3">
-											<label>Fecha de contrato</label>
-											<input type="date" class="form-control" id="Fecha_Contrato" name="Fecha_Contrato" >
-											<span class="required-label"  id="validaFecha_Contrato" style="color:red; display: none;" ><font size="1">Es obligatorio llenar este campo</font></span>
-										</div>
-
-
 										<div class="col-md-3">
 											<label>Proyecto</label>
 											<select class="form-control" id="proyecto" name="proyecto"  style="width: 100%;">
@@ -250,14 +260,6 @@
 												@endforeach
 											</select>
 										</div>
-
-
-
-
-									</div>
-									<div class="form-group row " >
-										
-
 										<div class="col-md-2" >
 											<label>Mz</label>
 											<input required="" type="number"  class="form-control" id="Mz" name="Mz"  >
@@ -268,17 +270,41 @@
 											<input required="" type="number"  class="form-control" id="Lote" name="Lote" >
 											<span class="required-label"  id="validaLote" style="color:red; display: none;" ><font size="1">Es obligatorio llenar este campo</font></span>
 										</div>
+
 										<div class="col-md-2">
 											<label>&nbsp;</label>
 											<input required="" type="submit" value="Consultar" class="btn btn-success" onclick="autoRellena()">
 											
 										</div>
+
+
+
+									</div>
+									<div class="form-group row " >
+										
+										<div class="col-md-3" >
+											<label>Fecha de venta(Enganche) </label>
+											<input  type="date" class="form-control" id="Fecha_Venta"  name="Fecha_Venta"  >
+											<span class="required-label"  id="validaFecha_Venta" style="color:red; display: none;" ><font size="1">Es obligatorio llenar este campo</font></span>
+
+										</div>
+										<div class="col-md-2">
+											<label>Enganche </label>
+											<input required="" type="text" onkeyup="numerico2()" maxlength="9" onKeypress="if (event.keyCode < 45 || event.keyCode > 57) event.returnValue = false;" class="form-control" id="Enganche" name="Enganche" >
+											<span class="required-label"  id="validaEnganche" style="color:red; display: none;" ><font size="1">Es obligatorio llenar este campo</font></span>
+										</div>
+										<div class="col-md-3">
+											<label>Fecha de contrato</label>
+											<input type="date" class="form-control" id="Fecha_Contrato" name="Fecha_Contrato" >
+											<span class="required-label"  id="validaFecha_Contrato" style="color:red; display: none;" ><font size="1">Es obligatorio llenar este campo</font></span>
+										</div>
+										
 										<div class="col-md-2">
 											<label>Superficie en m²</label>
 											<input  type="text" maxlength="9" onKeypress="if (event.keyCode < 45 || event.keyCode > 57) event.returnValue = false;"  class="form-control" id="Superficie" name="Superficie"   disabled>
 											<span class="required-label"  id="validaSuperficie" style="color:red; display: none;" ><font size="1">Es obligatorio llenar este campo</font></span>
 										</div>
-										<div class="col-md-3">
+										<div class="col-md-2">
 											<label>Tipo de superficie</label>
 											<input type="text" class="form-control" id="TipoSuperficie" name="TipoSuperficie" disabled>
 												
@@ -726,7 +752,29 @@
 
 		@section('jscustom')
 		<script type="text/javascript">
-
+			$('#list_user2').DataTable({
+				scrollX:  false,
+				scrollCollapse: true,
+				filter: true,
+				lengthMenu:   [[7, 14, 21, 28, 35, -1], [7, 14, 21, 28, 35, "Todos"]],
+				iDisplayLength: 7,
+				"language" : {
+					"lengthMenu" : "Mostrar _MENU_ datos",
+					"zeroRecords" : "No existe el dato introducido",
+					"info" : "Página _PAGE_ de _PAGES_ ",
+					"infoEmpty" : "Sin datos disponibles",
+					"infoFiltered": "(mostrando los datos filtrados: _MAX_)",
+					"paginate" : {
+						"first": "Primero",
+						"last": "Ultimo",
+						"next": "Siguiente",
+						"previous": "Anterior"
+					},
+					"search": "Buscar",
+					"processing" : "Buscando...",
+					"loadingRecords" : "Cargando..."
+				}
+			});
 			var ncontrato='';
 			$('#FechaPago').select2({
 				theme: "bootstrap"
@@ -828,6 +876,8 @@
 							"proyecto":$('#proyecto').val(),
 							"Mz":$('#Mz').val(),
 							"Lote":$('#Lote').val(),
+							"NclienteHide":numcliente,
+
 						}, 
 						url:   "{{url('cliente/buscaLote')}}",
 						type:  'get',
@@ -928,6 +978,7 @@
 								$("#Apellido_Materno").prop('disabled', true);
 								$('#validaexiste').css("display", "none");
 								$('#validaExisteContrato').css("display", "block");
+								tratos();
 								mensaje('success','Usuario ya existe en la base de datos!!');
 							}
 
@@ -937,6 +988,73 @@
 				}
 			}
 			var numeroCostoTotal;
+
+			function tratos(){
+				$('#list_user2').DataTable().destroy();
+				$.ajax({
+						data:  {
+							"numcliente":numcliente,
+						}, 
+						url:   "{{url('buscar/tratos')}}",
+						type:  'get',
+						success:  function (response) { 
+							console.log(response);
+							var html;
+
+							if(response=="no existe"){
+
+							}else{
+
+								for (var i = 0; i < response.length; i++) {
+
+							  var idCliente='"'+response[i].idCliente+'"';
+							  var id_vendedor='"'+response[i].id_vendedor+'"';
+							  var proyecto='"'+response[i].proyecto+'"';
+							  var mz='"'+response[i].mz+'"';
+							  var lt='"'+response[i].lt+'"';
+							  var Observaciones='"'+response[i].Observaciones+'"';
+							  var created_at='"'+response[i].created_at+'"';
+							html+="<tr>";
+							html+="<td> <FONT  SIZE=2>"+response[i].idCliente+"</FONT></td>";
+							html+="<td> <FONT  SIZE=2>"+response[i].id_vendedor+"</FONT></td>";
+							html+="<td> <FONT  SIZE=2>"+response[i].proyecto+"</FONT></td>";
+							html+="<td> <FONT  SIZE=2>"+response[i].mz+"</FONT></td>";
+							html+="<td> <FONT  SIZE=2>"+response[i].lt+"</FONT></td>";
+							html+="<td> <FONT  SIZE=2>"+response[i].Observaciones+"</FONT></td>";
+							html+="<td> <FONT  SIZE=2>"+response[i].created_at+"</FONT></td>";
+							//html+="<td><input type='submit' class='btn btn-success' value='Ver Detalles' onclick='abrirModal("+response[i].id_contratos+","+costocomilla+","+Enganchecomilla+","+FechaApartado+","+Apartado+","+FechaEnganche+","+ComplementoEnganche+","+DiaPago+","+vendedor+","+Comision1+","+Comision2+","+EstatusVenta+")'></td>";
+							html+="</tr>";
+						}$('#llenaTabla2').html("");
+						$('#llenaTabla2').html(html);
+						$('#list_user2').DataTable({
+							scrollX:  false,
+							scrollCollapse: true,
+							filter: true,
+							lengthMenu:   [[7, 14, 21, 28, 35, -1], [7, 14, 21, 28, 35, "Todos"]],
+							iDisplayLength: 7,
+							"language" : {
+								"lengthMenu" : "Mostrar _MENU_ datos",
+								"zeroRecords" : "No existe el dato introducido",
+								"info" : "Página _PAGE_ de _PAGES_ ",
+								"infoEmpty" : "Sin datos disponibles",
+								"infoFiltered": "(mostrando los datos filtrados: _MAX_)",
+								"paginate" : {
+									"first": "Primero",
+									"last": "Ultimo",
+									"next": "Siguiente",
+									"previous": "Anterior"
+								},
+								"search": "Buscar",
+								"processing" : "Buscando...",
+								"loadingRecords" : "Cargando..."
+							}
+						});
+							}
+
+
+						},
+					});
+			}
 			function cobranzaRegistra(){
 				
 				$.ajax({

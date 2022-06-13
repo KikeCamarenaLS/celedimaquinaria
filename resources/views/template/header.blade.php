@@ -185,6 +185,26 @@
                                 </ul>
                             </div>
                         </li>
+                        <li class="nav-item ">
+                            <a data-toggle="collapse" href="#usuario_collapse">
+                                <i class="la la-book"></i>
+                                <p>Bitacora</p>
+                                <span class="caret"></span>
+                            </a>
+                            <div class="collapse" id="usuario_collapse">
+                                <ul class="nav nav-collapse">
+                                    <li>
+                                        <a href="{{url('/bitacoraView')}}">
+                                            <span class="sub-item">Buscar</span>
+                                        </a>
+                                    </li>
+                                    
+
+                                </ul>
+                            </div>
+                        </li>
+                        
+
 
                         @endcan
 
@@ -219,7 +239,7 @@
 
                         <li class="nav-item ">
                             <a data-toggle="collapse" href="#rh">
-                                <i class="la la-plus-square"></i>
+                                <i class="la la-group"></i>
                                 <p>Admin. de personal </p>
                                 <span class="caret"></span>
                             </a>

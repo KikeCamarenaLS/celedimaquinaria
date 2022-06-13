@@ -1,0 +1,1 @@
+bitacoraView.blade.php
