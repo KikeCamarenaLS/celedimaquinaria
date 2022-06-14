@@ -31,14 +31,15 @@ class bitacoraController extends Controller
   public function bitacoraconsultar(){
 
       $modulo= Request::input("modulo");
+      $consulta= Request::input("consulta");
 
-      return DB::select('select * from tb_bitacora where CVE_MOVIMIENTO="'.$modulo.'" ');
+      return DB::select('select * from tb_bitacora where '.$consulta);
 
 
   }
-  public function bitacoraPDF($modulo){
+  public function bitacoraPDF($modulo,$consulta){
 
-    $datos= DB::select('SELECT * FROM tb_bitacora where CVE_MOVIMIENTO='.$modulo);
+    $datos=DB::select('select * from tb_bitacora where '.$consulta);
     $pdf = PDF::loadView('inventario.Resguardos.pdfArea', compact('datos'));
     $pdf->setPaper('A4');
     return $pdf->stream('reporte');
@@ -47,10 +48,11 @@ class bitacoraController extends Controller
 
 
 }
-public function generarExcel($modulo){
+public function generarExcel($modulo,$consulta){
 
 
-$consultaCompleta= 'SELECT ID_Bitacora,CVE_MOVIMIENTO,ID_EMPLEADO,Movimiento,created_at FROM tb_bitacora where CVE_MOVIMIENTO='.$modulo;
+$consultaCompleta= 'SELECT ID_Bitacora,CVE_MOVIMIENTO,ID_EMPLEADO,Movimiento,created_at FROM tb_bitacora where'.$consulta;
+
 return Excel::download(new tablaReportesUsuarios($consultaCompleta),'Reporte_Bitacora.xlsx');
 }
 

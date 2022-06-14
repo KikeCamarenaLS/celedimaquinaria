@@ -21,13 +21,26 @@
 			<div>
 
 				<div class="form-group row ">
-					<div class="col-md-4" >
-							<label>Modulo <span class="required-label">*</span></label>
+					<div class="col-md-3" >
+							<label>Modulo <span class="required-label"></span></label>
 							<select class="form-control success" id="modulo">
+								<option value="Todos">Todos</option>
 								@foreach($permissions as $permission)
 								<option value="{{$permission->id}}">{{$permission->name}}</option>
 								@endforeach
 							</select>
+						</div>
+						<div class="col-md-3" >
+							<label>Del <span class="required-label"></span></label>
+							<input type="date" class="form-control success" id="del">
+						</div>
+						<div class="col-md-3" >
+							<label>Al <span class="required-label"></span></label>
+							<input type="date" class="form-control success" id="al">
+						</div>
+						<div class="col-md-3" >
+							<label>ID Empleado <span class="required-label"></span></label>
+							<input type="number" class="form-control success" id="Empleado">
 						</div>
 
 						
@@ -49,7 +62,7 @@
 					</div>
 				</div>
 				<div class="card-body">
-				<div class="table-responsive" >
+				<div class="table-responsive"  id="tabla" style="display:none;">
 						<table class="table" id="list_user">
 							<thead>
 								<tr>
@@ -67,9 +80,7 @@
 
 							</tbody>
 						</table>
-					</div>
-					
-					<div class="col-md-12">
+						<div class="col-md-12">
 						<center>
 							<label>&nbsp;   </label>
 						<input type="submit" id="CrearPDF" value="Crear PDF" onclick="abrir_Popup()" style="color:#fff;" class="btn btn-success">
@@ -77,6 +88,9 @@
 						</center>
 						
 					</div>
+					</div>
+					
+					
 					
 			</div>
 
@@ -93,7 +107,22 @@
 		function abrir_Popup() {
 		var configuracion_ventana = "width=700,height=500,scrollbars=NO";
 
-  objeto_window_referencia = window.open('{{url('crea/PDF/BITACORA')}}'+'/'+$('#modulo').val(), configuracion_ventana);
+		var consulta="";
+			if ($('#del').val()!='' && $('#al').val()!='') {
+				consulta+="  created_at BETWEEN '"+$('#del').val()+"' and";
+				consulta+=" '"+$('#al').val()+"' and";
+			}
+			if ($('#modulo').val()=='Todos') {
+				consulta+=" ";
+			}else{
+				consulta+=" CVE_MOVIMIENTO= '"+modulo+"' and";
+			}
+			if ($('#Empleado').val()!='') {
+				consulta+=" ID_EMPLEADO='"+$('#Empleado').val()+"' and ";
+			}
+			consulta+="  ID_Bitacora!=''";
+
+  objeto_window_referencia = window.open('{{url('crea/PDF/BITACORA')}}'+'/'+$('#modulo').val()+'/'+consulta, configuracion_ventana);
 }
 		$('#list_user').DataTable({
   							scrollX:  false,
@@ -121,7 +150,22 @@
 $("#btnConsultar").click(function(event)  {
 		var configuracion_ventana = "width=700,height=500,scrollbars=NO";
 
-  objeto_window_referencia = window.open('{{url('generar/excel')}}'+'/'+$('#modulo').val(), configuracion_ventana);
+		var consulta="";
+			if ($('#del').val()!='' && $('#al').val()!='') {
+				consulta+="  created_at BETWEEN '"+$('#del').val()+"' and";
+				consulta+=" '"+$('#al').val()+"' and";
+			}
+		if ($('#modulo').val()=='Todos') {
+				consulta+=" ";
+			}else{
+				consulta+=" CVE_MOVIMIENTO= '"+modulo+"' and";
+			}
+			if ($('#Empleado').val()!='') {
+				consulta+=" ID_EMPLEADO='"+$('#Empleado').val()+"' and ";
+			}
+			consulta+="  ID_Bitacora!=''";
+
+  objeto_window_referencia = window.open('{{url('generar/excel')}}'+'/'+$('#modulo').val()+'/'+consulta, configuracion_ventana);
 });
 		
 			
@@ -129,11 +173,27 @@ $("#btnConsultar").click(function(event)  {
 		
 		function consultar(){
 			var modulo =document.getElementById("modulo").value;
+			var consulta="";
+			if ($('#del').val()!='' && $('#al').val()!='') {
+				consulta+="  created_at BETWEEN '"+$('#del').val()+"' and";
+				consulta+=" '"+$('#al').val()+"' and";
+			}
+			if (modulo=='Todos') {
+				consulta+=" ";
+			}else{
+				consulta+=" CVE_MOVIMIENTO= '"+modulo+"' and";
+			}
+			if ($('#Empleado').val()!='') {
+				consulta+=" ID_EMPLEADO='"+$('#Empleado').val()+"' and ";
+			}
+			consulta+="  ID_Bitacora!=''";
 			
+
 		$('#list_user').DataTable().destroy();
 			$.ajax({
 				data:  {
 				"modulo":modulo,
+				"consulta":consulta,
 			}, 
 				url:   "{{url('consultar/bitacora')}}",
 				type:  'get',
@@ -141,6 +201,7 @@ $("#btnConsultar").click(function(event)  {
 					console.log(response);
 					var html="";
 					if(response.length>0){
+						$('#tabla').css('display','block');
 								for (var i = 0; i < response.length; i++) {
 							var con=i+1;
 								html+="<tr>";
@@ -184,6 +245,8 @@ $("#btnConsultar").click(function(event)  {
 
 							mensaje('danger','No se encontraron resultados en la base de datos');
 							$('#llenaTabla').fadeIn(1000).html('');
+
+						$('#tabla').css('display','none');
 							}
 
 				},
