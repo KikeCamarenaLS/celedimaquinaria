@@ -105,7 +105,11 @@ $Nombre= $request->input("Nombre");
 
                                    'estatus'=>'1'
                                   ]);
-
+                   if($guardar){
+                     $idUsuarioSistema = Auth::user()->id;
+  $nombreUsuarioSistema=DB::select('select CONCAT(Nombre," ",Apaterno," ",Amaterno)as nombre from users where id='.$idUsuarioSistema);
+  $bitacora=DB::select('insert into tb_bitacora (ID_Bitacora,ID_EMPLEADO,created_at, CVE_MOVIMIENTO, MOVIMIENTO) values (null,"'.$idUsuarioSistema.'",now(),1,"El usuario '.$nombreUsuarioSistema[0]->nombre.' con el ID_Empleado '.$idUsuarioSistema.' registro a un " )');
+                   }
                     foreach ($request['rolesuser'] as $key) {
                           $guardar->assignRole($key);
                          }
