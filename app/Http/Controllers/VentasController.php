@@ -388,7 +388,7 @@ public function agregartratoVendedor(Request $request)
       $proyect=DB::select('select proyecto from cat_proyectos where id_proyecto='.$proyectoModal);
     $idUsuarioSistema = Auth::user()->id;
   $nombreUsuarioSistema=DB::select('select CONCAT(Nombre," ",Apaterno," ",Amaterno)as nombre from users where id='.$idUsuarioSistema);
-  $bitacora=DB::select('insert into tb_bitacora (ID_Bitacora,ID_EMPLEADO,created_at, CVE_MOVIMIENTO, MOVIMIENTO) values (null,"'.$idUsuarioSistema.'",now(),6,"El usuario '.$nombreUsuarioSistema[0]->nombre.' con el ID_Empleado '.$idUsuarioSistema.' Realizo un trato con el cliente '.$nombre.' '.$Apaterno.' '.$Amaterno.' y numero de usuario '.$numeroCliente.' en el proyecto '.$proyect.', mz '.$mzModal.' y lt '.$ltModal.'" )');
+  $bitacora=DB::select('insert into tb_bitacora (ID_Bitacora,ID_EMPLEADO,created_at, CVE_MOVIMIENTO, MOVIMIENTO) values (null,"'.$idUsuarioSistema.'",now(),6,"El usuario '.$nombreUsuarioSistema[0]->nombre.' con el ID_Empleado '.$idUsuarioSistema.' Realizo un trato con el cliente '.$nombre.' '.$Apaterno.' '.$Amaterno.' y numero de usuario '.$numeroCliente.' en el proyecto '.$proyect[0]->proyecto.', mz '.$mzModal.' y lt '.$ltModal.'" )');
 
 
       $hola= DB::select('insert into tratosVendedores (idCliente,id_vendedor,proyecto, mz, lt,Observaciones,estatus,created_at) values ("'.$numeroCliente.'","'.$id.'","'.$proyectoModal.'","'.$mzModal.'","'.$ltModal.'","'.$Observaciones.'","Sin Atender",now())');
