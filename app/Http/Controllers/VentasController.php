@@ -297,7 +297,7 @@ public function capturaProyectosLotes(Request $request)
 
   $insert =DB::select('insert into proyectoLote (idElemento,proyecto,mz,lt, superficie, Medidas, Colinancia,TipoSuperficie, TipoPredio, Localización, Estatus, TipoVenta, CostoContado, CostoContadoTotal, CostoFinanciado, CostoFinanciadoTotal, ClaveCatastralPredio, FechaClaveCatastralPredio, ClaveCatastralLote, FechaClaveCatastralLote,created_at) values ("'.$id.'","'.$proyecto.'","'.$Mz.'","'.$Lt.'","'.$Superficie.'","'.$Medidas.'","'.$Colinancia.'","'.$TipoSuperficie.'","'.$TipoPredio.'","'.$Localización.'","'.$Estatus.'","'.$TipoVenta.'","'.$CostoContado.'","'.$CostoContadoTotal.'","'.$CostoFinanciado.'","'.$CostoFinanciadoTotal.'","'.$ClaveCatastralPredio.'","'.$FechaClaveCatastralPredio.'","'.$ClaveCatastralLote.'","'.$FechaClaveCatastralLote.'",now())');
   if($insert){
-    $proyect=DB::select('select proyecto from cat_proyecto where id_proyecto='.$proyecto);
+    $proyect=DB::select('select proyecto from cat_proyectos where id_proyecto='.$proyecto);
     $idUsuarioSistema = Auth::user()->id;
   $nombreUsuarioSistema=DB::select('select CONCAT(Nombre," ",Apaterno," ",Amaterno)as nombre from users where id='.$idUsuarioSistema);
   $bitacora=DB::select('insert into tb_bitacora (ID_Bitacora,ID_EMPLEADO,created_at, CVE_MOVIMIENTO, MOVIMIENTO) values (null,"'.$idUsuarioSistema.'",now(),6,"El usuario '.$nombreUsuarioSistema[0]->nombre.' con el ID_Empleado '.$idUsuarioSistema.' Registro el lote '.$Lt.', mz '.$Mz.', con el proyecto '.$proyect[0]->proyecto.'" )');
@@ -313,7 +313,7 @@ public function buscarProyectosLotes(Request $request)
   $Mz= Request::input("mz");
   $lt= Request::input("lote");
    $idUsuarioSistema = Auth::user()->id;
-$proyect=DB::select('select proyecto from cat_proyecto where id_proyecto='.$proyecto);
+$proyect=DB::select('select proyecto from cat_proyectos where id_proyecto='.$proyecto);
 
   $nombreUsuarioSistema=DB::select('select CONCAT(Nombre," ",Apaterno," ",Amaterno)as nombre from users where id='.$idUsuarioSistema);
   $bitacora=DB::select('insert into tb_bitacora (ID_Bitacora,ID_EMPLEADO,created_at, CVE_MOVIMIENTO, MOVIMIENTO) values (null,"'.$idUsuarioSistema.'",now(),6,"El usuario '.$nombreUsuarioSistema[0]->nombre.' con el ID_Empleado '.$idUsuarioSistema.' busco el proyecto con mz='.$Mz.', lt='.$lt.' con el proyecto '.$proyect[0]->proyecto.'" )');
@@ -385,7 +385,7 @@ public function agregartratoVendedor(Request $request)
       $numeroCliente=$cliente[0]->N_Cliente;
 
 
-      $proyect=DB::select('select proyecto from cat_proyecto where id_proyecto='.$proyectoModal);
+      $proyect=DB::select('select proyecto from cat_proyectos where id_proyecto='.$proyectoModal);
     $idUsuarioSistema = Auth::user()->id;
   $nombreUsuarioSistema=DB::select('select CONCAT(Nombre," ",Apaterno," ",Amaterno)as nombre from users where id='.$idUsuarioSistema);
   $bitacora=DB::select('insert into tb_bitacora (ID_Bitacora,ID_EMPLEADO,created_at, CVE_MOVIMIENTO, MOVIMIENTO) values (null,"'.$idUsuarioSistema.'",now(),6,"El usuario '.$nombreUsuarioSistema[0]->nombre.' con el ID_Empleado '.$idUsuarioSistema.' Realizo un trato con el cliente '.$nombre.' '.$Apaterno.' '.$Amaterno.' y numero de usuario '.$numeroCliente.' en el proyecto '.$proyect.', mz '.$mzModal.' y lt '.$ltModal.'" )');
@@ -398,7 +398,7 @@ public function agregartratoVendedor(Request $request)
       $insert=DB::select('insert into clientes (N_Cliente,Nombre, A_paterno, A_materno, Telefono1, Telefono2, correo, Calle, Ninterior, NExterior, Colonia, Municipio, Estado, cp, id_personal, Referencia,created_at) values ("'.$no_cli.'","'.$nombre.'","'.$Apaterno.'","'.$Amaterno.'","","","","","","","","","","","'.$id.'","",now())');
       $cliente= DB::select('select * from clientes where concat(Nombre," ",A_paterno," ",A_materno)="'.$nombre.' '.$Apaterno.' '.$Amaterno.'" ');
 
-      $proyect=DB::select('select proyecto from cat_proyecto where id_proyecto='.$proyectoModal);
+      $proyect=DB::select('select proyecto from cat_proyectos where id_proyecto='.$proyectoModal);
     $idUsuarioSistema = Auth::user()->id;
   $nombreUsuarioSistema=DB::select('select CONCAT(Nombre," ",Apaterno," ",Amaterno)as nombre from users where id='.$idUsuarioSistema);
   $bitacora=DB::select('insert into tb_bitacora (ID_Bitacora,ID_EMPLEADO,created_at, CVE_MOVIMIENTO, MOVIMIENTO) values (null,"'.$idUsuarioSistema.'",now(),6,"El usuario '.$nombreUsuarioSistema[0]->nombre.' con el ID_Empleado '.$idUsuarioSistema.' Realizo un trato con el cliente '.$nombre.' '.$Apaterno.' '.$Amaterno.' y numero de usuario '.$numeroCliente.' en el proyecto '.$proyect.', mz '.$mzModal.' y lt '.$ltModal.'" )');
