@@ -45,7 +45,7 @@ class ClienteController extends Controller
 
 		$validaExistente=DB::select('select p.superficie,p.TipoSuperficie,p.TipoPredio,t.mz,t.lt,t.proyecto,p.TipoVenta, 
 CONCAT(u.Nombre," ",u.Apaterno," ",u.Amaterno) as idElemento,p.TipoVenta,p.CostoContadoTotal,p.CostoFinanciadoTotal from tratosVendedores t 
-inner join  proyectolote p ON p.mz=t.mz AND p.lt=t.lt AND p.proyecto=t.proyecto
+inner join  proyectoLote p ON p.mz=t.mz AND p.lt=t.lt AND p.proyecto=t.proyecto
 inner join users u on u.id=p.idElemento  where t.proyecto="'.$proyecto.'" and t.mz="'.$Mz.'" and t.lt="'.$Lote.'" AND t.idCliente="'.$NclienteHide.'"');
 
 
@@ -61,7 +61,7 @@ inner join users u on u.id=p.idElemento  where t.proyecto="'.$proyecto.'" and t.
 
 		$validaExistente=DB::select('select p.superficie,p.TipoSuperficie,p.TipoPredio,t.mz,t.lt,p.TipoVenta, t.idCliente,cp.proyecto,t.Observaciones,t.created_at,
 CONCAT(u.Nombre," ",u.Apaterno," ",u.Amaterno) as id_vendedor,p.TipoVenta,p.CostoContadoTotal,p.CostoFinanciadoTotal from tratosVendedores t 
-inner join  proyectolote p ON p.mz=t.mz AND p.lt=t.lt AND p.proyecto=t.proyecto
+inner join  proyectoLote p ON p.mz=t.mz AND p.lt=t.lt AND p.proyecto=t.proyecto
 inner join users u on u.id=p.idElemento 
 INNER JOIN cat_proyectos cp ON cp.id_proyecto=t.proyecto
  where idCliente="'.$numcliente.'"');
