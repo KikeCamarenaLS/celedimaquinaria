@@ -1359,6 +1359,7 @@
 						
 
 						$('#numeroContr').val(data);
+						$('#numeroContr').val(ncontrato);
 
 						$('#modalCobranza').modal('show');
 						
