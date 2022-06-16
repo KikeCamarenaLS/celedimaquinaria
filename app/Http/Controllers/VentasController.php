@@ -241,6 +241,20 @@ public function ventalotesView20(){
 
   return view('Terrenos.Ventas.Litigios2',compact('proyectos','lotes','id_proy'));
 }
+
+public function ventalotesView33(){
+  $proyectos=DB::select('SELECT * FROM cat_proyectos ORDER BY PROYECTO ASC');
+  $lotes=DB::select('SELECT * FROM proyectoLote where proyecto=33');
+  $id_proy=33;
+
+  $idUsuarioSistema = Auth::user()->id;
+  $nombreUsuarioSistema=DB::select('select CONCAT(Nombre," ",Apaterno," ",Amaterno)as nombre from users where id='.$idUsuarioSistema);
+  $bitacora=DB::select('insert into tb_bitacora (ID_Bitacora,ID_EMPLEADO,created_at, CVE_MOVIMIENTO, MOVIMIENTO) values (null,"'.$idUsuarioSistema.'",now(),6,"El usuario '.$nombreUsuarioSistema[0]->nombre.' con el ID_Empleado '.$idUsuarioSistema.' entro a la pantalla Campestre San Pablo X  " )');
+
+  return view('Terrenos.Ventas.campestreSanPabloX',compact('proyectos','lotes','id_proy'));
+}
+
+
 public function ventalotesViewSinMapas(){ 
   $situaciones=DB::select('SELECT * FROM cat_situacion');
   $proyectos=DB::select('SELECT * FROM cat_proyectos ORDER BY PROYECTO ASC');
