@@ -153,7 +153,7 @@
 											Mz 04
 										</font>
 										<tr>
-											<td style="width: 110px; height:85px; cursor:pointer;" rowspan="2" id="41" onclick=" cambiar('4','1')"></td>
+											<td style="width: 50px; height:85px; cursor:pointer;" rowspan="2" id="41" onclick=" cambiar('4','1')"></td>
 											<td style="width: 50px; height:85px; cursor:pointer;" rowspan="2" id="42" onclick=" cambiar('4','2')"></td>
 											<td style="width: 50px; height:85px; cursor:pointer;" rowspan="2" id="43" onclick=" cambiar('4','3')"></td>
 											<td style="width: 50px; height:85px; cursor:pointer;" rowspan="2" id="44" onclick=" cambiar('4','4')"></td>
@@ -175,7 +175,7 @@
 											<td style="width: 50px; height:85px; cursor:pointer;" rowspan="2" id="420" onclick=" cambiar('4','20')"></td>
 											<td style="width: 50px; height:85px; cursor:pointer;" rowspan="2" id="421" onclick=" cambiar('4','21')"></td>
 											<td style="width: 50px; height:85px; cursor:pointer;" rowspan="2" id="422" onclick=" cambiar('4','22')"></td>
-											<td style="width: 50px; height:85px; cursor:pointer;" rowspan="2" id="423" onclick=" cambiar('4','23')"></td>
+											<td style="width: 110px; height:85px; cursor:pointer;" rowspan="2" id="423" onclick=" cambiar('4','23')"></td>
 
 										</tr>
 
