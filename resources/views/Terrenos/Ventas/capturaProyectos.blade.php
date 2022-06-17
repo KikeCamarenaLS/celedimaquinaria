@@ -97,7 +97,7 @@
 					<div class="form-group row " >
 									<div class="col-md-3" >
 											<label>Tipo de venta</label>
-											<select class="form-control" id="TipoVenta" name="TipoVenta"  style="width: 100%;">
+											<select class="form-control" id="TipoVenta" name="TipoVenta" onchange="cambioTipoVenta()" style="width: 100%;">
 												
 												<option>Contado y Financiado</option>
 												<option>Contado</option>
@@ -128,8 +128,39 @@
 						</div>
 						</div>
 					<div class="form-group row " >
+							
 						
-					
+						<div class="col-md-2" id="validaFinanciadoEnganche">
+							<label>Enganche</label>
+							<input  type="text" class="form-control" onKeypress="if (event.keyCode < 45 || event.keyCode > 57) event.returnValue = false;" id="Enganche" name="Enganche" >
+							
+						</div>
+
+						<div class="col-md-2" id="validaFinanciadoAnualida">
+							<label>Anualidad</label>
+							<input  type="text" class="form-control" onKeypress="if (event.keyCode < 45 || event.keyCode > 57) event.returnValue = false;" id="Anualidad" name="Anualidad" >
+							
+						</div>
+						<div class="col-md-2" id="validaFinanciadoPlazo">
+							<label>Plazo (Mensualidades)</label>
+							<input  type="text" class="form-control" onKeypress="if (event.keyCode < 45 || event.keyCode > 57) event.returnValue = false;" id="Plazo" name="Plazo" >
+							
+						</div>
+						
+							<div class="col-md-2">
+								<label>Servicios</label>
+									<input required="" class="form-control" type="checkbox"  id="Luz" name="Luz"  value="Luz "> Luz
+								</div>
+								<div class="col-md-2">
+									<label>&nbsp;</label>
+									<input required="" class="form-control" type="checkbox"  id="Agua" name="Agua"  value="Agua "> Agua
+								</div>
+								<div class="col-md-2">
+									<label>&nbsp;</label>
+									<input required="" class="form-control" type="checkbox"  id="Drenaje" name="Drenaje"  value="Drenaje "> Drenaje
+								</div>
+						
+						
 					</div>
 				
 					<div class="form-group row " >
@@ -239,7 +270,18 @@
 			}
 			
 
-			
+			function cambioTipoVenta(){
+				if($('#TipoVenta').val()=="Contado y Financiado" || $('#TipoVenta').val()=="Financiado"){
+					
+					$('#validaFinanciadoEnganche').css('display','block');
+					$('#validaFinanciadoAnualida').css('display','block');
+					$('#validaFinanciadoPlazo').css('display','block');
+				}else{
+					$('#validaFinanciadoEnganche').css('display','none');
+					$('#validaFinanciadoAnualida').css('display','none');
+					$('#validaFinanciadoPlazo').css('display','none');
+				}
+			}
 			
 			
 			function Registrar(){
@@ -255,18 +297,23 @@
 							"TipoSuperficie":$('#TipoSuperficie').val(),
 							"TipoPredio":$('#TipoPredio').val(),
 							"Localización":$('#Localización').val(),
-
 							"Estatus":$('#Estatus').val(),
 							"TipoVenta":$('#TipoVenta').val(),
 							"CostoContado":$('#CostoContado').val(),
 							"CostoContadoTotal":$('#CostoContadoTotal').val(),
-
 							"CostoFinanciado":$('#CostoFinanciado').val(),
 							"CostoFinanciadoTotal":$('#CostoFinanciadoTotal').val(),
 							"ClaveCatastralPredio":$('#ClaveCatastralPredio').val(),
 							"FechaClaveCatastralPredio":$('#FechaClaveCatastralPredio').val(),
 							"ClaveCatastralLote":$('#ClaveCatastralLote').val(),
 							"FechaClaveCatastralLote":$('#FechaClaveCatastralLote').val(),
+							
+							"Enganche":$('#Enganche').val(),
+							"Anualidad":$('#Anualidad').val(),
+							"Plazo":$('#Plazo').val(),
+							"Luz":$('#Luz').val(),
+							"Agua":$('#Agua').val(),
+							"Drenaje":$('#Drenaje').val(),
 						}, 
 						url:   "{{url('alta/capturaProyectosLotes')}}",
 						type:  'get',
