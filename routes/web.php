@@ -404,6 +404,13 @@ Route::get('/consultar/bitacora', 'bitacoraController@bitacoraconsultar');
 Route::get('/crea/PDF/BITACORA/{modulo}/{consulta}', 'bitacoraController@bitacoraPDF');
 Route::get('/generar/excel/{modulo}/{consulta}', 'bitacoraController@generarExcel');
 
+Route::get('/ventalotesView33', 'VentasController@ventalotesView33');
+Route::get('/ventalotesView28', 'VentasController@ventalotesView28');
+Route::get('/ventalotesView27', 'VentasController@ventalotesView27');
+
+
+
+
 
 
 
