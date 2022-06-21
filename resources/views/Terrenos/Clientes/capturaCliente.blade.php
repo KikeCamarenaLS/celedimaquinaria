@@ -153,22 +153,22 @@
 								<div class="col-md-12">
 									<label>¿Cómo se enteró de nosotros?</label>
 								</div>
-								<div class="col-md-2">
+								<div class="col-md-12">
 									<input required="" type="checkbox"  id="Redes" name="Redes"  value="Redes sociales">Redes sociales
 								</div>
-								<div class="col-md-2">
+								<div class="col-md-12">
 									<input required="" type="checkbox"  id="Boletín" name="Boletín"  value="Boletín">Boletín
 								</div>
-								<div class="col-md-2">
+								<div class="col-md-12">
 									<input required="" type="checkbox"  id="Amigos" name="Amigos"  value="Amigos y/o familiares">Amigos y/o familiares 
 								</div>
-								<div class="col-md-2">
+								<div class="col-md-12">
 									<input required="" type="checkbox"  id="Agentes" name="Agentes"  value="Agentes de venta">Agentes de venta 
 								</div>
-								<div class="col-md-1">
+								<div class="col-md-12">
 									<input required="" type="checkbox"  id="Otro" name="Otro"  value="Otros">Otros
 								</div>
-								<div class="col-md-3">
+								<div class="col-md-12">
 									<label>¿Cómo se enteró de nosotros?</label>
 									<input required="" type="text" class="form-control"  id="otros" name="otros"  >
 								</div>
