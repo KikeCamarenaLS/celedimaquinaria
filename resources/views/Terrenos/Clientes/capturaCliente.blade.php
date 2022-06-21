@@ -163,13 +163,15 @@
 									<input required="" type="checkbox"  id="Amigos" name="Amigos"  value="Amigos y/o familiares">Amigos y/o familiares 
 								</div>
 								<div class="col-md-12">
-									<input required="" type="checkbox"  id="Agentes" name="Agentes"  value="Agentes de venta">Agentes de venta 
+									<input required="" type="checkbox"  id="Agentes" name="Agentes"  value="Agentes de venta">Agente de venta 
+								</div>
+								<div class="col-md-12">
+									<input required="" type="checkbox"  id="espectacular" name="espectacular"  value="espectacular"> espectacular
 								</div>
 								<div class="col-md-12">
 									<input required="" type="checkbox"  id="Otro" name="Otro"  value="Otros">Otros
 								</div>
-								<div class="col-md-12">
-									<label>¿Cómo se enteró de nosotros?</label>
+								<div class="col-md-2">
 									<input required="" type="text" class="form-control"  id="otros" name="otros"  >
 								</div>
 								
