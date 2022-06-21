@@ -408,6 +408,11 @@ Route::get('/ventalotesView33', 'VentasController@ventalotesView33');
 Route::get('/ventalotesView28', 'VentasController@ventalotesView28');
 Route::get('/ventalotesView27', 'VentasController@ventalotesView27');
 
+Route::get('/calcular/fechaNac', 'VentasController@CalcularFechaNac');
+
+
+
+
 
 
 

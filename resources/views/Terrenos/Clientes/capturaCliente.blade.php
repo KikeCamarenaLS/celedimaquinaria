@@ -50,6 +50,50 @@
 						<div class="form-group row " >
 
 							<div class="col-md-3" >
+								<label>Estado civil</label>
+								<select  class="form-control success" id="Estado_civil" name="Estado_civil"  >
+									<option>Soltero</option>
+									<option>Casado</option>
+									<option>Divorciado</option>
+									<option>Separación en proceso judicial</option>
+									<option>Viudo</option>
+									<option>Concubinato</option>
+									<option>Prefiero no decirlo</option>
+
+								</select>
+
+							</div>
+
+							<div class="col-md-3">
+								<label>Género </label>
+								<select  class="form-control success" id="Género" name="Género"  >
+									<option>Masculino</option>
+									<option>Femenino</option>
+									<option>Otro</option>
+									<option>Prefiero no decirlo</option>
+
+								</select>
+							</div>
+							<div class="col-md-2" >
+								<label>Numero de dependiente</label>
+								<input  type="number" class="form-control success" id="dependiente" name="dependiente"  >
+
+							</div>
+							<div class="col-md-4" >
+								<label>Ultimo grado de estudio</label>
+								<input  type="number" class="form-control success" id="dependiente" name="dependiente"  >
+
+							</div>
+							<div class="col-md-4" >
+								<label>Correo electrónico</label>
+								<input  type="mail" class="form-control success" id="Correo" name="Correo"  >
+
+							</div>
+							
+						</div>
+<div class="form-group row " >
+
+							<div class="col-md-3" >
 								<label>Telefono 1(Cliente)</label>
 								<input required="" type="text" maxlength="10" onKeypress="if (event.keyCode < 45 || event.keyCode > 57) event.returnValue = false;"  class="form-control success" id="Telefono_1" name="Telefono_1"  >
 
@@ -66,11 +110,14 @@
 							</div>
 							
 						</div>
-
 <div class="form-group row " >
 							<div class="col-md-3">
 								<label>Fecha de Nacimiento</label>
-								<input  type="date" class="form-control"   id="fechaNac" name="fechaNac"  >
+								<input  type="date" class="form-control"   id="fechaNac" name="fechaNac" onchange="saberEdad();" >
+							</div>
+							<div class="col-md-2">
+								<label>Edad</label>
+								<input  type="text" class="form-control"   id="Edad" name="Edad" disabled>
 							</div>
 							
 							<div class="col-md-3">
@@ -157,22 +204,28 @@
 									<input required="" type="checkbox"  id="Redes" name="Redes"  value="Redes sociales">Redes sociales
 								</div>
 								<div class="col-md-12">
-									<input required="" type="checkbox"  id="Boletín" name="Boletín"  value="Boletín">Boletín
+									<input required="" type="checkbox"  id="Boletín" name="Boletín"  value="Publicidad impresa
+">Publicidad impresa
+
 								</div>
 								<div class="col-md-12">
-									<input required="" type="checkbox"  id="Amigos" name="Amigos"  value="Amigos y/o familiares">Amigos y/o familiares 
+									<input required="" type="checkbox"  id="Amigos" name="Amigos"  value="Amigos y/o familiares" onclick="cambiarrecomendohiden()">Amigos y/o familiares 
+									
+								</div>
+								<div class="col-md-3" id="recomendohiden" style="display: none;">
+									<input required="" type="text" class="form-control"  id="QuienRecomendo" name="QuienRecomendo" placeholder="Nombre completo de quien te recomendo" style="border:1px black solid">
 								</div>
 								<div class="col-md-12">
 									<input required="" type="checkbox"  id="Agentes" name="Agentes"  value="Agentes de venta">Agente de venta 
 								</div>
 								<div class="col-md-12">
-									<input required="" type="checkbox"  id="espectacular" name="espectacular"  value="espectacular"> espectacular
+									<input required="" type="checkbox"  id="espectacular" name="espectacular"  value="espectacular"> Espectacular
 								</div>
 								<div class="col-md-12">
-									<input required="" type="checkbox"  id="Otro" name="Otro"  value="Otros">Otros
+									<input required="" type="checkbox"  id="Otro" name="Otro"   onclick="cambiarOtrohiden()" value="Otros">Otros
 								</div>
-								<div class="col-md-2">
-									<input required="" type="text" class="form-control"  id="otros" name="otros"  >
+								<div class="col-md-3" id="Otrohiden" style="display: none;">
+									<input required="" type="text" class="form-control"  id="otros" name="otros"  placeholder="Especifica como te enteraste de nosotros">
 								</div>
 								
 								
@@ -842,6 +895,44 @@
 					"loadingRecords" : "Cargando..."
 				}
 			});
+
+			function cambiarrecomendohiden(){
+
+				if($('#Amigos').prop('checked') ){
+					$('#recomendohiden').css('display','block');
+				}else{
+					$('#recomendohiden').css('display','none');
+				}
+			}
+
+			function cambiarOtrohiden(){
+				
+				if($('#Otro').prop('checked') ){
+					$('#Otrohiden').css('display','block');
+				}else{
+					$('#Otrohiden').css('display','none');
+				}
+			}
+
+			function saberEdad(){
+				
+				$.ajax({
+					data:  {
+						"Fecha":$('#fechaNac').val(),
+
+					}, 
+					url:   "{{url('calcular/fechaNac')}}",
+					type:  'get',
+					success:  function (data) { 
+						$('#Edad').val(data[0].edad);
+					},
+					error: function(XMLHttpRequest, textStatus, errorThrown) { 
+						$('#modalCobranza').modal('show');
+						mensaje('danger','Algo salio mal, intentelo mas tarde!!');
+					}   
+				});
+				
+			}
 			function validaAdquisicion(){
 
 				var Adquisición=$("#Adquisición").val();

@@ -278,7 +278,10 @@ public function ventalotesView27(){
 }
 
 
-
+public function CalcularFechaNac(){
+  $Fecha= Request::input("Fecha");
+  return DB::select("SELECT TIMESTAMPDIFF(YEAR,'".$Fecha."',CURDATE()) AS edad FROM clientes;");
+}
 
 
 public function ventalotesViewSinMapas(){ 
