@@ -51,7 +51,7 @@
 
 							<div class="col-md-3" >
 								<label>Estado civil</label>
-								<select  class="form-control success" id="Estado_civil" name="Estado_civil"  >
+								<select  class="form-control success" id="Estado_civil" name="Estado_civil"  style="width:100%;">
 									<option>Soltero</option>
 									<option>Casado</option>
 									<option>Divorciado</option>
@@ -66,7 +66,7 @@
 
 							<div class="col-md-3">
 								<label>Género </label>
-								<select  class="form-control success" id="Género" name="Género"  >
+								<select  class="form-control success" id="Género" name="Género"  style="width:100%;">
 									<option>Masculino</option>
 									<option>Femenino</option>
 									<option>Otro</option>
@@ -74,32 +74,41 @@
 
 								</select>
 							</div>
+							<div class="col-md-4" >
+								<label>Ultimo grado de estudio</label>
+								<select  class="form-control success" id="estudio" name="estudio" style="width:100%;" >
+									<option>Ninguno</option>
+									<option>Preescolar</option>
+									<option>Primaria</option>
+									<option>Secundaria</option>
+									<option>Preparatoria o bachillerato</option>
+									<option>Ingeniería</option>
+									<option>Licenciatura </option>
+									<option>Maestría</option>
+									<option>Doctorado</option>
+									<option>Prefiero no decirlo</option>
+
+								</select>
+
+							</div>
 							<div class="col-md-2" >
 								<label>Numero de dependiente</label>
 								<input  type="number" class="form-control success" id="dependiente" name="dependiente"  >
 
 							</div>
-							<div class="col-md-4" >
-								<label>Ultimo grado de estudio</label>
-								<input  type="number" class="form-control success" id="dependiente" name="dependiente"  >
-
-							</div>
-							<div class="col-md-4" >
-								<label>Correo electrónico</label>
-								<input  type="mail" class="form-control success" id="Correo" name="Correo"  >
-
-							</div>
+							
+							
 							
 						</div>
 <div class="form-group row " >
 
-							<div class="col-md-3" >
+							<div class="col-md-2" >
 								<label>Telefono 1(Cliente)</label>
 								<input required="" type="text" maxlength="10" onKeypress="if (event.keyCode < 45 || event.keyCode > 57) event.returnValue = false;"  class="form-control success" id="Telefono_1" name="Telefono_1"  >
 
 							</div>
 
-							<div class="col-md-3">
+							<div class="col-md-2">
 								<label>Telefono 2(Recados)</label>
 								<input  type="text" class="form-control" maxlength="10" onKeypress="if (event.keyCode < 45 || event.keyCode > 57) event.returnValue = false;"  id="Telefono_3" name="Telefono_3"  >
 							</div>
@@ -108,13 +117,14 @@
 								<input  type="mail" class="form-control success" id="Correo" name="Correo"  >
 
 							</div>
-							
-						</div>
-<div class="form-group row " >
 							<div class="col-md-3">
 								<label>Fecha de Nacimiento</label>
 								<input  type="date" class="form-control"   id="fechaNac" name="fechaNac" onchange="saberEdad();" >
 							</div>
+							
+						</div>
+<div class="form-group row " >
+							
 							<div class="col-md-2">
 								<label>Edad</label>
 								<input  type="text" class="form-control"   id="Edad" name="Edad" disabled>
@@ -212,7 +222,7 @@
 									<input required="" type="checkbox"  id="Amigos" name="Amigos"  value="Amigos y/o familiares" onclick="cambiarrecomendohiden()">Amigos y/o familiares 
 									
 								</div>
-								<div class="col-md-3" id="recomendohiden" style="display: none;">
+								<div class="col-md-4" id="recomendohiden" style="display: none;">
 									<input required="" type="text" class="form-control"  id="QuienRecomendo" name="QuienRecomendo" placeholder="Nombre completo de quien te recomendo" style="border:1px black solid">
 								</div>
 								<div class="col-md-12">
@@ -224,7 +234,7 @@
 								<div class="col-md-12">
 									<input required="" type="checkbox"  id="Otro" name="Otro"   onclick="cambiarOtrohiden()" value="Otros">Otros
 								</div>
-								<div class="col-md-3" id="Otrohiden" style="display: none;">
+								<div class="col-md-4" id="Otrohiden" style="display: none;">
 									<input required="" type="text" class="form-control"  id="otros" name="otros"  placeholder="Especifica como te enteraste de nosotros">
 								</div>
 								
@@ -837,6 +847,22 @@
 			$('#Colonia').select2({
 				theme: "bootstrap"
 			});
+
+			$('#Estado_civil').select2({
+				theme: "bootstrap"
+			});
+
+			$('#Género').select2({
+				theme: "bootstrap"
+			});
+
+			
+
+			$('#estudio').select2({
+				theme: "bootstrap"
+			});
+
+			
 			
 			$('#proyecto').select2({
 				theme: "bootstrap"
@@ -1596,6 +1622,16 @@
 							"Agentes":$('#Agentes').val(),
 							"Otro":$('#Otro').val(),
 							"otros":$('#otros').val(),
+
+
+
+
+							"Estado_civil":$('#Estado_civil').val(),
+							"Género":$('#Género').val(),
+							"estudio":$('#estudio').val(),
+							"dependiente":$('#dependiente').val(),
+							"espectacular":$('#espectacular').val(),
+							"QuienRecomendo":$('#QuienRecomendo').val(),
 						}, 
 						url:   "{{url('alta/capturaCliente')}}",
 						type:  'get',
@@ -1690,6 +1726,14 @@
 				$('#MontoMensual').val("")
 				$('#Porcentaje').val("")
 				$('#EstatusVenta').val("")
+
+
+				$('#Estado_civil').val("");
+							$('#Género').val("");
+							$('#estudio').val("");
+							$('#dependiente').val("");
+							$('#espectacular').val("");
+							$('#QuienRecomendo').val("");
 
 
 
