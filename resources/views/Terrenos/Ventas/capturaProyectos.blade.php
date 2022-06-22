@@ -90,6 +90,22 @@
 							<input  type="date" class="form-control" id="FechaPredial" name="FechaPredial" >
 							
 						</div>
+						<div class="col-md-2">
+							<label>Valor a la compra</label>
+							<input  type="text" class="form-control" id="ValorCompra" name="ValorCompra" onKeypress="if (event.keyCode < 45 || event.keyCode > 57) event.returnValue = false;">
+							
+						</div>
+						<div class="col-md-3">
+							<label>Detalle</label>
+							<textarea class="form-control" id="Detalle" name="Detalle" >
+							</textarea>
+							
+						</div>
+						<div class="col-md-2">
+							<label>Numero de escritura</label>
+							<input  type="text" class="form-control" id="NumeroEscritura" name="NumeroEscritura">
+							
+						</div>
 									<div class="col-md-2">
 											<label>Tipo de superficie</label>
 											<select class="form-control" id="TipoSuperficie" name="TipoSuperficie"  style="width: 100%;">
