@@ -54,8 +54,40 @@
 					</div>
 					<div class="form-group row " >
 						<div class="col-md-2">
-							<label>Colindancia</label>
-							<input  type="text" class="form-control" id="Colinancia" name="Colinancia" >
+							<label>Colindancia Norte</label>
+							<input  type="text" class="form-control" id="ColinanciaNorte" name="ColinanciaNorte" >
+							
+						</div>
+
+						<div class="col-md-2">
+							<label>Colindancia Sur</label>
+							<input  type="text" class="form-control" id="ColinanciaSur" name="ColinanciaSur" >
+							
+						</div>
+
+						<div class="col-md-2">
+							<label>Colindancia Este</label>
+							<input  type="text" class="form-control" id="ColinanciaEste" name="ColinanciaEste" >
+							
+						</div>
+
+						<div class="col-md-2">
+							<label>Colindancia Oeste</label>
+							<input  type="text" class="form-control" id="ColinanciaOeste" name="ColinanciaOeste" >
+							
+						</div>
+						<div class="col-md-2">
+											<label>Tipo de suelo</label>
+											<select class="form-control" id="TipoSuelo" name="TipoSuelo"  style="width: 100%;">
+												<option>Ejido</option>
+												<option>Propiedad privada</option>
+												<option>Propiedad privada inscrita en el registro público</option>
+												<option>Ejido en tramite en dominio pleno</option>
+											</select>
+						</div>
+						<div class="col-md-2">
+							<label>Fecha Pago Predial</label>
+							<input  type="text" class="form-control" id="ColinanciaOeste" name="ColinanciaOeste" >
 							
 						</div>
 									<div class="col-md-2">
@@ -233,6 +265,10 @@
 			$('#TipoSuperficie').select2({
 				theme: "bootstrap"
 			});
+			$('#TipoSuelo').select2({
+				theme: "bootstrap"
+			});
+			
 			$('#TipoPredio').select2({
 				theme: "bootstrap"
 			});
