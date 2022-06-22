@@ -87,7 +87,7 @@
 						</div>
 						<div class="col-md-2">
 							<label>Fecha Pago Predial</label>
-							<input  type="text" class="form-control" id="ColinanciaOeste" name="ColinanciaOeste" >
+							<input  type="date" class="form-control" id="FechaPredial" name="FechaPredial" >
 							
 						</div>
 									<div class="col-md-2">
