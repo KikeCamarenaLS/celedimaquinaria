@@ -42,8 +42,8 @@
 
 
 
-					<div class="modal fade" id="modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
-						<div class="modal-dialog" role="document">
+					<div class="modal fade bd-example-modal-lg" id="modal" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+						<div class="modal-dialog modal-lg">
 							<div class="modal-content">
 								<div class="modal-header" id="headerModal" style="background-color:red; color: #ffffff;">
 
@@ -359,12 +359,62 @@
 								'<li>'+
 								'<span class="name-specification">Superficie (m<sup>2</sup>)</span>'+
 								'<span class="status-specification">'+data[0].superficie+'m<sup>2</sup>'+
-								'</li>'+
-								'<li>'+
-								'<span class="name-specification">Colindancia</span>'+
-								'<span class="status-specification">'+data[0].Colinancia+'</span>'+
-								'</li>'+
-								'<li>'+
+								'</li>';
+								if (data[0].ColinanciaNorte!="") {
+									texto+='<li>'+
+									'<span class="name-specification">Colindancia Norte</span>'+
+									'<span class="status-specification">'+data[0].ColinanciaNorte+'</span>'+
+									'</li>';
+								}
+
+								if (data[0].ColinanciaSur!="") {
+									texto+='<li>'+
+									'<span class="name-specification">Colindancia Sur</span>'+
+									'<span class="status-specification">'+data[0].ColinanciaSur+'</span>'+
+									'</li>';
+								}
+
+								if (data[0].ColinanciaEste!="") {
+									texto+='<li>'+
+									'<span class="name-specification">Colindancia Este</span>'+
+									'<span class="status-specification">'+data[0].ColinanciaEste+'</span>'+
+									'</li>';
+								}
+
+								if (data[0].ColinanciaOeste!="") {
+									texto+='<li>'+
+									'<span class="name-specification">Colindancia Oeste</span>'+
+									'<span class="status-specification">'+data[0].ColinanciaOeste+'</span>'+
+									'</li>';
+								}
+								
+								if (data[0].TipoSuelo!="") {
+									texto+='<li>'+
+									'<span class="name-specification">Tipo de Suelo</span>'+
+									'<span class="status-specification">'+data[0].TipoSuelo+'</span>'+
+									'</li>';
+								}
+								if (data[0].FechaPredial!="0000-00-00") {
+									texto+='<li>'+
+									'<span class="name-specification">Fecha del Pago Predial</span>'+
+									'<span class="status-specification">'+data[0].FechaPredial+'</span>'+
+									'</li>';
+								}
+								if (data[0].ValorCompra!="") {
+									texto+='<li>'+
+									'<span class="name-specification">Valor a la Compra</span>'+
+									'<span class="status-specification">'+data[0].ValorCompra+'</span>'+
+									'</li>';
+								}
+								if (data[0].Detalle!="") {
+									texto+='<li>'+
+									'<span class="name-specification">Detalle</span>'+
+									'<span class="status-specification">'+data[0].Detalle+'</span>'+
+									'</li>';
+								}
+								
+								
+								texto+='<li>'+
 								'<span class="name-specification">Tipo de Superficie</span>'+
 								'<span class="status-specification">'+data[0].TipoSuperficie+'</span>'+
 								'</li>'+

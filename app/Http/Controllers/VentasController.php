@@ -362,11 +362,9 @@ public function capturaProyectosLotes(Request $request)
   $id = Auth::user()->id;
    $validExiste=DB::select('select * from proyectoLote where mz='.$Mz.' and lt='.$Lt.' and proyecto='.$proyecto.'  ');
   if($validExiste){
-
-  }
-
-
-  $insert =DB::select('insert into proyectoLote (idElemento,proyecto,mz,lt, superficie, Medidas,TipoSuperficie, TipoPredio, Localización, Estatus, TipoVenta, CostoContado, CostoContadoTotal, CostoFinanciado, CostoFinanciadoTotal, ClaveCatastralPredio, FechaClaveCatastralPredio, ClaveCatastralLote, FechaClaveCatastralLote,created_at,enganche ,anualidad,plazo,servicioluz,servicioagua ,serviciodrenaje,ColinanciaNorte,ColinanciaSur,ColinanciaEste,ColinanciaOeste,TipoSuelo,FechaPredial,ValorCompra,Detalle,NumeroEscritura) values ("'.$id.'","'.$proyecto.'","'.$Mz.'","'.$Lt.'","'.$Superficie.'","'.$Medidas.'","'.$TipoSuperficie.'","'.$TipoPredio.'","'.$Localización.'","'.$Estatus.'","'.$TipoVenta.'","'.$CostoContado.'","'.$CostoContadoTotal.'","'.$CostoFinanciado.'","'.$CostoFinanciadoTotal.'","'.$ClaveCatastralPredio.'","'.$FechaClaveCatastralPredio.'","'.$ClaveCatastralLote.'","'.$FechaClaveCatastralLote.'",now(),"'.$Enganche.'","'.$Anualidad.'","'.$Plazo.'","'.$Luz.'","'.$Agua.'","'.$Drenaje.'","'.$ColinanciaNorte.'","'.$ColinanciaSur.'","'.$ColinanciaEste.'","'.$ColinanciaOeste.'","'.$TipoSuelo.'","'.$FechaPredial.'","'.$ValorCompra.'","'.$Detalle.'","'.$NumeroEscritura.'")');
+    return 'Este lote ya esta registrado en el sistema';
+  }else{
+     $insert =DB::select('insert into proyectoLote (idElemento,proyecto,mz,lt, superficie, Medidas,TipoSuperficie, TipoPredio, Localización, Estatus, TipoVenta, CostoContado, CostoContadoTotal, CostoFinanciado, CostoFinanciadoTotal, ClaveCatastralPredio, FechaClaveCatastralPredio, ClaveCatastralLote, FechaClaveCatastralLote,created_at,enganche ,anualidad,plazo,servicioluz,servicioagua ,serviciodrenaje,ColinanciaNorte,ColinanciaSur,ColinanciaEste,ColinanciaOeste,TipoSuelo,FechaPredial,ValorCompra,Detalle,NumeroEscritura) values ("'.$id.'","'.$proyecto.'","'.$Mz.'","'.$Lt.'","'.$Superficie.'","'.$Medidas.'","'.$TipoSuperficie.'","'.$TipoPredio.'","'.$Localización.'","'.$Estatus.'","'.$TipoVenta.'","'.$CostoContado.'","'.$CostoContadoTotal.'","'.$CostoFinanciado.'","'.$CostoFinanciadoTotal.'","'.$ClaveCatastralPredio.'","'.$FechaClaveCatastralPredio.'","'.$ClaveCatastralLote.'","'.$FechaClaveCatastralLote.'",now(),"'.$Enganche.'","'.$Anualidad.'","'.$Plazo.'","'.$Luz.'","'.$Agua.'","'.$Drenaje.'","'.$ColinanciaNorte.'","'.$ColinanciaSur.'","'.$ColinanciaEste.'","'.$ColinanciaOeste.'","'.$TipoSuelo.'","'.$FechaPredial.'","'.$ValorCompra.'","'.$Detalle.'","'.$NumeroEscritura.'")');
   if($insert){
     $proyect=DB::select('select proyecto from cat_proyectos where id_proyecto='.$proyecto);
     $idUsuarioSistema = Auth::user()->id;
@@ -377,6 +375,10 @@ public function capturaProyectosLotes(Request $request)
   
   return $insert;
 
+  }
+
+
+ 
 }
 public function buscarProyectosLotes(Request $request)
 {

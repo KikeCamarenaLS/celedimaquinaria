@@ -492,9 +492,16 @@
 						url:   "{{url('alta/capturaProyectosLotes')}}",
 						type:  'get',
 						success:  function (data) { 
-							console.log(data);
+							if (data=='Este lote ya esta registrado en el sistema') {
+								console.log(data);
+							//limpiar();
+								mensaje('danger',data);
+							}else{
+								console.log(data);
 							//limpiar();
 								mensaje('success','registro exitoso!!');
+							}
+							
 							
 
 
