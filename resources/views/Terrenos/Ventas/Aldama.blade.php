@@ -412,6 +412,12 @@
 									'<span class="status-specification">'+data[0].Detalle+'</span>'+
 									'</li>';
 								}
+								if (data[0].NumeroEscritura!="") {
+									texto+='<li>'+
+									'<span class="name-specification">Numero de Escritura</span>'+
+									'<span class="status-specification">'+data[0].NumeroEscritura+'</span>'+
+									'</li>';
+								}
 								
 								
 								texto+='<li>'+
