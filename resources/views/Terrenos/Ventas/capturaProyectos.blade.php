@@ -78,7 +78,7 @@
 						</div>
 						<div class="col-md-2">
 											<label>Tipo de suelo</label>
-											<select class="form-control" id="TipoSuelo" name="TipoSuelo"  style="width: 100%;">
+											<select class="form-control" id="TipoSuelo" name="TipoSuelo" onchange="bloquearClaveCatastral();" style="width: 100%;">
 												<option>Ejido</option>
 												<option>Propiedad privada</option>
 												<option>Propiedad privada inscrita en el registro público</option>
@@ -90,22 +90,26 @@
 							<input  type="date" class="form-control" id="FechaPredial" name="FechaPredial" >
 							
 						</div>
+						</div>
+					<div class="form-group row " >
 						<div class="col-md-2">
 							<label>Valor a la compra</label>
 							<input  type="text" class="form-control" id="ValorCompra" name="ValorCompra" onKeypress="if (event.keyCode < 45 || event.keyCode > 57) event.returnValue = false;">
 							
 						</div>
-						<div class="col-md-3">
+						<div class="col-md-5">
 							<label>Detalle</label>
 							<textarea class="form-control" id="Detalle" name="Detalle" >
 							</textarea>
 							
 						</div>
-						<div class="col-md-2">
+						<div class="col-md-4">
 							<label>Numero de escritura</label>
 							<input  type="text" class="form-control" id="NumeroEscritura" name="NumeroEscritura">
 							
 						</div>
+						</div>
+					<div class="form-group row " >
 									<div class="col-md-2">
 											<label>Tipo de superficie</label>
 											<select class="form-control" id="TipoSuperficie" name="TipoSuperficie"  style="width: 100%;">
@@ -212,22 +216,22 @@
 					</div>
 				
 					<div class="form-group row " >
-						<div class="col-md-3">
+						<div class="col-md-3" id="hidenClaveCatastralPredio">
 							<label>Clave Catastral de predio</label>
 							<input  type="text" class="form-control" id="ClaveCatastralPredio" name="ClaveCatastralPredio" >
 							
 						</div>
-						<div class="col-md-3">
+						<div class="col-md-3" id="hidenFechaClaveCatastralPredio">
 							<label>Fecha Clave Catastral de predio </label>
 							<input  type="date" class="form-control" id="FechaClaveCatastralPredio" name="FechaClaveCatastralPredio" >
 							
 						</div>
-						<div class="col-md-3">
+						<div class="col-md-3" id="hidenClaveCatastralLote">
 							<label>Clave Catastral de lote</label>
 							<input  type="text" class="form-control" id="ClaveCatastralLote" name="ClaveCatastralLote" >
 							
 						</div>
-						<div class="col-md-3">
+						<div class="col-md-3" id="hidenFechaClaveCatastralLote">
 							<label>Fecha Clave Catastral de lote </label>
 							<input  type="date" class="form-control" id="FechaClaveCatastralLote" name="FechaClaveCatastralLote" >
 							
@@ -320,7 +324,99 @@
 				TotalDevengado = TotalDevengado.replace(/,/g, "");
 				$("#CostoTotal").val(Intl.NumberFormat('es-MX').format(TotalDevengado));
 			}
+
 			
+			$( "#ValorCompra" ).keyup(function() {
+			  var TotalDevengado=$("#ValorCompra").val();
+				TotalDevengado = TotalDevengado.replace(/,/g, "");
+				$("#ValorCompra").val(Intl.NumberFormat('es-MX').format(TotalDevengado));
+			});
+
+			$( "#CostoContado" ).keyup(function() {
+			  var TotalDevengado=$("#CostoContado").val();
+				TotalDevengado = TotalDevengado.replace(/,/g, "");
+				$("#CostoContado").val(Intl.NumberFormat('es-MX').format(TotalDevengado));
+			});
+			$( "#CostoContadoTotal" ).keyup(function() {
+			  var TotalDevengado=$("#CostoContadoTotal").val();
+				TotalDevengado = TotalDevengado.replace(/,/g, "");
+				$("#CostoContadoTotal").val(Intl.NumberFormat('es-MX').format(TotalDevengado));
+			});
+			$( "#CostoFinanciado" ).keyup(function() {
+			  var TotalDevengado=$("#CostoFinanciado").val();
+				TotalDevengado = TotalDevengado.replace(/,/g, "");
+				$("#CostoFinanciado").val(Intl.NumberFormat('es-MX').format(TotalDevengado));
+			});
+			$( "#CostoFinanciadoTotal" ).keyup(function() {
+			  var TotalDevengado=$("#CostoFinanciadoTotal").val();
+				TotalDevengado = TotalDevengado.replace(/,/g, "");
+				$("#CostoFinanciadoTotal").val(Intl.NumberFormat('es-MX').format(TotalDevengado));
+			});
+
+			$( "#Enganche" ).keyup(function() {
+			  var TotalDevengado=$("#Enganche").val();
+				TotalDevengado = TotalDevengado.replace(/,/g, "");
+				$("#Enganche").val(Intl.NumberFormat('es-MX').format(TotalDevengado));
+			});
+
+
+			$( "#Anualidad" ).keyup(function() {
+			  var TotalDevengado=$("#Anualidad").val();
+				TotalDevengado = TotalDevengado.replace(/,/g, "");
+				$("#Anualidad").val(Intl.NumberFormat('es-MX').format(TotalDevengado));
+			});
+			$( "#Plazo" ).keyup(function() {
+			  var TotalDevengado=$("#Plazo").val();
+				TotalDevengado = TotalDevengado.replace(/,/g, "");
+				$("#Plazo").val(Intl.NumberFormat('es-MX').format(TotalDevengado));
+			});
+
+			
+			
+			$( "#ValorCompra" ).change(function() {
+			  var TotalDevengado=$("#ValorCompra").val();
+				TotalDevengado = TotalDevengado.replace(/,/g, "");
+				$("#ValorCompra").val(Intl.NumberFormat('es-MX').format(TotalDevengado));
+			});
+
+			$( "#CostoContado" ).change(function() {
+			  var TotalDevengado=$("#CostoContado").val();
+				TotalDevengado = TotalDevengado.replace(/,/g, "");
+				$("#CostoContado").val(Intl.NumberFormat('es-MX').format(TotalDevengado));
+			});
+			$( "#CostoContadoTotal" ).change(function() {
+			  var TotalDevengado=$("#CostoContadoTotal").val();
+				TotalDevengado = TotalDevengado.replace(/,/g, "");
+				$("#CostoContadoTotal").val(Intl.NumberFormat('es-MX').format(TotalDevengado));
+			});
+			$( "#CostoFinanciado" ).change(function() {
+			  var TotalDevengado=$("#CostoFinanciado").val();
+				TotalDevengado = TotalDevengado.replace(/,/g, "");
+				$("#CostoFinanciado").val(Intl.NumberFormat('es-MX').format(TotalDevengado));
+			});
+			$( "#CostoFinanciadoTotal" ).change(function() {
+			  var TotalDevengado=$("#CostoFinanciadoTotal").val();
+				TotalDevengado = TotalDevengado.replace(/,/g, "");
+				$("#CostoFinanciadoTotal").val(Intl.NumberFormat('es-MX').format(TotalDevengado));
+			});
+			
+			
+			function bloquearClaveCatastral(){
+				if($('#TipoSuelo').val()=="Propiedad privada" ){
+					$('#hidenClaveCatastralPredio').css('display','none');
+					$('#hidenClaveCatastralLote').css('display','none');
+					$('#hidenFechaClaveCatastralPredio').css('display','none');
+					$('#hidenFechaClaveCatastralLote').css('display','none');
+
+				}else{
+					$('#hidenClaveCatastralPredio').css('display','block');
+					$('#hidenClaveCatastralLote').css('display','block');
+					$('#hidenFechaClaveCatastralPredio').css('display','block');
+					$('#hidenFechaClaveCatastralLote').css('display','block');
+					
+
+				}
+			}
 
 			function cambioTipoVenta(){
 				if($('#TipoVenta').val()=="Contado y Financiado" || $('#TipoVenta').val()=="Financiado"){
@@ -337,6 +433,18 @@
 			
 			
 			function Registrar(){
+				var luz='';
+				var Agua='';
+				var Drenaje='';
+				if($('#Luz').prop('checked')){
+					luz=$('#Luz').val();
+				}
+				if($('#Agua').prop('checked')){
+					Agua=$('#Agua').val();
+				}
+				if($('#Drenaje').prop('checked')){
+					Drenaje=$('#Drenaje').val();
+				}
 				
 					$.ajax({
 						data:  {
@@ -345,7 +453,6 @@
 							"Lt":$('#Lt').val(),
 							"Superficie":$('#Superficie').val(),
 							"Medidas":$('#Medidas').val(),
-							"Colinancia":$('#Colinancia').val(),
 							"TipoSuperficie":$('#TipoSuperficie').val(),
 							"TipoPredio":$('#TipoPredio').val(),
 							"Localización":$('#Localización').val(),
@@ -363,9 +470,24 @@
 							"Enganche":$('#Enganche').val(),
 							"Anualidad":$('#Anualidad').val(),
 							"Plazo":$('#Plazo').val(),
-							"Luz":$('#Luz').val(),
-							"Agua":$('#Agua').val(),
-							"Drenaje":$('#Drenaje').val(),
+							"Luz":luz,
+							"Agua":Agua,
+							"Drenaje":Drenaje,
+
+
+							"ColinanciaNorte":$('#ColinanciaNorte').val(),
+							"ColinanciaSur":$('#ColinanciaSur').val(),
+							"ColinanciaEste":$('#ColinanciaEste').val(),
+							"ColinanciaOeste":$('#ColinanciaOeste').val(),
+							"TipoSuelo":$('#TipoSuelo').val(),
+							"FechaPredial":$('#FechaPredial').val(),
+							"ValorCompra":$('#ValorCompra').val(),
+							"Detalle":$('#Detalle').val(),
+							"NumeroEscritura":$('#NumeroEscritura').val(),
+
+
+
+
 						}, 
 						url:   "{{url('alta/capturaProyectosLotes')}}",
 						type:  'get',
@@ -381,10 +503,30 @@
 
 			}
 			function calculaCostoContado(){
-				$('#CostoContadoTotal').val( $('#CostoContado').val() * $('#Superficie').val());
+
+				 var TotalDevengado=$('#CostoContado').val();
+				TotalDevengado = TotalDevengado.replace(/,/g, "");
+
+				var TotalDevengado2=$('#Superficie').val();
+				TotalDevengado2 = TotalDevengado2.replace(/,/g, "");
+
+				var total=TotalDevengado2*TotalDevengado;
+				$("#CostoContadoTotal").val(Intl.NumberFormat('es-MX').format(total));
+
 			}
 			function calculaCostofinanciado(){
-				$('#CostoFinanciadoTotal').val( $('#CostoFinanciado').val() * $('#Superficie').val());
+
+				 var TotalDevengado=$('#CostoFinanciado').val();
+				TotalDevengado = TotalDevengado.replace(/,/g, "");
+
+				var TotalDevengado2=$('#Superficie').val();
+				TotalDevengado2 = TotalDevengado2.replace(/,/g, "");
+
+				var total=TotalDevengado2*TotalDevengado;
+				$("#CostoFinanciadoTotal").val(Intl.NumberFormat('es-MX').format(total));
+
+
+
 			}
 			
 			function limpiar(){
