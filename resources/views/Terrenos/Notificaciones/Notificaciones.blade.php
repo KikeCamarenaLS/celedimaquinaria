@@ -474,7 +474,7 @@
 						success: function(data) {
 							mensajeNotify('success','Mensaje Enviado Correctamente');
 							actualizaBandeja();
-							submenu('Bandeja');
+							submenu('BandejaSolicitud');
 							$('#Programa option:eq(0)').prop('selected', true)
 							$('#editor').summernote('code','');
 
