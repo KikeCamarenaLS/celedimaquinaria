@@ -313,6 +313,62 @@ public function capturaProyectos()
 
 }
 
+public function notificacionesview()
+{
+  $proyectos=DB::select('SELECT * FROM cat_proyectos ORDER BY PROYECTO ASC');
+  $situaciones=DB::select('SELECT * FROM cat_situacion');
+  $idUsuarioSistema = Auth::user()->id;
+  $nombreUsuarioSistema=DB::select('select CONCAT(Nombre," ",Apaterno," ",Amaterno)as nombre from users where id='.$idUsuarioSistema);
+  $bitacora=DB::select('insert into tb_bitacora (ID_Bitacora,ID_EMPLEADO,created_at, CVE_MOVIMIENTO, MOVIMIENTO) values (null,"'.$idUsuarioSistema.'",now(),6,"El usuario '.$nombreUsuarioSistema[0]->nombre.' con el ID_Empleado '.$idUsuarioSistema.' Ingreso al modulo de captura de proyectos" )');
+if(Auth::user()->id==1){
+      $tipo_usu="Seguimiento";
+    }else if(Auth::user()->id==2){
+      $tipo_usu="usuario";
+
+    }
+
+  return view('Terrenos.Notificaciones.Notificaciones', compact('tipo_usu'));
+
+}
+
+public function actualizaBandeja(){
+    $comillas="'";
+    return DB::select('select v.id_registro,v.archivo,v.id_solicitante,v.ayo,v.fecha as fecha,
+      v.id_solicitante,v.situacion,SUBSTRING(comentario, 1, 150) AS comentario from v_solicitud v  where  id_solicitante='.Auth::user()->id.'  order by id_registro desc');
+  }
+public function EnviarMensaje(){
+
+    $mensaje=Request::input("mensaje");
+    $nombreFoto=Request::input("nombreFoto");
+
+    return DB::update("insert into v_solicitud (id_registro,id_solicitante,comentario, archivo,fecha) values ( null,".Auth::user()->id.",'".$mensaje."','".$nombreFoto."',now())");
+
+  }
+  public function subirFotoSeguimiento(Request $request){
+    $nombreFoto=date('l_jS_F_Y_h_i_s_').''.Auth::user()->id.'.jpg';
+    $dato_archivo=$request['fileinput'];
+    $dato_archivo->move(public_path() . '/images/Seguimiento/',$nombreFoto );
+    return $nombreFoto;
+
+  }
+public function AbrirMensajeLeer(Request $request){
+    $mensaje=Request::input("id_mensaje");
+
+
+    $comillas="'";
+
+    $consulta=DB::select('select v.id_registro,v.archivo,v.id_solicitante,v.ayo,v.fecha as fecha,v.id_solicitante,v.situacion,SUBSTRING(comentario, 1, 150) AS comentario from v_solicitud v where id_registro='.$mensaje.'  order by id_registro');
+
+
+
+   return $consulta;
+  }
+public function actualizaBandejaSolicitud(){
+    $comillas="'";
+    return DB::select('select v.id_registro,v.archivo,v.id_solicitante,v.ayo,v.fecha as fecha,
+      v.id_solicitante,v.situacion,SUBSTRING(comentario, 1, 150) AS comentario from v_solicitud v  where  id_solicitante='.Auth::user()->id.'  order by id_registro desc');
+  }
+
 public function capturaProyectosLotes(Request $request)
 {
   $proyecto= Request::input("proyecto");

@@ -352,6 +352,23 @@
                         </li>
 
                          @endcan
+                         <li class="nav-item ">
+                            <a data-toggle="collapse" href="#notificaciones">
+                                <i class="la la-plus-square"></i>
+                                <p>Notificaciones </p>
+                                <span class="caret"></span>
+                            </a>
+                            <div class="collapse" id="notificaciones">
+                                <ul class="nav nav-collapse">
+                                    <li>
+                                        <a href="{{url('/notificaciones')}}">
+                                            <span class="sub-item">Notificaciones</span>
+                                        </a>
+                                    </li>
+                                  
+                                </ul>
+                            </div>
+                        </li>
 
 
 

@@ -411,6 +411,19 @@ Route::get('/ventalotesView27', 'VentasController@ventalotesView27');
 Route::get('/calcular/fechaNac', 'VentasController@CalcularFechaNac');
 
 
+Route::get('/notificaciones', 'VentasController@notificacionesview');
+Route::get('/soporte/actualizaBandeja/solicitud', 'VentasController@actualizaBandejaSolicitud');
+
+Route::get('/EnviarMensaje/seguimiento','VentasController@EnviarMensaje')->name('EnviarMensaje');
+
+Route::POST('/subir/subirFotoSeguimiento','VentasController@subirFotoSeguimiento')->name('subirFotoSeguimiento');
+
+Route::get('/soporte/actualizaBandeja','VentasController@actualizaBandeja')->name('actualizaBandeja');
+
+Route::get('/AbrirMensaje/Id_registro','VentasController@AbrirMensajeLeer')->name('AbrirMensajeLeer');
+
+
+
 
 
 
