@@ -458,16 +458,22 @@
 								'<li>'+
 								'<span class="name-specification">Tipo de Predio</span>'+
 								'<span class="status-specification">'+data[0].TipoPredio+'</span>'+
-								'</li>'+
-								'<li>'+
+								'</li>';
+								if (data[0].ClaveCatastralPredio    !="") {
+									texto+='<li>'+
 								'<span class="name-specification">Clave Catastral (Predio)</span>'+
 								'<span class="status-specification">'+data[0].ClaveCatastralPredio+'</span>'+
-								'</li>'+
-								'<li>'+
+								'</li>';
+								}
+								if (data[0].FechaClaveCatastralPredio    !="0000-00-00") {
+									texto+='<li>'+
 								'<span class="name-specification">Fecha  (Predio)</span>'+
 								'<span class="status-specification">'+data[0].FechaClaveCatastralPredio+'</span>'+
-								'</li>'+
-								'</div>'+
+								'</li>';
+								}
+								
+								
+								texto+='</div>'+
 								'</div>'+
 								'<div class="col-md-4"><div class="card-pricing">'+
 
@@ -502,15 +508,22 @@
 									'<span class="status-specification">$ '+data[0].ValorCompra+'</span>'+
 									'</li>';
 								}
-								texto+='<li>'+
+
+								if (data[0].ClaveCatastralLote    !="") {
+									texto+='<li>'+
 								'<span class="name-specification">Clave Catastral (Lote)</span>'+
 								'<span class="status-specification">'+data[0].ClaveCatastralLote+'</span>'+
-								'</li>'+
-								'<li>'+
+								'</li>';
+								}
+								if (data[0].FechaClaveCatastralLote    !="0000-00-00") {
+									texto+='<li>'+
 								'<span class="name-specification">Fecha  (Lote)</span>'+
 								'<span class="status-specification">'+data[0].FechaClaveCatastralLote+'</span>'+
-								'</li>'+
-								'</ul>'+
+								'</li>';
+								}
+								
+								
+								texto+='</ul>'+
 								'</div>'+
 								'</div>'+
 								'<div class="col-md-12">';

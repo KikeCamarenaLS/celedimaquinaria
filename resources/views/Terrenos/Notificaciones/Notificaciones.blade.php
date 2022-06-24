@@ -119,20 +119,11 @@
 					<div id="leerCorreo">
 						<div class="email-head">
 							<h3 id="formatoller">
-								<i class="flaticon-pen mr-1"></i>
-								Solicitud - <b id="situacionLeer" style="text-transform:uppercase; "> </b>
+
+								Pendiente <b id="situacionLeer" style="text-transform:uppercase; "> </b>
 							</h3>
 						</div>
-						<div class="email-compose-fields">
-							<input type="hidden" id="id_registro" >
-							<input type="hidden" id="id_programa" >
-							<input type="hidden" id="id_usuario" >
-							<div class="form-group row">
-								<label for="subject" class="col-md-6" align='left'>Programa :Pendiente</label>
-								
-							</div>
-							
-						</div>
+						
 						<div class="email-editor">
 							<div class="row">
 								<div class="col-md-12" id="solicitudLeer">

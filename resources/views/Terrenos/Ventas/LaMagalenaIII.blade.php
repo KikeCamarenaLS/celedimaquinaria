@@ -361,7 +361,7 @@
 					data:  {
 						"mz":mz,
 						"lote":lote,
-						"proyecto":16,
+						"proyecto":2,
 					}, 
 					url:   "{{url('buscar/ProyectosLotes')}}",
 					type:  'get',
@@ -379,7 +379,7 @@
 
 
 							var texto='';
-							texto+='<div class="row" ><div class="col-md-6"><div class="card-pricing">'+
+							texto+='<div class="row" ><div class="col-md-4"><div class="card-pricing">'+
 
 								'<ul class="specification-list">'+
 								'<li>'+
@@ -398,30 +398,123 @@
 								'<li>'+
 								'<span class="name-specification">Superficie (m<sup>2</sup>)</span>'+
 								'<span class="status-specification">'+data[0].superficie+'m<sup>2</sup>'+
-								'</li>'+
-								'<li>'+
-								'<span class="name-specification">Colindancia</span>'+
-								'<span class="status-specification">'+data[0].Colinancia+'</span>'+
-								'</li>'+
-								'<li>'+
+								'</li>';
+								if (data[0].ColinanciaNorte!="") {
+									texto+='<li>'+
+									'<span class="name-specification">Colindancia Norte</span>'+
+									'<span class="status-specification">'+data[0].ColinanciaNorte+'</span>'+
+									'</li>';
+								}
+
+								if (data[0].ColinanciaSur!="") {
+									texto+='<li>'+
+									'<span class="name-specification">Colindancia Sur</span>'+
+									'<span class="status-specification">'+data[0].ColinanciaSur+'</span>'+
+									'</li>';
+								}
+
+								if (data[0].ColinanciaEste!="") {
+									texto+='<li>'+
+									'<span class="name-specification">Colindancia Este</span>'+
+									'<span class="status-specification">'+data[0].ColinanciaEste+'</span>'+
+									'</li>';
+								}
+
+								if (data[0].ColinanciaOeste!="") {
+									texto+='<li>'+
+									'<span class="name-specification">Colindancia Oeste</span>'+
+									'<span class="status-specification">'+data[0].ColinanciaOeste+'</span>'+
+									'</li>';
+								}
+								if (data[0].TipoSuelo!="") {
+									texto+='<li>'+
+									'<span class="name-specification">Tipo de Suelo</span>'+
+									'<span class="status-specification">'+data[0].TipoSuelo+'</span>'+
+									'</li>';
+								}
+								if (data[0].FechaPredial!="0000-00-00") {
+									texto+='<li>'+
+									'<span class="name-specification">Fecha del Pago Predial</span>'+
+									'<span class="status-specification">'+data[0].FechaPredial+'</span>'+
+									'</li>';
+								}
+								
+								
+								texto+='</div>'+
+								'</div>'+
+								'<div class="col-md-4"><div class="card-pricing">'+
+
+								'<ul class="specification-list">';
+
+								
+								
+								if (data[0].enganche !="") {
+									texto+='<li>'+
+									'<span class="name-specification">Enganche </span>'+
+									'<span class="status-specification">$ '+data[0].enganche +'</span>'+
+									'</li>';
+								}
+								
+								if (data[0].anualidad !="") {
+									texto+='<li>'+
+									'<span class="name-specification">Anualidad </span>'+
+									'<span class="status-specification">$ '+data[0].anualidad +'</span>'+
+									'</li>';
+								}
+								
+								if (data[0].plazo !="") {
+									texto+='<li>'+
+									'<span class="name-specification">Plazo </span>'+
+									'<span class="status-specification">'+data[0].plazo +'</span>'+
+									'</li>';
+								}
+								
+								if (data[0].servicioluz !="") {
+									texto+='<li>'+
+									'<span class="name-specification">Servicio</span>'+
+									'<span class="status-specification">'+data[0].servicioluz +'</span>'+
+									'</li>';
+								}
+								
+								if (data[0].servicioagua  !="") {
+									texto+='<li>'+
+									'<span class="name-specification">Servicio</span>'+
+									'<span class="status-specification">'+data[0].servicioagua  +'</span>'+
+									'</li>';
+								}
+								if (data[0].serviciodrenaje    !="") {
+									texto+='<li>'+
+									'<span class="name-specification">Servicio</span>'+
+									'<span class="status-specification">'+data[0].serviciodrenaje    +'</span>'+
+									'</li>';
+								}
+								
+								
+								texto+='<li>'+
 								'<span class="name-specification">Tipo de Superficie</span>'+
 								'<span class="status-specification">'+data[0].TipoSuperficie+'</span>'+
 								'</li>'+
 								'<li>'+
 								'<span class="name-specification">Tipo de Predio</span>'+
 								'<span class="status-specification">'+data[0].TipoPredio+'</span>'+
-								'</li>'+
-								'<li>'+
+								'</li>';
+								if (data[0].ClaveCatastralPredio    !="") {
+									texto+='<li>'+
 								'<span class="name-specification">Clave Catastral (Predio)</span>'+
 								'<span class="status-specification">'+data[0].ClaveCatastralPredio+'</span>'+
-								'</li>'+
-								'<li>'+
+								'</li>';
+								}
+								if (data[0].FechaClaveCatastralPredio    !="0000-00-00") {
+									texto+='<li>'+
 								'<span class="name-specification">Fecha  (Predio)</span>'+
 								'<span class="status-specification">'+data[0].FechaClaveCatastralPredio+'</span>'+
-								'</li>'+
+								'</li>';
+								}
+								
+								
+								texto+='</div>'+
 								'</div>'+
-								'</div>'+
-								'<div class="col-md-6"><div class="card-pricing">'+
+								'<div class="col-md-4"><div class="card-pricing">'+
 
 								'<ul class="specification-list">'+
 								'<li>'+
@@ -447,22 +540,42 @@
 								'<li>'+
 								'<span class="name-specification">Costo Total Financiado </span>'+
 								'<span class="status-specification">$ '+data[0].CostoFinanciadoTotal.substr(0,9)+'</span>'+
-								'</li>'+
-								'<li>'+
+								'</li>';
+								if (data[0].ValorCompra!="") {
+									texto+='<li>'+
+									'<span class="name-specification">Valor a la Compra</span>'+
+									'<span class="status-specification">$ '+data[0].ValorCompra+'</span>'+
+									'</li>';
+								}
+
+								if (data[0].ClaveCatastralLote    !="") {
+									texto+='<li>'+
 								'<span class="name-specification">Clave Catastral (Lote)</span>'+
 								'<span class="status-specification">'+data[0].ClaveCatastralLote+'</span>'+
-								'</li>'+
-								'<li>'+
+								'</li>';
+								}
+								if (data[0].FechaClaveCatastralLote    !="0000-00-00") {
+									texto+='<li>'+
 								'<span class="name-specification">Fecha  (Lote)</span>'+
 								'<span class="status-specification">'+data[0].FechaClaveCatastralLote+'</span>'+
-								'</li>'+
-								'</ul>'+
+								'</li>';
+								}
+								
+								
+								texto+='</ul>'+
 								'</div>'+
 								'</div>'+
-								'<div class="col-md-12" id="validaExistencia">'+
+								'<div class="col-md-12">';
+								if (data[0].Detalle!="") {
+									texto+='<span class="name-specification">Detalle&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>'+
+									'<span class="status-specification" style="color:black;">'+data[0].Detalle+'</span><hr><br>';
+								}
+								texto+='</div>'+'<div class="col-md-12" id="validaExistencia">'+
 								
 								'</div>';
-								if(data[0].estatus=='Proceso de rescisión'){
+
+								
+								if(data[0].estatus=='Proceso de rescisión'|| data[0].estatus=='En Pausa'){
 								texto+='<div class="col-md-4">'+
 								'<label>Nombre(s)</label><input type="text" class="form-control" onkeyup="buscarNombre()" id="Nombre" name="Nombre"  >'+
 								'</div>'+
@@ -494,7 +607,10 @@
 							if(data[0].estatus=='Disponible'){
 								$('#headerModal').html('<h5 class="modal-title" id="exampleModalLongTitle">'+data[0].estatus+' </h5> <button type="button" class="close" data-dismiss="modal" aria-label="Close"> <span aria-hidden="true">&times;</span>');
 								$('#footerModal').html('<button type="button" class="btn btn-danger" data-dismiss="modal">Cancelar</button><button type="button" class="btn btn-success" onclick="apartado()">Apartado</button>');
-							}else if(data[0].estatus=='Liquidado'){
+							}else if(data[0].estatus=='En Pausa'){
+								$('#headerModal').html('<h5 class="modal-title" id="exampleModalLongTitle">'+data[0].estatus+' </h5> <button type="button" class="close" data-dismiss="modal" aria-label="Close"> <span aria-hidden="true">&times;</span>');
+								$('#footerModal').html('');
+							}else if(data[0].estatus=='Enganches'){
 								$('#headerModal').html('<h5 class="modal-title" id="exampleModalLongTitle">'+data[0].estatus+' </h5> <button type="button" class="close" data-dismiss="modal" aria-label="Close"> <span aria-hidden="true">&times;</span>');
 								$('#footerModal').html('');
 							}else if(data[0].estatus=='Apartado' ){
@@ -503,9 +619,10 @@
 							}else if(data[0].estatus=='Proceso de rescisión' ){
 								$('#headerModal').html('<h5 class="modal-title" id="exampleModalLongTitle">'+data[0].estatus+' </h5> <button type="button" class="close" data-dismiss="modal" aria-label="Close"> <span aria-hidden="true">&times;</span>');
 								$('#footerModal').html('<button type="button" class="btn btn-danger" data-dismiss="modal">Cancelar</button><button type="button" class="btn btn-success" onclick="agregarALista()">Lista de espera</button>');
-							}else if(data[0].estatus=='Donación' || data[0].estatus=='Al corriente' ||data[0].estatus=='Rescisión' || data[0].estatus=='Enganches' ){
+							}else if(data[0].estatus=='Donación' || data[0].estatus=='Liquidado'|| data[0].estatus=='Al corriente' ||data[0].estatus=='Rescisión' || data[0].estatus=='Atraso' || data[0].estatus=='Financiado' ){
 								$('#headerModal').html('<h5 class="modal-title" id="exampleModalLongTitle">No Disponible</h5> <button type="button" class="close" data-dismiss="modal" aria-label="Close"> <span aria-hidden="true">&times;</span>');
 								$('#footerModal').html('');
+								$('#texto').html('Sin Datos');
 							} 
 
 						}
