@@ -340,7 +340,7 @@
 
 
 							var texto='';
-							texto+='<div class="row" ><div class="col-md-6"><div class="card-pricing">'+
+							texto+='<div class="row" ><div class="col-md-4"><div class="card-pricing">'+
 
 								'<ul class="specification-list">'+
 								'<li>'+
@@ -387,7 +387,6 @@
 									'<span class="status-specification">'+data[0].ColinanciaOeste+'</span>'+
 									'</li>';
 								}
-								
 								if (data[0].TipoSuelo!="") {
 									texto+='<li>'+
 									'<span class="name-specification">Tipo de Suelo</span>'+
@@ -400,22 +399,54 @@
 									'<span class="status-specification">'+data[0].FechaPredial+'</span>'+
 									'</li>';
 								}
-								if (data[0].ValorCompra!="") {
+								
+								
+								texto+='</div>'+
+								'</div>'+
+								'<div class="col-md-4"><div class="card-pricing">'+
+
+								'<ul class="specification-list">';
+
+								
+								
+								if (data[0].enganche !="") {
 									texto+='<li>'+
-									'<span class="name-specification">Valor a la Compra</span>'+
-									'<span class="status-specification">'+data[0].ValorCompra+'</span>'+
+									'<span class="name-specification">Enganche </span>'+
+									'<span class="status-specification">$ '+data[0].enganche +'</span>'+
 									'</li>';
 								}
-								if (data[0].Detalle!="") {
+								
+								if (data[0].anualidad !="") {
 									texto+='<li>'+
-									'<span class="name-specification">Detalle</span>'+
-									'<span class="status-specification">'+data[0].Detalle+'</span>'+
+									'<span class="name-specification">Anualidad </span>'+
+									'<span class="status-specification">$ '+data[0].anualidad +'</span>'+
 									'</li>';
 								}
-								if (data[0].NumeroEscritura!="") {
+								
+								if (data[0].plazo !="") {
 									texto+='<li>'+
-									'<span class="name-specification">Numero de Escritura</span>'+
-									'<span class="status-specification">'+data[0].NumeroEscritura+'</span>'+
+									'<span class="name-specification">Plazo </span>'+
+									'<span class="status-specification">'+data[0].plazo +'</span>'+
+									'</li>';
+								}
+								
+								if (data[0].servicioluz !="") {
+									texto+='<li>'+
+									'<span class="name-specification">Servicio</span>'+
+									'<span class="status-specification">'+data[0].servicioluz +'</span>'+
+									'</li>';
+								}
+								
+								if (data[0].servicioagua  !="") {
+									texto+='<li>'+
+									'<span class="name-specification">Servicio</span>'+
+									'<span class="status-specification">'+data[0].servicioagua  +'</span>'+
+									'</li>';
+								}
+								if (data[0].serviciodrenaje    !="") {
+									texto+='<li>'+
+									'<span class="name-specification">Servicio</span>'+
+									'<span class="status-specification">'+data[0].serviciodrenaje    +'</span>'+
 									'</li>';
 								}
 								
@@ -438,7 +469,7 @@
 								'</li>'+
 								'</div>'+
 								'</div>'+
-								'<div class="col-md-6"><div class="card-pricing">'+
+								'<div class="col-md-4"><div class="card-pricing">'+
 
 								'<ul class="specification-list">'+
 								'<li>'+
@@ -464,8 +495,14 @@
 								'<li>'+
 								'<span class="name-specification">Costo Total Financiado </span>'+
 								'<span class="status-specification">$ '+data[0].CostoFinanciadoTotal.substr(0,9)+'</span>'+
-								'</li>'+
-								'<li>'+
+								'</li>';
+								if (data[0].ValorCompra!="") {
+									texto+='<li>'+
+									'<span class="name-specification">Valor a la Compra</span>'+
+									'<span class="status-specification">$ '+data[0].ValorCompra+'</span>'+
+									'</li>';
+								}
+								texto+='<li>'+
 								'<span class="name-specification">Clave Catastral (Lote)</span>'+
 								'<span class="status-specification">'+data[0].ClaveCatastralLote+'</span>'+
 								'</li>'+
@@ -476,9 +513,16 @@
 								'</ul>'+
 								'</div>'+
 								'</div>'+
-								'<div class="col-md-12" id="validaExistencia">'+
+								'<div class="col-md-12">';
+								if (data[0].Detalle!="") {
+									texto+='<span class="name-specification">Detalle&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>'+
+									'<span class="status-specification" style="color:black;">'+data[0].Detalle+'</span><hr><br>';
+								}
+								texto+='</div>'+'<div class="col-md-12" id="validaExistencia">'+
 								
 								'</div>';
+
+								
 								if(data[0].estatus=='Proceso de rescisión'|| data[0].estatus=='En Pausa'){
 								texto+='<div class="col-md-4">'+
 								'<label>Nombre(s)</label><input type="text" class="form-control" onkeyup="buscarNombre()" id="Nombre" name="Nombre"  >'+
