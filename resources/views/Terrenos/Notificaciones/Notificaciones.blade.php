@@ -608,8 +608,8 @@
 					html+=' onclick="abrirMensaje('+prueba+')" >'+
 					'<div class="email-list-actions" onclick="leerMensaje('+datos[i].fecha+')">'+
 					'<label class="custom-control custom-checkbox">'+
-					'	<input type="checkbox" class="custom-control-input"><span class="custom-control-label"></span>'+
-					'</label><a href="#" class="favorite active"><i class="la la-star"></i></a>'+
+					'	'+
+					'</label><a href="#" class="favorite active"><i class="la la-email"></i></a>'+
 					'</div>'+
 					'<div class="email-list-detail"  >'+
 					'<span class="date float-right"><i class="la la-paperclip paperclip"></i>'+datos[i].fecha+'</span><span class="from">Pendientes</span>'+

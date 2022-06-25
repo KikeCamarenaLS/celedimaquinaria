@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Request;
 use DB;
 use Auth;
+use Mail;
 
 class VentasController extends Controller
 {
@@ -369,6 +370,23 @@ public function actualizaBandejaSolicitud(){
       v.id_solicitante,v.situacion,SUBSTRING(comentario, 1, 150) AS comentario from v_solicitud v  where  id_solicitante='.Auth::user()->id.'  order by id_registro desc');
   }
 
+  public function contact(Request $request){
+        $subject = "Asunto del correo";
+        $for = "camarenaluis6@gmail.com";
+
+        Mail::send('mails.emergency_call',Request::all(), function($msj) use($subject,$for){
+            $msj->from("terrenos.y.edificaciones.mexico@gmail.com","Terminar el proceso de compra del lote");
+            $msj->subject($subject);
+            $msj->to($for);
+        });
+
+        return redirect()->back();
+    }
+
+  public function mail(){
+   return view('mails.PRUEBASCORREO');
+  }
+
 public function capturaProyectosLotes(Request $request)
 {
   $proyecto= Request::input("proyecto");
@@ -502,6 +520,8 @@ public function agregartratoVendedor(Request $request)
   $ltModal= Request::input("ltModal");
   $proyectoModal= Request::input("proyectoModal");
   $Observaciones= Request::input("Observaciones");
+  $apartadoenganche= Request::input("apartadoenganche");
+  
   $id = Auth::user()->id;
 
 

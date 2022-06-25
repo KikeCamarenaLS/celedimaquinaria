@@ -421,6 +421,10 @@ Route::POST('/subir/subirFotoSeguimiento','VentasController@subirFotoSeguimiento
 Route::get('/soporte/actualizaBandeja','VentasController@actualizaBandeja')->name('actualizaBandeja');
 
 Route::get('/AbrirMensaje/Id_registro','VentasController@AbrirMensajeLeer')->name('AbrirMensajeLeer');
+Route::POST('/pruebascorreo','VentasController@contact')->name('pruebascorreo');
+Route::get('/mail','VentasController@mail')->name('mail');
+
+
 
 
 
