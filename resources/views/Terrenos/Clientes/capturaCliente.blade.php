@@ -66,7 +66,23 @@
 								<label>Edad</label>
 								<input  type="text" class="form-control"   id="Edad" name="Edad" disabled>
 							</div>
+							<div class="col-md-2">
+								<label>Nacionalidad</label>
+								<input  type="text" class="form-control"   id="Nacionalidad" name="Nacionalidad" >
+							</div>
+							<div class="col-md-3">
+								<label>CURP</label>
+								<input  type="text" class="form-control" maxlength="16"   id="CURP" name="CURP"  >
+							</div>
+							<div class="col-md-3">
+								<label>RFC</label>
+								<input  type="text" class="form-control"   id="RFC" name="RFC"  >
+							</div>
 							
+							<div class="col-md-3">
+								<label>NSS</label>
+								<input  type="text" class="form-control"   id="NSS" name="NSS"  >
+							</div>
 							<div class="col-md-3" >
 								<label>Estado civil</label>
 								<select  class="form-control success" id="Estado_civil" name="Estado_civil"  style="width:100%;">
@@ -82,8 +98,17 @@
 
 							</div>
 
-							
-							<div class="col-md-4" >
+							<div class="col-md-2" >
+								<label>Numero de dependiente</label>
+								<input  type="number" class="form-control success" id="dependiente" name="dependiente"  >
+
+							</div>
+							<div class="col-md-2" >
+								<label>Hijos dependientes</label>
+								<input  type="number" class="form-control success" id="Hijosdependiente" name="Hijosdependiente"  >
+
+							</div>
+							<div class="col-md-3" >
 								<label>Ultimo grado de estudio</label>
 								<select  class="form-control success" id="estudio" name="estudio" style="width:100%;" >
 									<option>Ninguno</option>
@@ -100,12 +125,22 @@
 								</select>
 
 							</div>
-							<div class="col-md-2" >
-								<label>Numero de dependiente</label>
-								<input  type="number" class="form-control success" id="dependiente" name="dependiente"  >
+							<div class="col-md-4" >
+								<label>Especializado en</label>
+								<input  type="text" class="form-control success" id="Especializado" name="Especializado"  >
 
 							</div>
 							
+							<div class="col-md-3" >
+								<label>Terminado/Tunco</label>
+								<select  class="form-control success" id="TerminadoTunco" name="TerminadoTunco" style="width:100%;" >
+									<option>Terminado</option>
+									<option>Tunco</option>
+									
+
+								</select>
+
+							</div>
 							
 							
 						</div>
@@ -136,14 +171,7 @@
 								<label>Ocupación</label>
 								<input  type="text" class="form-control"   id="Ocupación" name="Ocupación"  >
 							</div>
-							<div class="col-md-3">
-								<label>CURP</label>
-								<input  type="text" class="form-control" maxlength="16"   id="CURP" name="CURP"  >
-							</div>
-							<div class="col-md-3">
-								<label>RFC</label>
-								<input  type="text" class="form-control"   id="RFC" name="RFC"  >
-							</div>
+							
 							
 
 						</div>
