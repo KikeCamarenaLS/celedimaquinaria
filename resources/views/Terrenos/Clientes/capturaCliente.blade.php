@@ -48,7 +48,25 @@
 					{{-- inicio del row --}}
 					<div id="validaexiste" style="  display: none;">
 						<div class="form-group row " >
+							<div class="col-md-3">
+								<label>Género </label>
+								<select  class="form-control success" id="Género" name="Género"  style="width:100%;">
+									<option>Masculino</option>
+									<option>Femenino</option>
+									<option>Otro</option>
+									<option>Prefiero no decirlo</option>
 
+								</select>
+							</div>
+							<div class="col-md-3">
+								<label>Fecha de Nacimiento</label>
+								<input  type="date" class="form-control"   id="fechaNac" name="fechaNac" onchange="saberEdad();" >
+							</div>
+<div class="col-md-2">
+								<label>Edad</label>
+								<input  type="text" class="form-control"   id="Edad" name="Edad" disabled>
+							</div>
+							
 							<div class="col-md-3" >
 								<label>Estado civil</label>
 								<select  class="form-control success" id="Estado_civil" name="Estado_civil"  style="width:100%;">
@@ -64,16 +82,7 @@
 
 							</div>
 
-							<div class="col-md-3">
-								<label>Género </label>
-								<select  class="form-control success" id="Género" name="Género"  style="width:100%;">
-									<option>Masculino</option>
-									<option>Femenino</option>
-									<option>Otro</option>
-									<option>Prefiero no decirlo</option>
-
-								</select>
-							</div>
+							
 							<div class="col-md-4" >
 								<label>Ultimo grado de estudio</label>
 								<select  class="form-control success" id="estudio" name="estudio" style="width:100%;" >
@@ -117,18 +126,11 @@
 								<input  type="mail" class="form-control success" id="Correo" name="Correo"  >
 
 							</div>
-							<div class="col-md-3">
-								<label>Fecha de Nacimiento</label>
-								<input  type="date" class="form-control"   id="fechaNac" name="fechaNac" onchange="saberEdad();" >
-							</div>
+							
 							
 						</div>
 <div class="form-group row " >
 							
-							<div class="col-md-2">
-								<label>Edad</label>
-								<input  type="text" class="form-control"   id="Edad" name="Edad" disabled>
-							</div>
 							
 							<div class="col-md-3">
 								<label>Ocupación</label>
