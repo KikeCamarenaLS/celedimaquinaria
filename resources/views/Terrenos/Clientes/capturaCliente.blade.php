@@ -141,6 +141,11 @@
 								</select>
 
 							</div>
+							<div class="col-md-4" >
+								<label>Cedula </label>
+								<input  type="text" class="form-control success" id="Cedula" name="Cedula"  >
+
+							</div>
 							
 							
 						</div>
