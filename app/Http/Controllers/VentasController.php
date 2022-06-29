@@ -279,15 +279,38 @@ public function ventalotesView27(){
 }
 public function ventalotesView13(){
   $proyectos=DB::select('SELECT * FROM cat_proyectos ORDER BY PROYECTO ASC');
-  $lotes=DB::select('SELECT * FROM proyectoLote where proyecto=27');
+  $lotes=DB::select('SELECT * FROM proyectoLote where proyecto=13');
   $id_proy=13;
 
   $idUsuarioSistema = Auth::user()->id;
   $nombreUsuarioSistema=DB::select('select CONCAT(Nombre," ",Apaterno," ",Amaterno)as nombre from users where id='.$idUsuarioSistema);
-  $bitacora=DB::select('insert into tb_bitacora (ID_Bitacora,ID_EMPLEADO,created_at, CVE_MOVIMIENTO, MOVIMIENTO) values (null,"'.$idUsuarioSistema.'",now(),6,"El usuario '.$nombreUsuarioSistema[0]->nombre.' con el ID_Empleado '.$idUsuarioSistema.' entro a la pantalla San Pablo III  " )');
+  $bitacora=DB::select('insert into tb_bitacora (ID_Bitacora,ID_EMPLEADO,created_at, CVE_MOVIMIENTO, MOVIMIENTO) values (null,"'.$idUsuarioSistema.'",now(),6,"El usuario '.$nombreUsuarioSistema[0]->nombre.' con el ID_Empleado '.$idUsuarioSistema.' entro a la pantalla Bugambilias " )');
 
   return view('Terrenos.Ventas.Bugambilias',compact('proyectos','lotes','id_proy'));
 }
+public function ventalotesView26(){
+  $proyectos=DB::select('SELECT * FROM cat_proyectos ORDER BY PROYECTO ASC');
+  $lotes=DB::select('SELECT * FROM proyectoLote where proyecto=26');
+  $id_proy=26;
+
+  $idUsuarioSistema = Auth::user()->id;
+  $nombreUsuarioSistema=DB::select('select CONCAT(Nombre," ",Apaterno," ",Amaterno)as nombre from users where id='.$idUsuarioSistema);
+  $bitacora=DB::select('insert into tb_bitacora (ID_Bitacora,ID_EMPLEADO,created_at, CVE_MOVIMIENTO, MOVIMIENTO) values (null,"'.$idUsuarioSistema.'",now(),6,"El usuario '.$nombreUsuarioSistema[0]->nombre.' con el ID_Empleado '.$idUsuarioSistema.' entro a la pantalla San Pablo II " )');
+
+  return view('Terrenos.Ventas.SanPabloII',compact('proyectos','lotes','id_proy'));
+}
+public function ventalotesView14(){
+  $proyectos=DB::select('SELECT * FROM cat_proyectos ORDER BY PROYECTO ASC');
+  $lotes=DB::select('SELECT * FROM proyectoLote where proyecto=14');
+  $id_proy=14;
+
+  $idUsuarioSistema = Auth::user()->id;
+  $nombreUsuarioSistema=DB::select('select CONCAT(Nombre," ",Apaterno," ",Amaterno)as nombre from users where id='.$idUsuarioSistema);
+  $bitacora=DB::select('insert into tb_bitacora (ID_Bitacora,ID_EMPLEADO,created_at, CVE_MOVIMIENTO, MOVIMIENTO) values (null,"'.$idUsuarioSistema.'",now(),6,"El usuario '.$nombreUsuarioSistema[0]->nombre.' con el ID_Empleado '.$idUsuarioSistema.' entro a el Carmen " )');
+
+  return view('Terrenos.Ventas.ElCarmen',compact('proyectos','lotes','id_proy'));
+}
+
 
 
 
