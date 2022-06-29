@@ -65,17 +65,19 @@
 
 							<div class="col-md-3">
 								<label>CURP</label>
-								<input  type="text" class="form-control" maxlength="16"   id="CURP" name="CURP"  >
+								<input  type="text" class="form-control" maxlength="18"   id="CURP" name="CURP"  >
 							</div>
 							<div class="col-md-3">
 								<label>RFC</label>
 								<input  type="text" class="form-control"   id="RFC" name="RFC"  >
 							</div>
-							<div class="col-md-3">
+						</div>
+						<div class="form-group row">
+							<div class="col-md-2">
 								<label>Fecha de Nacimiento</label>
 								<input  type="date" class="form-control"   id="fechaNac" name="fechaNac" onchange="saberEdad();" >
 							</div>
-<div class="col-md-2">
+							<div class="col-md-2">
 								<label>Edad</label>
 								<input  type="text" class="form-control"   id="Edad" name="Edad" disabled>
 							</div>
@@ -92,6 +94,16 @@
 									<option>Maestría</option>
 									<option>Doctorado</option>
 									<option>Prefiero no decirlo</option>
+
+								</select>
+
+							</div>
+							<div class="col-md-2" >
+								<label>Terminado/Tunco</label>
+								<select  class="form-control success" id="TerminadoTunco" name="TerminadoTunco" style="width:100%;" >
+									<option>Terminado</option>
+									<option>Tunco</option>
+									
 
 								</select>
 
@@ -115,6 +127,8 @@
 
 							</div>
 
+						</div>
+						<div class="form-group row">
 							<div class="col-md-2" >
 								<label>Numero de dependiente</label>
 								<input  type="number" class="form-control success" id="dependiente" name="dependiente"  >
@@ -140,6 +154,9 @@
 								<label>Telefono 2(Recados)</label>
 								<input  type="text" class="form-control" maxlength="10" onKeypress="if (event.keyCode < 45 || event.keyCode > 57) event.returnValue = false;"  id="Telefono_3" name="Telefono_3"  >
 							</div>
+
+						</div>
+						<div class="form-group row">
 							<div class="col-md-4" >
 								<label>Correo electrónico</label>
 								<input  type="mail" class="form-control success" id="Correo" name="Correo"  >
@@ -148,125 +165,134 @@
 
 							
 							
-							<div class="col-md-3" >
-								<label>Terminado/Tunco</label>
-								<select  class="form-control success" id="TerminadoTunco" name="TerminadoTunco" style="width:100%;" >
-									<option>Terminado</option>
-									<option>Tunco</option>
-									
-
-								</select>
-
-							</div>
+							
 							
 							
 							
 						</div>
-						
-<div class="form-group row " >
-							
-								<div class="col-md-12">
-									<b><center>Domicilio </center></b>
-									
-								</div>
-								<div class="col-md-6">
-									<label>Calle</label>
-									<input  type="text" class="form-control" id="Calle" name="Calle"  >
-								</div>
-								<div class="col-md-2">
-									<label>Num. Exterior</label>
-									<input required="" type="text" class="form-control" id="NExterior" name="NExterior"  >
-								</div>
-								<div class="col-md-2">
-									<label>Num. Interior</label>
-									<input required="" type="text" class="form-control" id="Ninterior" name="Ninterior"  >
-								</div>
-								
-							</div>
-							{{-- fin del row --}}
-							{{-- inicio del row --}}
 
-							<div class="form-group row " >
-								<div class="col-md-2">
-									<label>Código postal</label>
-									<input  type="text" class="form-control" id="CodigoPostal" name="CodigoPostal" onkeyup="codigoPOstal()" >
-								</div>
-								
-								<div class="col-md-3">
-									<label>Colonia</label>
-									<div class="select2-input">
+						<div class="form-group row " >
+							
+							<div class="col-md-12">
+								<b><center><h6>Domicilio</h6> </center></b>
+
+							</div></br><br>
+							<div class="col-md-6">
+								<label>Calle</label>
+								<input  type="text" class="form-control" id="Calle" name="Calle"  >
+							</div>
+							<div class="col-md-2">
+								<label>Num. Exterior</label>
+								<input required="" type="text" class="form-control" id="NExterior" name="NExterior"  >
+							</div>
+							<div class="col-md-2">
+								<label>Num. Interior</label>
+								<input required="" type="text" class="form-control" id="Ninterior" name="Ninterior"  >
+							</div>
+
+						</div>
+						{{-- fin del row --}}
+						{{-- inicio del row --}}
+
+						<div class="form-group row " >
+							<div class="col-md-2">
+								<label>Código postal</label>
+								<input  type="text" class="form-control" id="CodigoPostal" name="CodigoPostal" onkeyup="codigoPOstal()" >
+							</div>
+
+							<div class="col-md-3">
+								<label>Colonia</label>
+								<div class="select2-input">
 									<select id="Colonia" name="Colonia"  class="form-control" style="width: 100%;">
 										<div id="coloniaoption"></div>
 										
 									</select>
 								</div>
-								</div>
-								<div class="col-md-3">
-									<label>Alcaldía/Municipio</label>
-									<input required="" type="text" class="form-control" id="Municipio" name="Municipio"  >
-								</div>
-								<div class="col-md-3">
-									<label>Localidad/Poblacion/Ciudad</label>
-									<input required="" type="text" class="form-control" id="Poblacion" name="Poblacion"  >
-								</div>
-								
+							</div>
+							<div class="col-md-3">
+								<label>Alcaldía/Municipio</label>
+								<input required="" type="text" class="form-control" id="Municipio" name="Municipio"  >
+							</div>
+							<div class="col-md-3">
+								<label>Localidad/Poblacion/Ciudad</label>
+								<input required="" type="text" class="form-control" id="Poblacion" name="Poblacion"  >
 							</div>
 
-							{{-- fin del row --}}
-							{{-- inicio del row --}}
+						</div>
 
-							<div class="form-group row " >
-								<div class="col-md-3">
-									<label>Estado</label>
-									<input required="" type="text" class="form-control" id="Estado" name="Estado"  >
-								</div>
-								<div class="col-md-8">
-									<label>Referencia domiciliaria </label>
-									<textarea id="Referencia" class="form-control" name="Referencia"  ></textarea>
-								</div>
-								
-								
+						{{-- fin del row --}}
+						{{-- inicio del row --}}
+
+						<div class="form-group row " >
+							<div class="col-md-3">
+								<label>Estado</label>
+								<input required="" type="text" class="form-control" id="Estado" name="Estado"  >
 							</div>
-							<div class="form-group row " >
-								<div class="col-md-12">
-									<label>¿Cómo se enteró de nosotros?</label>
-								</div>
-								<div class="col-md-12">
-									<input required="" type="checkbox"  id="Redes" name="Redes"  value="Redes sociales">Redes sociales
-								</div>
-								<div class="col-md-12">
-									<input required="" type="checkbox"  id="Boletín" name="Boletín"  value="Publicidad impresa
-">Publicidad impresa
+							<div class="col-md-8">
+								<label>Referencia domiciliaria </label>
+								<textarea id="Referencia" class="form-control" name="Referencia"  ></textarea>
+							</div>
 
-								</div>
-								<div class="col-md-12">
-									<input required="" type="checkbox"  id="Amigos" name="Amigos"  value="Amigos y/o familiares" onclick="cambiarrecomendohiden()">Amigos y/o familiares 
+
+						</div>
+						<div class="form-group row " >
+							<div class="col-md-4">
+								<label>Idenificacion </label>
+								<select  class="form-control success" id="Idenificacion" name="Idenificacion" style="width:100%;" >
+									<option>INE</option>
+									<option>Pasaporte</option>
+									<option>Cédula profesional</option>
+									<option>Carta de naturalización por residencia</option>
 									
-								</div>
-								<div class="col-md-4" id="recomendohiden" style="display: none;">
-									<input required="" type="text" class="form-control"  id="QuienRecomendo" name="QuienRecomendo" placeholder="Nombre completo de quien te recomendo" style="border:1px black solid">
-								</div>
-								<div class="col-md-12">
-									<input required="" type="checkbox"  id="Agentes" name="Agentes"  value="Agentes de venta">Agente de venta 
-								</div>
-								<div class="col-md-12">
-									<input required="" type="checkbox"  id="espectacular" name="espectacular"  value="espectacular"> Espectacular
-								</div>
-								<div class="col-md-12">
-									<input required="" type="checkbox"  id="Otro" name="Otro"   onclick="cambiarOtrohiden()" value="Otros">Otros
-								</div>
-								<div class="col-md-4" id="Otrohiden" style="display: none;">
-									<input required="" type="text" class="form-control"  id="otros" name="otros"  placeholder="Especifica como te enteraste de nosotros">
-								</div>
-								
-								
+
+								</select>
+
+
 							</div>
-							
-							{{-- fin del row --}}
-							
-							
-							
-							
+							<div class="col-md-3">
+
+								<label>No. Identificación</label>
+								<input required="" type="text" class="form-control" id="NoIdentificación" name="NoIdentificación"  >
+							</div>
+							<div class="col-md-12">
+								<label>¿Cómo se enteró de nosotros?</label>
+							</div>
+							<div class="col-md-12">
+								<input required="" type="checkbox"  id="Redes" name="Redes"  value="Redes sociales">Redes sociales
+							</div>
+							<div class="col-md-12">
+								<input required="" type="checkbox"  id="Boletín" name="Boletín"  value="Publicidad impresa
+								">Publicidad impresa
+
+							</div>
+							<div class="col-md-12">
+								<input required="" type="checkbox"  id="Amigos" name="Amigos"  value="Amigos y/o familiares" onclick="cambiarrecomendohiden()">Amigos y/o familiares 
+
+							</div>
+							<div class="col-md-4" id="recomendohiden" style="display: none;">
+								<input required="" type="text" class="form-control"  id="QuienRecomendo" name="QuienRecomendo" placeholder="Nombre completo de quien te recomendo" style="border:1px black solid">
+							</div>
+							<div class="col-md-12">
+								<input required="" type="checkbox"  id="Agentes" name="Agentes"  value="Agentes de venta">Agente de venta 
+							</div>
+							<div class="col-md-12">
+								<input required="" type="checkbox"  id="espectacular" name="espectacular"  value="espectacular"> Espectacular
+							</div>
+							<div class="col-md-12">
+								<input required="" type="checkbox"  id="Otro" name="Otro"   onclick="cambiarOtrohiden()" value="Otros">Otros
+							</div>
+							<div class="col-md-4" id="Otrohiden" style="display: none;">
+								<input required="" type="text" class="form-control"  id="otros" name="otros"  placeholder="Especifica como te enteraste de nosotros">
+							</div>
+
+
+						</div>
+
+						{{-- fin del row --}}
+
+
+
+
 						<div class="card-footer">{{-- inicio del row --}}
 							<div class="row">
 								<div class="col-md-12">
@@ -307,36 +333,36 @@
 							</ul>
 							<div class="tab-content mb-3" id="pills-with-icon-tabContent">
 								<div class="tab-pane fade active show" id="pills-home-icon" role="tabpanel" aria-labelledby="pills-home-tab-icon">
-										<div class="form-group row " id="tablaTratos">
+									<div class="form-group row " id="tablaTratos">
 
-											<div class="table-responsive" >
-										<table class="table" id="list_user2">
-											<thead>
-												<tr>
-													<th class="bg-danger sorting" style="color:#ffffff; width: 12%;"><center>No. Cliente</center> </th>
-													<th class="bg-danger sorting" style="color:#ffffff; width: 20%;"><center>Vendedor </center> </th>
-													<th class="bg-danger sorting" style="color:#ffffff; width: 10%;"><center>proyecto </center> </th>
-													<th class="bg-danger sorting" style="color:#ffffff; width: 5%;"><center>mz</center> </th>
-													<th class="bg-danger sorting" style="color:#ffffff; width: 5%;"><center>lt</center></th>
-													<th class="bg-danger sorting" style="color:#ffffff; width: 35%;"><center>Observaciones</center></th>
-													<th class="bg-danger sorting" style="color:#ffffff; width: 18%;"><center>Fecha</center></th>
-													
-													
+										<div class="table-responsive" >
+											<table class="table" id="list_user2">
+												<thead>
+													<tr>
+														<th class="bg-danger sorting" style="color:#ffffff; width: 12%;"><center>No. Cliente</center> </th>
+														<th class="bg-danger sorting" style="color:#ffffff; width: 20%;"><center>Vendedor </center> </th>
+														<th class="bg-danger sorting" style="color:#ffffff; width: 10%;"><center>proyecto </center> </th>
+														<th class="bg-danger sorting" style="color:#ffffff; width: 5%;"><center>mz</center> </th>
+														<th class="bg-danger sorting" style="color:#ffffff; width: 5%;"><center>lt</center></th>
+														<th class="bg-danger sorting" style="color:#ffffff; width: 35%;"><center>Observaciones</center></th>
+														<th class="bg-danger sorting" style="color:#ffffff; width: 18%;"><center>Fecha</center></th>
 
 
-												</tr>
-											</thead>
-
-											<tbody id="llenaTabla2">
 
 
-											</tbody>
-										</table>
-									</div>
+													</tr>
+												</thead>
+
+												<tbody id="llenaTabla2">
 
 
+												</tbody>
+											</table>
 										</div>
-										<hr>
+
+
+									</div>
+									<hr>
 									<div class="form-group row " >
 										<div class="col-md-3">
 											<label>Proyecto</label>
@@ -393,7 +419,7 @@
 										<div class="col-md-2">
 											<label>Tipo de superficie</label>
 											<input type="text" class="form-control" id="TipoSuperficie" name="TipoSuperficie" disabled>
-												
+
 										</div>
 
 									</div>
@@ -407,7 +433,7 @@
 										<div class="col-md-3">
 											<label>Vendedor </label>
 											<input type="text" class="form-control" id="Vendedor" name="Vendedor" disabled>
-												
+
 										</div>
 										
 										<div class="col-md-3">
@@ -421,7 +447,7 @@
 										</div>
 										<div class="col-md-2">
 											<label>Numero de parcialidades </label>
-											<input  type="text" maxlength="9" onKeypress="if (event.keyCode < 45 || event.keyCode > 57) event.returnValue = false;"  class="form-control" id="Nparcialidades" name="Nparcialidades"  >
+											<input  type="text" maxlength="9"  onKeypress="if (event.keyCode < 45 || event.keyCode > 57) event.returnValue = false;"  class="form-control" id="Nparcialidades" name="Nparcialidades"  disabled>
 											<span class="required-label"  id="validaNparcialidades" style="color:red; display: none;" ><font size="1">Es obligatorio llenar este campo</font></span>
 										</div>
 
@@ -432,7 +458,7 @@
 
 										<div class="col-md-3">
 											<label>Costo total  </label>
-											<input  type="text" onkeyup="numerico()" maxlength="9" onKeypress="if (event.keyCode < 45 || event.keyCode > 57) event.returnValue = false;" class="form-control" id="CostoTotal" name="CostoTotal"  >
+											<input  type="text" onkeyup="numerico()" maxlength="9" onKeypress="if (event.keyCode < 45 || event.keyCode > 57) event.returnValue = false;" class="form-control" id="CostoTotal" name="CostoTotal"  disabled>
 											<span class="required-label"  id="validaCostoTotal" style="color:red; display: none;" ><font size="1">Es obligatorio llenar este campo</font></span>
 										</div>
 
@@ -479,7 +505,7 @@
 										</div>
 										<div class="col-md-3">
 											<label>Monto mensual </label>
-											<input required="" type="text" onkeyup="MontoMensualFormato()" maxlength="9" onKeypress="if (event.keyCode < 45 || event.keyCode > 57) event.returnValue = false;" class="form-control" id="MontoMensual" name="MontoMensual" >
+											<input required="" type="text" maxlength="10" onkeyup="MontoMensualFormato()" maxlength="9" onKeypress="if (event.keyCode < 45 || event.keyCode > 57) event.returnValue = false;" class="form-control" id="MontoMensual" name="MontoMensual" >
 											<span class="required-label"  id="validaMontoMensual" style="color:red; display: none;" ><font size="1">Es obligatorio llenar este campo</font></span>
 										</div>
 										<div class="col-md-3">
@@ -503,7 +529,7 @@
 
 									</div>
 
-				
+
 
 									<div class="card-footer">{{-- inicio del row --}}
 										<div class="row">
@@ -634,12 +660,12 @@
 															<label>Comisión 2</label>
 															<input required="" type="text" onkeyup="Comisión2Formato()" maxlength="9" onKeypress="if (event.keyCode < 45 || event.keyCode > 57) event.returnValue = false;" class="form-control" id="Comisión2Co" name="Comisión2Co" >
 														</div>
-													<div class="col-md-3">
+														<div class="col-md-3">
 															<label>Estatus de venta</label>
 															<select class="form-control" id="EstatusVentaCo" name="EstatusVentaCo"  style="width: 100%;">
 																@foreach($situaciones as $situacion)
-									<option value="{{$situacion->situacion}}">{{$situacion->situacion}}</option>
-								@endforeach
+																<option value="{{$situacion->situacion}}">{{$situacion->situacion}}</option>
+																@endforeach
 															</select>
 														</div>
 
@@ -711,6 +737,14 @@
 																@endforeach
 															</select>
 														</div>
+														<div class="col-md-3">
+															<label>Estatus de venta</label>
+															<select class="form-control" disabled id="EstatusVentaH" name="EstatusVentaH"  >
+																<option>Vendido</option>
+																<option>Recesión</option>
+																<option>Donación </option>
+															</select>
+														</div>
 														
 
 													</div>
@@ -748,22 +782,20 @@
 													<div class="form-group row " >
 
 
-														<div class="col-md-3">
+														<div class="col-md-4">
 															<label>Vendedor </label>
 															<input required="" type="text" disabled class="form-control" id="VendedorH" name="VendedorH" >
 														</div>
 														<div class="col-md-3">
 															<label>Adquisición</label>
-															<select class="form-control" id="AdquisiciónH" disabled name="AdquisiciónH"  >
-																<option>Parcialidades</option>
-																<option>Contado</option>
-															</select>
+															<input required="" type="text" class="form-control" id="AdquisiciónH" disabled name="AdquisiciónH"  >
+																
 														</div>
 														<div class="col-md-3">
 															<label>Numero de parcialidades </label>
 															<input  type="number" class="form-control" disabled id="NparcialidadesH" name="NparcialidadesH"  >
 														</div>
-														<div class="col-md-3">
+														<div class="col-md-2">
 															<label>Costo total  </label>
 															<input  type="text" onkeyup="numerico()" disabled maxlength="9" onKeypress="if (event.keyCode < 45 || event.keyCode > 57) event.returnValue = false;" class="form-control" id="CostoTotalH" name="CostoTotalH"  >
 														</div>
@@ -776,23 +808,11 @@
 															<label>Enganche </label>
 															<input required="" type="text" disabled onkeyup="numerico2()" maxlength="9" onKeypress="if (event.keyCode < 45 || event.keyCode > 57) event.returnValue = false;" class="form-control" id="EngancheH" name="EngancheH" >
 														</div>
+														
 														<div class="col-md-3">
-															<label>Comisión 1 </label>
-															<input required="" type="text" disabled  onkeyup="Comisión1Formato()" maxlength="9" onKeypress="if (event.keyCode < 45 || event.keyCode > 57) event.returnValue = false;" class="form-control" id="Comisión1H" name="Comisión1H" >
+															<label>Dia de pago</label>
+															<input required="" type="text" disabled class="form-control" id="FechaPagoH" name="FechaPagoH" >
 														</div>
-														<div class="col-md-3">
-															<label>Comisión 2</label>
-															<input required="" type="text" disabled onkeyup="Comisión2Formato()" maxlength="9" onKeypress="if (event.keyCode < 45 || event.keyCode > 57) event.returnValue = false;" class="form-control" id="Comisión2H" name="Comisión2H" >
-														</div>
-														<div class="col-md-3">
-															<label>Fecha de pago</label>
-															<input required="" type="date" disabled class="form-control" id="FechaPagoH" name="FechaPagoH" >
-														</div>
-
-													</div>
-													<div class="form-group row " >
-
-
 														<div class="col-md-3">
 															<label>Monto mensual </label>
 															<input required="" type="text" disabled onkeyup="MontoMensualFormato()" maxlength="9" onKeypress="if (event.keyCode < 45 || event.keyCode > 57) event.returnValue = false;" class="form-control" id="MontoMensualH" name="MontoMensualH" >
@@ -801,15 +821,8 @@
 															<label>Porcentaje de interés  </label>
 															<input required="" type="number" disabled class="form-control" id="PorcentajeH" name="PorcentajeH" >
 														</div>
-														<div class="col-md-3">
-															<label>Estatus de venta</label>
-															<select class="form-control" disabled id="EstatusVentaH" name="EstatusVentaH"  >
-																<option>Vendido</option>
-																<option>Recesión</option>
-																<option>Donación </option>
-															</select>
-														</div>
 													</div>
+													
 												</div>
 												<div class="modal-footer">
 													<button type="button" class="btn btn-danger" data-dismiss="modal">Cerrar</button>
@@ -971,6 +984,7 @@
 					url:   "{{url('calcular/fechaNac')}}",
 					type:  'get',
 					success:  function (data) { 
+						console.log(0);
 						$('#Edad').val(data[0].edad);
 					},
 					error: function(XMLHttpRequest, textStatus, errorThrown) { 
@@ -984,7 +998,10 @@
 
 				var Adquisición=$("#Adquisición").val();
 				if(Adquisición=="Financiado"){
-					$("#Nparcialidades").prop('disabled', false);
+					$("#CostoTotal").val(financiado);
+
+					$("#Nparcialidades").val(parcialidades);
+
 					$("#MontoMensual").prop('disabled', false);
 					$("#Telefono_2").prop('disabled', false);
 					$("#FechaPago").prop('disabled', false);
@@ -992,8 +1009,11 @@
 					$("#FechaPago option[value='0']").attr("selected",false);
 				}else if(Adquisición=="Contado"){
 
+					$("#CostoTotal").val(contado);
+
+					$("#Nparcialidades").val("");
 					$("#FechaPago option[value='0']").attr("selected",true);
-					$("#Nparcialidades").prop('disabled', true);
+
 					$("#MontoMensual").prop('disabled', true);
 					$("#Telefono_2").prop('disabled', true);
 					$("#FechaPago").prop('disabled', true);
@@ -1002,7 +1022,20 @@
 					$("#MontoMensual").val('');
 
 				}else{
-					$("#Nparcialidades").prop('disabled', false);
+
+					$("#CostoTotal").val("");
+					$("#Fecha_Venta").val("");
+					$("#Enganche").val("");
+					$("#Fecha_Contrato").val("");
+					$("#Superficie").val("");
+					$("#TipoSuperficie").val("");
+					$("#TipoPredio").val("");
+					$("#Vendedor").val("");
+					$("#Nparcialidades").val("");
+					$("#MontoMensual").val("");
+					$("#Telefono_2").val("");
+					$("#Porcentaje").val("");
+
 					$("#MontoMensual").prop('disabled', false);
 					$("#Telefono_2").prop('disabled', false);
 					$("#FechaPago").prop('disabled', false);
@@ -1010,71 +1043,100 @@
 					$("#FechaPago option[value='0']").attr("selected",false);
 				}
 			}
+			var contado;
+			var financiado;
+			var parcialidades;
 			function autoRellena(){
 				$.ajax({
-						data:  {
-							"proyecto":$('#proyecto').val(),
-							"Mz":$('#Mz').val(),
-							"Lote":$('#Lote').val(),
-							"NclienteHide":numcliente,
+					data:  {
+						"proyecto":$('#proyecto').val(),
+						"Mz":$('#Mz').val(),
+						"Lote":$('#Lote').val(),
+						"NclienteHide":numcliente,
 
-						}, 
-						url:   "{{url('cliente/buscaLote')}}",
-						type:  'get',
-						success:  function (data) { 
-							console.log(data);
+					}, 
+					url:   "{{url('cliente/buscaLote')}}",
+					type:  'get',
+					success:  function (data) { 
+						console.log(data);
 
-							if(data=="no existe"){
-								$("#Superficie").val("");
-								$("#TipoSuperficie option").removeAttr("selected");
-								$("#TipoPredio option").removeAttr("selected");
-								$("#Vendedor option").removeAttr("selected");
-								mensaje('Lote no encontrado');
-							}else{
+						if(data=="no existe"){
+							$("#Superficie").val("");
+							$("#TipoSuperficie option").removeAttr("selected");
+							$("#TipoPredio option").removeAttr("selected");
+							$("#Vendedor option").removeAttr("selected");
+							contado="";
+							financiado="";
+							mensaje('danger','Lote no encontrado');
+						}else{
+							contado=data[0].CostoContadoTotal;
+							financiado=data[0].CostoFinanciadoTotal;
+							parcialidades=data[0].plazo;
+							$("#Superficie").val(data[0].superficie);
+							$("#TipoSuperficie").val(data[0].TipoSuperficie);
+							$("#TipoPredio").val(data[0].TipoPredio);
+							$("#Vendedor").val(data[0].idElemento);
+							$("#Nparcialidades").val(data[0].plazo);
+							$("#Enganche").val(data[0].enganche);
+							var financiado2=financiado;
+				financiado2 = financiado2.replace(/,/g, "");
+							var parcialidades2=parcialidades;
+				parcialidades2 = parcialidades2.replace(/,/g, "");
 
-								$("#Superficie").val(data[0].superficie);
-								$("#TipoSuperficie").val(data[0].TipoSuperficie);
-								$("#TipoPredio").val(data[0].TipoPredio);
-								$("#Vendedor").val(data[0].idElemento);
-								if (data[0].TipoVenta=="Contado y Financiado") {
+							console.log(financiado2+' '+parcialidades2);
 
-									$("#Nparcialidades").prop('disabled', false);
-					$("#MontoMensual").prop('disabled', false);
-					$("#Telefono_2").prop('disabled', false);
-					$("#FechaPago").prop('disabled', false);
+							$("#MontoMensual").val(Intl.NumberFormat('es-MX').format(financiado2 / parcialidades2));
 
-					$("#FechaPago option[value='0']").attr("selected",false);
 
+
+
+							if (data[0].TipoVenta=="Contado y Financiado") {
+
+								$("#MontoMensual").prop('disabled', false);
+								$("#Telefono_2").prop('disabled', false);
+								$("#FechaPago").prop('disabled', false);
+								$("#FechaPago option[value='0']").attr("selected",false);
+								$("#CostoTotal").val(financiado);
+								$("#Nparcialidades").val(data[0].plazo);
 								$("#Adquisición").html("<option>Financiado</option><option>Contado</option>");
-								}else if(data[0].TipoVenta=="Financiado"){
-									$("#Nparcialidades").prop('disabled', false);
-					$("#MontoMensual").prop('disabled', false);
-					$("#Telefono_2").prop('disabled', false);
-					$("#FechaPago").prop('disabled', false);
 
-					$("#FechaPago option[value='0']").attr("selected",false);
+
+							}else if(data[0].TipoVenta=="Financiado"){
+
+								$("#CostoTotal").val(data[0].CostoFinanciadoTotal);
+								$("#Nparcialidades").val(data[0].plazo);
+								$("#MontoMensual").prop('disabled', false);
+								$("#Telefono_2").prop('disabled', false);
+								$("#FechaPago").prop('disabled', false);
+								$("#FechaPago option[value='0']").attr("selected",false);
 								$("#Adquisición").html("<option>Financiado</option>");
-								}else if(data[0].TipoVenta=="Contado"){
-									$("#FechaPago option[value='0']").attr("selected",true);
-					$("#Nparcialidades").prop('disabled', true);
-					$("#MontoMensual").prop('disabled', true);
-					$("#Telefono_2").prop('disabled', true);
-					$("#FechaPago").prop('disabled', true);
-					$("#Telefono_2").val('');
-					$("#Nparcialidades").val('');
-					$("#MontoMensual").val('');
+
+								
+
+
+							}else if(data[0].TipoVenta=="Contado"){
+
+								$("#Nparcialidades").val("");
+								$("#CostoTotal").val(data[0].CostoContadoTotal);
+								$("#FechaPago option[value='0']").attr("selected",true);
+								$("#MontoMensual").prop('disabled', true);
+								$("#Telefono_2").prop('disabled', true);
+								$("#FechaPago").prop('disabled', true);
+								$("#Telefono_2").val('');
+								$("#Nparcialidades").val('');
+								$("#MontoMensual").val('');
 								$("#Adquisición").html("<option>Contado</option>");
 
 
-								}
-								mensaje("success","Lote Encontrao");
-
-
 							}
+							mensaje("success","Lote Encontrao");
 
 
-						},
-					});
+						}
+
+
+					},
+				});
 			}
 			var numcliente;
 			function validaExistencia(){
@@ -1132,36 +1194,37 @@
 			function tratos(){
 				$('#list_user2').DataTable().destroy();
 				$.ajax({
-						data:  {
-							"numcliente":numcliente,
-						}, 
-						url:   "{{url('buscar/tratos')}}",
-						type:  'get',
-						success:  function (response) { 
-							console.log(response);
-							var html;
+					data:  {
+						"numcliente":numcliente,
+					}, 
+					url:   "{{url('buscar/tratos')}}",
+					type:  'get',
+					success:  function (response) { 
+						console.log(response);
+						var html;
 
-							if(response=="no existe"){
+						if(response=="no existe"){
+$('#llenaTabla2').html("");
+						$('#llenaTabla2').html("No tiene contratos por concluir");
+						}else{
 
-							}else{
+							for (var i = 0; i < response.length; i++) {
 
-								for (var i = 0; i < response.length; i++) {
-
-							  var idCliente='"'+response[i].idCliente+'"';
-							  var id_vendedor='"'+response[i].id_vendedor+'"';
-							  var proyecto='"'+response[i].proyecto+'"';
-							  var mz='"'+response[i].mz+'"';
-							  var lt='"'+response[i].lt+'"';
-							  var Observaciones='"'+response[i].Observaciones+'"';
-							  var created_at='"'+response[i].created_at+'"';
-							html+="<tr>";
-							html+="<td> <FONT  SIZE=2>"+response[i].idCliente+"</FONT></td>";
-							html+="<td> <FONT  SIZE=2>"+response[i].id_vendedor+"</FONT></td>";
-							html+="<td> <FONT  SIZE=2>"+response[i].proyecto+"</FONT></td>";
-							html+="<td> <FONT  SIZE=2>"+response[i].mz+"</FONT></td>";
-							html+="<td> <FONT  SIZE=2>"+response[i].lt+"</FONT></td>";
-							html+="<td> <FONT  SIZE=2>"+response[i].Observaciones+"</FONT></td>";
-							html+="<td> <FONT  SIZE=2>"+response[i].created_at+"</FONT></td>";
+								var idCliente='"'+response[i].idCliente+'"';
+								var id_vendedor='"'+response[i].id_vendedor+'"';
+								var proyecto='"'+response[i].proyecto+'"';
+								var mz='"'+response[i].mz+'"';
+								var lt='"'+response[i].lt+'"';
+								var Observaciones='"'+response[i].Observaciones+'"';
+								var created_at='"'+response[i].created_at+'"';
+								html+="<tr>";
+								html+="<td> <FONT  SIZE=2>"+response[i].idCliente+"</FONT></td>";
+								html+="<td> <FONT  SIZE=2>"+response[i].id_vendedor+"</FONT></td>";
+								html+="<td> <FONT  SIZE=2>"+response[i].proyecto+"</FONT></td>";
+								html+="<td> <FONT  SIZE=2>"+response[i].mz+"</FONT></td>";
+								html+="<td> <FONT  SIZE=2>"+response[i].lt+"</FONT></td>";
+								html+="<td> <FONT  SIZE=2>"+response[i].Observaciones+"</FONT></td>";
+								html+="<td> <FONT  SIZE=2>"+response[i].created_at+"</FONT></td>";
 							//html+="<td><input type='submit' class='btn btn-success' value='Ver Detalles' onclick='abrirModal("+response[i].id_contratos+","+costocomilla+","+Enganchecomilla+","+FechaApartado+","+Apartado+","+FechaEnganche+","+ComplementoEnganche+","+DiaPago+","+vendedor+","+Comision1+","+Comision2+","+EstatusVenta+")'></td>";
 							html+="</tr>";
 						}$('#llenaTabla2').html("");
@@ -1189,11 +1252,11 @@
 								"loadingRecords" : "Cargando..."
 							}
 						});
-							}
+					}
 
 
-						},
-					});
+				},
+			});
 			}
 			function cobranzaRegistra(){
 				
@@ -1222,24 +1285,24 @@
 						
 						limpiar();
 						$('#Fecha_Venta').val("")		
-				$('#Fecha_Contrato').val("")
-				$('#proyecto').val("")
-				$('#Mz').val("")
-				$('#Lote').val("")
-				$('#Superficie').val("")
-				$('#TipoSuperficie').val("")
-				$('#TipoPredio').val("")
-				$('#Vendedor').val("")
-				$('#Adquisición').val("")
-				$('#Nparcialidades').val("")
-				$('#CostoTotal').val("")
-				$('#Enganche').val("")
-				$('#Comisión1').val("")
-				$('#Comisión2').val("")
-				$('#FechaPago').val("")
-				$('#MontoMensual').val("")
-				$('#Porcentaje').val("")
-				$('#EstatusVenta').val("")
+						$('#Fecha_Contrato').val("")
+						$('#proyecto').val("")
+						$('#Mz').val("")
+						$('#Lote').val("")
+						$('#Superficie').val("")
+						$('#TipoSuperficie').val("")
+						$('#TipoPredio').val("")
+						$('#Vendedor').val("")
+						$('#Adquisición').val("")
+						$('#Nparcialidades').val("")
+						$('#CostoTotal').val("")
+						$('#Enganche').val("")
+						$('#Comisión1').val("")
+						$('#Comisión2').val("")
+						$('#FechaPago').val("")
+						$('#MontoMensual').val("")
+						$('#Porcentaje').val("")
+						$('#EstatusVenta').val("")
 						mensaje('success','Registro exitoso!!');
 
 
@@ -1378,6 +1441,8 @@
 						$('#MontoMensualH').val(data[0].MontoMensual);
 						$('#PorcentajeH').val(data[0].Interes);
 						$('#contratoModal').html(data[0].id_contratos);
+						$('#FechaPagoH').val(data[0].DiaPago);
+
 
 
 
@@ -1401,20 +1466,20 @@
 					$('#validaFecha_Venta').css('display','block');
 				}
 				if ($('#Enganche').val()!="") {
-				$('#validaEnganche').css('display','none');
+					$('#validaEnganche').css('display','none');
 					valida=valida+1;
 				}else{
 					$('#validaEnganche').css('display','block');
 				}
 				if ($('#Fecha_Contrato').val()!="") {
-				$('#validaFecha_Contrato').css('display','none');
+					$('#validaFecha_Contrato').css('display','none');
 					valida=valida+1;
 				}else{
 					$('#validaFecha_Contrato').css('display','block');
 				}
 				if ($('#Mz').val()!="") {
-				$('#validaMz').css('display','none');
-				valida=valida+1;
+					$('#validaMz').css('display','none');
+					valida=valida+1;
 				}else{
 					$('#validaMz').css('display','block');
 				}
@@ -1466,64 +1531,64 @@
 			function RegistrarContrato(){
 				if($('#Adquisición').val()=="Contado"){
 
-						$('#validaNparcialidades').css('display','none');
-						$('#validaMontoMensual').css('display','none');
-						$('#validaTelefono_2').css('display','none');
+					$('#validaNparcialidades').css('display','none');
+					$('#validaMontoMensual').css('display','none');
+					$('#validaTelefono_2').css('display','none');
 					$.ajax({
-					data:  {
-						"Fecha_Venta":$('#Fecha_Venta').val(),
-						"Enganche":$('#Enganche').val(),
-						"NclienteHide":numcliente,
-						"Fecha_Contrato":$('#Fecha_Contrato').val(),
-						"proyecto":$('#proyecto').val(),
-						"Mz":$('#Mz').val(),
-						"Lote":$('#Lote').val(),
-						"Superficie":$('#Superficie').val(),
-						"TipoSuperficie":$('#TipoSuperficie').val(),
-						"TipoPredio":$('#TipoPredio').val(),
-						"Vendedor":$('#Vendedor').val(),
-						"Adquisición":$('#Adquisición').val(),
-						"Nparcialidades":$('#Nparcialidades').val(),
-						
-						"CostoTotal":$('#CostoTotal').val(),
-						"FechaPago":$('#FechaPago').val(),
-						"MontoMensual":$('#MontoMensual').val(),
-						"Porcentaje":$('#Porcentaje').val(),
-						"Telefono_2":$('#Telefono_2').val(),
-					}, 
-					url:   "{{url('alta/capturaContratos')}}",
-					type:  'get',
-					success:  function (data) { 
-						console.log(data);
-						ncontrato=data;
-						
+						data:  {
+							"Fecha_Venta":$('#Fecha_Venta').val(),
+							"Enganche":$('#Enganche').val(),
+							"NclienteHide":numcliente,
+							"Fecha_Contrato":$('#Fecha_Contrato').val(),
+							"proyecto":$('#proyecto').val(),
+							"Mz":$('#Mz').val(),
+							"Lote":$('#Lote').val(),
+							"Superficie":$('#Superficie').val(),
+							"TipoSuperficie":$('#TipoSuperficie').val(),
+							"TipoPredio":$('#TipoPredio').val(),
+							"Vendedor":$('#Vendedor').val(),
+							"Adquisición":$('#Adquisición').val(),
+							"Nparcialidades":$('#Nparcialidades').val(),
 
-						$('#numeroContr').val(data);
-						$('#numeroContr').val(ncontrato);
+							"CostoTotal":$('#CostoTotal').val(),
+							"FechaPago":$('#FechaPago').val(),
+							"MontoMensual":$('#MontoMensual').val(),
+							"Porcentaje":$('#Porcentaje').val(),
+							"Telefono_2":$('#Telefono_2').val(),
+						}, 
+						url:   "{{url('alta/capturaContratos')}}",
+						type:  'get',
+						success:  function (data) { 
+							console.log(data);
+							ncontrato=data;
 
-						$('#modalCobranza').modal('show');
-						
+
+							$('#numeroContr').val(data);
+							$('#numeroContr').val(ncontrato);
+
+							$('#modalCobranza').modal('show');
+
 						//limpiar();
 						$('#Fecha_Venta').val("")		
-				$('#Fecha_Contrato').val("")
-				$('#proyecto').val("")
-				$('#Mz').val("")
-				$('#Lote').val("")
-				$('#Superficie').val("")
-				$('#TipoSuperficie').val("")
-				$('#TipoPredio').val("")
-				$('#Vendedor').val("")
-				$('#Adquisición').val("")
-				$('#Nparcialidades').val("")
-				$('#CostoTotal').val("")
-				$('#Enganche').val("")
-				$('#Comisión1').val("")
-				$('#Comisión2').val("")
-				$('#FechaPago').val("")
-				$('#MontoMensual').val("")
-				$('#Porcentaje').val("")
-				$('#EstatusVenta').val("")
-				$('#Telefono_2').val("")
+						$('#Fecha_Contrato').val("")
+						$('#proyecto').val("")
+						$('#Mz').val("")
+						$('#Lote').val("")
+						$('#Superficie').val("")
+						$('#TipoSuperficie').val("")
+						$('#TipoPredio').val("")
+						$('#Vendedor').val("")
+						$('#Adquisición').val("")
+						$('#Nparcialidades').val("")
+						$('#CostoTotal').val("")
+						$('#Enganche').val("")
+						$('#Comisión1').val("")
+						$('#Comisión2').val("")
+						$('#FechaPago').val("")
+						$('#MontoMensual').val("")
+						$('#Porcentaje').val("")
+						$('#EstatusVenta').val("")
+						$('#Telefono_2').val("")
 
 						mensaje('success','Registro exitoso!!');
 
@@ -1539,53 +1604,53 @@
 
 				}else if($('#Adquisición').val()=="Financiado"){
 					$.ajax({
-					data:  {
-						"Fecha_Venta":$('#Fecha_Venta').val(),
-						"Enganche":$('#Enganche').val(),
-						"NclienteHide":numcliente,
-						"Fecha_Contrato":$('#Fecha_Contrato').val(),
-						"proyecto":$('#proyecto').val(),
-						"Mz":$('#Mz').val(),
-						"Lote":$('#Lote').val(),
-						"Superficie":$('#Superficie').val(),
-						"TipoSuperficie":$('#TipoSuperficie').val(),
-						"TipoPredio":$('#TipoPredio').val(),
-						"Vendedor":$('#Vendedor').val(),
-						"Adquisición":$('#Adquisición').val(),
-						"Nparcialidades":$('#Nparcialidades').val(),
-						
-						"CostoTotal":$('#CostoTotal').val(),
-						"FechaPago":$('#FechaPago').val(),
-						"MontoMensual":$('#MontoMensual').val(),
-						"Porcentaje":$('#Porcentaje').val(),
-						"Telefono_2":$('#Telefono_2').val(),
-					}, 
-					url:   "{{url('alta/capturaContratos')}}",
-					type:  'get',
-					success:  function (data) { 
-						console.log(data);
-						$('#modalCobranza').modal('show');
-						
+						data:  {
+							"Fecha_Venta":$('#Fecha_Venta').val(),
+							"Enganche":$('#Enganche').val(),
+							"NclienteHide":numcliente,
+							"Fecha_Contrato":$('#Fecha_Contrato').val(),
+							"proyecto":$('#proyecto').val(),
+							"Mz":$('#Mz').val(),
+							"Lote":$('#Lote').val(),
+							"Superficie":$('#Superficie').val(),
+							"TipoSuperficie":$('#TipoSuperficie').val(),
+							"TipoPredio":$('#TipoPredio').val(),
+							"Vendedor":$('#Vendedor').val(),
+							"Adquisición":$('#Adquisición').val(),
+							"Nparcialidades":$('#Nparcialidades').val(),
+
+							"CostoTotal":$('#CostoTotal').val(),
+							"FechaPago":$('#FechaPago').val(),
+							"MontoMensual":$('#MontoMensual').val(),
+							"Porcentaje":$('#Porcentaje').val(),
+							"Telefono_2":$('#Telefono_2').val(),
+						}, 
+						url:   "{{url('alta/capturaContratos')}}",
+						type:  'get',
+						success:  function (data) { 
+							console.log(data);
+							$('#modalCobranza').modal('show');
+
 						//limpiar();
 						$('#Fecha_Venta').val("")		
-				$('#Fecha_Contrato').val("")
-				$('#proyecto').val("")
-				$('#Mz').val("")
-				$('#Lote').val("")
-				$('#Superficie').val("")
-				$('#TipoSuperficie').val("")
-				$('#TipoPredio').val("")
-				$('#Vendedor').val("")
-				$('#Adquisición').val("")
-				$('#Nparcialidades').val("")
-				$('#CostoTotal').val("")
-				$('#Enganche').val("")
-				$('#Comisión1').val("")
-				$('#Comisión2').val("")
-				$('#FechaPago').val("")
-				$('#MontoMensual').val("")
-				$('#Porcentaje').val("")
-				$('#EstatusVenta').val("")
+						$('#Fecha_Contrato').val("")
+						$('#proyecto').val("")
+						$('#Mz').val("")
+						$('#Lote').val("")
+						$('#Superficie').val("")
+						$('#TipoSuperficie').val("")
+						$('#TipoPredio').val("")
+						$('#Vendedor').val("")
+						$('#Adquisición').val("")
+						$('#Nparcialidades').val("")
+						$('#CostoTotal').val("")
+						$('#Enganche').val("")
+						$('#Comisión1').val("")
+						$('#Comisión2').val("")
+						$('#FechaPago').val("")
+						$('#MontoMensual').val("")
+						$('#Porcentaje').val("")
+						$('#EstatusVenta').val("")
 						mensaje('success','Registro exitoso!!');
 
 
@@ -1653,6 +1718,15 @@
 							"dependiente":$('#dependiente').val(),
 							"espectacular":$('#espectacular').val(),
 							"QuienRecomendo":$('#QuienRecomendo').val(),
+
+							"Nacionalidad":$('#Nacionalidad').val(),
+							"TerminadoTunco":$('#TerminadoTunco').val(),
+							"Hijosdependiente":$('#Hijosdependiente').val(),
+							"Idenificacion":$('#Idenificacion').val(),
+							"NoIdentificación":$('#NoIdentificación').val(),
+
+
+							
 						}, 
 						url:   "{{url('alta/capturaCliente')}}",
 						type:  'get',
@@ -1719,7 +1793,7 @@
 				$('#Estado').val("");
 				$('#Referencia').val("");
 				$('#EnteroNosotros').val("");
-							$('#otros').val("");
+				$('#otros').val("");
 				$('#CURP').val("");
 				$('#RFC').val("");
 				$('#fechaNac').val("");
@@ -1750,11 +1824,11 @@
 
 
 				$('#Estado_civil').val("");
-							$('#Género').val("");
-							$('#estudio').val("");
-							$('#dependiente').val("");
-							$('#espectacular').val("");
-							$('#QuienRecomendo').val("");
+				$('#Género').val("");
+				$('#estudio').val("");
+				$('#dependiente').val("");
+				$('#espectacular').val("");
+				$('#QuienRecomendo').val("");
 
 
 

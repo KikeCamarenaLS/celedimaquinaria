@@ -43,8 +43,8 @@ class ClienteController extends Controller
         $Lote= $request->input("Lote");
         $NclienteHide= $request->input("NclienteHide");
 
-		$validaExistente=DB::select('select p.superficie,p.TipoSuperficie,p.TipoPredio,t.mz,t.lt,t.proyecto,p.TipoVenta, 
-CONCAT(u.Nombre," ",u.Apaterno," ",u.Amaterno) as idElemento,p.TipoVenta,p.CostoContadoTotal,p.CostoFinanciadoTotal from tratosVendedores t 
+		$validaExistente=DB::select('select p.superficie,p.plazo,p.CostoFinanciadoTotal ,p.CostoContadoTotal , p.enganche, p.TipoSuperficie,p.TipoPredio,t.mz,t.lt,t.proyecto, p.TipoVenta, 
+CONCAT(u.Nombre," ",u.Apaterno," ",u.Amaterno) as idElemento, p.TipoVenta,  p.CostoContadoTotal, p.CostoFinanciadoTotal from tratosVendedores t 
 inner join  proyectoLote p ON p.mz=t.mz AND p.lt=t.lt AND p.proyecto=t.proyecto
 inner join users u on u.id=p.idElemento  where t.proyecto="'.$proyecto.'" and t.mz="'.$Mz.'" and t.lt="'.$Lote.'" AND t.idCliente="'.$NclienteHide.'"');
 
@@ -64,7 +64,7 @@ CONCAT(u.Nombre," ",u.Apaterno," ",u.Amaterno) as id_vendedor,p.TipoVenta,p.Cost
 inner join  proyectoLote p ON p.mz=t.mz AND p.lt=t.lt AND p.proyecto=t.proyecto
 inner join users u on u.id=p.idElemento 
 INNER JOIN cat_proyectos cp ON cp.id_proyecto=t.proyecto
- where idCliente="'.$numcliente.'"');
+ where idCliente="'.$numcliente.'" and t.Estatus="Sin Atender" ');
 
 
 		if($validaExistente){
@@ -158,6 +158,7 @@ INNER JOIN cat_proyectos cp ON cp.id_proyecto=t.proyecto
         $insert =DB::select('insert into contratos (id_contratos,N_Cliente,FechaVenta, FechaContrato, Proyecto, Mz, Lt, Superficie, TipoSuperficie, TipoPredio, Vendedor, Adquisicion, N_Parcialidades, Costo, Enganche, DiaPago, MontoMensual, Interes, TelefonoAval,created_at) values ('.$no_contrato.','.$Ncliente.',"'.$Fecha_Venta.'","'.$Fecha_Contrato.'","'.$proyecto.'","'.$Mz.'","'.$Lote.'","'.$Superficie.'","'.$TipoSuperficie.'","'.$TipoPredio.'","'.$Vendedor.'","'.$Adquisición.'","'.$Nparcialidades.'","'.$CostoTotal.'","'.$Enganche.'","'.$FechaPago.'","'.$MontoMensual.'","'.$Porcentaje.'","'.$Telefono_2.'",now())');
 
 		$updates=DB::select('update proyectoLote set estatus="Al corriente" where lt="'.$Lote.'" and mz="'.$Mz.'" and proyecto="'.$proyecto.'" ');
+		$updates2=DB::select('update tratosvendedores set Estatus="Atendido" where lt="'.$Lote.'" and mz="'.$Mz.'" and proyecto="'.$proyecto.'" ');
         return $no_contrato;
 
 		
@@ -222,12 +223,23 @@ INNER JOIN cat_proyectos on contratos.proyecto=cat_proyectos.id_proyecto where n
         $espectacular= $request->input("espectacular");
         $QuienRecomendo= $request->input("QuienRecomendo");
 
-
+        $Nacionalidad= $request->input("Nacionalidad");
+        $TerminadoTunco= $request->input("TerminadoTunco");
+        $Hijosdependiente= $request->input("Hijosdependiente");
+        $Idenificacion= $request->input("Idenificacion");
+        $NoIdentificación= $request->input("NoIdentificación");
 
 
         $id = Auth::user()->id;
 
-        $insertUsuario=DB::select('insert into clientes (N_Cliente,Nombre, A_paterno, A_materno,Estado_civil, Género, estudio,dependiente, espectacular, QuienRecomendo, Telefono1, Telefono2, correo, Calle, Ninterior, NExterior, Colonia, Municipio, Estado, cp, id_personal, Referencia,CURP,RFC,fechaNac,Ocupación,Poblacion,created_at) values ("'.$no_cli.'","'.$Nombre.'","'.$Apellido_Paterno.'","'.$Apellido_Materno.'","'.$Estado_civil.'","'.$Género.'","'.$estudio.'","'.$dependiente.'","'.$espectacular.'","'.$QuienRecomendo.'","'.$Telefono_1.'","'.$Telefono_2.'","'.$Correo.'","'.$Calle.'","'.$Ninterior.'","'.$NExterior.'","'.$Colonia.'","'.$Municipio.'","'.$Estado.'","'.$CodigoPostal.'","'.$id.'","'.$Referencia.'","'.$CURP.'","'.$RFC.'","'.$fechaNac.'","'.$Ocupación.'","'.$Poblacion.'",now())');
+        $insertUsuario=DB::select('insert into clientes (N_Cliente,Nombre, A_paterno, A_materno,Estado_civil, Género, estudio,dependiente, espectacular, QuienRecomendo, Telefono1, Telefono2, correo, Calle, Ninterior, NExterior, Colonia, Municipio, Estado, cp, id_personal, Referencia,CURP,RFC,fechaNac,Ocupación,Poblacion,Nacionalidad,TerminadoTrunco,Hijodependiente,Identificacion,NoIdentificacion,created_at) values ("'.$no_cli.'","'.$Nombre.'","'.$Apellido_Paterno.'","'.$Apellido_Materno.'","'.$Estado_civil.'","'.$Género.'","'.$estudio.'","'.$dependiente.'","'.$espectacular.'","'.$QuienRecomendo.'","'.$Telefono_1.'","'.$Telefono_2.'","'.$Correo.'","'.$Calle.'","'.$Ninterior.'","'.$NExterior.'","'.$Colonia.'","'.$Municipio.'","'.$Estado.'","'.$CodigoPostal.'","'.$id.'","'.$Referencia.'","'.$CURP.'","'.$RFC.'","'.$fechaNac.'","'.$Ocupación.'","'.$Poblacion.'","'.$Nacionalidad.'","'.$TerminadoTunco.'","'.$Hijosdependiente.'","'.$Idenificacion.'","'.$NoIdentificación.'",now())');
+        if ($insertUsuario) {
+
+        	$idUsuarioSistema = Auth::user()->id;
+			  $nombreUsuarioSistema=DB::select('select CONCAT(Nombre," ",Apaterno," ",Amaterno)as nombre from users where id='.$idUsuarioSistema);
+			  $bitacora=DB::select('insert into tb_bitacora (ID_Bitacora,ID_EMPLEADO,created_at, CVE_MOVIMIENTO, MOVIMIENTO) values (null,"'.$idUsuarioSistema.'",now(),6,"El usuario '.$nombreUsuarioSistema[0]->nombre.' con el ID_Empleado '.$idUsuarioSistema.' Registro Al cliente  '.$Nombre.' '.$Apellido_Paterno.' '.$Apellido_Materno.', numero de cliente asignado es  '.$no_cli.'" )');
+
+        }
        
        if ($Redes == "Redes sociales") {
        	 $insertEncuesta=DB::select('insert into encuestasatisfaccion (N_Cliente,pregunta, respuesta,created_at) values ("'.$no_cli.'","¿Cómo se enteró de nosotros?","'.$Redes.'",now())');

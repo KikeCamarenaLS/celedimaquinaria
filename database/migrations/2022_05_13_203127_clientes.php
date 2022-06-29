@@ -36,6 +36,22 @@ class Clientes extends Migration
             $table->string('Ocupación');
             $table->string('Poblacion');
 
+
+            $table->string('Estado_civil');
+            $table->string('Género');
+            $table->string('estudio');
+            $table->string('dependiente');
+            $table->string('espectacular');
+            $table->string('QuienRecomendo');
+            $table->string('Nacionalidad');
+            $table->string('TerminadoTrunco');
+            $table->string('HijoDependiente');
+            $table->string('Identificacion');
+            $table->string('NoIdentificacion');
+
+
+             
+
             $table->bigInteger('id_personal');
             $table->rememberToken();
             $table->timestamps();

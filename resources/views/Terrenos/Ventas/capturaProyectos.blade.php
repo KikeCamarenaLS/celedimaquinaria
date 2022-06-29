@@ -142,7 +142,7 @@
 							<input  type="text" class="form-control" onKeypress="if (event.keyCode < 45 || event.keyCode > 57) event.returnValue = false;" id="Enganche" name="Enganche" >
 							
 						</div>
-						<div class="col-md-1" id="validaFinanciadoAnualida">
+						<div class="col-md-2" id="validaFinanciadoAnualida">
 							<label>Anualidad</label>
 							<input  type="text" class="form-control" onKeypress="if (event.keyCode < 45 || event.keyCode > 57) event.returnValue = false;" id="Anualidad" name="Anualidad" >
 							
@@ -239,45 +239,7 @@
 					</div>
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-					<div class="form-group row " >
-						
-						
-						
-					</div>
-					<div class="form-group row " >
-
-
-
-						
-					</div>
 					
-					<div class="form-group row " >
-
-						
-						
-						
-
-						
-						
-					</div>
-
-					<div class="form-group row " >
-						
-						
-					</div>
 					{{-- fin del row --}}
 					{{-- inicio del row --}}
 					

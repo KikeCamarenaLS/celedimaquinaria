@@ -557,7 +557,7 @@
 								'<label>Apellido Materno</label><input type="text" class="form-control" onkeyup="buscarNombre()" id="Amaterno" name="Amaterno">'+
 								'</div>'+
 								'<div class="col-md-4">'+
-								'<label>Apartado/Enganches</label><select  class="form-control" id="Apartado/Enganches" name="Apartado/Enganches"><option>Apartado</option><option>Enganches</option></select>'+
+								'<label>Apartado/Enganches</label><select  class="form-control" id="ApartadoEnganches" name="ApartadoEnganches"><option>Apartado</option><option>Enganches</option></select>'+
 								'</div>'+
 								'<div class="col-md-12">'+
 								'<label>Observaciones</label><input type="text" class="form-control"  id="Observaciones" name="Observaciones">'+
@@ -628,7 +628,7 @@ function apartado(){
 	var ltModal=$('#ltModal').val();
 	var Observaciones=$('#Observaciones').val();
 	var proyectoModal=$('#proyectoModal').val();
-	var apartadoenganche=$('#Apartado/Enganches').val();
+	var apartadoenganche=$('#ApartadoEnganches').val();
 
 	$.ajax({
 			data:  {

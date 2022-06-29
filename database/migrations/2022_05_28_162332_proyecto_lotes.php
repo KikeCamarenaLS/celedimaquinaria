@@ -22,7 +22,26 @@ class ProyectoLotes extends Migration
             $table->bigInteger('superficie');
 
             $table->string('Medidas');
-            $table->string('Colinancia');
+            $table->string('ColinanciaNorte');
+            $table->string('ColinanciaSur');
+            $table->string('ColinanciaEste');
+            $table->string('ColinanciaOeste');
+            $table->string('TipoSuelo');
+            $table->string('FechaPredial');
+            $table->string('ValorCompra');
+            $table->string('Detalle');
+            $table->string('NumeroEscritura');
+
+            $table->string('enganche');
+            $table->string('anualidad');
+            $table->string('plazo');
+            $table->string('servicioluz');
+            $table->string('servicioagua');
+            $table->string('serviciodrenaje');
+
+
+
+
             $table->string('TipoSuperficie');
             $table->string('TipoPredio');
             $table->string('Localización');
