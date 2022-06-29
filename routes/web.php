@@ -424,6 +424,8 @@ Route::get('/AbrirMensaje/Id_registro','VentasController@AbrirMensajeLeer')->nam
 Route::POST('/pruebascorreo','VentasController@contact')->name('pruebascorreo');
 Route::get('/mail','VentasController@mail')->name('mail');
 
+Route::get('/ventalotesView13', 'VentasController@ventalotesView13');
+
 
 
 
