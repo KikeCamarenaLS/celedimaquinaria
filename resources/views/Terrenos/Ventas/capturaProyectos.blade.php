@@ -30,12 +30,12 @@
 								@endforeach
 							</select>
 						</div>
-						<div class="col-md-2" >
+						<div class="col-md-1" >
 							<label>Mz</label>
 							<input required="" type="text" onKeypress="if (event.keyCode < 45 || event.keyCode > 57) event.returnValue = false;" class="form-control success" id="Mz" name="Mz" >
 							
 						</div>
-						<div class="col-md-2">
+						<div class="col-md-1">
 							<label>Lt</label>
 							<input required="" type="text" onKeypress="if (event.keyCode < 45 || event.keyCode > 57) event.returnValue = false;" class="form-control" id="Lt" name="Lt"  >
 							
@@ -45,6 +45,13 @@
 							<input  type="text" class="form-control" onKeypress="if (event.keyCode < 45 || event.keyCode > 57) event.returnValue = false;" id="Superficie" name="Superficie" >
 							
 						</div>
+						<div class="col-md-2">
+											<label>Tipo de superficie</label>
+											<select class="form-control" id="TipoSuperficie" name="TipoSuperficie"  style="width: 100%;">
+												<option>Regular</option>
+												<option>Irregular</option>
+											</select>
+									</div>
 						<div class="col-md-2">
 
 							<label>Medidas (m)</label>
@@ -98,7 +105,7 @@
 							
 						</div>
 						<div class="col-md-5">
-							<label>Detalle</label>
+							<label>Detalles</label>
 							<textarea class="form-control" id="Detalle" name="Detalle" >
 							</textarea>
 							
@@ -110,13 +117,7 @@
 						</div>
 						</div>
 					<div class="form-group row " >
-									<div class="col-md-2">
-											<label>Tipo de superficie</label>
-											<select class="form-control" id="TipoSuperficie" name="TipoSuperficie"  style="width: 100%;">
-												<option>Regular</option>
-												<option>Irregular</option>
-											</select>
-									</div>
+									
 									<div class="col-md-2" >
 											<label>Tipo de predio</label>
 											<select class="form-control" id="TipoPredio" name="TipoPredio"  style="width: 100%;">
@@ -127,7 +128,7 @@
 											</select>
 
 									</div>
-									<div class="col-md-3" >
+									<div class="col-md-2" >
 											<label>Localización</label>
 											<select class="form-control" id="Localización" name="Localización"  style="width: 100%;">
 												

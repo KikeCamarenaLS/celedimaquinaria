@@ -269,6 +269,25 @@
                          @endcan
 
                          @can('Ejecutivo de proyectos')
+                         <li class="nav-item ">
+                            <a data-toggle="collapse" href="#Inventarios">
+                                <i class="la la-money"></i>
+                                <p>Inventarios </p>
+                                <span class="caret"></span>
+                            </a>
+                            <div class="collapse" id="Inventarios">
+                                <ul class="nav nav-collapse">
+
+                                  
+                                    <li>
+                                        <a href="{{url('/Captura/proyectos')}}">
+                                            <span class="sub-item">Captura de Productos</span>
+                                        </a>
+                                    </li>
+                                   
+                                </ul>
+                            </div>
+                        </li>
 
                         <li class="nav-item ">
                             <a data-toggle="collapse" href="#Ventas">
@@ -289,11 +308,7 @@
                                             <span class="sub-item">Venta de Lotes(Sin Mapas)</span>
                                         </a>
                                     </li>
-                                    <li>
-                                        <a href="{{url('/Captura/proyectos')}}">
-                                            <span class="sub-item">Captura de Proyectos</span>
-                                        </a>
-                                    </li>
+                                    
                                    
                                 </ul>
                             </div>
