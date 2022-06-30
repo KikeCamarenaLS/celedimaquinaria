@@ -167,7 +167,7 @@
                             <div class="collapse" id="usuario_collapse">
                                 <ul class="nav nav-collapse">
                                     <li>
-                                        <a href="{{url('/nuevo_usuario')}}">
+                                        <a href="{{url('/nuevo_usuarioTerreno')}}">
                                             <span class="sub-item">Nuevo</span>
                                         </a>
                                     </li>

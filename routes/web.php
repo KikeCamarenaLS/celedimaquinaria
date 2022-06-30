@@ -27,7 +27,12 @@ Route::post('/actualizar_miperfil', 'Inventario\UsuarioController@update_mi_perf
 
 //Usuarios
 Route::get('/nuevo_usuario', 'Inventario\UsuarioController@nuevo_usuario');
+Route::get('/nuevo_usuarioTerreno', 'Inventario\UsuarioController@nuevo_usuarioTerreno');
+
 Route::get('/guardar_usuario', 'Inventario\UsuarioController@insert_usuario');
+Route::POST('/insert_usuarioPost', 'Inventario\UsuarioController@insert_usuarioPost')->name('insertas.insert_usuarioPost');
+
+
 Route::get('/listado_usuario', 'Inventario\UsuarioController@listado_usuario');
 Route::post('/actualizar_usuario', 'Inventario\UsuarioController@update_usuario');
 Route::post('/cambiar_estatus_usuario', 'Inventario\UsuarioController@update_estatus')->name('modificar.estatus.usuario');
@@ -436,6 +441,9 @@ Route::get('/ventalotesView4', 'VentasController@ventalotesView4');
 Route::get('/ventalotesView15', 'VentasController@ventalotesView15');
 Route::get('/ventalotesView12', 'VentasController@ventalotesView12');
 Route::get('/ventalotesView7', 'VentasController@ventalotesView7');
+
+Route::get('/cliente/ConsultaCliente', 'ClienteController@ConsultaCliente');
+
 
 
 

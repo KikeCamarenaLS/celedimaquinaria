@@ -23,7 +23,9 @@ class ClienteController extends Controller
 		$proyectos=DB::select('SELECT * FROM cat_proyectos');
 		$vendedores=DB::select('SELECT concat(nombre," ",apaterno," ",amaterno)as vendedores,id FROM users where rol="vendedor"');
 		$situaciones=DB::select('SELECT * FROM cat_situacion');
-		return view('Terrenos.Clientes.capturaCliente',compact('proyectos','vendedores','situaciones'));
+		$mensaje="sin_mensaje";
+		$color="sin_mensaje";
+			return view('Terrenos.Clientes.capturaCliente',compact('proyectos','vendedores','situaciones','mensaje','color'));
 	}
 	
 	public function validaExistencia(Request $request){
@@ -173,6 +175,10 @@ class ClienteController extends Controller
 			DiaPago, MontoMensual, Interes,created_at FROM contratos
 			INNER JOIN cat_proyectos on contratos.proyecto=cat_proyectos.id_proyecto where n_cliente="'.$numcliente.'"');
 	}
+	public function ConsultaCliente(Request $request){
+		$numcliente= $request->input("numcliente");
+		return DB::select('select * FROM clientes where n_cliente="'.$numcliente.'"');
+	}
 	public function encontrarContrato(Request $request){
 		$id_contrato= $request->input("id_contrato");
 		return DB::select('select* FROM contratos where id_contratos="'.$id_contrato.'"');
@@ -191,7 +197,12 @@ class ClienteController extends Controller
 
 
 		if($validaExistente){
-			return $validaExistente;
+			$proyectos=DB::select('SELECT * FROM cat_proyectos');
+		$vendedores=DB::select('SELECT concat(nombre," ",apaterno," ",amaterno)as vendedores,id FROM users where rol="vendedor"');
+		$situaciones=DB::select('SELECT * FROM cat_situacion');
+		$mensaje="Usuario repetido!!";
+		$color="danger";
+			return view('Terrenos.Clientes.capturaCliente',compact('proyectos','vendedores','situaciones','mensaje','color'));
 		}else{
 			$no_cliente=DB::select("select CONCAT( Date_format(now(),'%y%m%d%H%i%s'),'', FLOOR(5 + RAND()*(10-5))) as no_cliente");
 			$no_cli=$no_cliente[0]->no_cliente;
@@ -237,7 +248,7 @@ class ClienteController extends Controller
 		$Apellido_Paterno= $request->input("Apellido_Paterno");
 		$Apellido_Materno= $request->input("Apellido_Materno");
 			$Telefono_1= $request->input("Telefono_1");
-			$Telefono_2= $request->input("Telefono_2");
+			$Telefono_2= $request->input("Telefono_3");
 			$Correo= $request->input("Correo");
 			$Calle= $request->input("Calle");
 			$CodigoPostal= $request->input("CodigoPostal");
@@ -304,7 +315,12 @@ class ClienteController extends Controller
 				$insertEncuesta=DB::select('insert into encuestasatisfaccion (N_Cliente,pregunta, respuesta,created_at) values ("'.$no_cli.'","¿Cómo se enteró de nosotros?","'.$otros.'",now())');
 			}
 
-			return "listo";
+			$proyectos=DB::select('SELECT * FROM cat_proyectos');
+		$vendedores=DB::select('SELECT concat(nombre," ",apaterno," ",amaterno)as vendedores,id FROM users where rol="vendedor"');
+		$situaciones=DB::select('SELECT * FROM cat_situacion');
+		$mensaje="Usuario registrado con exito!!";
+		$color="success";
+			return view('Terrenos.Clientes.capturaCliente',compact('proyectos','vendedores','situaciones','mensaje','color'));
 		}
 	}
 	public function alta_de_clientes(Request $request){

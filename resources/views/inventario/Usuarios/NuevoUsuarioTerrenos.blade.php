@@ -11,7 +11,7 @@
 		<div class="col-md-12" >
 			<div class="card">
 				<div class="card-header">
-					<div class="card-title">Registrar Cliente</div>
+					<div class="card-title">Registrar Usuario</div>
 
 				</div>
 
@@ -20,20 +20,23 @@
 				<div class="card-body">
 					{{-- inicio del row --}}
 
- <form id="exampleValidation" method="post" action="{{Route('formalta.capturaCliente')}}" enctype="multipart/form-data">
+ <form id="exampleValidation" method="post" action="{{Route('insertas.insert_usuarioPost')}}" enctype="multipart/form-data">
         	
 				@csrf
 					<div class="form-group row"  >
 
-						<div class="col-md-9" id="clienteid" style="display:none;">
-							<label>Numero de cliente &nbsp;</label><b id="Ncliente"></b>
-							<input type="hidden" id="NclienteHide">
+						<div class="col-md-3" id="clienteid" >
+							<label>Numero de cliente &nbsp;</label>
+							<input required="" type="text" class="form-control success" id="NclienteHide" name="NclienteHide" >
 						</div>
-						<div class="col-md-3" id="Foto" style="display:none;">
+						<div class="col-md-6">
+							
+						</div>
+						<div class="col-md-3" id="Foto" >
 											<div class="input-file input-file-image">
 												<img class="img-upload-preview img-circle" id="ponerFoto" width="100" height="100" src="{{url('assets/img/profile.png')}}" alt="preview">
 												<input type="file" class="form-control form-control-file" id="uploadImg1" name="uploadImg1" accept="image/*" >
-												<label for="uploadImg1" id="FotoInput"  style="display:none;" class=" label-input-file btn btn-icon btn-default btn-round btn-lg"><i class="la la-file-image-o"></i> Cargar Foto</label>
+												<label for="uploadImg1" id="FotoInput"   class=" label-input-file btn btn-icon btn-default btn-round btn-lg"><i class="la la-file-image-o"></i> Cargar Foto</label>
 											</div>
 										</div>
 					</div>
@@ -55,15 +58,11 @@
 							<input  type="text" class="form-control" id="Apellido_Materno" name="Apellido_Materno" >
 							<span class="required-label" id="validaM" style="color:red;  display: none;" ><font size="1">Es necesario llenar este campo</font></span>
 						</div>
-						<div class="col-md-2">
-							<label>&nbsp;</label>
-							<a class="btn btn-success" id="Validar_existencia" name="Validar_existencia"  onclick="validaExistencia()" style="color:#ffffff;">Validar Existencia</a>
-
-						</div>
+						
 					</div>
 					{{-- fin del row --}}
 					{{-- inicio del row --}}
-					<div id="validaexiste" style="  display: none;">
+					<div id="validaexiste" >
 						<div class="form-group row " >
 							<div class="col-md-3">
 								<label>Género </label>
@@ -76,6 +75,15 @@
 								</select>
 							</div>
 							<div class="col-md-2">
+								<label>Fecha de Nacimiento</label>
+								<input  type="date" class="form-control"   id="fechaNac" name="fechaNac" onchange="saberEdad();" >
+							</div>
+							<div class="col-md-2">
+								<label>Edad</label>
+								<input  type="text" class="form-control"   id="Edad" name="Edad" disabled>
+							</div>
+
+							<div class="col-md-2">
 								<label>Nacionalidad</label>
 								<input  type="text" class="form-control"   id="Nacionalidad" name="Nacionalidad" >
 							</div>
@@ -84,19 +92,42 @@
 								<label>CURP</label>
 								<input  type="text" class="form-control" maxlength="18"   id="CURP" name="CURP"  >
 							</div>
+						</div>
+						<div class="form-group row " >
 							<div class="col-md-3">
 								<label>RFC</label>
 								<input  type="text" class="form-control"   id="RFC" name="RFC"  >
 							</div>
-						</div>
-						<div class="form-group row">
-							<div class="col-md-2">
-								<label>Fecha de Nacimiento</label>
-								<input  type="date" class="form-control"   id="fechaNac" name="fechaNac" onchange="saberEdad();" >
+							<div class="col-md-3">
+								<label>NSS(IMSS)</label>
+								<input  type="text" class="form-control"   id="NSS" name="NSS"  >
 							</div>
-							<div class="col-md-2">
-								<label>Edad</label>
-								<input  type="text" class="form-control"   id="Edad" name="Edad" disabled>
+						
+							<div class="col-md-3" >
+								<label>Estado civil</label>
+								<select  class="form-control success" id="Estado_civil" name="Estado_civil"  style="width:100%;">
+									<option>Soltero</option>
+									<option>Casado</option>
+									<option>Divorciado</option>
+									<option>Separación en proceso judicial</option>
+									<option>Viudo</option>
+									<option>Concubinato</option>
+									<option>Prefiero no decirlo</option>
+
+								</select>
+
+							</div>
+							<div class="col-md-2" >
+								<label>Número de dependientes</label>
+								<input  type="number" class="form-control success" id="dependiente" name="dependiente"  >
+
+							</div>
+							</div>
+						<div class="form-group row">
+							<div class="col-md-2" >
+								<label>Hijos dependientes</label>
+								<input  type="number" class="form-control success" id="Hijosdependiente" name="Hijosdependiente"  >
+
 							</div>
 							<div class="col-md-3" >
 								<label>Ultimo nivel de estudios</label>
@@ -115,42 +146,44 @@
 								</select>
 
 							</div>
-							
+							<div class="col-md-2" >
+								<label>Especialidad en</label>
+								<input  type="text" class="form-control success" id="Especialidad" name="Especialidad"  >
 
-							
-							
-							
+							</div>
 							<div class="col-md-3" >
-								<label>Estado civil</label>
-								<select  class="form-control success" id="Estado_civil" name="Estado_civil"  style="width:100%;">
-									<option>Soltero</option>
-									<option>Casado</option>
-									<option>Divorciado</option>
-									<option>Separación en proceso judicial</option>
-									<option>Viudo</option>
-									<option>Concubinato</option>
-									<option>Prefiero no decirlo</option>
+								<label>Concluido/Trunco</label>
+								<select  class="form-control success" id="ConcluidoTrunco" name="ConcluidoTrunco" style="width:100%;" >
+									<option>Concluido</option>
+									<option>Trunco</option>
+									
 
 								</select>
 
 							</div>
+							<div class="col-md-2" >
+								<label>Cedula</label>
+								<input  type="text" class="form-control success" id="Cedula" name="Cedula"  >
+
+							</div>
+							
+
+							
+							
+							
+							
 
 						</div>
+
+
+
+
 						<div class="form-group row">
-							<div class="col-md-2" >
-								<label>Número de dependientes</label>
-								<input  type="number" class="form-control success" id="dependiente" name="dependiente"  >
+							
+							<div class="col-md-12">
+								<b><center><h6>Contacto</h6> </center></b>
 
-							</div>
-							<div class="col-md-2" >
-								<label>Hijos dependientes</label>
-								<input  type="number" class="form-control success" id="Hijosdependiente" name="Hijosdependiente"  >
-
-							</div>
-							<div class="col-md-3">
-								<label>Ocupación</label>
-								<input  type="text" class="form-control"   id="Ocupación" name="Ocupación"  >
-							</div>
+							</div></br><br>
 
 							<div class="col-md-2" >
 								<label>Telefono 1(Cliente)</label>
@@ -162,15 +195,19 @@
 								<label>Telefono 2(Recados)</label>
 								<input  type="text" class="form-control" maxlength="10" onKeypress="if (event.keyCode < 45 || event.keyCode > 57) event.returnValue = false;"  id="Telefono_3" name="Telefono_3"  >
 							</div>
+							
 
-						</div>
-						<div class="form-group row">
 							<div class="col-md-4" >
 								<label>Correo electrónico</label>
 								<input  type="mail" class="form-control success" id="Correo" name="Correo"  >
 
 							</div>
+							<div class="col-md-4" >
+								<label>Contraseña</label>
+								<input  type="password" class="form-control success" id="password" name="password"  >
 
+							</div>
+							
 							
 							
 						</div>
@@ -244,59 +281,61 @@
 
 						</div>
 						<div class="form-group row " >
-							<div class="col-md-4">
-								<label>Idenificacion </label>
-								<select  class="form-control success" id="Idenificacion" name="Idenificacion" style="width:100%;" >
-									<option>Ninguno</option>
-									<option>INE</option>
-									<option>Pasaporte</option>
-									<option>Cédula profesional</option>
-									<option>Carta de naturalización por residencia</option>
+							<div class="col-md-2">
+								<label>Fecha de ingreso</label>
+								<input  type="date" class="form-control" id="ingreso" name="ingreso"  >
+							</div>
+							<div class="col-md-2">
+								<label>Área</label>
+								<input  type="text" class="form-control" id="Área" name="Área"  >
+							</div>
+							<div class="col-md-2">
+								<label>Ubicación de la Oficina</label>
+								<input  type="text" class="form-control" id="Ubicación" name="Ubicación"  >
+							</div>
+							<div class="col-md-2">
+								<label>Tipo de contrato</label>
+								<select id="TipoContrato" name="TipoContrato"  class="form-control" style="width: 100%;">
+										<option value="Determinado">Determinado</option>
+										<option value="Por Obra">Por Obra</option>
+										<option value="Indeterminado">Indeterminado</option>
+										
+									</select>
+							</div>
+							<div class="col-md-3" >
+							<label for="name" class="text-right">Puesto <span class="required-label">*</span></label>
+								<div >
+									<select  name="rolesuser[]" id="rolesuser" onkeyup="valida()" onchange="valida()" class="form-control multrol" multiple="multiple" required>
+										@foreach($roles as $rol)
+										<option value="{{ $rol->name }}">{{$rol->name}}</option>
+										@endforeach							
+									</select>
 									
+								</div>
+							</div>
+						</div>
+						<div class="form-group row " >
 
-								</select>
-
-
+							<div class="col-md-2">
+								<label>Sueldo Semanal</label>
+								<input  type="text" class="form-control" id="SueldoSemanal" name="SueldoSemanal"  >
 							</div>
-							<div class="col-md-3">
-
-								<label>No. Identificación</label>
-								<input  type="text" class="form-control" id="NoIdentificación" name="NoIdentificación"  >
+							<div class="col-md-2">
+								<label>Sueldo Diario</label>
+								<input  type="text" class="form-control" id="SueldoDiario" name="SueldoDiario"  disabled>
 							</div>
-							<div class="col-md-12">
-								<label>¿Cómo se enteró de nosotros?</label>
 							</div>
-							<div class="col-md-12">
-								<input  type="checkbox"  id="Redes" name="Redes"  value="Redes sociales">Redes sociales
-							</div>
-							<div class="col-md-12">
-								<input  type="checkbox"  id="Boletín" name="Boletín"  value="Publicidad impresa
-								">Publicidad impresa
-
-							</div>
-							<div class="col-md-12">
-								<input  type="checkbox"  id="Amigos" name="Amigos"  value="Amigos y/o familiares" onclick="cambiarrecomendohiden()">Amigos y/o familiares 
-
-							</div>
-							<div class="col-md-4" id="recomendohiden" style="display: none;">
-								<input  type="text" class="form-control"  id="QuienRecomendo" name="QuienRecomendo" placeholder="Nombre completo de quien te recomendo" style="border:1px black solid">
-							</div>
-							<div class="col-md-12">
-								<input  type="checkbox"  id="Agentes" name="Agentes"  value="Agentes de venta">Agente de venta 
-							</div>
-							<div class="col-md-12">
-								<input  type="checkbox"  id="espectacular" name="espectacular"  value="espectacular"> Espectacular
-							</div>
-							<div class="col-md-12">
-								<input  type="checkbox"  id="Otro" name="Otro"   onclick="cambiarOtrohiden()" value="Otros">Otros
-							</div>
-							<div class="col-md-4" id="Otrohiden" style="display: none;">
-								<input  type="text" class="form-control"  id="otros" name="otros"  placeholder="Especifica como te enteraste de nosotros">
+						<div class="form-group row">
+							<div class="col-md-2">
+								<label>Sueldo Mensual</label>
+								<input  type="text" class="form-control" id="SueldoMensual" name="SueldoMensual" disabled >
 							</div>
 
 
 						</div>
 
+						
+						
 						{{-- fin del row --}}
 
 
@@ -318,783 +357,7 @@
 
 
 
-					<div id="validaExisteContrato" style="  display: none;">
-						<br>
-						<br>
-						<div class="col-md-12">
-							
-						</div>
-						<div class="col-md-12">
-							<ul class="nav nav-pills nav-secondary  nav-pills-no-bd nav-pills-icons justify-content-center" id="pills-tab-with-icon" role="tablist">
-
-								<li class="nav-item submenu">
-									<a class="nav-link active show" id="pills-home-tab-icon" data-toggle="pill" href="#pills-home-icon" role="tab" aria-controls="pills-home-icon" aria-selected="false">
-										<i class="flaticon-home"></i>
-										Registrar Contrato
-									</a>
-								</li>
-								<li class="nav-item submenu">
-									<a class="nav-link " id="pills-check-tab-icon" data-toggle="pill" href="#pills-check-icon" role="tab" aria-controls="pills-check-icon" aria-selected="true" onclick="actualizaDatos()">
-										<i class="flaticon-check"></i>
-										Informacion personal
-									</a>
-								</li>
-
-								
-
-								<li class="nav-item submenu">
-									<a class="nav-link" id="pills-profile-tab-icon" data-toggle="pill" href="#pills-profile-icon" role="tab" aria-controls="pills-profile-icon" aria-selected="false" onclick="actualizaTabla()">
-										<i class="flaticon-user-4"></i>
-										Consultar Contratos
-									</a>
-								</li>
-
-							</ul>
-
-							<div class="tab-content mb-3" id="pills-with-icon-tabContent">
-							<div class="tab-pane fade " id="pills-check-icon" role="tabpanel" aria-labelledby="pills-check-tab-icon">
-									<div class="form-group row " id="tablaTratos">
-
-
-
-
-
-										<div class="form-group row " >
-							<div class="col-md-3">
-								<label>Género </label>
-								<select  class="form-control success" id="GéneroActualiza" name="GéneroActualiza"  style="width:100%;">
-									<option>Masculino</option>
-									<option>Femenino</option>
-									<option>Otro</option>
-									<option>Prefiero no decirlo</option>
-
-								</select>
-							</div>
-							<div class="col-md-2">
-								<label>Nacionalidad</label>
-								<input  type="text" class="form-control"   id="NacionalidadActualiza" name="NacionalidadActualiza" >
-							</div>
-
-							<div class="col-md-3">
-								<label>CURP</label>
-								<input  type="text" class="form-control" maxlength="18"   id="CURPActualiza" name="CURPActualiza"  >
-							</div>
-							<div class="col-md-3">
-								<label>RFC</label>
-								<input  type="text" class="form-control"   id="RFCActualiza" name="RFCActualiza"  >
-							</div>
-						</div>
-						<div class="form-group row">
-							<div class="col-md-2">
-								<label>Fecha de Nacimiento</label>
-								<input  type="date" class="form-control"   id="fechaNacActualiza" name="fechaNacActualiza" onchange="saberEdad();" >
-							</div>
-							<div class="col-md-2">
-								<label>Edad</label>
-								<input  type="text" class="form-control"   id="EdadActualiza" name="EdadActualiza" disabled>
-							</div>
-							<div class="col-md-3" >
-								<label>Ultimo nivel de estudios</label>
-								<select  class="form-control success" id="estudioActualiza" name="estudioActualiza" style="width:100%;" >
-									<option>Ninguno</option>
-									<option>Preescolar</option>
-									<option>Primaria</option>
-									<option>Secundaria</option>
-									<option>Preparatoria o bachillerato</option>
-									<option>Ingeniería</option>
-									<option>Licenciatura </option>
-									<option>Maestría</option>
-									<option>Doctorado</option>
-									<option>Prefiero no decirlo</option>
-
-								</select>
-
-							</div>
-							
-
-							
-							
-							
-							<div class="col-md-3" >
-								<label>Estado civil</label>
-								<select  class="form-control success" id="Estado_civilActualiza" name="Estado_civilActualiza"  style="width:100%;">
-									<option>Soltero</option>
-									<option>Casado</option>
-									<option>Divorciado</option>
-									<option>Separación en proceso judicial</option>
-									<option>Viudo</option>
-									<option>Concubinato</option>
-									<option>Prefiero no decirlo</option>
-
-								</select>
-
-							</div>
-
-						</div>
-						<div class="form-group row">
-							<div class="col-md-2" >
-								<label>Número de dependientes</label>
-								<input  type="number" class="form-control success" id="dependienteActualiza" name="dependienteActualiza"  >
-
-							</div>
-							<div class="col-md-2" >
-								<label>Hijos dependientes</label>
-								<input  type="number" class="form-control success" id="HijosdependienteActualiza" name="HijosdependienteActualiza"  >
-
-							</div>
-							<div class="col-md-3">
-								<label>Ocupación</label>
-								<input  type="text" class="form-control"   id="OcupaciónActualiza" name="OcupaciónActualiza"  >
-							</div>
-
-							<div class="col-md-2" >
-								<label>Telefono 1(Cliente)</label>
-								<input  type="text" maxlength="10" onKeypress="if (event.keyCode < 45 || event.keyCode > 57) event.returnValue = false;"  class="form-control success" id="Telefono_1Actualiza" name="Telefono_1Actualiza"  >
-
-							</div>
-
-							<div class="col-md-2">
-								<label>Telefono 2(Recados)</label>
-								<input  type="text" class="form-control" maxlength="10" onKeypress="if (event.keyCode < 45 || event.keyCode > 57) event.returnValue = false;"  id="Telefono_3Actualiza" name="Telefono_3Actualiza"  >
-							</div>
-
-						</div>
-						<div class="form-group row">
-							<div class="col-md-4" >
-								<label>Correo electrónico</label>
-								<input  type="mail" class="form-control success" id="CorreoActualiza" name="CorreoActualiza"  >
-
-							</div>
-
-							
-							
-						</div>
-
-						<div class="form-group row " >
-							
-							<div class="col-md-12">
-								<b><center><h6>Domicilio</h6> </center></b>
-
-							</div></br><br>
-							<div class="col-md-6">
-								<label>Calle</label>
-								<input  type="text" class="form-control" id="CalleActualiza" name="CalleActualiza"  >
-							</div>
-							<div class="col-md-2">
-								<label>Num. Exterior</label>
-								<input  type="text" class="form-control" id="NExteriorActualiza" name="NExteriorActualiza"  >
-							</div>
-							<div class="col-md-2">
-								<label>Num. Interior</label>
-								<input  type="text" class="form-control" id="NinteriorActualiza" name="NinteriorActualiza"  >
-							</div>
-
-						</div>
-						{{-- fin del row --}}
-						{{-- inicio del row --}}
-
-						<div class="form-group row " >
-							<div class="col-md-2">
-								<label>Código postal</label>
-								<input  type="text" class="form-control" id="CodigoPostalActualiza" name="CodigoPostalActualiza" onkeyup="codigoPOstal()" >
-							</div>
-
-							<div class="col-md-3">
-								<label>Colonia</label>
-								<div class="select2-input">
-									<select id="ColoniaActualiza" name="ColoniaActualiza"  class="form-control" style="width: 100%;">
-										<div id="coloniaoption"></div>
-										
-									</select>
-								</div>
-							</div>
-							<div class="col-md-3">
-								<label>Alcaldía/Municipio</label>
-								<input  type="text" class="form-control" id="MunicipioActualiza" name="MunicipioActualiza"  >
-							</div>
-							<div class="col-md-3">
-								<label>Localidad/Poblacion/Ciudad</label>
-								<input  type="text" class="form-control" id="PoblacionActualiza" name="PoblacionActualiza"  >
-							</div>
-
-						</div>
-
-						{{-- fin del row --}}
-						{{-- inicio del row --}}
-
-						<div class="form-group row " >
-							<div class="col-md-3">
-								<label>Estado</label>
-								<input  type="text" class="form-control" id="EstadoActualiza" name="EstadoActualiza"  >
-							</div>
-							<div class="col-md-6">
-								<label>Referencia domiciliaria (Ejem: Color de la casa, entre que calles se ubica,etc.)</label>
-								<textarea id="ReferenciaActualiza" class="form-control" name="ReferenciaActualiza"  ></textarea>
-							</div>
-							<div class="col-md-3">
-								<label>Geolocalización (Link Google Maps)</label>
-								<input  type="text" class="form-control" id="GeolocalizaciónActualiza" name="GeolocalizaciónActualiza"  >
-							</div>
-
-
-						</div>
-						<div class="form-group row " >
-							<div class="col-md-4">
-								<label>Idenificacion </label>
-								<select  class="form-control success" id="IdenificacionActualiza" name="IdenificacionActualiza" style="width:100%;" >
-									<option>Ninguno</option>
-									<option>INE</option>
-									<option>Pasaporte</option>
-									<option>Cédula profesional</option>
-									<option>Carta de naturalización por residencia</option>
-									
-
-								</select>
-
-
-							</div>
-							<div class="col-md-3">
-
-								<label>No. Identificación</label>
-								<input  type="text" class="form-control" id="NoIdentificaciónActualiza" name="NoIdentificaciónActualiza"  >
-							</div>
-							<div class="col-md-5">
-								<label>&nbsp; </label>
-								
-							</div>
-
-
-						</div>
-
-						{{-- fin del row --}}
-
-
-						<br>
-
-						<div class="card-footer">{{-- inicio del row --}}
-							<div class="row">
-								<div class="col-md-12">
-									<center>
-										<input  type="submit" class="btn btn-success" value="Actualiza" onclick="ActualizaDatosPersonales()" >
-									</center>
-								</div>
-							</div>
-
-						</div>
-
-
-
-
-
-
-
-								</div>
-							</div>
-								<div class="tab-pane fade active show" id="pills-home-icon" role="tabpanel" aria-labelledby="pills-home-tab-icon">
-									<div class="form-group row " id="tablaTratos">
-
-										<div class="table-responsive" >
-											<table class="table" id="list_user2">
-												<thead>
-													<tr>
-														<th class="bg-danger sorting" style="color:#ffffff; width: 12%;"><center>No. Cliente</center> </th>
-														<th class="bg-danger sorting" style="color:#ffffff; width: 20%;"><center>Vendedor </center> </th>
-														<th class="bg-danger sorting" style="color:#ffffff; width: 10%;"><center>proyecto </center> </th>
-														<th class="bg-danger sorting" style="color:#ffffff; width: 5%;"><center>mz</center> </th>
-														<th class="bg-danger sorting" style="color:#ffffff; width: 5%;"><center>lt</center></th>
-														<th class="bg-danger sorting" style="color:#ffffff; width: 35%;"><center>Observaciones</center></th>
-														<th class="bg-danger sorting" style="color:#ffffff; width: 18%;"><center>Fecha</center></th>
-
-
-
-
-													</tr>
-												</thead>
-
-												<tbody id="llenaTabla2">
-
-
-												</tbody>
-											</table>
-										</div>
-
-
-									</div>
-									<hr>
-									<div class="form-group row " >
-										<div class="col-md-3">
-											<label>Proyecto</label>
-											<select class="form-control" id="proyecto" name="proyecto"  style="width: 100%;">
-												@foreach($proyectos as $proyecto)
-												<option value="{{$proyecto->id_proyecto}}">{{$proyecto->proyecto}}</option>
-												@endforeach
-											</select>
-										</div>
-										<div class="col-md-2" >
-											<label>Mz</label>
-											<input required="" type="number"  class="form-control" id="Mz" name="Mz"  >
-											<span class="required-label"  id="validaMz" style="color:red; display: none;" ><font size="1">Es obligatorio llenar este campo</font></span>
-										</div>
-										<div class="col-md-2">
-											<label>Lote</label>
-											<input required="" type="number"  class="form-control" id="Lote" name="Lote" >
-											<span class="required-label"  id="validaLote" style="color:red; display: none;" ><font size="1">Es obligatorio llenar este campo</font></span>
-										</div>
-
-										<div class="col-md-2">
-											<label>&nbsp;</label>
-											<input required="" type="submit" value="Consultar" class="btn btn-success" onclick="autoRellena()">
-											
-										</div>
-
-
-
-									</div>
-									<div class="form-group row " >
-										
-										<div class="col-md-3" >
-											<label>Fecha de venta(Enganche) </label>
-											<input  type="date" class="form-control" id="Fecha_Venta"  name="Fecha_Venta"  >
-											<span class="required-label"  id="validaFecha_Venta" style="color:red; display: none;" ><font size="1">Es obligatorio llenar este campo</font></span>
-
-										</div>
-										<div class="col-md-2">
-											<label>Enganche </label>
-											<input required="" type="text" onkeyup="numerico2()" maxlength="9" onKeypress="if (event.keyCode < 45 || event.keyCode > 57) event.returnValue = false;" class="form-control" id="Enganche" name="Enganche" >
-											<span class="required-label"  id="validaEnganche" style="color:red; display: none;" ><font size="1">Es obligatorio llenar este campo</font></span>
-										</div>
-										<div class="col-md-3">
-											<label>Fecha de contrato</label>
-											<input type="date" class="form-control" id="Fecha_Contrato" name="Fecha_Contrato" >
-											<span class="required-label"  id="validaFecha_Contrato" style="color:red; display: none;" ><font size="1">Es obligatorio llenar este campo</font></span>
-										</div>
-										
-										<div class="col-md-2">
-											<label>Superficie en m²</label>
-											<input  type="text" maxlength="9" onKeypress="if (event.keyCode < 45 || event.keyCode > 57) event.returnValue = false;"  class="form-control" id="Superficie" name="Superficie"   disabled>
-											<span class="required-label"  id="validaSuperficie" style="color:red; display: none;" ><font size="1">Es obligatorio llenar este campo</font></span>
-										</div>
-										<div class="col-md-2">
-											<label>Tipo de superficie</label>
-											<input type="text" class="form-control" id="TipoSuperficie" name="TipoSuperficie" disabled>
-
-										</div>
-
-									</div>
-									<div class="form-group row " >
-
-										<div class="col-md-3" >
-											<label>Tipo de predio</label>
-											<input type="text" class="form-control" id="TipoPredio" name="TipoPredio" disabled>
-
-										</div>
-										<div class="col-md-3">
-											<label>Vendedor </label>
-											<input type="text" class="form-control" id="Vendedor" name="Vendedor" disabled>
-
-										</div>
-										
-										<div class="col-md-3">
-											<label>Tipo de venta</label>
-											<select class="form-control" id="Adquisición" onchange="validaAdquisicion()" name="Adquisición" >
-												<option value="Contado y Financiado">-Selecciona-</option>
-												
-												<option value="Financiado">Financiado</option>
-												<option value="Contado">Contado</option>
-											</select>
-										</div>
-										<div class="col-md-2">
-											<label>Numero de parcialidades </label>
-											<input  type="text" maxlength="9"  onKeypress="if (event.keyCode < 45 || event.keyCode > 57) event.returnValue = false;"  class="form-control" id="Nparcialidades" name="Nparcialidades"  disabled>
-											<span class="required-label"  id="validaNparcialidades" style="color:red; display: none;" ><font size="1">Es obligatorio llenar este campo</font></span>
-										</div>
-
-
-									</div>
-									<div class="form-group row " >
-
-
-										<div class="col-md-3">
-											<label>Costo total  </label>
-											<input  type="text" onkeyup="numerico()" maxlength="9" onKeypress="if (event.keyCode < 45 || event.keyCode > 57) event.returnValue = false;" class="form-control" id="CostoTotal" name="CostoTotal"  disabled>
-											<span class="required-label"  id="validaCostoTotal" style="color:red; display: none;" ><font size="1">Es obligatorio llenar este campo</font></span>
-										</div>
-
-										<div class="col-md-3">
-											<label>Día de pagos (Mensualidades)</label>
-
-											<div class="select2-input">
-												<select class="form-control" id="FechaPago" name="FechaPago" style="width: 100%;">
-													<option>1</option>
-													<option>2</option>
-													<option>3</option>
-													<option>4</option>
-													<option>5</option>
-													<option>6</option>
-													<option>7</option>
-													<option>8</option>
-													<option>9</option>
-													<option>10</option>
-													<option>11</option>
-													<option>12</option>
-													<option>13</option>
-													<option>14</option>
-													<option>15</option>
-													<option>16</option>
-													<option>17</option>
-													<option>18</option>
-													<option>19</option>
-													<option>20</option>
-													<option>21</option>
-													<option>22</option>
-													<option>23</option>
-													<option>24</option>
-													<option>25</option>
-													<option>26</option>
-													<option>27</option>
-													<option>28</option>
-													<option>29</option>
-													<option>30</option>
-													<option>31</option>
-													<option>32</option>
-													<option value="0">N/A</option>
-												</select>
-											</div>
-										</div>
-										<div class="col-md-3">
-											<label>Monto mensual </label>
-											<input required="" type="text" maxlength="10" onkeyup="MontoMensualFormato()" maxlength="9" onKeypress="if (event.keyCode < 45 || event.keyCode > 57) event.returnValue = false;" class="form-control" id="MontoMensual" name="MontoMensual" >
-											<span class="required-label"  id="validaMontoMensual" style="color:red; display: none;" ><font size="1">Es obligatorio llenar este campo</font></span>
-										</div>
-										<div class="col-md-3">
-											<label>Telefono Aval</label>
-											<input required="" maxlength="10" onKeypress="if (event.keyCode < 45 || event.keyCode > 57) event.returnValue = false;"  type="text" class="form-control" id="Telefono_2" name="Telefono_2" >
-											<span class="required-label"  id="validaTelefono_2" style="color:red; display: none;" ><font size="1">Es obligatorio llenar este campo</font></span>
-										</div>
-
-									</div>
-									<div class="form-group row " >
-
-
-										
-										<div class="col-md-3">
-											<label>Porcentaje de interés  </label>
-											<input required="" type="number" class="form-control" id="Porcentaje" name="Porcentaje" >
-											<span class="required-label"  id="validaPorcentaje" style="color:red; display: none;" ><font size="1">Es obligatorio llenar este campo</font></span>
-										</div>
-
-
-
-									</div>
-
-
-
-									<div class="card-footer">{{-- inicio del row --}}
-										<div class="row">
-											<div class="col-md-12">
-												<center>
-													
-													<input  type="submit" class="btn btn-success" value="Siguiente" onclick="RegistrarContrato()">
-												</center>
-											</div>
-										</div>
-									</div>
-								</div>
-
-
-
-								<div class="modal fade bd-example-modal-lg" id="modalCobranza" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
-									<div class="modal-dialog modal-lg">
-										<div class="modal-content">
-
-
-											<div class="card">
-												<div class="card-header" style="background-color: red; color:#ffffff;">
-													<div class="card-title" style="background-color: red; color:#ffffff;">Modulo Cobranza</div>
-												</div>
-												<div class="card-body">
-
-													<div class="form-group row " >
-
-														<div class="col-md-12">
-															<label>Numero de contrato </label>
-															<input required="" type="text"  class="form-control"  id="numeroContr" name="numeroContr" >
-														</div>
-														
-
-													</div>
-
-													<div class="form-group row " >
-
-														<div class="col-md-3">
-															<label>Fecha de apartado </label>
-															<input required="" type="date"  class="form-control"  id="FechaApartadoCo" name="FechaApartadoCo" >
-														</div>
-														<div class="col-md-3">
-															<label>Apartado </label>
-															<input required="" type="text"  onkeyup="ApartadoFormato()" maxlength="9" onKeypress="if (event.keyCode < 45 || event.keyCode > 57) event.returnValue = false;" class="form-control" id="ApartadoCo" name="ApartadoCo" >
-														</div>
-														<div class="col-md-3">
-															<label>Fecha de enganche</label>
-															<input required="" type="date"  class="form-control"  id="FechaEngancheCo" name="FechaEngancheCo" >
-														</div>
-														<div class="col-md-3">
-															<label>Complemento de enganche</label>
-															<input required="" type="text"  onkeyup="ComEngancheFormato()" maxlength="9" onKeypress="if (event.keyCode < 45 || event.keyCode > 57) event.returnValue = false;" class="form-control" id="ComEngancheCo" name="ComEngancheCo" >
-														</div>
-
-													</div>
-													<div class="form-group row " >
-
-														<div class="col-md-3">
-															<label>Enganche  </label>
-															<input required="" type="text"  class="form-control" id="EngancheCobranzaCo" name="EngancheCobranzaCo" >
-														</div>
-														<div class="col-md-3">
-															<label>Costo del Lote </label>
-															<input required="" type="text"  onkeyup="CostodelLoteFormato()" maxlength="9" onKeypress="if (event.keyCode < 45 || event.keyCode > 57) event.returnValue = false;" class="form-control" id="CostodelLoteCo" name="CostodelLoteCo" >
-														</div>
-														<div class="col-md-3">
-															<label>Día de pagos (Mensualidades)</label>
-
-															<div class="select2-input">
-																<select class="form-control" id="FechaPagoCCo" name="FechaPagoCCo" style="width: 100%;">
-																	<option>1</option>
-																	<option>2</option>
-																	<option>3</option>
-																	<option>4</option>
-																	<option>5</option>
-																	<option>6</option>
-																	<option>7</option>
-																	<option>8</option>
-																	<option>9</option>
-																	<option>10</option>
-																	<option>11</option>
-																	<option>12</option>
-																	<option>13</option>
-																	<option>14</option>
-																	<option>15</option>
-																	<option>16</option>
-																	<option>17</option>
-																	<option>18</option>
-																	<option>19</option>
-																	<option>20</option>
-																	<option>21</option>
-																	<option>22</option>
-																	<option>23</option>
-																	<option>24</option>
-																	<option>25</option>
-																	<option>26</option>
-																	<option>27</option>
-																	<option>28</option>
-																	<option>29</option>
-																	<option>30</option>
-																	<option>31</option>
-																	<option>32</option>
-																	<option value="0">N/A</option>
-																</select>
-															</div>
-														</div>
-														<div class="col-md-3">
-															<label>Vendedor </label>
-															<select class="form-control" id="VendedorCCo" name="VendedorCCo" style="width: 100%;">
-																@foreach($vendedores as $vendedore)
-																<option value="{{$vendedore->id}}">{{$vendedore->vendedores}}</option>
-																@endforeach
-															</select>
-														</div>
-
-
-
-													</div>
-													<div class="form-group row " >
-
-														
-														<div class="col-md-3">
-															<label>Comisión 1 </label>
-															<input required="" type="text"  onkeyup="Comisión1Formato()" maxlength="9" onKeypress="if (event.keyCode < 45 || event.keyCode > 57) event.returnValue = false;" class="form-control" id="Comisión1Co" name="Comisión1Co" >
-														</div>
-														<div class="col-md-3">
-															<label>Comisión 2</label>
-															<input required="" type="text" onkeyup="Comisión2Formato()" maxlength="9" onKeypress="if (event.keyCode < 45 || event.keyCode > 57) event.returnValue = false;" class="form-control" id="Comisión2Co" name="Comisión2Co" >
-														</div>
-														<div class="col-md-3">
-															<label>Estatus de venta</label>
-															<select class="form-control" id="EstatusVentaCo" name="EstatusVentaCo"  style="width: 100%;">
-																@foreach($situaciones as $situacion)
-																<option value="{{$situacion->situacion}}">{{$situacion->situacion}}</option>
-																@endforeach
-															</select>
-														</div>
-
-													</div>
-												</div>
-												<div class="card-footer">
-													<input type="submit" id="registroCobranza" class="btn btn-success" onclick="cobranzaRegistra()">
-												</div>
-
-											</div>
-
-
-
-										</div>
-									</div>
-								</div>
-
-								<div class="tab-pane fade" id="pills-profile-icon" role="tabpanel" aria-labelledby="pills-profile-tab-icon">
-									<div class="table-responsive" >
-										<table class="table" id="list_user">
-											<thead>
-												<tr>
-													<th class="bg-danger sorting" style="color:#ffffff; width: 5%;"><center>No. Contrato</center> </th>
-													<th class="bg-danger sorting" style="color:#ffffff; width: 20%;"><center>Fecha &nbsp;&nbsp;Venta&nbsp;&nbsp;</center> </th>
-													<th class="bg-danger sorting" style="color:#ffffff; width: 15%;"><center>Costo</center> </th>
-													<th class="bg-danger sorting" style="color:#ffffff; width: 10%;"><center>Proyecto</center></th>
-													<th class="bg-danger sorting" style="color:#ffffff; width: 5%;"><center>Mz</center></th>
-													<th class="bg-danger sorting" style="color:#ffffff; width: 5%;"><center>Lote</center></th>
-													<th class="bg-danger sorting" style="color:#ffffff; width: 6%;"><center>Superficie</center></th>
-													<th class="bg-danger sorting" style="color:#ffffff; width: 12%;"><center>Acción</center></th>
-
-
-												</tr>
-											</thead>
-
-											<tbody id="llenaTabla">
-
-
-											</tbody>
-										</table>
-									</div>
-
-									<div class="modal fade bd-example-modal-lg"  id="modalDetalle" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
-										<div class="modal-dialog modal-lg">
-											<div class="modal-content">
-												<div class="modal-header" style="background-color: red; color:#ffffff;">
-													<h5 class="modal-title" id="exampleModalLabel">Datos del Contrato <b id="contratoModal"></b></h5>
-													<button type="button" class="close" data-dismiss="modal" aria-label="Close">
-														<span aria-hidden="true">&times;</span>
-													</button>
-												</div>
-												<div class="modal-body">
-													<div class="form-group row " >
-
-														<div class="col-md-3" >
-															<label>Fecha de venta </label>
-															<input  type="date" class="form-control" disabled id="Fecha_VentaH" name="Fecha_VentaH"  >
-
-														</div>
-														<div class="col-md-3">
-															<label>Fecha de contrato</label>
-															<input type="date" class="form-control" disabled id="Fecha_ContratoH" name="Fecha_ContratoH" >
-														</div>
-														<div class="col-md-3">
-															<label>Proyecto </label>
-															<select class="form-control success" disabled id="proyectoH" >
-																@foreach($proyectos as $proyecto)
-																<option value="{{$proyecto->id_proyecto}}">{{$proyecto->proyecto}}</option>
-																@endforeach
-															</select>
-														</div>
-														<div class="col-md-3">
-															<label>Estatus de venta</label>
-															<select class="form-control" disabled id="EstatusVentaH" name="EstatusVentaH"  >
-																<option>Vendido</option>
-																<option>Recesión</option>
-																<option>Donación </option>
-															</select>
-														</div>
-														
-
-													</div>
-													<div class="form-group row " >
-
-														<div class="col-md-2" >
-															<label>Mz</label>
-															<input required="" type="number" disabled class="form-control" id="MzH" name="MzH"  >
-														</div>
-														<div class="col-md-2">
-															<label>Lote</label>
-															<input required="" type="number" disabled class="form-control" id="LoteH" name="LoteH" >
-														</div>
-														<div class="col-md-2">
-															<label>Superficie en m2</label>
-															<input  type="decimal" class="form-control" disabled id="SuperficieH" name="SuperficieH"  >
-														</div>
-														<div class="col-md-3">
-															<label>Tipo de superficie</label>
-															<select class="form-control" id="TipoSuperficieH" disabled name="TipoSuperficieH"  >
-																<option>Regular</option>
-																<option>Irregular</option>
-															</select>
-														</div>
-														<div class="col-md-3" >
-															<label>Tipo de predio</label>
-															<select class="form-control" id="TipoPredioH" disabled name="TipoPredioH"  >
-																<option>Esquina</option>
-																<option>Intermedio</option>
-																<option>Frente</option>
-															</select>
-
-														</div>
-													</div>
-													<div class="form-group row " >
-
-
-														<div class="col-md-4">
-															<label>Vendedor </label>
-															<input required="" type="text" disabled class="form-control" id="VendedorH" name="VendedorH" >
-														</div>
-														<div class="col-md-3">
-															<label>Adquisición</label>
-															<input required="" type="text" class="form-control" id="AdquisiciónH" disabled name="AdquisiciónH"  >
-																
-														</div>
-														<div class="col-md-3">
-															<label>Numero de parcialidades </label>
-															<input  type="number" class="form-control" disabled id="NparcialidadesH" name="NparcialidadesH"  >
-														</div>
-														<div class="col-md-2">
-															<label>Costo total  </label>
-															<input  type="text" onkeyup="numerico()" disabled maxlength="9" onKeypress="if (event.keyCode < 45 || event.keyCode > 57) event.returnValue = false;" class="form-control" id="CostoTotalH" name="CostoTotalH"  >
-														</div>
-
-													</div>
-													<div class="form-group row " >
-
-
-														<div class="col-md-3">
-															<label>Enganche </label>
-															<input required="" type="text" disabled onkeyup="numerico2()" maxlength="9" onKeypress="if (event.keyCode < 45 || event.keyCode > 57) event.returnValue = false;" class="form-control" id="EngancheH" name="EngancheH" >
-														</div>
-														
-														<div class="col-md-3">
-															<label>Dia de pago</label>
-															<input required="" type="text" disabled class="form-control" id="FechaPagoH" name="FechaPagoH" >
-														</div>
-														<div class="col-md-3">
-															<label>Monto mensual </label>
-															<input required="" type="text" disabled onkeyup="MontoMensualFormato()" maxlength="9" onKeypress="if (event.keyCode < 45 || event.keyCode > 57) event.returnValue = false;" class="form-control" id="MontoMensualH" name="MontoMensualH" >
-														</div>
-														<div class="col-md-3">
-															<label>Porcentaje de interés  </label>
-															<input required="" type="number" disabled class="form-control" id="PorcentajeH" name="PorcentajeH" >
-														</div>
-													</div>
-													
-												</div>
-												<div class="modal-footer">
-													<button type="button" class="btn btn-danger" data-dismiss="modal">Cerrar</button>
-												</div>
-											</div>
-										</div>
-									</div>
-								</div>
-
-							</div>
-						</div>
-
-
-					</div>
+				
 
 
 
@@ -1109,6 +372,9 @@
 
 		@section('jscustom')
 		<script type="text/javascript">
+			$('#rolesuser').select2({
+		theme: "bootstrap",
+	});
 			$('#list_user2').DataTable({
 				scrollX:  false,
 				scrollCollapse: true,
