@@ -1184,16 +1184,11 @@
 							numcliente=data[0].N_Cliente;
 
 							if(data=="no existe"){
-								$("#Nombre").prop('disabled', true);
-								$("#Apellido_Paterno").prop('disabled', true);
-								$("#Apellido_Materno").prop('disabled', true);
+								
 								$('#validaexiste').css("display", "block");
 								$('#validaExisteContrato').css("display", "none");
 							}else{
 
-								$("#Nombre").prop('disabled', true);
-								$("#Apellido_Paterno").prop('disabled', true);
-								$("#Apellido_Materno").prop('disabled', true);
 								$('#validaexiste').css("display", "none");
 								$('#validaExisteContrato').css("display", "block");
 								tratos();

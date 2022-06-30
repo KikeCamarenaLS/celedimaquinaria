@@ -183,10 +183,10 @@ class ClienteController extends Controller
 
 
 
-		$Nombre= $request->input("Nombre");
-		$Apellido_Paterno= $request->input("Apellido_Paterno");
-		$Apellido_Materno= $request->input("Apellido_Materno");
-		$validaExistente=DB::select('select * from clientes where nombre="'.$Nombre.'" and A_paterno="'.$Apellido_Paterno.'" and A_materno="'.$Apellido_Materno.'"');
+		$NombreVal= $request->input("Nombre");
+		$Apellido_PaternoVal= $request->input("Apellido_Paterno");
+		$Apellido_MaternoVal= $request->input("Apellido_Materno");
+		$validaExistente=DB::select('select * from clientes where nombre="'.$NombreVal.'" and A_paterno="'.$Apellido_PaternoVal.'" and A_materno="'.$Apellido_MaternoVal.'"');
 		$foto="";
 
 
@@ -233,6 +233,9 @@ class ClienteController extends Controller
 
 
 			
+		$Nombre= $request->input("Nombre");
+		$Apellido_Paterno= $request->input("Apellido_Paterno");
+		$Apellido_Materno= $request->input("Apellido_Materno");
 			$Telefono_1= $request->input("Telefono_1");
 			$Telefono_2= $request->input("Telefono_2");
 			$Correo= $request->input("Correo");
