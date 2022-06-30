@@ -246,15 +246,18 @@
 													<td style="width: 50px; height:85px; cursor:pointer;" rowspan="2" id="13_26" onclick="cambiar('13','26')"></td>
 													<td style="width: 50px; height:85px; cursor:pointer;" rowspan="2" id="13_27" onclick="cambiar('13','27')"></td>
 													<td style="width: 50px; height:85px; cursor:pointer;" rowspan="2" id="13_28" onclick="cambiar('13','28')"></td>
-													<td style="width: 50px; height:85px; cursor:pointer;" rowspan="2" id="13_29" onclick="cambiar('13','29')"></td>
-													<td style="width: 50px; height:85px; cursor:pointer;" rowspan="2" id="13_30" onclick="cambiar('13','30')"></td>
-													<td style="width: 100px; height:85px; cursor:pointer;" rowspan="2"  id="13_31" onclick="cambiar('13','31')"></td>
+													<td style="width: 50px; height:40px; border:0px black solid;" rowspan="2" ></td>
+													<td style="width: 50px; height:40px; border:0px black solid;" rowspan="2" ></td>
+													<td style="width: 100px; height:40px; border:1px black solid;" ></td>
 
 												
 
 													
 												</tr>
-
+												<tr>
+													
+													<td style="width: 100px; height:40px; border:1px black solid;" ></td>
+												</tr>
 
 
 													
