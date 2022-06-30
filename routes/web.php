@@ -346,6 +346,7 @@ Route::get('/reportepago/buscar', 'TerrenoController\PersonalController@reportep
 Route::get('/crea/PDF/pagos', 'TerrenoController\PersonalController@pdfPagos');
 Route::get('/alta_de_clientes', 'ClienteController@viewalta_de_clientes');
 Route::get('/alta/capturaCliente', 'ClienteController@alta_de_clientes');
+Route::POST('/formalta/capturaCliente', 'ClienteController@fORMalta_de_clientes')->name('formalta.capturaCliente');
 Route::get('/cliente/validaExistencia', 'ClienteController@validaExistencia');
 Route::get('/alta/capturaContratos', 'ClienteController@capturaContratos');
 Route::get('/alta/capturaCobranza', 'ClienteController@capturaCobranza');

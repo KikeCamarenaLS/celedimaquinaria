@@ -48,6 +48,9 @@ class Clientes extends Migration
             $table->string('HijoDependiente');
             $table->string('Identificacion');
             $table->string('NoIdentificacion');
+            $table->string('Geolocalización');
+            $table->string('Foto');
+            
 
 
              

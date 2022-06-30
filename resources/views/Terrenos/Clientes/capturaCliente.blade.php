@@ -17,10 +17,25 @@
 
 
 
-
 				<div class="card-body">
 					{{-- inicio del row --}}
 
+ <form id="exampleValidation" method="post" action="{{Route('formalta.capturaCliente')}}" enctype="multipart/form-data">
+        	
+				@csrf
+					<div class="form-group row"  >
+
+						<div class="col-md-9">
+						</div>
+						<div class="col-md-3" id="Foto" style="display:none;">
+											<div class="input-file input-file-image">
+												<img class="img-upload-preview img-circle" width="100" height="100" src="{{url('assets/img/profile.png')}}" alt="preview">
+												<input type="file" class="form-control form-control-file" id="uploadImg1" name="uploadImg1" accept="image/*" >
+												<label for="uploadImg1" class=" label-input-file btn btn-icon btn-default btn-round btn-lg"><i class="la la-file-image-o"></i> Cargar Foto</label>
+											</div>
+										</div>
+					</div>
+					
 					<div class="form-group row " >
 
 						<div class="col-md-4" >
@@ -40,7 +55,7 @@
 						</div>
 						<div class="col-md-2">
 							<label>&nbsp;</label>
-							<input  type="submit" class="btn btn-success" id="Validar_existencia" name="Validar_existencia" value="Validar Existencia" onclick="validaExistencia()">
+							<a class="btn btn-success" id="Validar_existencia" name="Validar_existencia"  onclick="validaExistencia()" style="color:#ffffff;">Validar Existencia</a>
 
 						</div>
 					</div>
@@ -82,7 +97,7 @@
 								<input  type="text" class="form-control"   id="Edad" name="Edad" disabled>
 							</div>
 							<div class="col-md-3" >
-								<label>Ultimo grado de estudio</label>
+								<label>Ultimo nivel de estudios</label>
 								<select  class="form-control success" id="estudio" name="estudio" style="width:100%;" >
 									<option>Ninguno</option>
 									<option>Preescolar</option>
@@ -98,16 +113,7 @@
 								</select>
 
 							</div>
-							<div class="col-md-2" >
-								<label>Terminado/Tunco</label>
-								<select  class="form-control success" id="TerminadoTunco" name="TerminadoTunco" style="width:100%;" >
-									<option>Terminado</option>
-									<option>Tunco</option>
-									
-
-								</select>
-
-							</div>
+							
 
 							
 							
@@ -130,7 +136,7 @@
 						</div>
 						<div class="form-group row">
 							<div class="col-md-2" >
-								<label>Numero de dependiente</label>
+								<label>Número de dependientes</label>
 								<input  type="number" class="form-control success" id="dependiente" name="dependiente"  >
 
 							</div>
@@ -146,7 +152,7 @@
 
 							<div class="col-md-2" >
 								<label>Telefono 1(Cliente)</label>
-								<input required="" type="text" maxlength="10" onKeypress="if (event.keyCode < 45 || event.keyCode > 57) event.returnValue = false;"  class="form-control success" id="Telefono_1" name="Telefono_1"  >
+								<input  type="text" maxlength="10" onKeypress="if (event.keyCode < 45 || event.keyCode > 57) event.returnValue = false;"  class="form-control success" id="Telefono_1" name="Telefono_1"  >
 
 							</div>
 
@@ -183,11 +189,11 @@
 							</div>
 							<div class="col-md-2">
 								<label>Num. Exterior</label>
-								<input required="" type="text" class="form-control" id="NExterior" name="NExterior"  >
+								<input  type="text" class="form-control" id="NExterior" name="NExterior"  >
 							</div>
 							<div class="col-md-2">
 								<label>Num. Interior</label>
-								<input required="" type="text" class="form-control" id="Ninterior" name="Ninterior"  >
+								<input  type="text" class="form-control" id="Ninterior" name="Ninterior"  >
 							</div>
 
 						</div>
@@ -211,11 +217,11 @@
 							</div>
 							<div class="col-md-3">
 								<label>Alcaldía/Municipio</label>
-								<input required="" type="text" class="form-control" id="Municipio" name="Municipio"  >
+								<input  type="text" class="form-control" id="Municipio" name="Municipio"  >
 							</div>
 							<div class="col-md-3">
 								<label>Localidad/Poblacion/Ciudad</label>
-								<input required="" type="text" class="form-control" id="Poblacion" name="Poblacion"  >
+								<input  type="text" class="form-control" id="Poblacion" name="Poblacion"  >
 							</div>
 
 						</div>
@@ -226,11 +232,15 @@
 						<div class="form-group row " >
 							<div class="col-md-3">
 								<label>Estado</label>
-								<input required="" type="text" class="form-control" id="Estado" name="Estado"  >
+								<input  type="text" class="form-control" id="Estado" name="Estado"  >
 							</div>
-							<div class="col-md-8">
-								<label>Referencia domiciliaria </label>
+							<div class="col-md-6">
+								<label>Referencia domiciliaria (Ejemplo: Color de la casa, entre que calles se ubica,etc.)</label>
 								<textarea id="Referencia" class="form-control" name="Referencia"  ></textarea>
+							</div>
+							<div class="col-md-3">
+								<label>Geolocalización (Link Google Maps)</label>
+								<input  type="text" class="form-control" id="Geolocalización" name="Geolocalización"  >
 							</div>
 
 
@@ -239,6 +249,7 @@
 							<div class="col-md-4">
 								<label>Idenificacion </label>
 								<select  class="form-control success" id="Idenificacion" name="Idenificacion" style="width:100%;" >
+									<option>Ninguno</option>
 									<option>INE</option>
 									<option>Pasaporte</option>
 									<option>Cédula profesional</option>
@@ -252,37 +263,37 @@
 							<div class="col-md-3">
 
 								<label>No. Identificación</label>
-								<input required="" type="text" class="form-control" id="NoIdentificación" name="NoIdentificación"  >
+								<input  type="text" class="form-control" id="NoIdentificación" name="NoIdentificación"  >
 							</div>
 							<div class="col-md-12">
 								<label>¿Cómo se enteró de nosotros?</label>
 							</div>
 							<div class="col-md-12">
-								<input required="" type="checkbox"  id="Redes" name="Redes"  value="Redes sociales">Redes sociales
+								<input  type="checkbox"  id="Redes" name="Redes"  value="Redes sociales">Redes sociales
 							</div>
 							<div class="col-md-12">
-								<input required="" type="checkbox"  id="Boletín" name="Boletín"  value="Publicidad impresa
+								<input  type="checkbox"  id="Boletín" name="Boletín"  value="Publicidad impresa
 								">Publicidad impresa
 
 							</div>
 							<div class="col-md-12">
-								<input required="" type="checkbox"  id="Amigos" name="Amigos"  value="Amigos y/o familiares" onclick="cambiarrecomendohiden()">Amigos y/o familiares 
+								<input  type="checkbox"  id="Amigos" name="Amigos"  value="Amigos y/o familiares" onclick="cambiarrecomendohiden()">Amigos y/o familiares 
 
 							</div>
 							<div class="col-md-4" id="recomendohiden" style="display: none;">
-								<input required="" type="text" class="form-control"  id="QuienRecomendo" name="QuienRecomendo" placeholder="Nombre completo de quien te recomendo" style="border:1px black solid">
+								<input  type="text" class="form-control"  id="QuienRecomendo" name="QuienRecomendo" placeholder="Nombre completo de quien te recomendo" style="border:1px black solid">
 							</div>
 							<div class="col-md-12">
-								<input required="" type="checkbox"  id="Agentes" name="Agentes"  value="Agentes de venta">Agente de venta 
+								<input  type="checkbox"  id="Agentes" name="Agentes"  value="Agentes de venta">Agente de venta 
 							</div>
 							<div class="col-md-12">
-								<input required="" type="checkbox"  id="espectacular" name="espectacular"  value="espectacular"> Espectacular
+								<input  type="checkbox"  id="espectacular" name="espectacular"  value="espectacular"> Espectacular
 							</div>
 							<div class="col-md-12">
-								<input required="" type="checkbox"  id="Otro" name="Otro"   onclick="cambiarOtrohiden()" value="Otros">Otros
+								<input  type="checkbox"  id="Otro" name="Otro"   onclick="cambiarOtrohiden()" value="Otros">Otros
 							</div>
 							<div class="col-md-4" id="Otrohiden" style="display: none;">
-								<input required="" type="text" class="form-control"  id="otros" name="otros"  placeholder="Especifica como te enteraste de nosotros">
+								<input  type="text" class="form-control"  id="otros" name="otros"  placeholder="Especifica como te enteraste de nosotros">
 							</div>
 
 
@@ -297,7 +308,7 @@
 							<div class="row">
 								<div class="col-md-12">
 									<center>
-										<input  type="submit" class="btn btn-success" value="Registrar" onclick="Registrar()">
+										<input  type="submit" class="btn btn-success" value="Registrar" >
 									</center>
 								</div>
 							</div>
@@ -305,6 +316,7 @@
 						</div>
 
 					</div>
+				</form>
 
 
 
@@ -1152,6 +1164,8 @@
 				if($('#Nombre').val()=="" || $('#Apellido_Paterno').val()=="" || $('#Apellido_Materno').val()==""){
 
 					mensaje('danger','Es necesario llenar el campos obligatorios  ');
+
+					$('#Foto').css("display", "none");
 				}else{
 					$.ajax({
 						data:  {
@@ -1162,6 +1176,8 @@
 						url:   "{{url('cliente/validaExistencia')}}",
 						type:  'get',
 						success:  function (data) { 
+
+					$('#Foto').css("display", "block");
 							console.log(data);
 							$('#Ncliente').html(data[0].N_Cliente);
 							$('#NclienteHide').html(data[0].N_Cliente);
@@ -1708,6 +1724,8 @@ $('#llenaTabla2').html("");
 							"Agentes":$('#Agentes').val(),
 							"Otro":$('#Otro').val(),
 							"otros":$('#otros').val(),
+							"Geolocalización":$('#Geolocalización').val(),
+
 
 
 
@@ -1720,7 +1738,6 @@ $('#llenaTabla2').html("");
 							"QuienRecomendo":$('#QuienRecomendo').val(),
 
 							"Nacionalidad":$('#Nacionalidad').val(),
-							"TerminadoTunco":$('#TerminadoTunco').val(),
 							"Hijosdependiente":$('#Hijosdependiente').val(),
 							"Idenificacion":$('#Idenificacion').val(),
 							"NoIdentificación":$('#NoIdentificación').val(),
