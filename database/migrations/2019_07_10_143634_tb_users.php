@@ -19,7 +19,7 @@ class TbUsers extends Migration
             $table->string('Apellido_Paterno');
             $table->string('Apellido_Materno');
             $table->string('Género');
-            $table->string('fechaNac');
+            $table->date('fechaNac');
             $table->string('Nacionalidad');
             $table->string('CURP');
             $table->string('RFC');
@@ -43,10 +43,11 @@ class TbUsers extends Migration
             $table->string('NExterior');
             $table->string('Colonia');
             $table->string('Municipio');
+            $table->string('Poblacion');
             $table->string('Estado');
             $table->string('Referencia');
             $table->string('Geolocalización');
-            $table->string('ingreso');
+            $table->date('ingreso');
             $table->string('Área');
             $table->string('Ubicación');
             $table->string('TipoContrato');

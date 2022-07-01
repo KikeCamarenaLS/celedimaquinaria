@@ -328,6 +328,10 @@
 								<label>Sueldo Mensual</label>
 								<input  type="text" class="form-control" id="SueldoMensual" name="SueldoMensual" disabled >
 							</div>
+							<div class="col-md-2">
+
+								<input  type="hidden" class="form-control" id="bton" name="bton" value="Registrar" >
+							</div>
 
 
 						</div>
@@ -343,7 +347,14 @@
 							<div class="row">
 								<div class="col-md-12">
 									<center>
-										<input  type="submit" class="btn btn-success" value="Registrar" >
+										<input type="submit" class="btn btn-success"  id="Registrar" value="Registrar">
+									</center>
+								</div>
+							</div>
+							<div class="row" >
+								<div class="col-md-12">
+									<center>
+										<input type="submit" style="display:none;" class="btn btn-success" id="Actualizar" value="Actualizar">
 									</center>
 								</div>
 							</div>
@@ -373,32 +384,132 @@
 			$('#rolesuser').select2({
 		theme: "bootstrap",
 	});
-			function buscarUser(){
+			function limpiarDatosval(){
+				$('#Nombre').val('');
+						           $('#Apellido_Paterno').val('');
+						           $('#Apellido_Materno').val('');
+						           $('#Género').val('');
+						           $('#Nacionalidad').val('');
+						           $('#CURP').val('');
+						           $('#RFC').val('');
+						           $('#NSS').val('');
+						           $('#Estado_civil').val('');
+						           $('#dependiente').val('');
+						           $('#Hijosdependiente').val('');
+						           $('#estudio').val('');
+						           $('#rolesuser').val('');
+						           $('#Especialidad').val('');
+						           $('#ConcluidoTrunco').val('');
+						           $('#Cedula').val('');
+						           $('#Telefono_1').val('');
+						           $('#Telefono_3').val('');
+						           $('#fechaNac').val('');
+						           
+						           $('#Calle').val('');
+						           $('#CodigoPostal').val('');
+						           $('#Ninterior').val('');
+						           $('#NExterior').val('');
+						           $('#Colonia').val('');
+						           $('#Municipio').val('');
+						           $('#Estado').val('');
+						           $('#Referencia').val('');
+						           $('#Geolocalización').val('');
+						           $('#ingreso').val('');
+						           $('#Área').val('');
+						           $('#Ubicación').val('');
+						           $('#TipoContrato').val('');
+						           $('#SueldoSemanal').val('');
+						           $('#estatus').val('');
+								$('#ponerFoto').attr("src","{{url('assets/img/profile.png')}}");
+								$('#Registrar').css("display","block");
+						            $('#Actualizar').css("display","none");
 
-				$.ajax({
+						           $('#bton').val('Registrar');
+						            
+			}
+			function buscarUser(){
+				if($('#NclienteHide').val() != "" ){
+					$.ajax({
 						data:  {
 							"NclienteHide":$('#NclienteHide').val(),
 						}, 
+						 async: true,
 						url:   "{{url('user/validaExistencia')}}",
 						type:  'get',
 						success:  function (data) { 
 
 						console.log(data);
 
-							if(data){
-								
-								$('#ponerFoto').attr("src","{{url('archivero')}}/"+ data[0].Foto );
+							if(data.length>0){
+								if(data[0].Foto==""){
+								$('#ponerFoto').attr("src","{{url('assets/img/profile.png')}}");
+
+								}else{
+									$('#ponerFoto').attr("src","{{url('archivero')}}/"+ data[0].Foto );
+								}
+
+								   $('#Nombre').val(data[0].Nombre);
+						           $('#Apellido_Paterno').val(data[0].Apellido_Paterno);
+						           $('#Apellido_Materno').val(data[0].Apellido_Materno);
+						           $('#Género').val(data[0].Género);
+						           $('#Nacionalidad').val(data[0].Nacionalidad);
+						           $('#CURP').val(data[0].CURP);
+						           $('#RFC').val(data[0].RFC);
+						           $('#NSS').val(data[0].NSS);
+						           $('#Estado_civil').val(data[0].Estado_civil);
+						           $('#dependiente').val(data[0].dependiente);
+						           $('#Hijosdependiente').val(data[0].Hijosdependiente);
+						           $('#estudio').val(data[0].estudio);
+						           $('#rolesuser').val(data[0].rolesuser);
+						           $('#Especialidad').val(data[0].Especialidad);
+						           $('#ConcluidoTrunco').val(data[0].ConcluidoTrunco);
+						           $('#Cedula').val(data[0].Cedula);
+						           $('#Telefono_1').val(data[0].Telefono_1);
+						           $('#Telefono_3').val(data[0].Telefono_2);
+						           $('#fechaNac').val(data[0].fechaNac);
+
+						           $('#Calle').val(data[0].Calle);
+						           codigoPOstal2(data[0].CodigoPostal,data[0].Colonia , data[0].Municipio , data[0].Estado ,  data[0].Poblacion);
+						           $('#Ninterior').val(data[0].Ninterior);
+						           $('#NExterior').val(data[0].NExterior);
+						           $('#Referencia').val(data[0].Referencia);
+						           $('#Geolocalización').val(data[0].Geolocalización);
+						           $('#ingreso').val(data[0].ingreso);
+						           $('#Área').val(data[0].Área);
+						           $('#Ubicación').val(data[0].Ubicación);
+						           $('#TipoContrato').val(data[0].TipoContrato);
+						           $('#SueldoSemanal').val(data[0].SueldoSemanal);
+						           $('#estatus').val(data[0].estatus);
+
+						           $('#Correo').val(data[0].email);
+						           $('#bton').val('Actualizar');
+						           var html="";
+						           saberEdad();
+
+
+						           $('#rolesuser').attr("disabled","");
+						           $('#Correo').attr("disabled","");
+						           $('#password').attr("disabled","");
+						            $('#Registrar').css("display","none");
+						            $('#Actualizar').css("display","block");
+
+
+
 								
 								mensaje('success','Usuario ya existe en la base de datos!!');
 							}else{
 
-								$('#ponerFoto').attr("src","{{url('assets/img/profile.png')}}");
+								limpiarDatosval();
 								
 							}
 
 
 						},
 					});
+				}else{
+					limpiarDatosval();
+				}
+				
 
 				
 			}
@@ -431,41 +542,7 @@
 				$('#SueldoMensual').val(($('#SueldoSemanal').val() /7 ) *30 )
 			}
 			var ncontrato='';
-			$('#FechaPago').select2({
-				theme: "bootstrap"
-			});
-			$('#Colonia').select2({
-				theme: "bootstrap"
-			});
-
-			$('#Estado_civil').select2({
-				theme: "bootstrap"
-			});
-
-			$('#Género').select2({
-				theme: "bootstrap"
-			});
-
 			
-
-			$('#estudio').select2({
-				theme: "bootstrap"
-			});
-
-			
-			
-			$('#proyecto').select2({
-				theme: "bootstrap"
-			});
-			
-			
-			
-			$('#EstatusVenta').select2({
-				theme: "bootstrap"
-			});
-			$('#tagsinput').tagsinput({
-				tagClass: 'badge-info'
-			});
 
 			$( function() {
 				$( "#slider" ).slider({
@@ -1358,6 +1435,40 @@ $('#llenaTabla2').html("");
 					});
 				}
 
+			}
+			function codigoPOstal2(cp,Colonia,Municipio,Estado,Poblacion){
+				console.log(cp);
+				if(cp.length == 5){
+					$.ajax({
+						data:  {
+							"codigo":cp,
+						}, 
+						 async: true,
+						url:   "{{url('consulta/codigoPostal')}}",
+						type:  'get',
+						success:  function (data) { 
+							console.log(data);
+
+						           $('#CodigoPostal').val(cp);
+							var html='';
+							console.log(data.length);
+							for (var i = 0; i < data.length; i++) {
+								html+='<option>'+data[i].colonia+'</option>';
+								
+							}
+
+							$('#Colonia').html(html);
+							 $('#Colonia').val(Colonia);
+						           $('#Municipio').val(Municipio);
+						           $('#Poblacion').val(Poblacion);
+						           $('#Estado').val(Estado);
+
+						},
+					});
+				}else{
+
+				}
+				
 			}
 			function codigoPOstal(){
 				if($('#CodigoPostal').val().length == 5){
