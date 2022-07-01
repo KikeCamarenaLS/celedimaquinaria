@@ -86,10 +86,12 @@ class UsuarioController extends Controller
         $rolesuser= $request->input("rolesuser");
         $CP= $request->input("CP");
         $password=bcrypt($request['password']); 
+
+
         $guardar=User::create([
          'Nombre'=>$request->input("Nombre"),
-         'Apaterno'=>$Apellido_Paterno,
-         'Amaterno'=>$Apellido_Materno,
+         'Apellido_Paterno'=>$Apellido_Paterno,
+         'Apellido_Materno'=>$Apellido_Materno,
          'Tel1'=>$Telefono1,
          'Tel2'=>$Telefono2,
          'Calle'=>$Calle,
@@ -108,7 +110,7 @@ class UsuarioController extends Controller
      ]);
         if($guardar){
            $idUsuarioSistema = Auth::user()->id;
-           $nombreUsuarioSistema=DB::select('select CONCAT(Nombre," ",Apaterno," ",Amaterno)as nombre from users where id='.$idUsuarioSistema);
+           $nombreUsuarioSistema=DB::select('select CONCAT(Nombre," ",Apellido_Paterno," ",Apellido_Materno)as nombre from users where id='.$idUsuarioSistema);
            $bitacora=DB::select('insert into tb_bitacora (ID_Bitacora,ID_EMPLEADO,created_at, CVE_MOVIMIENTO, MOVIMIENTO) values (null,"'.$idUsuarioSistema.'",now(),1,"El usuario '.$nombreUsuarioSistema[0]->nombre.' con el ID_Empleado '.$idUsuarioSistema.' registro al empleao '.$request->input("Nombre").' '.$Apellido_Paterno.' '.$Apellido_Materno.' " )');
        }
        foreach ($request['rolesuser'] as $key) {
@@ -122,7 +124,7 @@ class UsuarioController extends Controller
         $NombreVal= $request->input("Nombre");
         $Apellido_PaternoVal= $request->input("Apellido_Paterno");
         $Apellido_MaternoVal= $request->input("Apellido_Materno");
-        $validaExistente=DB::select('select * from users where Nombre="'.$NombreVal.'" and Apaterno="'.$Apellido_PaternoVal.'" and Amaterno="'.$Apellido_MaternoVal.'"');
+        $validaExistente=DB::select('select * from users where Nombre="'.$NombreVal.'" and Apellido_Paterno="'.$Apellido_PaternoVal.'" and Apellido_Materno="'.$Apellido_MaternoVal.'"');
         $foto="";
 
 
@@ -136,7 +138,7 @@ class UsuarioController extends Controller
         }else{
             $no_cliente=DB::select("select CONCAT( Date_format(now(),'%y%m%d%H%i%s'),'', FLOOR(5 + RAND()*(10-5))) as no_cliente");
             $no_cli=$no_cliente[0]->no_cliente;
-            $vendedores=DB::select('SELECT concat(nombre," ",apaterno," ",amaterno)as vendedores,id FROM users ');
+            $vendedores=DB::select('SELECT concat(nombre," ",Apellido_Paterno," ",Apellido_Materno)as vendedores,id FROM users ');
 
 
             $validator = Validator::make($request->all(), [
@@ -191,7 +193,7 @@ class UsuarioController extends Controller
         $Telefono_2= $request->input("Telefono_3");
         $Telefono_Emergencia= $request->input("Telefono_Emergencia");
         $Correo= $request->input("Correo");
-        $password= $request->input("password");
+        $password= bcrypt($request->input('password'));
             $Calle= $request->input("Calle");
             $CodigoPostal= $request->input("CodigoPostal");
             $Ninterior= $request->input("Ninterior");
@@ -208,48 +210,43 @@ class UsuarioController extends Controller
             $rolesuser= $request->input("rolesuser");
             $SueldoSemanal= $request->input("SueldoSemanal");
 
-           
-
-
             $id = Auth::user()->id;
-
-            $insertUsuario=DB::select('insert into clientes (N_Cliente,Nombre, A_paterno, A_materno,Estado_civil, Género, estudio,dependiente, espectacular, QuienRecomendo, Telefono1, Telefono2, correo, Calle, Ninterior, NExterior, Colonia, Municipio, Estado, cp, id_personal, Referencia,CURP,RFC,fechaNac,Ocupación,Poblacion,Nacionalidad,Hijodependiente,Identificacion,NoIdentificacion,created_at,Geolocalización,Foto) values ("'.$no_cli.'","'.$Nombre.'","'.$Apellido_Paterno.'","'.$Apellido_Materno.'","'.$Estado_civil.'","'.$Género.'","'.$estudio.'","'.$dependiente.'","'.$espectacular.'","'.$QuienRecomendo.'","'.$Telefono_1.'","'.$Telefono_2.'","'.$Correo.'","'.$Calle.'","'.$Ninterior.'","'.$NExterior.'","'.$Colonia.'","'.$Municipio.'","'.$Estado.'","'.$CodigoPostal.'","'.$id.'","'.$Referencia.'","'.$CURP.'","'.$RFC.'","'.$fechaNac.'","'.$Ocupación.'","'.$Poblacion.'","'.$Nacionalidad.'","'.$Hijosdependiente.'","'.$Idenificacion.'","'.$NoIdentificación.'",now(),"'.$Geolocalización.'","'.$foto.'")');
-            if ($insertUsuario) {
-
-                $idUsuarioSistema = Auth::user()->id;
-                $nombreUsuarioSistema=DB::select('select CONCAT(Nombre," ",Apaterno," ",Amaterno)as nombre from users where id='.$idUsuarioSistema);
-                $bitacora=DB::select('insert into tb_bitacora (ID_Bitacora,ID_EMPLEADO,created_at, CVE_MOVIMIENTO, MOVIMIENTO) values (null,"'.$idUsuarioSistema.'",now(),6,"El usuario '.$nombreUsuarioSistema[0]->nombre.' con el ID_Empleado '.$idUsuarioSistema.' Registro al usuario de sistema  '.$Nombre.' '.$Apellido_Paterno.' '.$Apellido_Materno.', numero de cliente asignado es  '.$no_cli.'" )');
-
-            }
-
-        $guardar=User::create([
-         'Nombre'=>$request->input("Nombre"),
-         'Apaterno'=>$Apellido_Paterno,
-         'Amaterno'=>$Apellido_Materno,
-         'Tel1'=>$Telefono1,
-         'Tel2'=>$Telefono2,
-         'Calle'=>$Calle,
-         'Ninterior'=>$Ninterior,
-         'Nexterior'=>$NExterior,
-         'Colonia'=>$Colonia,
-         'Municipio'=>$Municipio,
-         'Estado'=>$Estado,
-         'Referencia'=>$Referencia,
-         'Rol'=>$rolesuser[0],
-         'email'=>$email,
+$guardar=User::create([
+         'Nombre'=>$Nombre,
+         'Apellido_Paterno'=>$Apellido_Paterno,
+         'Apellido_Materno'=>$Apellido_Materno,
+         'Género'=>$Género,
+         'Nacionalidad'=>$Nacionalidad,
+         'CURP'=>$CURP,
+         'RFC'=>$RFC,
+         'NSS'=>$NSS,
+         'Estado_civil'=>$Estado_civil,
+         'dependiente'=>$dependiente,
+         'Hijosdependiente'=>$Hijosdependiente,
+         'estudio'=>$estudio,
+         'rolesuser'=>$rolesuser[0],
+         'Especialidad'=>$Especialidad,
+         'ConcluidoTrunco'=>$ConcluidoTrunco,
+         'Cedula'=>$Cedula,
+         'Telefono_1'=>$Telefono_1,
+         'Telefono_2'=>$Telefono_2,
+         'Telefono_Emergencia'=>$Telefono_Emergencia,
+         'email'=>$Correo,
          'password'=>$password,
-         'CP'=>$CP,
+         'password'=>$password,
+         'password'=>$password,
+         'password'=>$password,
+         'password'=>$password,
+         'password'=>$password,
+         'password'=>$password,
+         'password'=>$password,
+         'password'=>$password,
+         'password'=>$password,
 
          'estatus'=>'1'
      ]);
-        if($guardar){
-           $idUsuarioSistema = Auth::user()->id;
-           $nombreUsuarioSistema=DB::select('select CONCAT(Nombre," ",Apaterno," ",Amaterno)as nombre from users where id='.$idUsuarioSistema);
-           $bitacora=DB::select('insert into tb_bitacora (ID_Bitacora,ID_EMPLEADO,created_at, CVE_MOVIMIENTO, MOVIMIENTO) values (null,"'.$idUsuarioSistema.'",now(),1,"El usuario '.$nombreUsuarioSistema[0]->nombre.' con el ID_Empleado '.$idUsuarioSistema.' registro al empleao '.$request->input("Nombre").' '.$Apellido_Paterno.' '.$Apellido_Materno.' " )');
-       }
-       foreach ($request['rolesuser'] as $key) {
-          $guardar->assignRole($key);
-      }
+          
+
        $roles= Role::all();
         $mensaje="Usuario registrado con exito!!";
         $color="success";
@@ -266,7 +263,7 @@ class UsuarioController extends Controller
     $roles= Role::all();
 
     $idUsuarioSistema = Auth::user()->id;
-    $nombreUsuarioSistema=DB::select('select CONCAT(Nombre," ",Apaterno," ",Amaterno)as nombre from users where id='.$idUsuarioSistema);
+    $nombreUsuarioSistema=DB::select('select CONCAT(Nombre," ",Apellido_Paterno," ",Apellido_Materno)as nombre from users where id='.$idUsuarioSistema);
     $bitacora=DB::select('insert into tb_bitacora (ID_Bitacora,ID_EMPLEADO,created_at, CVE_MOVIMIENTO, MOVIMIENTO) values (null,"'.$idUsuarioSistema.'",now(),1,"El usuario '.$nombreUsuarioSistema[0]->nombre.' con el ID_Empleado '.$idUsuarioSistema.' ingreso al modulo de listado de usuarios " )');
 
     return view('inventario.Usuarios.ListadoUsuarios',compact('usuarios','roles'));
@@ -374,7 +371,7 @@ public function admin_rolespermisos()
 
     $roles= Role::all();
     $idUsuarioSistema = Auth::user()->id;
-    $nombreUsuarioSistema=DB::select('select CONCAT(Nombre," ",Apaterno," ",Amaterno)as nombre from users where id='.$idUsuarioSistema);
+    $nombreUsuarioSistema=DB::select('select CONCAT(Nombre," ",Apellido_Paterno," ",Apellido_Materno)as nombre from users where id='.$idUsuarioSistema);
     $bitacora=DB::select('insert into tb_bitacora (ID_Bitacora,ID_EMPLEADO,created_at, CVE_MOVIMIENTO, MOVIMIENTO) values (null,"'.$idUsuarioSistema.'",now(),1,"El usuario '.$nombreUsuarioSistema[0]->nombre.' con el ID_Empleado '.$idUsuarioSistema.' ingreso al modulo de roles y permisos " )');
     return view('inventario.Usuarios.adminRolesPermisos',compact('permisos','roles'));
 }
@@ -384,7 +381,7 @@ public function save_permiso(Request $request)
 {
   Permission::create(['name' => $request['name']]);
   $idUsuarioSistema = Auth::user()->id;
-  $nombreUsuarioSistema=DB::select('select CONCAT(Nombre," ",Apaterno," ",Amaterno)as nombre from users where id='.$idUsuarioSistema);
+  $nombreUsuarioSistema=DB::select('select CONCAT(Nombre," ",Apellido_Paterno," ",Apellido_Materno)as nombre from users where id='.$idUsuarioSistema);
   $bitacora=DB::select('insert into tb_bitacora (ID_Bitacora,ID_EMPLEADO,created_at, CVE_MOVIMIENTO, MOVIMIENTO) values (null,"'.$idUsuarioSistema.'",now(),1,"El usuario '.$nombreUsuarioSistema[0]->nombre.' con el ID_Empleado '.$idUsuarioSistema.' creo el permiso  '.$request['name'].'" )');
   return redirect('/rolesypermisos')->with(['message' => 'Permiso Creado', 'color' => 'success']);
 }
@@ -459,16 +456,6 @@ User::where('id',$request['id_user'])
 
 return redirect('/listado_usuario')->with(['message' => 'Actualización correcta', 'color' => 'success']);
 }
-
-
-
-
-
-
-
-
-
-
 
 
 

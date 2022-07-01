@@ -204,6 +204,8 @@
   <!-- Modal -->
 
         <form id="exampleValidation" method="post" action="{{Route('AgregarArchivo.AgregarArchivo')}}" enctype="multipart/form-data">
+        	
+				@csrf
   <div class="modal fade" id="myModal" role="dialog">
     <div class="modal-dialog">
     
@@ -214,7 +216,6 @@
           <h4 class="modal-title">Agregar Archivo</h4>
           <button type="button" class="close" data-dismiss="modal">&times;</button>
         </div>
-				@csrf
         <div class="modal-body">
         	<div class="col-md-6" >
 						<label>ARCHIVO</label>

@@ -52,6 +52,9 @@ class TbUsers extends Migration
             $table->string('TipoContrato');
             $table->string('rolesuser');
             $table->string('SueldoSemanal');
+            $table->string('id_personal');
+            $table->string('Foto');
+
             $table->rememberToken();
             $table->timestamps();
         });
