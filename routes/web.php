@@ -443,6 +443,7 @@ Route::get('/ventalotesView12', 'VentasController@ventalotesView12');
 Route::get('/ventalotesView7', 'VentasController@ventalotesView7');
 
 Route::get('/cliente/ConsultaCliente', 'ClienteController@ConsultaCliente');
+Route::get('/user/validaExistencia', 'Inventario\UsuarioController@validaExistencia');
 
 
 

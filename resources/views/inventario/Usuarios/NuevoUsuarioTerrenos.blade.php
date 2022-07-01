@@ -27,7 +27,7 @@
 
 						<div class="col-md-3" id="clienteid" >
 							<label>Numero de cliente &nbsp;</label>
-							<input required="" type="text" class="form-control success" id="NclienteHide" name="NclienteHide" >
+							<input  type="text" class="form-control success" id="NclienteHide" onkeyup="buscarUser()" name="NclienteHide" >
 						</div>
 						<div class="col-md-6">
 							
@@ -55,7 +55,7 @@
 						</div>
 						<div class="col-md-3">
 							<label>Apellido Materno<span class="required-label">*</span></label>
-							<input  type="text" class="form-control" id="Apellido_Materno" name="Apellido_Materno" >
+							<input  type="text" required="" class="form-control" id="Apellido_Materno" name="Apellido_Materno" >
 							<span class="required-label" id="validaM" style="color:red;  display: none;" ><font size="1">Es necesario llenar este campo</font></span>
 						</div>
 						
@@ -295,7 +295,7 @@
 							</div>
 							<div class="col-md-2">
 								<label>Tipo de contrato</label>
-								<select id="TipoContrato" name="TipoContrato"  class="form-control" style="width: 100%;">
+								<select required="" id="TipoContrato" name="TipoContrato"  class="form-control" style="width: 100%;">
 										<option value="Determinado">Determinado</option>
 										<option value="Por Obra">Por Obra</option>
 										<option value="Indeterminado">Indeterminado</option>
@@ -305,7 +305,7 @@
 							<div class="col-md-3" >
 							<label for="name" class="text-right">Puesto <span class="required-label">*</span></label>
 								<div >
-									<select  name="rolesuser[]" id="rolesuser" onkeyup="valida()" onchange="valida()" class="form-control multrol" multiple="multiple" required>
+									<select  name="rolesuser[]" id="rolesuser" class="form-control multrol" multiple="multiple" required>
 										@foreach($roles as $rol)
 										<option value="{{ $rol->name }}">{{$rol->name}}</option>
 										@endforeach							
@@ -318,14 +318,12 @@
 
 							<div class="col-md-2">
 								<label>Sueldo Semanal</label>
-								<input  type="text" class="form-control" id="SueldoSemanal" name="SueldoSemanal"  >
+								<input required=""  type="text" class="form-control" onkeyup="calculaSalario()" id="SueldoSemanal" name="SueldoSemanal"  >
 							</div>
 							<div class="col-md-2">
 								<label>Sueldo Diario</label>
 								<input  type="text" class="form-control" id="SueldoDiario" name="SueldoDiario"  disabled>
 							</div>
-							</div>
-						<div class="form-group row">
 							<div class="col-md-2">
 								<label>Sueldo Mensual</label>
 								<input  type="text" class="form-control" id="SueldoMensual" name="SueldoMensual" disabled >
@@ -375,6 +373,36 @@
 			$('#rolesuser').select2({
 		theme: "bootstrap",
 	});
+			function buscarUser(){
+
+				$.ajax({
+						data:  {
+							"NclienteHide":$('#NclienteHide').val(),
+						}, 
+						url:   "{{url('user/validaExistencia')}}",
+						type:  'get',
+						success:  function (data) { 
+
+						console.log(data);
+
+							if(data){
+								
+								$('#ponerFoto').attr("src","{{url('archivero')}}/"+ data[0].Foto );
+								
+								mensaje('success','Usuario ya existe en la base de datos!!');
+							}else{
+
+								$('#ponerFoto').attr("src","{{url('assets/img/profile.png')}}");
+								
+							}
+
+
+						},
+					});
+
+				
+			}
+
 			$('#list_user2').DataTable({
 				scrollX:  false,
 				scrollCollapse: true,
@@ -398,6 +426,10 @@
 					"loadingRecords" : "Cargando..."
 				}
 			});
+			function calculaSalario(){
+				$('#SueldoDiario').val($('#SueldoSemanal').val() / 7)
+				$('#SueldoMensual').val(($('#SueldoSemanal').val() /7 ) *30 )
+			}
 			var ncontrato='';
 			$('#FechaPago').select2({
 				theme: "bootstrap"

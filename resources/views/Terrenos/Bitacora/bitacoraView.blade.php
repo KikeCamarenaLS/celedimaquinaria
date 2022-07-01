@@ -66,10 +66,10 @@
 						<table class="table" id="list_user">
 							<thead>
 								<tr>
-									<th class="bg-danger sorting" style="color:#ffffff; width: 6%;"><center>Empleado</center> </th>
-									<th class="bg-danger sorting" style="color:#ffffff; width: 80%;"><center>Movimiento</center> </th>
+									<th class="bg-danger" style="color:#ffffff; width: 6%;"><center>Empleado</center> </th>
+									<th class="bg-danger" style="color:#ffffff; width: 80%;"><center>Movimiento</center> </th>
 									
-									<th class="bg-danger sorting" style="color:#ffffff; width: 14%;"><center>Fecha </center></th>
+									<th class="bg-danger" style="color:#ffffff; width: 14%;"><center>Fecha </center></th>
 									
 									
 								</tr>
@@ -206,9 +206,9 @@ $("#btnConsultar").click(function(event)  {
 							var con=i+1;
 								html+="<tr>";
 
-								html+="<td>"+response[i].ID_EMPLEADO+"</td>";
-								html+="<td>"+response[i].Movimiento+"</td>";
-								html+="<td>"+response[i].created_at+"</td>";
+								html+="<td style='width:6%;'>"+response[i].ID_EMPLEADO+"</td>";
+								html+="<td style='width:80%;'>"+response[i].Movimiento+"</td>";
+								html+="<td style='width:14%;'>"+response[i].created_at+"</td>";
 
 								
 

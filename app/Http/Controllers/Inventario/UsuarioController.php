@@ -66,7 +66,12 @@ class UsuarioController extends Controller
 
     }
     
+    public function validaExistencia(Request $request){
 
+
+        $NclienteHide= $request->input("NclienteHide");
+        return DB::select('select * from users where id='.$NclienteHide);
+    }
     public function insert_usuario(Request $request)
     {
 
@@ -105,7 +110,6 @@ class UsuarioController extends Controller
          'email'=>$email,
          'password'=>$password,
          'CP'=>$CP,
-
          'estatus'=>'1'
      ]);
         if($guardar){
@@ -211,6 +215,7 @@ class UsuarioController extends Controller
             $SueldoSemanal= $request->input("SueldoSemanal");
 
             $id = Auth::user()->id;
+            $uno=1;
 $guardar=User::create([
          'Nombre'=>$Nombre,
          'Apellido_Paterno'=>$Apellido_Paterno,
@@ -230,7 +235,6 @@ $guardar=User::create([
          'Cedula'=>$Cedula,
          'Telefono_1'=>$Telefono_1,
          'Telefono_2'=>$Telefono_2,
-         'Telefono_Emergencia'=>$Telefono_Emergencia,
          'email'=>$Correo,
          'password'=>$password,
          'Calle'=>$Calle,
@@ -246,15 +250,15 @@ $guardar=User::create([
          'Área'=>$Área,
          'Ubicación'=>$Ubicación,
          'TipoContrato'=>$TipoContrato,
-         'rolesuser'=>$rolesuser,
          'SueldoSemanal'=>$SueldoSemanal,
-
-         'estatus'=>'1'
+         'estatus'=>$uno,
+         'Foto'=>$foto,
+         'id_personal'=>Auth::user()->id
      ]);
           if($guardar){
            $idUsuarioSistema = Auth::user()->id;
            $nombreUsuarioSistema=DB::select('select CONCAT(Nombre," ",Apellido_Paterno," ",Apellido_Materno)as nombre from users where id='.$idUsuarioSistema);
-           $bitacora=DB::select('insert into tb_bitacora (ID_Bitacora,ID_EMPLEADO,created_at, CVE_MOVIMIENTO, MOVIMIENTO) values (null,"'.$idUsuarioSistema.'",now(),1,"El usuario '.$nombreUsuarioSistema[0]->nombre.' con el ID_Empleado '.$idUsuarioSistema.' registro al empleao '.$request->input("Nombre").' '.$Apellido_Paterno.' '.$Apellido_Materno.' " )');
+           $bitacora=DB::select('insert into tb_bitacora (ID_Bitacora,ID_EMPLEADO,created_at, CVE_MOVIMIENTO, MOVIMIENTO) values (null,"'.$idUsuarioSistema.'",now(),1,"El usuario '.$nombreUsuarioSistema[0]->nombre.' con el ID_Empleado '.$idUsuarioSistema.' registro al empleado '.$request->input("Nombre").' '.$Apellido_Paterno.' '.$Apellido_Materno.' " )');
        }
        foreach ($request['rolesuser'] as $key) {
           $guardar->assignRole($key);
