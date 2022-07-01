@@ -233,19 +233,32 @@ $guardar=User::create([
          'Telefono_Emergencia'=>$Telefono_Emergencia,
          'email'=>$Correo,
          'password'=>$password,
-         'password'=>$password,
-         'password'=>$password,
-         'password'=>$password,
-         'password'=>$password,
-         'password'=>$password,
-         'password'=>$password,
-         'password'=>$password,
-         'password'=>$password,
-         'password'=>$password,
+         'Calle'=>$Calle,
+         'CodigoPostal'=>$CodigoPostal,
+         'Ninterior'=>$Ninterior,
+         'NExterior'=>$NExterior,
+         'Colonia'=>$Colonia,
+         'Municipio'=>$Municipio,
+         'Estado'=>$Estado,
+         'Referencia'=>$Referencia,
+         'Geolocalización'=>$Geolocalización,
+         'ingreso'=>$ingreso,
+         'Área'=>$Área,
+         'Ubicación'=>$Ubicación,
+         'TipoContrato'=>$TipoContrato,
+         'rolesuser'=>$rolesuser,
+         'SueldoSemanal'=>$SueldoSemanal,
 
          'estatus'=>'1'
      ]);
-          
+          if($guardar){
+           $idUsuarioSistema = Auth::user()->id;
+           $nombreUsuarioSistema=DB::select('select CONCAT(Nombre," ",Apellido_Paterno," ",Apellido_Materno)as nombre from users where id='.$idUsuarioSistema);
+           $bitacora=DB::select('insert into tb_bitacora (ID_Bitacora,ID_EMPLEADO,created_at, CVE_MOVIMIENTO, MOVIMIENTO) values (null,"'.$idUsuarioSistema.'",now(),1,"El usuario '.$nombreUsuarioSistema[0]->nombre.' con el ID_Empleado '.$idUsuarioSistema.' registro al empleao '.$request->input("Nombre").' '.$Apellido_Paterno.' '.$Apellido_Materno.' " )');
+       }
+       foreach ($request['rolesuser'] as $key) {
+          $guardar->assignRole($key);
+      }
 
        $roles= Role::all();
         $mensaje="Usuario registrado con exito!!";
