@@ -198,13 +198,13 @@
 							
 
 							<div class="col-md-4" >
-								<label>Correo electrónico</label>
-								<input  type="mail" class="form-control success" id="Correo" name="Correo"  >
+								<label>Correo electrónico<span class="required-label">*</span></label>
+								<input  type="mail" required="" class="form-control success" id="Correo" name="Correo"  >
 
 							</div>
 							<div class="col-md-4" >
-								<label>Contraseña</label>
-								<input  type="password" class="form-control success" id="password" name="password"  >
+								<label>Contraseña<span class="required-label">*</span></label>
+								<input  type="password" required="" class="form-control success" id="password" name="password"  >
 
 							</div>
 							
@@ -317,7 +317,7 @@
 						<div class="form-group row " >
 
 							<div class="col-md-2">
-								<label>Sueldo Semanal</label>
+								<label>Sueldo Semanal<span class="required-label">*</span></label>
 								<input required=""  type="text" class="form-control" onkeyup="calculaSalario()" id="SueldoSemanal" name="SueldoSemanal"  >
 							</div>
 							<div class="col-md-2">

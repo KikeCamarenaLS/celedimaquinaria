@@ -181,8 +181,13 @@ class UsuarioController extends Controller
         $Apellido_Paterno= $request->input("Apellido_Paterno");
         $Apellido_Materno= $request->input("Apellido_Materno");
         $Género= $request->input("Género");
+
         $fechaNac= $request->input("fechaNac");
+
+
         $Nacionalidad= $request->input("Nacionalidad");
+        if($Nacionalidad==null){   $Nacionalidad=""; }
+
         $CURP= $request->input("CURP");
         $RFC= $request->input("RFC");
         $NSS= $request->input("NSS");
@@ -195,7 +200,7 @@ class UsuarioController extends Controller
         $Cedula= $request->input("Cedula");
         $Telefono_1= $request->input("Telefono_1");
         $Telefono_2= $request->input("Telefono_3");
-        $Telefono_Emergencia= $request->input("Telefono_Emergencia");
+        
         $Correo= $request->input("Correo");
         $password= bcrypt($request->input('password'));
             $Calle= $request->input("Calle");
@@ -213,6 +218,37 @@ class UsuarioController extends Controller
             $TipoContrato= $request->input("TipoContrato");
             $rolesuser= $request->input("rolesuser");
             $SueldoSemanal= $request->input("SueldoSemanal");
+
+
+            if($CURP==null){   $CURP=""; }
+        if($RFC==null){   $RFC=""; }
+        if($NSS==null){   $NSS=""; }
+        if($Estado_civil==null){   $Estado_civil=""; }
+        if($dependiente==null){   $dependiente=""; }
+        if($Hijosdependiente==null){   $Hijosdependiente=""; }
+        if($estudio==null){   $estudio=""; }
+        if($Especialidad==null){   $Especialidad=""; }
+        if($ConcluidoTrunco==null){   $ConcluidoTrunco=""; }
+        if($Cedula==null){   $Cedula=""; }
+        if($Telefono_1==null){   $Telefono_1=""; }
+        if($Telefono_2==null){   $Telefono_2=""; }
+
+
+            if($Calle==null){   $Calle=""; }
+            if($CodigoPostal==null){   $CodigoPostal=""; }
+            if($Ninterior==null){   $Ninterior=""; }
+            if($NExterior==null){   $NExterior=""; }
+            if($Colonia==null){   $Colonia=""; }
+            if($Municipio==null){   $Municipio=""; }
+            if($Estado==null){   $Estado=""; }
+            if($Referencia==null){   $Referencia=""; }
+            if($Geolocalización==null){   $Geolocalización=""; }
+            if($ingreso==null){   $ingreso=""; }
+            if($Área==null){   $Área=""; }
+            if($Ubicación==null){   $Ubicación=""; }
+            if($TipoContrato==null){   $TipoContrato=""; }
+            if($rolesuser==null){   $rolesuser=""; }
+            if($SueldoSemanal==null){   $SueldoSemanal=""; }
 
             $id = Auth::user()->id;
             $uno=1;
