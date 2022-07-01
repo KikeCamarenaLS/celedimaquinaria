@@ -22,7 +22,7 @@ public function ventalotesView()
   $lotes=DB::select('SELECT * FROM proyectoLote where proyecto=1');
   $id_proy=1;
   $idUsuarioSistema = Auth::user()->id;
-  $nombreUsuarioSistema=DB::select('select CONCAT(Nombre," ",Apaterno," ",Amaterno)as nombre from users where id='.$idUsuarioSistema);
+  $nombreUsuarioSistema=DB::select('select CONCAT(Nombre," ",Apellido_Paterno," ",Apellido_Materno)as nombre from users where id='.$idUsuarioSistema);
   $bitacora=DB::select('insert into tb_bitacora (ID_Bitacora,ID_EMPLEADO,created_at, CVE_MOVIMIENTO, MOVIMIENTO) values (null,"'.$idUsuarioSistema.'",now(),6,"El usuario '.$nombreUsuarioSistema[0]->nombre.' con el ID_Empleado '.$idUsuarioSistema.' entro a la pantalla Ventas de Ejidos Ozumbilla" )');
   return view('Terrenos.Ventas.ventasLotes',compact('proyectos','lotes','id_proy'));
 
@@ -34,7 +34,7 @@ public function ventalotesView6()
   $id_proy=6;
 
 $idUsuarioSistema = Auth::user()->id;
-  $nombreUsuarioSistema=DB::select('select CONCAT(Nombre," ",Apaterno," ",Amaterno)as nombre from users where id='.$idUsuarioSistema);
+  $nombreUsuarioSistema=DB::select('select CONCAT(Nombre," ",Apellido_Paterno," ",Apellido_Materno)as nombre from users where id='.$idUsuarioSistema);
   $bitacora=DB::select('insert into tb_bitacora (ID_Bitacora,ID_EMPLEADO,created_at, CVE_MOVIMIENTO, MOVIMIENTO) values (null,"'.$idUsuarioSistema.'",now(),6,"El usuario '.$nombreUsuarioSistema[0]->nombre.' con el ID_Empleado '.$idUsuarioSistema.' entro a la pantalla Ventas de Tonanitla" )');
 
   return view('Terrenos.Ventas.ventaLotesTonanitla',compact('proyectos','lotes','id_proy'));
@@ -47,7 +47,7 @@ public function ventalotesView2()
   $id_proy=2;
 
    $idUsuarioSistema = Auth::user()->id;
-  $nombreUsuarioSistema=DB::select('select CONCAT(Nombre," ",Apaterno," ",Amaterno)as nombre from users where id='.$idUsuarioSistema);
+  $nombreUsuarioSistema=DB::select('select CONCAT(Nombre," ",Apellido_Paterno," ",Apellido_Materno)as nombre from users where id='.$idUsuarioSistema);
   $bitacora=DB::select('insert into tb_bitacora (ID_Bitacora,ID_EMPLEADO,created_at, CVE_MOVIMIENTO, MOVIMIENTO) values (null,"'.$idUsuarioSistema.'",now(),6,"El usuario '.$nombreUsuarioSistema[0]->nombre.' con el ID_Empleado '.$idUsuarioSistema.' entro a la pantalla Ventas de La Magdalena III" )');
 
   return view('Terrenos.Ventas.LaMagalenaIII',compact('proyectos','lotes','id_proy'));
@@ -60,7 +60,7 @@ public function ventalotesView3()
   $id_proy=3;
 
   $idUsuarioSistema = Auth::user()->id;
-  $nombreUsuarioSistema=DB::select('select CONCAT(Nombre," ",Apaterno," ",Amaterno)as nombre from users where id='.$idUsuarioSistema);
+  $nombreUsuarioSistema=DB::select('select CONCAT(Nombre," ",Apellido_Paterno," ",Apellido_Materno)as nombre from users where id='.$idUsuarioSistema);
   $bitacora=DB::select('insert into tb_bitacora (ID_Bitacora,ID_EMPLEADO,created_at, CVE_MOVIMIENTO, MOVIMIENTO) values (null,"'.$idUsuarioSistema.'",now(),6,"El usuario '.$nombreUsuarioSistema[0]->nombre.' con el ID_Empleado '.$idUsuarioSistema.' entro a la pantalla Ventas de Golondrinas II" )');
 
   return view('Terrenos.Ventas.GolondrinasII',compact('proyectos','lotes','id_proy'));
@@ -73,7 +73,7 @@ public function ventalotesView8()
   $id_proy=8;
 
   $idUsuarioSistema = Auth::user()->id;
-  $nombreUsuarioSistema=DB::select('select CONCAT(Nombre," ",Apaterno," ",Amaterno)as nombre from users where id='.$idUsuarioSistema);
+  $nombreUsuarioSistema=DB::select('select CONCAT(Nombre," ",Apellido_Paterno," ",Apellido_Materno)as nombre from users where id='.$idUsuarioSistema);
   $bitacora=DB::select('insert into tb_bitacora (ID_Bitacora,ID_EMPLEADO,created_at, CVE_MOVIMIENTO, MOVIMIENTO) values (null,"'.$idUsuarioSistema.'",now(),6,"El usuario '.$nombreUsuarioSistema[0]->nombre.' con el ID_Empleado '.$idUsuarioSistema.' entro a la pantalla Ventas de Caballerias I" )');
 
   return view('Terrenos.Ventas.CaballeriasI',compact('proyectos','lotes','id_proy'));
@@ -87,7 +87,7 @@ public function ventalotesView9(){
   $id_proy=9;
 
   $idUsuarioSistema = Auth::user()->id;
-  $nombreUsuarioSistema=DB::select('select CONCAT(Nombre," ",Apaterno," ",Amaterno)as nombre from users where id='.$idUsuarioSistema);
+  $nombreUsuarioSistema=DB::select('select CONCAT(Nombre," ",Apellido_Paterno," ",Apellido_Materno)as nombre from users where id='.$idUsuarioSistema);
   $bitacora=DB::select('insert into tb_bitacora (ID_Bitacora,ID_EMPLEADO,created_at, CVE_MOVIMIENTO, MOVIMIENTO) values (null,"'.$idUsuarioSistema.'",now(),6,"El usuario '.$nombreUsuarioSistema[0]->nombre.' con el ID_Empleado '.$idUsuarioSistema.' entro a la pantalla Ventas de Caballerias II" )');
 
   return view('Terrenos.Ventas.CaballeriasII',compact('proyectos','lotes','id_proy'));
@@ -99,7 +99,7 @@ public function ventalotesView18(){
   $id_proy=18;
 
   $idUsuarioSistema = Auth::user()->id;
-  $nombreUsuarioSistema=DB::select('select CONCAT(Nombre," ",Apaterno," ",Amaterno)as nombre from users where id='.$idUsuarioSistema);
+  $nombreUsuarioSistema=DB::select('select CONCAT(Nombre," ",Apellido_Paterno," ",Apellido_Materno)as nombre from users where id='.$idUsuarioSistema);
   $bitacora=DB::select('insert into tb_bitacora (ID_Bitacora,ID_EMPLEADO,created_at, CVE_MOVIMIENTO, MOVIMIENTO) values (null,"'.$idUsuarioSistema.'",now(),6,"El usuario '.$nombreUsuarioSistema[0]->nombre.' con el ID_Empleado '.$idUsuarioSistema.' entro a la pantalla Ventas de Caballerias III" )');
 
   return view('Terrenos.Ventas.CaballeriasIII',compact('proyectos','lotes','id_proy'));
@@ -111,7 +111,7 @@ public function ventalotesView11(){
   $id_proy=11;
 
   $idUsuarioSistema = Auth::user()->id;
-  $nombreUsuarioSistema=DB::select('select CONCAT(Nombre," ",Apaterno," ",Amaterno)as nombre from users where id='.$idUsuarioSistema);
+  $nombreUsuarioSistema=DB::select('select CONCAT(Nombre," ",Apellido_Paterno," ",Apellido_Materno)as nombre from users where id='.$idUsuarioSistema);
   $bitacora=DB::select('insert into tb_bitacora (ID_Bitacora,ID_EMPLEADO,created_at, CVE_MOVIMIENTO, MOVIMIENTO) values (null,"'.$idUsuarioSistema.'",now(),6,"El usuario '.$nombreUsuarioSistema[0]->nombre.' con el ID_Empleado '.$idUsuarioSistema.' entro a la pantalla Ventas de San Dionicio" )');
 
   return view('Terrenos.Ventas.SanDionicio',compact('proyectos','lotes','id_proy'));
@@ -123,7 +123,7 @@ public function ventalotesView16(){
   $id_proy=16;
 
   $idUsuarioSistema = Auth::user()->id;
-  $nombreUsuarioSistema=DB::select('select CONCAT(Nombre," ",Apaterno," ",Amaterno)as nombre from users where id='.$idUsuarioSistema);
+  $nombreUsuarioSistema=DB::select('select CONCAT(Nombre," ",Apellido_Paterno," ",Apellido_Materno)as nombre from users where id='.$idUsuarioSistema);
   $bitacora=DB::select('insert into tb_bitacora (ID_Bitacora,ID_EMPLEADO,created_at, CVE_MOVIMIENTO, MOVIMIENTO) values (null,"'.$idUsuarioSistema.'",now(),6,"El usuario '.$nombreUsuarioSistema[0]->nombre.' con el ID_Empleado '.$idUsuarioSistema.' entro a la pantalla Ventas de Aldama" )');
 
   return view('Terrenos.Ventas.Aldama',compact('proyectos','lotes','id_proy'));
@@ -135,7 +135,7 @@ public function ventalotesView17(){
   $id_proy=17;
 
   $idUsuarioSistema = Auth::user()->id;
-  $nombreUsuarioSistema=DB::select('select CONCAT(Nombre," ",Apaterno," ",Amaterno)as nombre from users where id='.$idUsuarioSistema);
+  $nombreUsuarioSistema=DB::select('select CONCAT(Nombre," ",Apellido_Paterno," ",Apellido_Materno)as nombre from users where id='.$idUsuarioSistema);
   $bitacora=DB::select('insert into tb_bitacora (ID_Bitacora,ID_EMPLEADO,created_at, CVE_MOVIMIENTO, MOVIMIENTO) values (null,"'.$idUsuarioSistema.'",now(),6,"El usuario '.$nombreUsuarioSistema[0]->nombre.' con el ID_Empleado '.$idUsuarioSistema.' entro a la pantalla Ventas de Litigios 1" )');
 
   return view('Terrenos.Ventas.Litigios1',compact('proyectos','lotes','id_proy'));
@@ -147,7 +147,7 @@ public function ventalotesView19(){
   $id_proy=19;
 
   $idUsuarioSistema = Auth::user()->id;
-  $nombreUsuarioSistema=DB::select('select CONCAT(Nombre," ",Apaterno," ",Amaterno)as nombre from users where id='.$idUsuarioSistema);
+  $nombreUsuarioSistema=DB::select('select CONCAT(Nombre," ",Apellido_Paterno," ",Apellido_Materno)as nombre from users where id='.$idUsuarioSistema);
   $bitacora=DB::select('insert into tb_bitacora (ID_Bitacora,ID_EMPLEADO,created_at, CVE_MOVIMIENTO, MOVIMIENTO) values (null,"'.$idUsuarioSistema.'",now(),6,"El usuario '.$nombreUsuarioSistema[0]->nombre.' con el ID_Empleado '.$idUsuarioSistema.' entro a la pantalla Ventas de Caballerias IV" )');
 
   return view('Terrenos.Ventas.CaballeriasIV',compact('proyectos','lotes','id_proy'));
@@ -159,7 +159,7 @@ public function ventalotesView21(){
   $id_proy=21;
 
   $idUsuarioSistema = Auth::user()->id;
-  $nombreUsuarioSistema=DB::select('select CONCAT(Nombre," ",Apaterno," ",Amaterno)as nombre from users where id='.$idUsuarioSistema);
+  $nombreUsuarioSistema=DB::select('select CONCAT(Nombre," ",Apellido_Paterno," ",Apellido_Materno)as nombre from users where id='.$idUsuarioSistema);
   $bitacora=DB::select('insert into tb_bitacora (ID_Bitacora,ID_EMPLEADO,created_at, CVE_MOVIMIENTO, MOVIMIENTO) values (null,"'.$idUsuarioSistema.'",now(),6,"El usuario '.$nombreUsuarioSistema[0]->nombre.' con el ID_Empleado '.$idUsuarioSistema.' entro a la pantalla Ventas de Mozoyuca" )');
 
   return view('Terrenos.Ventas.mozoyuca',compact('proyectos','lotes','id_proy'));
@@ -177,7 +177,7 @@ public function ventalotesView32(){
   $id_proy=32;
 
   $idUsuarioSistema = Auth::user()->id;
-  $nombreUsuarioSistema=DB::select('select CONCAT(Nombre," ",Apaterno," ",Amaterno)as nombre from users where id='.$idUsuarioSistema);
+  $nombreUsuarioSistema=DB::select('select CONCAT(Nombre," ",Apellido_Paterno," ",Apellido_Materno)as nombre from users where id='.$idUsuarioSistema);
   $bitacora=DB::select('insert into tb_bitacora (ID_Bitacora,ID_EMPLEADO,created_at, CVE_MOVIMIENTO, MOVIMIENTO) values (null,"'.$idUsuarioSistema.'",now(),6,"El usuario '.$nombreUsuarioSistema[0]->nombre.' con el ID_Empleado '.$idUsuarioSistema.' entro a la pantalla Ventas de Campestre San Pablo IX" )');
 
   return view('Terrenos.Ventas.campestreSanPabloIX',compact('proyectos','lotes','id_proy'));
@@ -189,7 +189,7 @@ public function ventalotesView29(){
   $id_proy=29;
 
   $idUsuarioSistema = Auth::user()->id;
-  $nombreUsuarioSistema=DB::select('select CONCAT(Nombre," ",Apaterno," ",Amaterno)as nombre from users where id='.$idUsuarioSistema);
+  $nombreUsuarioSistema=DB::select('select CONCAT(Nombre," ",Apellido_Paterno," ",Apellido_Materno)as nombre from users where id='.$idUsuarioSistema);
   $bitacora=DB::select('insert into tb_bitacora (ID_Bitacora,ID_EMPLEADO,created_at, CVE_MOVIMIENTO, MOVIMIENTO) values (null,"'.$idUsuarioSistema.'",now(),6,"El usuario '.$nombreUsuarioSistema[0]->nombre.' con el ID_Empleado '.$idUsuarioSistema.' entro a la pantalla Ventas de Campestre San Pablo XI" )');
 
   return view('Terrenos.Ventas.campestreSanPabloXI',compact('proyectos','lotes','id_proy'));
@@ -201,7 +201,7 @@ public function ventalotesView30(){
   $id_proy=30;
 
   $idUsuarioSistema = Auth::user()->id;
-  $nombreUsuarioSistema=DB::select('select CONCAT(Nombre," ",Apaterno," ",Amaterno)as nombre from users where id='.$idUsuarioSistema);
+  $nombreUsuarioSistema=DB::select('select CONCAT(Nombre," ",Apellido_Paterno," ",Apellido_Materno)as nombre from users where id='.$idUsuarioSistema);
   $bitacora=DB::select('insert into tb_bitacora (ID_Bitacora,ID_EMPLEADO,created_at, CVE_MOVIMIENTO, MOVIMIENTO) values (null,"'.$idUsuarioSistema.'",now(),6,"El usuario '.$nombreUsuarioSistema[0]->nombre.' con el ID_Empleado '.$idUsuarioSistema.' entro a la pantalla Ventas de San Pablo Tecalco" )');
 
   return view('Terrenos.Ventas.SanPabloTecalco',compact('proyectos','lotes','id_proy'));
@@ -213,7 +213,7 @@ public function ventalotesView25(){
   $id_proy=25;
 
    $idUsuarioSistema = Auth::user()->id;
-  $nombreUsuarioSistema=DB::select('select CONCAT(Nombre," ",Apaterno," ",Amaterno)as nombre from users where id='.$idUsuarioSistema);
+  $nombreUsuarioSistema=DB::select('select CONCAT(Nombre," ",Apellido_Paterno," ",Apellido_Materno)as nombre from users where id='.$idUsuarioSistema);
   $bitacora=DB::select('insert into tb_bitacora (ID_Bitacora,ID_EMPLEADO,created_at, CVE_MOVIMIENTO, MOVIMIENTO) values (null,"'.$idUsuarioSistema.'",now(),6,"El usuario '.$nombreUsuarioSistema[0]->nombre.' con el ID_Empleado '.$idUsuarioSistema.' entro a la pantalla Ventas de San Pablo V" )');
 
   return view('Terrenos.Ventas.SanPabloV',compact('proyectos','lotes','id_proy'));
@@ -225,7 +225,7 @@ public function ventalotesView22(){
   $id_proy=22;
 
    $idUsuarioSistema = Auth::user()->id;
-  $nombreUsuarioSistema=DB::select('select CONCAT(Nombre," ",Apaterno," ",Amaterno)as nombre from users where id='.$idUsuarioSistema);
+  $nombreUsuarioSistema=DB::select('select CONCAT(Nombre," ",Apellido_Paterno," ",Apellido_Materno)as nombre from users where id='.$idUsuarioSistema);
   $bitacora=DB::select('insert into tb_bitacora (ID_Bitacora,ID_EMPLEADO,created_at, CVE_MOVIMIENTO, MOVIMIENTO) values (null,"'.$idUsuarioSistema.'",now(),6,"El usuario '.$nombreUsuarioSistema[0]->nombre.' con el ID_Empleado '.$idUsuarioSistema.' entro a la pantalla Ventas de Nopalitos  " )');
 
   return view('Terrenos.Ventas.Nopalitos',compact('proyectos','lotes','id_proy'));
@@ -237,7 +237,7 @@ public function ventalotesView20(){
   $id_proy=20;
 
   $idUsuarioSistema = Auth::user()->id;
-  $nombreUsuarioSistema=DB::select('select CONCAT(Nombre," ",Apaterno," ",Amaterno)as nombre from users where id='.$idUsuarioSistema);
+  $nombreUsuarioSistema=DB::select('select CONCAT(Nombre," ",Apellido_Paterno," ",Apellido_Materno)as nombre from users where id='.$idUsuarioSistema);
   $bitacora=DB::select('insert into tb_bitacora (ID_Bitacora,ID_EMPLEADO,created_at, CVE_MOVIMIENTO, MOVIMIENTO) values (null,"'.$idUsuarioSistema.'",now(),6,"El usuario '.$nombreUsuarioSistema[0]->nombre.' con el ID_Empleado '.$idUsuarioSistema.' entro a la pantalla Ventas de Nopalitos  " )');
 
   return view('Terrenos.Ventas.Litigios2',compact('proyectos','lotes','id_proy'));
@@ -249,7 +249,7 @@ public function ventalotesView33(){
   $id_proy=33;
 
   $idUsuarioSistema = Auth::user()->id;
-  $nombreUsuarioSistema=DB::select('select CONCAT(Nombre," ",Apaterno," ",Amaterno)as nombre from users where id='.$idUsuarioSistema);
+  $nombreUsuarioSistema=DB::select('select CONCAT(Nombre," ",Apellido_Paterno," ",Apellido_Materno)as nombre from users where id='.$idUsuarioSistema);
   $bitacora=DB::select('insert into tb_bitacora (ID_Bitacora,ID_EMPLEADO,created_at, CVE_MOVIMIENTO, MOVIMIENTO) values (null,"'.$idUsuarioSistema.'",now(),6,"El usuario '.$nombreUsuarioSistema[0]->nombre.' con el ID_Empleado '.$idUsuarioSistema.' entro a la pantalla Campestre San Pablo X  " )');
 
   return view('Terrenos.Ventas.campestreSanPabloX',compact('proyectos','lotes','id_proy'));
@@ -261,7 +261,7 @@ public function ventalotesView28(){
   $id_proy=28;
 
   $idUsuarioSistema = Auth::user()->id;
-  $nombreUsuarioSistema=DB::select('select CONCAT(Nombre," ",Apaterno," ",Amaterno)as nombre from users where id='.$idUsuarioSistema);
+  $nombreUsuarioSistema=DB::select('select CONCAT(Nombre," ",Apellido_Paterno," ",Apellido_Materno)as nombre from users where id='.$idUsuarioSistema);
   $bitacora=DB::select('insert into tb_bitacora (ID_Bitacora,ID_EMPLEADO,created_at, CVE_MOVIMIENTO, MOVIMIENTO) values (null,"'.$idUsuarioSistema.'",now(),6,"El usuario '.$nombreUsuarioSistema[0]->nombre.' con el ID_Empleado '.$idUsuarioSistema.' entro a la pantalla San Pablo IV  " )');
 
   return view('Terrenos.Ventas.sanpabloIV',compact('proyectos','lotes','id_proy'));
@@ -272,7 +272,7 @@ public function ventalotesView27(){
   $id_proy=27;
 
   $idUsuarioSistema = Auth::user()->id;
-  $nombreUsuarioSistema=DB::select('select CONCAT(Nombre," ",Apaterno," ",Amaterno)as nombre from users where id='.$idUsuarioSistema);
+  $nombreUsuarioSistema=DB::select('select CONCAT(Nombre," ",Apellido_Paterno," ",Apellido_Materno)as nombre from users where id='.$idUsuarioSistema);
   $bitacora=DB::select('insert into tb_bitacora (ID_Bitacora,ID_EMPLEADO,created_at, CVE_MOVIMIENTO, MOVIMIENTO) values (null,"'.$idUsuarioSistema.'",now(),6,"El usuario '.$nombreUsuarioSistema[0]->nombre.' con el ID_Empleado '.$idUsuarioSistema.' entro a la pantalla San Pablo III  " )');
 
   return view('Terrenos.Ventas.sanpabloIII',compact('proyectos','lotes','id_proy'));
@@ -283,7 +283,7 @@ public function ventalotesView13(){
   $id_proy=13;
 
   $idUsuarioSistema = Auth::user()->id;
-  $nombreUsuarioSistema=DB::select('select CONCAT(Nombre," ",Apaterno," ",Amaterno)as nombre from users where id='.$idUsuarioSistema);
+  $nombreUsuarioSistema=DB::select('select CONCAT(Nombre," ",Apellido_Paterno," ",Apellido_Materno)as nombre from users where id='.$idUsuarioSistema);
   $bitacora=DB::select('insert into tb_bitacora (ID_Bitacora,ID_EMPLEADO,created_at, CVE_MOVIMIENTO, MOVIMIENTO) values (null,"'.$idUsuarioSistema.'",now(),6,"El usuario '.$nombreUsuarioSistema[0]->nombre.' con el ID_Empleado '.$idUsuarioSistema.' entro a la pantalla Bugambilias " )');
 
   return view('Terrenos.Ventas.Bugambilias',compact('proyectos','lotes','id_proy'));
@@ -294,7 +294,7 @@ public function ventalotesView26(){
   $id_proy=26;
 
   $idUsuarioSistema = Auth::user()->id;
-  $nombreUsuarioSistema=DB::select('select CONCAT(Nombre," ",Apaterno," ",Amaterno)as nombre from users where id='.$idUsuarioSistema);
+  $nombreUsuarioSistema=DB::select('select CONCAT(Nombre," ",Apellido_Paterno," ",Apellido_Materno)as nombre from users where id='.$idUsuarioSistema);
   $bitacora=DB::select('insert into tb_bitacora (ID_Bitacora,ID_EMPLEADO,created_at, CVE_MOVIMIENTO, MOVIMIENTO) values (null,"'.$idUsuarioSistema.'",now(),6,"El usuario '.$nombreUsuarioSistema[0]->nombre.' con el ID_Empleado '.$idUsuarioSistema.' entro a la pantalla San Pablo II " )');
 
   return view('Terrenos.Ventas.SanPabloII',compact('proyectos','lotes','id_proy'));
@@ -305,7 +305,7 @@ public function ventalotesView14(){
   $id_proy=14;
 
   $idUsuarioSistema = Auth::user()->id;
-  $nombreUsuarioSistema=DB::select('select CONCAT(Nombre," ",Apaterno," ",Amaterno)as nombre from users where id='.$idUsuarioSistema);
+  $nombreUsuarioSistema=DB::select('select CONCAT(Nombre," ",Apellido_Paterno," ",Apellido_Materno)as nombre from users where id='.$idUsuarioSistema);
   $bitacora=DB::select('insert into tb_bitacora (ID_Bitacora,ID_EMPLEADO,created_at, CVE_MOVIMIENTO, MOVIMIENTO) values (null,"'.$idUsuarioSistema.'",now(),6,"El usuario '.$nombreUsuarioSistema[0]->nombre.' con el ID_Empleado '.$idUsuarioSistema.' entro a el Carmen " )');
 
   return view('Terrenos.Ventas.ElCarmen',compact('proyectos','lotes','id_proy'));
@@ -317,7 +317,7 @@ public function ventalotesView23(){
   $id_proy=23;
 
   $idUsuarioSistema = Auth::user()->id;
-  $nombreUsuarioSistema=DB::select('select CONCAT(Nombre," ",Apaterno," ",Amaterno)as nombre from users where id='.$idUsuarioSistema);
+  $nombreUsuarioSistema=DB::select('select CONCAT(Nombre," ",Apellido_Paterno," ",Apellido_Materno)as nombre from users where id='.$idUsuarioSistema);
   $bitacora=DB::select('insert into tb_bitacora (ID_Bitacora,ID_EMPLEADO,created_at, CVE_MOVIMIENTO, MOVIMIENTO) values (null,"'.$idUsuarioSistema.'",now(),6,"El usuario '.$nombreUsuarioSistema[0]->nombre.' con el ID_Empleado '.$idUsuarioSistema.' entro a San Pablo VII " )');
 
   return view('Terrenos.Ventas.SanPabloVII',compact('proyectos','lotes','id_proy'));
@@ -329,7 +329,7 @@ public function ventalotesView4(){
   $id_proy=4;
 
   $idUsuarioSistema = Auth::user()->id;
-  $nombreUsuarioSistema=DB::select('select CONCAT(Nombre," ",Apaterno," ",Amaterno)as nombre from users where id='.$idUsuarioSistema);
+  $nombreUsuarioSistema=DB::select('select CONCAT(Nombre," ",Apellido_Paterno," ",Apellido_Materno)as nombre from users where id='.$idUsuarioSistema);
   $bitacora=DB::select('insert into tb_bitacora (ID_Bitacora,ID_EMPLEADO,created_at, CVE_MOVIMIENTO, MOVIMIENTO) values (null,"'.$idUsuarioSistema.'",now(),6,"El usuario '.$nombreUsuarioSistema[0]->nombre.' con el ID_Empleado '.$idUsuarioSistema.' entro a San Andres 2 " )');
 
   return view('Terrenos.Ventas.SanAndres2',compact('proyectos','lotes','id_proy'));
@@ -341,7 +341,7 @@ public function ventalotesView15(){
   $id_proy=15;
 
   $idUsuarioSistema = Auth::user()->id;
-  $nombreUsuarioSistema=DB::select('select CONCAT(Nombre," ",Apaterno," ",Amaterno)as nombre from users where id='.$idUsuarioSistema);
+  $nombreUsuarioSistema=DB::select('select CONCAT(Nombre," ",Apellido_Paterno," ",Apellido_Materno)as nombre from users where id='.$idUsuarioSistema);
   $bitacora=DB::select('insert into tb_bitacora (ID_Bitacora,ID_EMPLEADO,created_at, CVE_MOVIMIENTO, MOVIMIENTO) values (null,"'.$idUsuarioSistema.'",now(),6,"El usuario '.$nombreUsuarioSistema[0]->nombre.' con el ID_Empleado '.$idUsuarioSistema.' entro a San bartolo V " )');
 
   return view('Terrenos.Ventas.SanBartoloV',compact('proyectos','lotes','id_proy'));
@@ -353,7 +353,7 @@ public function ventalotesView12(){
   $id_proy=12;
 
   $idUsuarioSistema = Auth::user()->id;
-  $nombreUsuarioSistema=DB::select('select CONCAT(Nombre," ",Apaterno," ",Amaterno)as nombre from users where id='.$idUsuarioSistema);
+  $nombreUsuarioSistema=DB::select('select CONCAT(Nombre," ",Apellido_Paterno," ",Apellido_Materno)as nombre from users where id='.$idUsuarioSistema);
   $bitacora=DB::select('insert into tb_bitacora (ID_Bitacora,ID_EMPLEADO,created_at, CVE_MOVIMIENTO, MOVIMIENTO) values (null,"'.$idUsuarioSistema.'",now(),6,"El usuario '.$nombreUsuarioSistema[0]->nombre.' con el ID_Empleado '.$idUsuarioSistema.' entro a Las Palomas " )');
 
   return view('Terrenos.Ventas.LasPalomas',compact('proyectos','lotes','id_proy'));
@@ -365,7 +365,7 @@ public function ventalotesView7(){
   $id_proy=7;
 
   $idUsuarioSistema = Auth::user()->id;
-  $nombreUsuarioSistema=DB::select('select CONCAT(Nombre," ",Apaterno," ",Amaterno)as nombre from users where id='.$idUsuarioSistema);
+  $nombreUsuarioSistema=DB::select('select CONCAT(Nombre," ",Apellido_Paterno," ",Apellido_Materno)as nombre from users where id='.$idUsuarioSistema);
   $bitacora=DB::select('insert into tb_bitacora (ID_Bitacora,ID_EMPLEADO,created_at, CVE_MOVIMIENTO, MOVIMIENTO) values (null,"'.$idUsuarioSistema.'",now(),6,"El usuario '.$nombreUsuarioSistema[0]->nombre.' con el ID_Empleado '.$idUsuarioSistema.' entro a Las Golondrinas I " )');
 
   return view('Terrenos.Ventas.LasGolondrinas',compact('proyectos','lotes','id_proy'));
@@ -387,10 +387,10 @@ public function CalcularFechaNac(){
 public function ventalotesViewSinMapas(){ 
   $situaciones=DB::select('SELECT * FROM cat_situacion');
   $proyectos=DB::select('SELECT * FROM cat_proyectos ORDER BY PROYECTO ASC');
-  $vendedores=DB::select('SELECT concat(nombre," ",apaterno," ",amaterno)as vendedores,id FROM users where rol="vendedor"');
+  $vendedores=DB::select('SELECT CONCAT(Nombre," ",Apellido_Paterno," ",Apellido_Materno)as vendedores,id FROM users where rol="vendedor"');
 
   $idUsuarioSistema = Auth::user()->id;
-  $nombreUsuarioSistema=DB::select('select CONCAT(Nombre," ",Apaterno," ",Amaterno)as nombre from users where id='.$idUsuarioSistema);
+  $nombreUsuarioSistema=DB::select('select CONCAT(Nombre," ",Apellido_Paterno," ",Apellido_Materno)as nombre from users where id='.$idUsuarioSistema);
   $bitacora=DB::select('insert into tb_bitacora (ID_Bitacora,ID_EMPLEADO,created_at, CVE_MOVIMIENTO, MOVIMIENTO) values (null,"'.$idUsuarioSistema.'",now(),6,"El usuario '.$nombreUsuarioSistema[0]->nombre.' con el ID_Empleado '.$idUsuarioSistema.' Ingreso al modulo de Venta de Lotes(sin Mapas)" )');
 
   return view('Terrenos.Ventas.ventalotesViewSinMapas',compact('proyectos','vendedores','situaciones'));
@@ -407,7 +407,7 @@ public function capturaProyectos()
   $proyectos=DB::select('SELECT * FROM cat_proyectos ORDER BY PROYECTO ASC');
   $situaciones=DB::select('SELECT * FROM cat_situacion');
   $idUsuarioSistema = Auth::user()->id;
-  $nombreUsuarioSistema=DB::select('select CONCAT(Nombre," ",Apaterno," ",Amaterno)as nombre from users where id='.$idUsuarioSistema);
+  $nombreUsuarioSistema=DB::select('select CONCAT(Nombre," ",Apellido_Paterno," ",Apellido_Materno)as nombre from users where id='.$idUsuarioSistema);
   $bitacora=DB::select('insert into tb_bitacora (ID_Bitacora,ID_EMPLEADO,created_at, CVE_MOVIMIENTO, MOVIMIENTO) values (null,"'.$idUsuarioSistema.'",now(),6,"El usuario '.$nombreUsuarioSistema[0]->nombre.' con el ID_Empleado '.$idUsuarioSistema.' Ingreso al modulo de captura de proyectos" )');
   return view('Terrenos.Ventas.capturaProyectos',compact('proyectos','situaciones'));
 
@@ -418,7 +418,7 @@ public function notificacionesview()
   $proyectos=DB::select('SELECT * FROM cat_proyectos ORDER BY PROYECTO ASC');
   $situaciones=DB::select('SELECT * FROM cat_situacion');
   $idUsuarioSistema = Auth::user()->id;
-  $nombreUsuarioSistema=DB::select('select CONCAT(Nombre," ",Apaterno," ",Amaterno)as nombre from users where id='.$idUsuarioSistema);
+  $nombreUsuarioSistema=DB::select('select CONCAT(Nombre," ",Apellido_Paterno," ",Apellido_Materno)as nombre from users where id='.$idUsuarioSistema);
   $bitacora=DB::select('insert into tb_bitacora (ID_Bitacora,ID_EMPLEADO,created_at, CVE_MOVIMIENTO, MOVIMIENTO) values (null,"'.$idUsuarioSistema.'",now(),6,"El usuario '.$nombreUsuarioSistema[0]->nombre.' con el ID_Empleado '.$idUsuarioSistema.' Ingreso al modulo de captura de proyectos" )');
 if(Auth::user()->id==1){
       $tipo_usu="Seguimiento";
@@ -541,7 +541,7 @@ public function capturaProyectosLotes(Request $request)
   if($insert){
     $proyect=DB::select('select proyecto from cat_proyectos where id_proyecto='.$proyecto);
     $idUsuarioSistema = Auth::user()->id;
-  $nombreUsuarioSistema=DB::select('select CONCAT(Nombre," ",Apaterno," ",Amaterno)as nombre from users where id='.$idUsuarioSistema);
+  $nombreUsuarioSistema=DB::select('select CONCAT(Nombre," ",Apellido_Paterno," ",Apellido_Materno)as nombre from users where id='.$idUsuarioSistema);
   $bitacora=DB::select('insert into tb_bitacora (ID_Bitacora,ID_EMPLEADO,created_at, CVE_MOVIMIENTO, MOVIMIENTO) values (null,"'.$idUsuarioSistema.'",now(),6,"El usuario '.$nombreUsuarioSistema[0]->nombre.' con el ID_Empleado '.$idUsuarioSistema.' Registro el lote '.$Lt.', mz '.$Mz.', con el proyecto '.$proyect[0]->proyecto.'" )');
 
   }
@@ -561,7 +561,7 @@ public function buscarProyectosLotes(Request $request)
    $idUsuarioSistema = Auth::user()->id;
 $proyect=DB::select('select proyecto from cat_proyectos where id_proyecto='.$proyecto);
 
-  $nombreUsuarioSistema=DB::select('select CONCAT(Nombre," ",Apaterno," ",Amaterno)as nombre from users where id='.$idUsuarioSistema);
+  $nombreUsuarioSistema=DB::select('select CONCAT(Nombre," ",Apellido_Paterno," ",Apellido_Materno)as nombre from users where id='.$idUsuarioSistema);
   $bitacora=DB::select('insert into tb_bitacora (ID_Bitacora,ID_EMPLEADO,created_at, CVE_MOVIMIENTO, MOVIMIENTO) values (null,"'.$idUsuarioSistema.'",now(),6,"El usuario '.$nombreUsuarioSistema[0]->nombre.' con el ID_Empleado '.$idUsuarioSistema.' busco el proyecto con mz='.$Mz.', lt='.$lt.' con el proyecto '.$proyect[0]->proyecto.'" )');
 
   $insert =DB::select('select * from proyectoLote where proyecto="'.$proyecto.'" and mz="'.$Mz.'" and lt="'.$lt.'"');
@@ -593,7 +593,7 @@ public function agregarclientesListaEspera(Request $request)
   $cliente= DB::select('select * from clientes where concat(Nombre," ",A_paterno," ",A_materno)="'.$nombre.' '.$Apaterno.' '.$Amaterno.'" ');
 
   $idUsuarioSistema = Auth::user()->id;
-  $nombreUsuarioSistema=DB::select('select CONCAT(Nombre," ",Apaterno," ",Amaterno)as nombre from users where id='.$idUsuarioSistema);
+  $nombreUsuarioSistema=DB::select('select CONCAT(Nombre," ",Apellido_Paterno," ",Apellido_Materno)as nombre from users where id='.$idUsuarioSistema);
   $bitacora=DB::select('insert into tb_bitacora (ID_Bitacora,ID_EMPLEADO,created_at, CVE_MOVIMIENTO, MOVIMIENTO) values (null,"'.$idUsuarioSistema.'",now(),6,"El usuario '.$nombreUsuarioSistema[0]->nombre.' con el ID_Empleado '.$idUsuarioSistema.' agrego al cliente '.$nombre.' '.$Apaterno.' '.$Amaterno.' a una lista de espera para el proyecto '.$proyectoModal.' de la mz  '.$mzModal.' del lt '.$ltModal.'" )');
 
   if ($cliente) {
@@ -635,7 +635,7 @@ public function agregartratoVendedor(Request $request)
 
       $proyect=DB::select('select proyecto from cat_proyectos where id_proyecto='.$proyectoModal);
     $idUsuarioSistema = Auth::user()->id;
-  $nombreUsuarioSistema=DB::select('select CONCAT(Nombre," ",Apaterno," ",Amaterno)as nombre from users where id='.$idUsuarioSistema);
+  $nombreUsuarioSistema=DB::select('select CONCAT(Nombre," ",Apellido_Paterno," ",Apellido_Materno)as nombre from users where id='.$idUsuarioSistema);
   $bitacora=DB::select('insert into tb_bitacora (ID_Bitacora,ID_EMPLEADO,created_at, CVE_MOVIMIENTO, MOVIMIENTO) values (null,"'.$idUsuarioSistema.'",now(),6,"El usuario '.$nombreUsuarioSistema[0]->nombre.' con el ID_Empleado '.$idUsuarioSistema.' Realizo un trato con el cliente '.$nombre.' '.$Apaterno.' '.$Amaterno.' y numero de usuario '.$numeroCliente.' en el proyecto '.$proyect[0]->proyecto.', mz '.$mzModal.' y lt '.$ltModal.'" )');
 
 
@@ -648,7 +648,7 @@ public function agregartratoVendedor(Request $request)
 
       $proyect=DB::select('select proyecto from cat_proyectos where id_proyecto='.$proyectoModal);
     $idUsuarioSistema = Auth::user()->id;
-  $nombreUsuarioSistema=DB::select('select CONCAT(Nombre," ",Apaterno," ",Amaterno)as nombre from users where id='.$idUsuarioSistema);
+  $nombreUsuarioSistema=DB::select('select CONCAT(Nombre," ",Apellido_Paterno," ",Apellido_Materno)as nombre from users where id='.$idUsuarioSistema);
   $bitacora=DB::select('insert into tb_bitacora (ID_Bitacora,ID_EMPLEADO,created_at, CVE_MOVIMIENTO, MOVIMIENTO) values (null,"'.$idUsuarioSistema.'",now(),6,"El usuario '.$nombreUsuarioSistema[0]->nombre.' con el ID_Empleado '.$idUsuarioSistema.' Realizo un trato con el cliente '.$nombre.' '.$Apaterno.' '.$Amaterno.' y numero de usuario '.$numeroCliente.' en el proyecto '.$proyect.', mz '.$mzModal.' y lt '.$ltModal.'" )');
 
 
