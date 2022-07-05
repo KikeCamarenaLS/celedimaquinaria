@@ -441,6 +441,8 @@ Route::get('/ventalotesView4', 'VentasController@ventalotesView4');
 Route::get('/ventalotesView15', 'VentasController@ventalotesView15');
 Route::get('/ventalotesView12', 'VentasController@ventalotesView12');
 Route::get('/ventalotesView7', 'VentasController@ventalotesView7');
+Route::get('/ventalotesView10', 'VentasController@ventalotesView10');
+
 
 Route::get('/cliente/ConsultaCliente', 'ClienteController@ConsultaCliente');
 Route::get('/user/validaExistencia', 'Inventario\UsuarioController@validaExistencia');
