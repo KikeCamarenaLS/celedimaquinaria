@@ -371,6 +371,8 @@
 														<td style="width: 100px; height:45px; border:0px black solid;"  ></td>
 														<td style="width: 100px; height:45px; border:0px black solid;"  ></td>
 														<td style="width: 100px; height:45px;cursor:pointer;"  id="13_3" colspan="2"  onclick="cambiar('13','3')"></td>
+
+														<td style="width: 100px; height:45px;cursor:pointer;"  id="13_3" colspan="2"  onclick="cambiar('13','3')"></td>
 													</tr>
 													<tr>
 														<td style="width: 100px; height:45px; border:0px black solid;"  ></td>
