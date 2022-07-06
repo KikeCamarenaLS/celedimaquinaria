@@ -443,6 +443,10 @@ Route::get('/ventalotesView4', 'VentasController@ventalotesView4');
 Route::get('/ventalotesView15', 'VentasController@ventalotesView15');
 Route::get('/ventalotesView12', 'VentasController@ventalotesView12');
 Route::get('/ventalotesView7', 'VentasController@ventalotesView7');
+Route::get('/ventalotesView31', 'VentasController@ventalotesView31');
+Route::get('/ventalotesView24', 'VentasController@ventalotesView24');
+
+
 
 
 
