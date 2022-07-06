@@ -360,12 +360,18 @@ Route::get('/alta/capturaCobranza', 'ClienteController@capturaCobranza');
 Route::get('/buscar/encontrarContrato', 'ClienteController@encontrarContrato');
 
 
+
 Route::get('/cliente/ConsultarContratos', 'ClienteController@ConsultarContratos');
 
 Route::get('/nueva_captura/adpers', 'recursosHumanosController@viewNuevaCaptura');
 Route::get('/alta/capturaVendedor', 'recursosHumanosController@capturaVendedor');
 Route::get('/cobranza_contratos', 'TerrenoController\Cobranza@vistaCobranza');
+Route::get('/realizarPagos', 'TerrenoController\Cobranza@realizarPagos');
+
+
 Route::get('/busqueda/capturaCobranza', 'TerrenoController\Cobranza@busquedaContrato');
+
+Route::get('/busqueda/realizarPagos', 'TerrenoController\Cobranza@busquedaContratos');
 Route::get('/AgregarDatos/personal', 'recursosHumanosController@viewArchiveroPersonal');
 Route::get('/AgregarDatos/personal2', 'recursosHumanosController@viewArchiveroPersonal2');
 Route::get('/buscar/Vendedor', 'recursosHumanosController@buscarVendedor');
@@ -408,6 +414,9 @@ Route::get('/bitacoraView', 'bitacoraController@bitacoraView');
 Route::get('/buscar/tratos', 'ClienteController@buscarTratos');
 Route::get('/consultar/bitacora', 'bitacoraController@bitacoraconsultar');
 Route::get('/crea/PDF/BITACORA/{modulo}/{consulta}', 'bitacoraController@bitacoraPDF');
+Route::get('/crea/PDF/ComprobanteCobranza/{consulta}', 'TerrenoController\Cobranza@ComprobanteCobranzaPDF');
+
+
 Route::get('/generar/excel/{modulo}/{consulta}', 'bitacoraController@generarExcel');
 
 Route::get('/ventalotesView33', 'VentasController@ventalotesView33');

@@ -369,6 +369,11 @@
                             <div class="collapse" id="Cobranza">
                                 <ul class="nav nav-collapse">
                                     <li>
+                                        <a href="{{url('/realizarPagos')}}">
+                                            <span class="sub-item">Realizar Pagos</span>
+                                        </a>
+                                    </li>
+                                    <li>
                                         <a href="{{url('/cobranza_contratos')}}">
                                             <span class="sub-item">Contratos</span>
                                         </a>
