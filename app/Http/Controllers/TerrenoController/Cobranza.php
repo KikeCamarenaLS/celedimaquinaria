@@ -18,7 +18,7 @@ class Cobranza extends Controller
 
 
         public function vistaCobranza(){
-            $vendedores=DB::select('SELECT concat(nombre," ",apaterno," ",amaterno)as vendedores,id FROM users where rol="vendedor"');
+            $vendedores=DB::select('SELECT concat(nombre," ",Apellido_Paterno," ",Apellido_Materno)as vendedores,id FROM users where rolesuser="vendedor"');
             return view('Terrenos.Cobranza.VistaContratos',compact('vendedores'));
         }
         public function busquedaContrato(Request $request)

@@ -21,7 +21,7 @@ class ClienteController extends Controller
 
 	public function viewalta_de_clientes(){
 		$proyectos=DB::select('SELECT * FROM cat_proyectos');
-		$vendedores=DB::select('SELECT concat(nombre," ",apaterno," ",amaterno)as vendedores,id FROM users where rol="vendedor"');
+		$vendedores=DB::select('SELECT concat(nombre," ",Apellido_Paterno," ",Apellido_Materno)as vendedores,id FROM users where rolesuser="vendedor"');
 		$situaciones=DB::select('SELECT * FROM cat_situacion');
 		$mensaje="sin_mensaje";
 		$color="sin_mensaje";
@@ -48,7 +48,7 @@ class ClienteController extends Controller
 		$NclienteHide= $request->input("NclienteHide");
 
 		$validaExistente=DB::select('select p.superficie,p.plazo,p.CostoFinanciadoTotal ,p.CostoContadoTotal , p.enganche, p.TipoSuperficie,p.TipoPredio,t.mz,t.lt,t.proyecto, p.TipoVenta, 
-			CONCAT(u.Nombre," ",u.Apaterno," ",u.Amaterno) as idElemento, p.TipoVenta,  p.CostoContadoTotal, p.CostoFinanciadoTotal from tratosVendedores t 
+			CONCAT(u.Nombre," ",u.Apellido_Paterno," ",u.Apellido_Materno) as idElemento, p.TipoVenta,  p.CostoContadoTotal, p.CostoFinanciadoTotal from tratosVendedores t 
 			inner join  proyectoLote p ON p.mz=t.mz AND p.lt=t.lt AND p.proyecto=t.proyecto
 			inner join users u on u.id=p.idElemento  where t.proyecto="'.$proyecto.'" and t.mz="'.$Mz.'" and t.lt="'.$Lote.'" AND t.idCliente="'.$NclienteHide.'"');
 
@@ -64,7 +64,7 @@ class ClienteController extends Controller
 		$numcliente= $request->input("numcliente");
 
 		$validaExistente=DB::select('select p.superficie,p.TipoSuperficie,p.TipoPredio,t.mz,t.lt,p.TipoVenta, t.idCliente,cp.proyecto,t.Observaciones,t.created_at,
-			CONCAT(u.Nombre," ",u.Apaterno," ",u.Amaterno) as id_vendedor,p.TipoVenta,p.CostoContadoTotal,p.CostoFinanciadoTotal from tratosVendedores t 
+			CONCAT(u.Nombre," ",u.Apellido_Paterno," ",u.Apellido_Materno) as id_vendedor,p.TipoVenta,p.CostoContadoTotal,p.CostoFinanciadoTotal from tratosVendedores t 
 			inner join  proyectoLote p ON p.mz=t.mz AND p.lt=t.lt AND p.proyecto=t.proyecto
 			inner join users u on u.id=p.idElemento 
 			INNER JOIN cat_proyectos cp ON cp.id_proyecto=t.proyecto
@@ -198,7 +198,7 @@ class ClienteController extends Controller
 
 		if($validaExistente){
 			$proyectos=DB::select('SELECT * FROM cat_proyectos');
-		$vendedores=DB::select('SELECT concat(nombre," ",apaterno," ",amaterno)as vendedores,id FROM users where rol="vendedor"');
+		$vendedores=DB::select('SELECT concat(nombre," ",Apellido_Paterno," ",Apellido_Materno)as vendedores,id FROM users where rolesuser="vendedor"');
 		$situaciones=DB::select('SELECT * FROM cat_situacion');
 		$mensaje="Usuario repetido!!";
 		$color="danger";
@@ -206,7 +206,7 @@ class ClienteController extends Controller
 		}else{
 			$no_cliente=DB::select("select CONCAT( Date_format(now(),'%y%m%d%H%i%s'),'', FLOOR(5 + RAND()*(10-5))) as no_cliente");
 			$no_cli=$no_cliente[0]->no_cliente;
-			$vendedores=DB::select('SELECT concat(nombre," ",apaterno," ",amaterno)as vendedores,id FROM users ');
+			$vendedores=DB::select('SELECT concat(nombre," ",Apellido_Paterno," ",Apellido_Materno)as vendedores,id FROM users ');
 
 
 			$validator = Validator::make($request->all(), [
@@ -294,7 +294,7 @@ class ClienteController extends Controller
 			if ($insertUsuario) {
 
 				$idUsuarioSistema = Auth::user()->id;
-				$nombreUsuarioSistema=DB::select('select CONCAT(Nombre," ",Apaterno," ",Amaterno)as nombre from users where id='.$idUsuarioSistema);
+				$nombreUsuarioSistema=DB::select('select CONCAT(Nombre," ",Apellido_Paterno," ",Apellido_Materno)as nombre from users where id='.$idUsuarioSistema);
 				$bitacora=DB::select('insert into tb_bitacora (ID_Bitacora,ID_EMPLEADO,created_at, CVE_MOVIMIENTO, MOVIMIENTO) values (null,"'.$idUsuarioSistema.'",now(),6,"El usuario '.$nombreUsuarioSistema[0]->nombre.' con el ID_Empleado '.$idUsuarioSistema.' Registro Al cliente  '.$Nombre.' '.$Apellido_Paterno.' '.$Apellido_Materno.', numero de cliente asignado es  '.$no_cli.'" )');
 
 			}
@@ -316,7 +316,7 @@ class ClienteController extends Controller
 			}
 
 			$proyectos=DB::select('SELECT * FROM cat_proyectos');
-		$vendedores=DB::select('SELECT concat(nombre," ",apaterno," ",amaterno)as vendedores,id FROM users where rol="vendedor"');
+		$vendedores=DB::select('SELECT concat(nombre," ",Apellido_Paterno," ",Apellido_Materno)as vendedores,id FROM users where rolesuser="vendedor"');
 		$situaciones=DB::select('SELECT * FROM cat_situacion');
 		$mensaje="Usuario registrado con exito!!";
 		$color="success";
@@ -382,7 +382,7 @@ class ClienteController extends Controller
 			if ($insertUsuario) {
 
 				$idUsuarioSistema = Auth::user()->id;
-				$nombreUsuarioSistema=DB::select('select CONCAT(Nombre," ",Apaterno," ",Amaterno)as nombre from users where id='.$idUsuarioSistema);
+				$nombreUsuarioSistema=DB::select('select CONCAT(Nombre," ",Apellido_Paterno," ",Apellido_Materno)as nombre from users where id='.$idUsuarioSistema);
 				$bitacora=DB::select('insert into tb_bitacora (ID_Bitacora,ID_EMPLEADO,created_at, CVE_MOVIMIENTO, MOVIMIENTO) values (null,"'.$idUsuarioSistema.'",now(),6,"El usuario '.$nombreUsuarioSistema[0]->nombre.' con el ID_Empleado '.$idUsuarioSistema.' Registro Al cliente  '.$Nombre.' '.$Apellido_Paterno.' '.$Apellido_Materno.', numero de cliente asignado es  '.$no_cli.'" )');
 
 			}

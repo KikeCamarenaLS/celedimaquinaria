@@ -1622,7 +1622,7 @@ $('#llenaTabla2').html("");
 				$("#CostodelLoteCo").val(Intl.NumberFormat('es-MX').format(TotalDevengado));
 			}
 			
-			function actualizaDatos(){
+			function ActualizaDatosPersonales(){
 				console.log(numcliente);
 
 				$('#list_user').DataTable().destroy();
