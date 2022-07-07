@@ -32,7 +32,7 @@
 
 			
 
-			<table class="table" id="list_user">
+			<table class="table-responsive" id="list_user">
 
 				<header>
 					<thead>
