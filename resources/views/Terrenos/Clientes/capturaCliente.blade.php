@@ -334,7 +334,7 @@
 									</a>
 								</li>
 								<li class="nav-item submenu">
-									<a class="nav-link " id="pills-check-tab-icon" data-toggle="pill" href="#pills-check-icon" role="tab" aria-controls="pills-check-icon" aria-selected="true" onclick="actualizaDatos()">
+									<a class="nav-link " id="pills-check-tab-icon" data-toggle="pill" href="#pills-check-icon" role="tab" aria-controls="pills-check-icon" aria-selected="true" onclick="ActualizaDatosPersonales()">
 										<i class="flaticon-check"></i>
 										Informacion personal
 									</a>
@@ -353,14 +353,14 @@
 
 							<div class="tab-content mb-3" id="pills-with-icon-tabContent">
 							<div class="tab-pane fade " id="pills-check-icon" role="tabpanel" aria-labelledby="pills-check-tab-icon">
-									<div class="form-group row " id="tablaTratos">
+									<div  id="tablaTratos">
 
 
 
 
 
 										<div class="form-group row " >
-							<div class="col-md-3">
+							<div class="col-md-2">
 								<label>Género </label>
 								<select  class="form-control success" id="GéneroActualiza" name="GéneroActualiza"  style="width:100%;">
 									<option>Masculino</option>
@@ -370,12 +370,12 @@
 
 								</select>
 							</div>
-							<div class="col-md-2">
+							<div class="col-md-3">
 								<label>Nacionalidad</label>
 								<input  type="text" class="form-control"   id="NacionalidadActualiza" name="NacionalidadActualiza" >
 							</div>
 
-							<div class="col-md-3">
+							<div class="col-md-4">
 								<label>CURP</label>
 								<input  type="text" class="form-control" maxlength="18"   id="CURPActualiza" name="CURPActualiza"  >
 							</div>
@@ -383,9 +383,10 @@
 								<label>RFC</label>
 								<input  type="text" class="form-control"   id="RFCActualiza" name="RFCActualiza"  >
 							</div>
+
 						</div>
 						<div class="form-group row">
-							<div class="col-md-2">
+								<div class="col-md-2">
 								<label>Fecha de Nacimiento</label>
 								<input  type="date" class="form-control"   id="fechaNacActualiza" name="fechaNacActualiza" onchange="saberEdad();" >
 							</div>
@@ -558,9 +559,35 @@
 								<label>No. Identificación</label>
 								<input  type="text" class="form-control" id="NoIdentificaciónActualiza" name="NoIdentificaciónActualiza"  >
 							</div>
-							<div class="col-md-5">
-								<label>&nbsp; </label>
-								
+							<div class="col-md-12">
+								<label>¿Cómo se enteró de nosotros?</label>
+							</div>
+							<div class="col-md-12">
+								<input  type="checkbox"  id="RedesActualiza" name="RedesActualiza"  value="Redes sociales">Redes sociales
+							</div>
+							<div class="col-md-12">
+								<input  type="checkbox"  id="BoletínActualiza" name="BoletínActualiza"  value="Publicidad impresa
+								">Publicidad impresa
+
+							</div>
+							<div class="col-md-12">
+								<input  type="checkbox"  id="AmigosActualiza" name="AmigosActualiza"  value="Amigos y/o familiares" onclick="cambiarrecomendohidenActualiza()">Amigos y/o familiares 
+
+							</div>
+							<div class="col-md-4" id="recomendohidenActualiza" style="display: none;">
+								<input  type="text" class="form-control"  id="QuienRecomendoActualiza" name="QuienRecomendoActualiza" placeholder="Nombre completo de quien te recomendo" style="border:1px black solid">
+							</div>
+							<div class="col-md-12">
+								<input  type="checkbox"  id="AgentesActualiza" name="AgentesActualiza"  value="Agentes de venta">Agente de venta 
+							</div>
+							<div class="col-md-12">
+								<input  type="checkbox"  id="espectacularActualiza" name="espectacularActualiza"  value="espectacular"> Espectacular
+							</div>
+							<div class="col-md-12">
+								<input  type="checkbox"  id="OtroActualiza" name="OtroActualiza"   onclick="cambiarOtrohidenActualiza()" value="Otros">Otros
+							</div>
+							<div class="col-md-4" id="OtrohidenActualiza" style="display: none;">
+								<input  type="text" class="form-control"  id="otrosActualiza" name="otrosActualiza"  placeholder="Especifica como te enteraste de nosotros">
 							</div>
 
 
@@ -575,7 +602,7 @@
 							<div class="row">
 								<div class="col-md-12">
 									<center>
-										<input  type="submit" class="btn btn-success" value="Actualiza" onclick="ActualizaDatosPersonales()" >
+										<input  type="submit" class="btn btn-success" value="Actualiza" onclick="UpdateDatosPerso()" >
 									</center>
 								</div>
 							</div>
@@ -1160,6 +1187,15 @@
 					$('#recomendohiden').css('display','none');
 				}
 			}
+			function cambiarrecomendohidenActualiza(){
+
+				if($('#AmigosActualiza').prop('checked') ){
+					$('#recomendohidenActualiza').css('display','block');
+				}else{
+					$('#recomendohidenActualiza').css('display','none');
+				}
+			}
+			
 
 			function cambiarOtrohiden(){
 				
@@ -1167,6 +1203,14 @@
 					$('#Otrohiden').css('display','block');
 				}else{
 					$('#Otrohiden').css('display','none');
+				}
+			}
+			function cambiarOtrohidenActualiza(){
+				
+				if($('#OtroActualiza').prop('checked') ){
+					$('#OtrohidenActualiza').css('display','block');
+				}else{
+					$('#OtrohidenActualiza').css('display','none');
 				}
 			}
 
@@ -1938,6 +1982,69 @@ $('#llenaTabla2').html("");
 				
 				
 			}
+			function UpdateDatosPerso(){
+				console.log(numcliente);
+				$.ajax({
+						data:  {
+
+							"Género":$('#GéneroActualiza').val(),
+							"Ncliente":numcliente,
+							"Nacionalidad":$('#NacionalidadActualiza').val(),
+							"CURP":$('#CURPActualiza').val(),
+							"RFC":$('#RFCActualiza').val(),
+							"fechaNac":$('#fechaNacActualiza').val(),
+							"estudio":$('#estudioActualiza').val(),
+							"Estado_civil":$('#Estado_civilActualiza').val(),
+							"dependiente":$('#dependienteActualiza').val(),
+							"Hijosdependiente":$('#HijosdependienteActualiza').val(),
+							"Ocupación":$('#OcupaciónActualiza').val(),
+							"Telefono_1":$('#Telefono_1Actualiza').val(),
+							"Telefono_2":$('#Telefono_3Actualiza').val(),
+							"Correo":$('#CorreoActualiza').val(),
+							"Calle":$('#CalleActualiza').val(),
+							"CodigoPostal":$('#CodigoPostalActualiza').val(),
+							"Ninterior":$('#NinteriorActualiza').val(),
+							"NExterior":$('#NExteriorActualiza').val(),
+							"Colonia":$('#ColoniaActualiza').val(),
+							"Municipio":$('#MunicipioActualiza').val(),
+							"Estado":$('#EstadoActualiza').val(),
+							"Referencia":$('#ReferenciaActualiza').val(),
+							"Poblacion":$('#PoblacionActualiza').val(),
+							"Geolocalización":$('#GeolocalizaciónActualiza').val(),
+							"Idenificacion":$('#IdenificacionActualiza').val(),
+							"NoIdentificación":$('#NoIdentificaciónActualiza').val(),
+
+
+
+							
+							"Redes":$('#RedesActualiza').val(),
+							"Boletín":$('#BoletínActualiza').val(),
+							"Amigos":$('#AmigosActualiza').val(),
+							"Agentes":$('#AgentesActualiza').val(),
+							"Otro":$('#OtroActualiza').val(),
+							"otros":$('#otrosActualiza').val(),
+							"espectacular":$('#espectacularActualiza').val(),
+							"QuienRecomendo":$('#QuienRecomendoActualiza').val(),
+
+
+							
+						}, 
+						url:   "{{url('update/actualizaclient')}}",
+						type:  'get',
+						success:  function (data) { 
+							console.log(data);
+							if(data=="listo"){
+								mensaje('success','Se actualizo el usuario con exitoso!!');
+							}else{
+
+								mensaje('danger','usuario ya existe!!');
+							}
+
+
+						},
+					});
+			}
+
 			function Registrar(){
 				if($('#Nombre').val()==""){
 					$('#validaN').css("display", "block");

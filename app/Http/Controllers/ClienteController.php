@@ -324,6 +324,70 @@ class ClienteController extends Controller
 			return view('Terrenos.Clientes.capturaCliente',compact('proyectos','vendedores','situaciones','mensaje','color'));
 		}
 	}
+	
+
+
+	public function actualizaclient(Request $request){
+		$Ncliente= $request->input("Ncliente");
+		
+			$Telefono_1= $request->input("Telefono_1");
+			$Telefono_2= $request->input("Telefono_2");
+			$Correo= $request->input("Correo");
+			$Calle= $request->input("Calle");
+			$CodigoPostal= $request->input("CodigoPostal");
+			$Ninterior= $request->input("Ninterior");
+			$NExterior= $request->input("NExterior");
+			$Colonia= $request->input("Colonia");
+			$Municipio= $request->input("Municipio");
+			$Estado= $request->input("Estado");
+			$Referencia= $request->input("Referencia");
+			$Geolocalización= $request->input("Geolocalización");
+
+			$Redes= $request->input("Redes");
+			$Boletín= $request->input("Boletín");
+			$Amigos= $request->input("Amigos");
+			$Agentes= $request->input("Agentes");
+			$Otro= $request->input("Otro");
+			$otros= $request->input("otros");
+
+			$CURP= $request->input("CURP");
+			$RFC= $request->input("RFC");
+			$fechaNac= $request->input("fechaNac");
+			$Ocupación= $request->input("Ocupación");
+			$Poblacion= $request->input("Poblacion");
+
+
+			$Estado_civil= $request->input("Estado_civil");
+			$Género= $request->input("Género");
+			$estudio= $request->input("estudio");
+			$dependiente= $request->input("dependiente");
+			$espectacular= $request->input("espectacular");
+			$QuienRecomendo= $request->input("QuienRecomendo");
+
+			$Nacionalidad= $request->input("Nacionalidad");
+
+			$Hijosdependiente= $request->input("Hijosdependiente");
+			$Idenificacion= $request->input("Idenificacion");
+			$NoIdentificación= $request->input("NoIdentificación");
+
+
+			$id = Auth::user()->id;
+
+			$insertUsuario=DB::select('update clientes set Estado_civil="'.$Estado_civil.'", Género="'.$Género.'", estudio="'.$estudio.'",dependiente="'.$dependiente.'", espectacular="'.$espectacular.'", QuienRecomendo="'.$QuienRecomendo.'", Telefono1="'.$Telefono_1.'", Telefono2="'.$Telefono_2.'", correo="'.$Correo.'", Calle="'.$Calle.'", Ninterior="'.$Ninterior.'", NExterior="'.$NExterior.'", Colonia="'.$Colonia.'", Municipio="'.$Municipio.'", Estado="'.$Estado.'", cp="'.$CodigoPostal.'", id_personal="'.$id.'", Referencia="'.$Referencia.'",CURP="'.$CURP.'",RFC="'.$RFC.'",fechaNac="'.$fechaNac.'",Ocupación="'.$Ocupación.'",Poblacion="'.$Poblacion.'",Nacionalidad="'.$Nacionalidad.'",Hijodependiente="'.$Hijosdependiente.'",Identificacion="'.$Idenificacion.'",NoIdentificacion="'.$NoIdentificación.'",Geolocalización="'.$Geolocalización.'"  where N_Cliente="'.$Ncliente.'"');
+			if ($insertUsuario) {
+
+				$idUsuarioSistema = Auth::user()->id;
+				$nombreUsuarioSistema=DB::select('select CONCAT(Nombre," ",Apellido_Paterno," ",Apellido_Materno)as nombre from users where id='.$idUsuarioSistema);
+				$bitacora=DB::select('insert into tb_bitacora (ID_Bitacora,ID_EMPLEADO,created_at, CVE_MOVIMIENTO, MOVIMIENTO) values (null,"'.$idUsuarioSistema.'",now(),6,"El usuario '.$nombreUsuarioSistema[0]->nombre.' con el ID_Empleado '.$idUsuarioSistema.' Modifico la informacion del cliente con el numero asignado de  '.$Ncliente.'" )');
+
+			}
+
+			
+
+			return 'listo';
+	}
+
+
 	public function alta_de_clientes(Request $request){
 		$Nombre= $request->input("Nombre");
 		$Apellido_Paterno= $request->input("Apellido_Paterno");
