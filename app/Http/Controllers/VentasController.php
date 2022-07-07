@@ -433,7 +433,7 @@ public function CalcularFechaNac(){
 public function ventalotesViewSinMapas(){ 
   $situaciones=DB::select('SELECT * FROM cat_situacion');
   $proyectos=DB::select('SELECT * FROM cat_proyectos ORDER BY PROYECTO ASC');
-  $vendedores=DB::select('SELECT CONCAT(Nombre," ",Apellido_Paterno," ",Apellido_Materno)as vendedores,id FROM users where rol="vendedor"');
+  $vendedores=DB::select('SELECT CONCAT(Nombre," ",Apellido_Paterno," ",Apellido_Materno)as vendedores,id FROM users where rolesuser="vendedor"');
 
   $idUsuarioSistema = Auth::user()->id;
   $nombreUsuarioSistema=DB::select('select CONCAT(Nombre," ",Apellido_Paterno," ",Apellido_Materno)as nombre from users where id='.$idUsuarioSistema);

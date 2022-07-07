@@ -67,56 +67,21 @@
 
 														<div class="col-md-3">
 															<label>Situación de la compra</label>
-															<input required="" type="text"  class="form-control"  id="FechaApartadoCo" name="FechaApartadoCo" value="Al corriente" disabled>
+															<input required="" type="text"  class="form-control"  id="situacionCompra" name="situacionCompra"  disabled>
 														</div>
 														<div class="col-md-3">
 															<label>Día de pagos (Mensualidades)</label>
 
-															<div class="select2-input">
-																<select class="form-control" id="FechaPagoCCo" name="FechaPagoCCo" style="width: 100%;">
-																	<option>1</option>
-																	<option>2</option>
-																	<option>3</option>
-																	<option>4</option>
-																	<option>5</option>
-																	<option>6</option>
-																	<option>7</option>
-																	<option>8</option>
-																	<option>9</option>
-																	<option>10</option>
-																	<option>11</option>
-																	<option>12</option>
-																	<option>13</option>
-																	<option>14</option>
-																	<option>15</option>
-																	<option>16</option>
-																	<option>17</option>
-																	<option>18</option>
-																	<option>19</option>
-																	<option>20</option>
-																	<option>21</option>
-																	<option>22</option>
-																	<option>23</option>
-																	<option>24</option>
-																	<option>25</option>
-																	<option>26</option>
-																	<option>27</option>
-																	<option>28</option>
-																	<option>29</option>
-																	<option>30</option>
-																	<option>31</option>
-																	<option>32</option>
-																</select>
-															</div>
+															<input required="" type="text"  class="form-control"  id="DiaPagos" name="DiaPagos"  disabled>
 														</div>
 
 														<div class="col-md-3">
 															<label>Pagos realizados </label>
-															<input required="" type="text" value="3/24" maxlength="9"  class="form-control" id="ApartadoCo" name="ApartadoCo" disabled >
+															<input required="" type="text"  maxlength="9"  class="form-control" id="PagosRealizados" name="PagosRealizados" disabled >
 														</div>
 														<div class="col-md-3">
 															<label>Pago del mes </label>
-															<input required="" type="text" value="5,000" maxlength="9"  class="form-control" id="ApartadoCo" name="ApartadoCo" disabled >
+															<input required="" type="text"  maxlength="9"  class="form-control" id="PagoMes" name="PagoMes" disabled >
 														</div>
 														
 
@@ -170,6 +135,7 @@
 													<th class="bg-danger sorting" style="color:#ffffff; width: 8%;"><center>Proyecto</center></th>
 													<th class="bg-danger sorting" style="color:#ffffff; width: 5%;"><center>Mz</center></th>
 													<th class="bg-danger sorting" style="color:#ffffff; width: 5%;"><center>Lote</center></th>
+													<th class="bg-danger sorting" style="color:#ffffff; width: 5%;"><center>Estatus</center></th>
 													
 													<th class="bg-danger sorting" style="color:#ffffff; width: 12%;"><center>Acción</center></th>
 
@@ -291,7 +257,7 @@
 							  var vendedor='"'+response[i].vendedor+'"';
 							  var Comision1='"'+response[i].Comision1+'"';
 							  var Comision2='"'+response[i].Comision2+'"';
-							  var EstatusVenta='"'+response[i].EstatusVenta+'"';
+							  var EstatusVenta='"'+response[i].estatus+'"';
 							html+="<tr>";
 							html+="<td> <FONT  SIZE=2>"+response[i].id_contratos+"</FONT></td>";
 							html+="<td> <FONT  SIZE=2>"+response[i].N_Cliente+"</FONT></td>";
@@ -300,7 +266,8 @@
 							html+="<td> <FONT  SIZE=2>"+response[i].nom_proyecto+"</FONT></td>";
 							html+="<td> <FONT  SIZE=2>"+response[i].Mz+"</FONT></td>";
 							html+="<td> <FONT  SIZE=2>"+response[i].Lt+"</FONT></td>";
-							html+="<td><input type='submit' class='btn btn-success' value='Ver Detalles' onclick='abrirModal("+response[i].id_contratos+","+costocomilla+","+Enganchecomilla+","+FechaApartado+","+Apartado+","+FechaEnganche+","+ComplementoEnganche+","+DiaPago+","+vendedor+","+Comision1+","+Comision2+","+EstatusVenta+")'></td>";
+							html+="<td> <FONT  SIZE=2>"+response[i].estatus+"</FONT></td>";
+							html+="<td><input type='submit' class='btn btn-success' value='Ver Detalles' onclick='abrirModal("+response[i].id_contratos+","+costocomilla+","+EstatusVenta+","+DiaPago+")'></td>";
 							html+="</tr>";
 						}$('#llenaTabla').html("");
 						$('#llenaTabla').html(html);
@@ -356,10 +323,14 @@
 				TotalDevengado = TotalDevengado.replace(/,/g, "");
 				$("#CostodelLoteCo").val(Intl.NumberFormat('es-MX').format(TotalDevengado));
 			}
-				function abrirModal(contrato,costo,enganche,FechaApartado,Apartado,FechaEnganche,ComplementoEnganche,DiaPago,vendedor,Comision1,Comision2,EstatusVenta){
+				function abrirModal(contrato,costo,EstatusVenta,DiaPago){
 					$('#modalCobranza').modal('show');
 					$('#numeroContr').val(contrato);
-					console.log(FechaApartado);
+					$('#DiaPagos').val(DiaPago);
+					$('#situacionCompra').val(EstatusVenta);
+					$('#PagoMes').val(costo);
+
+					$('#numeroContr').val(contrato);
 					//$('#FechaApartadoCo').val(FechaApartado);
 					//$('#ApartadoCo').val(Apartado);
 
@@ -375,8 +346,6 @@
 					$("#CostodelLoteCo").prop('disabled', true);
 					$("#EngancheCobranzaCo").prop('disabled', true);
 					
-					EngancheCobranzaCofvariable(enganche);
-					CostodelLoteFormatoVariable(costo);
 				}
 				function mensaje(color,mensaje){
 					if(mensaje=="sin_mensaje"){

@@ -844,69 +844,7 @@
 														</div>
 
 													</div>
-													<div class="form-group row " >
 
-														<div class="col-md-3">
-															<label>Enganche  </label>
-															<input required="" type="text"  class="form-control" id="EngancheCobranzaCo" name="EngancheCobranzaCo" >
-														</div>
-														<div class="col-md-3">
-															<label>Costo del Lote </label>
-															<input required="" type="text"  onkeyup="CostodelLoteFormato()" maxlength="9" onKeypress="if (event.keyCode < 45 || event.keyCode > 57) event.returnValue = false;" class="form-control" id="CostodelLoteCo" name="CostodelLoteCo" >
-														</div>
-														<div class="col-md-3">
-															<label>Día de pagos (Mensualidades)</label>
-
-															<div class="select2-input">
-																<select class="form-control" id="FechaPagoCCo" name="FechaPagoCCo" style="width: 100%;">
-																	<option>1</option>
-																	<option>2</option>
-																	<option>3</option>
-																	<option>4</option>
-																	<option>5</option>
-																	<option>6</option>
-																	<option>7</option>
-																	<option>8</option>
-																	<option>9</option>
-																	<option>10</option>
-																	<option>11</option>
-																	<option>12</option>
-																	<option>13</option>
-																	<option>14</option>
-																	<option>15</option>
-																	<option>16</option>
-																	<option>17</option>
-																	<option>18</option>
-																	<option>19</option>
-																	<option>20</option>
-																	<option>21</option>
-																	<option>22</option>
-																	<option>23</option>
-																	<option>24</option>
-																	<option>25</option>
-																	<option>26</option>
-																	<option>27</option>
-																	<option>28</option>
-																	<option>29</option>
-																	<option>30</option>
-																	<option>31</option>
-																	<option>32</option>
-																	<option value="0">N/A</option>
-																</select>
-															</div>
-														</div>
-														<div class="col-md-3">
-															<label>Vendedor </label>
-															<select class="form-control" id="VendedorCCo" name="VendedorCCo" style="width: 100%;">
-																@foreach($vendedores as $vendedore)
-																<option value="{{$vendedore->id}}">{{$vendedore->vendedores}}</option>
-																@endforeach
-															</select>
-														</div>
-
-
-
-													</div>
 													<div class="form-group row " >
 
 														
@@ -1257,6 +1195,11 @@
 
 				var Adquisición=$("#Adquisición").val();
 				if(Adquisición=="Financiado"){
+
+
+							
+
+
 					$("#CostoTotal").val(financiado);
 
 					$("#Nparcialidades").val(parcialidades);
@@ -1266,6 +1209,15 @@
 					$("#FechaPago").prop('disabled', false);
 
 					$("#FechaPago option[value='0']").attr("selected",false);
+
+
+					var financiado2=financiado;
+				financiado2 = financiado2.replace(/,/g, "");
+							var parcialidades2=parcialidades;
+				parcialidades2 = parcialidades2.replace(/,/g, "");
+					console.log('a'+financiado2);
+					console.log('b'+parcialidades2);
+							$("#MontoMensual").val(Intl.NumberFormat('es-MX').format(financiado2 / parcialidades2));
 				}else if(Adquisición=="Contado"){
 
 					$("#CostoTotal").val(contado);
@@ -1331,20 +1283,24 @@
 							contado=data[0].CostoContadoTotal;
 							financiado=data[0].CostoFinanciadoTotal;
 							parcialidades=data[0].plazo;
+
+							var financiado2=financiado;
+				financiado2 = financiado2.replace(/,/g, "");
+							var parcialidades2=parcialidades;
+				parcialidades2 = parcialidades2.replace(/,/g, "");
+
+							$("#MontoMensual").val(Intl.NumberFormat('es-MX').format(financiado2 / parcialidades2));
+
 							$("#Superficie").val(data[0].superficie);
 							$("#TipoSuperficie").val(data[0].TipoSuperficie);
 							$("#TipoPredio").val(data[0].TipoPredio);
 							$("#Vendedor").val(data[0].idElemento);
 							$("#Nparcialidades").val(data[0].plazo);
 							$("#Enganche").val(data[0].enganche);
-							var financiado2=financiado;
-				financiado2 = financiado2.replace(/,/g, "");
-							var parcialidades2=parcialidades;
-				parcialidades2 = parcialidades2.replace(/,/g, "");
+							
 
 							console.log(financiado2+' '+parcialidades2);
 
-							$("#MontoMensual").val(Intl.NumberFormat('es-MX').format(financiado2 / parcialidades2));
 
 
 
@@ -1439,7 +1395,11 @@
 								$('#validaexiste').css("display", "block");
 								$('#validaExisteContrato').css("display", "none");
 							}else{
+								if (data[0].Foto=="") {
+								$('#ponerFoto').attr("src","{{url('assets/img/profile.png')}}");
+								}else{
 								$('#ponerFoto').attr("src","{{url('archivero')}}/"+ data[0].Foto );
+								}								
 								$('#FotoInput').css("display", "none");
 								$('#validaexiste').css("display", "none");
 								$('#validaExisteContrato').css("display", "block");
@@ -1531,10 +1491,7 @@ $('#llenaTabla2').html("");
 						"ncontrato":$('#numeroContr').val(),
 						"FechaEngancheCo":$('#FechaEngancheCo').val(),
 						"ComEngancheCo":$('#ComEngancheCo').val(),
-						"EngancheCobranzaCo":$('#EngancheCobranzaCo').val(),
-						"CostodelLoteCo":$('#CostodelLoteCo').val(),
-						"FechaPagoCCo":$('#FechaPagoCCo').val(),
-						"VendedorCCo":$('#VendedorCCo').val(),
+
 						
 						"Comisión1Co":$('#Comisión1Co').val(),
 						"Comisión2Co":$('#Comisión2Co').val(),
@@ -1602,14 +1559,14 @@ $('#llenaTabla2').html("");
 			}
 			
 			function Comisión1Formato(){
-				var TotalDevengado=$("#Comisión1").val();
+				var TotalDevengado=$("#Comisión1Co").val();
 				TotalDevengado = TotalDevengado.replace(/,/g, "");
-				$("#Comisión1").val(Intl.NumberFormat('es-MX').format(TotalDevengado));
+				$("#Comisión1Co").val(Intl.NumberFormat('es-MX').format(TotalDevengado));
 			}
 			function Comisión2Formato(){
-				var TotalDevengado=$("#Comisión2").val();
+				var TotalDevengado=$("#Comisión2Co").val();
 				TotalDevengado = TotalDevengado.replace(/,/g, "");
-				$("#Comisión2").val(Intl.NumberFormat('es-MX').format(TotalDevengado));
+				$("#Comisión2Co").val(Intl.NumberFormat('es-MX').format(TotalDevengado));
 			}
 			function MontoMensualFormato(){
 				var TotalDevengado=$("#MontoMensual").val();

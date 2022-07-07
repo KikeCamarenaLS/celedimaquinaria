@@ -85,10 +85,7 @@ class ClienteController extends Controller
 		$ncontrato= $request->input("ncontrato");
 		$FechaEngancheCo= $request->input("FechaEngancheCo");
 		$ComEngancheCo= $request->input("ComEngancheCo");
-		$EngancheCobranzaCo= $request->input("EngancheCobranzaCo");
-		$CostodelLoteCo= $request->input("CostodelLoteCo");
-		$FechaPagoCCo= $request->input("FechaPagoCCo");
-		$VendedorCCo= $request->input("VendedorCCo");
+
 		$Comisión1Co= $request->input("Comisión1Co");
 		$Comisión2Co= $request->input("Comisión2Co");
 		$EstatusVentaCo= $request->input("EstatusVentaCo");
@@ -98,7 +95,7 @@ class ClienteController extends Controller
 
 		$id = Auth::user()->id;
 
-		$insert =DB::select('insert into contrato_cobranza (id_contrato_cobranza,id_contrato,N_Cliente,FechaApartado, Apartado, FechaEnganche, ComplementoEnganche, Enganche, CostoLote, DiaPago, vendedor, Comision1, Comision2, EstatusVenta, empleadoRegistra,created_at) values (null,'.$ncontrato.','.$NclienteHide.',"'.$FechaApartadoCo.'","'.$ApartadoCo.'","'.$FechaEngancheCo.'","'.$ComEngancheCo.'","'.$EngancheCobranzaCo.'","'.$CostodelLoteCo.'","'.$FechaPagoCCo.'","'.$VendedorCCo.'","'.$Comisión1Co.'","'.$Comisión2Co.'","'.$EstatusVentaCo.'","'.$id.'",now())');
+		$insert =DB::select('insert into contrato_cobranza (id_contrato_cobranza,id_contrato,N_Cliente,FechaApartado, Apartado, FechaEnganche, ComplementoEnganche,Comision1, Comision2, EstatusVenta, empleadoRegistra,created_at) values (null,'.$ncontrato.','.$NclienteHide.',"'.$FechaApartadoCo.'","'.$ApartadoCo.'","'.$FechaEngancheCo.'","'.$ComEngancheCo.'","'.$Comisión1Co.'","'.$Comisión2Co.'","'.$EstatusVentaCo.'","'.$id.'",now())');
 
 		
 		return $insert;
@@ -160,8 +157,12 @@ class ClienteController extends Controller
 		$id = Auth::user()->id;
 
 		$insert =DB::select('insert into contratos (id_contratos,N_Cliente,FechaVenta, FechaContrato, Proyecto, Mz, Lt, Superficie, TipoSuperficie, TipoPredio, Vendedor, Adquisicion, N_Parcialidades, Costo, Enganche, DiaPago, MontoMensual, Interes, TelefonoAval,created_at) values ('.$no_contrato.','.$Ncliente.',"'.$Fecha_Venta.'","'.$Fecha_Contrato.'","'.$proyecto.'","'.$Mz.'","'.$Lote.'","'.$Superficie.'","'.$TipoSuperficie.'","'.$TipoPredio.'","'.$Vendedor.'","'.$Adquisición.'","'.$Nparcialidades.'","'.$CostoTotal.'","'.$Enganche.'","'.$FechaPago.'","'.$MontoMensual.'","'.$Porcentaje.'","'.$Telefono_2.'",now())');
-
-		$updates=DB::select('update proyectoLote set estatus="Al corriente" where lt="'.$Lote.'" and mz="'.$Mz.'" and proyecto="'.$proyecto.'" ');
+		if($Adquisición="Contado"){
+			$updates=DB::select('update proyectoLote set estatus="Liquidado" where lt="'.$Lote.'" and mz="'.$Mz.'" and proyecto="'.$proyecto.'" ');
+		}else{
+			$updates=DB::select('update proyectoLote set estatus="Al corriente" where lt="'.$Lote.'" and mz="'.$Mz.'" and proyecto="'.$proyecto.'" ');
+		}
+		
 		$updates2=DB::select('update tratosvendedores set Estatus="Atendido" where lt="'.$Lote.'" and mz="'.$Mz.'" and proyecto="'.$proyecto.'" ');
 		return $no_contrato;
 
