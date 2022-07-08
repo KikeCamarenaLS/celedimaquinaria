@@ -326,13 +326,14 @@
 						</div>
 						<div class="col-md-12">
 							<ul class="nav nav-pills nav-secondary  nav-pills-no-bd nav-pills-icons justify-content-center" id="pills-tab-with-icon" role="tablist">
-
+								 @can('Cobranza')
 								<li class="nav-item submenu">
 									<a class="nav-link active show" id="pills-home-tab-icon" data-toggle="pill" href="#pills-home-icon" role="tab" aria-controls="pills-home-icon" aria-selected="false">
 										<i class="flaticon-home"></i>
 										Registrar Contrato
 									</a>
 								</li>
+								@endcan
 								<li class="nav-item submenu">
 									<a class="nav-link " id="pills-check-tab-icon" data-toggle="pill" href="#pills-check-icon" role="tab" aria-controls="pills-check-icon" aria-selected="true" onclick="ActualizaDatosPersonales()">
 										<i class="flaticon-check"></i>
@@ -352,7 +353,7 @@
 							</ul>
 
 							<div class="tab-content mb-3" id="pills-with-icon-tabContent">
-							<div class="tab-pane fade " id="pills-check-icon" role="tabpanel" aria-labelledby="pills-check-tab-icon">
+							<div class="tab-pane fade active show" id="pills-check-icon" role="tabpanel" aria-labelledby="pills-check-tab-icon">
 									<div  id="tablaTratos">
 
 
@@ -617,7 +618,7 @@
 
 								</div>
 							</div>
-								<div class="tab-pane fade active show" id="pills-home-icon" role="tabpanel" aria-labelledby="pills-home-tab-icon">
+								<div class="tab-pane fade" id="pills-home-icon" role="tabpanel" aria-labelledby="pills-home-tab-icon">
 									<div class="form-group row " id="tablaTratos">
 
 										<div class="table-responsive" >
