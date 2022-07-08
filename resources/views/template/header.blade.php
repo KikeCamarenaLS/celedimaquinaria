@@ -263,8 +263,8 @@
                             <div class="collapse" id="rh">
                                 <ul class="nav nav-collapse">
                                     <li>
-                                       <!-- <a href="{{url('/nueva_captura/adpers')}}">-->
-                                         <a href="{{url('/nuevo_usuario')}}">
+                                       <!-- <a href="{{url('/nueva_captura/adpers')}}">--> 
+                                        <a href="{{url('/nuevo_usuarioTerreno')}}">
                                             <span class="sub-item">Nuevo Personal</span>
                                         </a>
                                     </li>

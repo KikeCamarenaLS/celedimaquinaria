@@ -32,11 +32,12 @@
 
 			
 
-			<table class="table" id="list_user">
+			<table class="table-responsive" id="list_user">
 
 				<header>
 					<thead>
 					  <tr>
+					    <th class="info text-center">ID Usuario </th>
 					    <th class="info text-center">Usuario </th>
 					    <th class="info text-center">Correo</th>
 					    <th class="info text-center">Estatus</th>
@@ -50,6 +51,7 @@
 
 					@foreach($usuarios as $usuario)
 					<tr>
+						<td class="info text-center">{{$usuario->id}} </td>
 						<td class="info text-center">{{$usuario->Nombre}} {{$usuario->Apaterno}} {{$usuario->Amaterno}}</td>
 						<td class="info text-center">{{$usuario->email}}</td>
                         <td class="primary" >
