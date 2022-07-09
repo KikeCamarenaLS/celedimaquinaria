@@ -157,6 +157,13 @@ class ClienteController extends Controller
 		$id = Auth::user()->id;
 
 		$insert =DB::select('insert into contratos (id_contratos,N_Cliente,FechaVenta, FechaContrato, Proyecto, Mz, Lt, Superficie, TipoSuperficie, TipoPredio, Vendedor, Adquisicion, N_Parcialidades, Costo, Enganche, DiaPago, MontoMensual, Interes, TelefonoAval,created_at) values ('.$no_contrato.','.$Ncliente.',"'.$Fecha_Venta.'","'.$Fecha_Contrato.'","'.$proyecto.'","'.$Mz.'","'.$Lote.'","'.$Superficie.'","'.$TipoSuperficie.'","'.$TipoPredio.'","'.$Vendedor.'","'.$Adquisición.'","'.$Nparcialidades.'","'.$CostoTotal.'","'.$Enganche.'","'.$FechaPago.'","'.$MontoMensual.'","'.$Porcentaje.'","'.$Telefono_2.'",now())');
+
+
+		$idUsuarioSistema = Auth::user()->id;
+				$nombreUsuarioSistema=DB::select('select CONCAT(Nombre," ",Apellido_Paterno," ",Apellido_Materno)as nombre from users where id='.$idUsuarioSistema);
+				$bitacora=DB::select('insert into tb_bitacora (ID_Bitacora,ID_EMPLEADO,created_at, CVE_MOVIMIENTO, MOVIMIENTO) values (null,"'.$idUsuarioSistema.'",now(),6,"El usuario '.$nombreUsuarioSistema[0]->nombre.' con el ID_Empleado '.$idUsuarioSistema.' registro un nuevo contrato con el numero '.$no_contrato.' " )');
+
+		
 		if($Adquisición="Contado"){
 			$updates=DB::select('update proyectoLote set estatus="Liquidado" where lt="'.$Lote.'" and mz="'.$Mz.'" and proyecto="'.$proyecto.'" ');
 		}else{
@@ -292,28 +299,27 @@ class ClienteController extends Controller
 			$id = Auth::user()->id;
 
 			$insertUsuario=DB::select('insert into clientes (N_Cliente,Nombre, A_paterno, A_materno,Estado_civil, Género, estudio,dependiente, espectacular, QuienRecomendo, Telefono1, Telefono2, correo, Calle, Ninterior, NExterior, Colonia, Municipio, Estado, cp, id_personal, Referencia,CURP,RFC,fechaNac,Ocupación,Poblacion,Nacionalidad,Hijodependiente,Identificacion,NoIdentificacion,created_at,Geolocalización,Foto) values ("'.$no_cli.'","'.$Nombre.'","'.$Apellido_Paterno.'","'.$Apellido_Materno.'","'.$Estado_civil.'","'.$Género.'","'.$estudio.'","'.$dependiente.'","'.$espectacular.'","'.$QuienRecomendo.'","'.$Telefono_1.'","'.$Telefono_2.'","'.$Correo.'","'.$Calle.'","'.$Ninterior.'","'.$NExterior.'","'.$Colonia.'","'.$Municipio.'","'.$Estado.'","'.$CodigoPostal.'","'.$id.'","'.$Referencia.'","'.$CURP.'","'.$RFC.'","'.$fechaNac.'","'.$Ocupación.'","'.$Poblacion.'","'.$Nacionalidad.'","'.$Hijosdependiente.'","'.$Idenificacion.'","'.$NoIdentificación.'",now(),"'.$Geolocalización.'","'.$foto.'")');
-			if ($insertUsuario) {
+			
 
 				$idUsuarioSistema = Auth::user()->id;
 				$nombreUsuarioSistema=DB::select('select CONCAT(Nombre," ",Apellido_Paterno," ",Apellido_Materno)as nombre from users where id='.$idUsuarioSistema);
 				$bitacora=DB::select('insert into tb_bitacora (ID_Bitacora,ID_EMPLEADO,created_at, CVE_MOVIMIENTO, MOVIMIENTO) values (null,"'.$idUsuarioSistema.'",now(),6,"El usuario '.$nombreUsuarioSistema[0]->nombre.' con el ID_Empleado '.$idUsuarioSistema.' Registro Al cliente  '.$Nombre.' '.$Apellido_Paterno.' '.$Apellido_Materno.', numero de cliente asignado es  '.$no_cli.'" )');
 
-			}
 
 			if ($Redes == "Redes sociales") {
-				$insertEncuesta=DB::select('insert into encuestasatisfaccion (N_Cliente,pregunta, respuesta,created_at) values ("'.$no_cli.'","¿Cómo se enteró de nosotros?","'.$Redes.'",now())');
+				$insertEncuesta=DB::select('insert into EncuestaSatisfaccion (N_Cliente,pregunta, respuesta,created_at) values ("'.$no_cli.'","¿Cómo se enteró de nosotros?","'.$Redes.'",now())');
 			}
 			if ($Boletín == "Boletín") {
-				$insertEncuesta=DB::select('insert into encuestasatisfaccion (N_Cliente,pregunta, respuesta,created_at) values ("'.$no_cli.'","¿Cómo se enteró de nosotros?","'.$Boletín.'",now())');
+				$insertEncuesta=DB::select('insert into EncuestaSatisfaccion (N_Cliente,pregunta, respuesta,created_at) values ("'.$no_cli.'","¿Cómo se enteró de nosotros?","'.$Boletín.'",now())');
 			}
 			if ($Amigos == "Amigos y/o familiares") {
-				$insertEncuesta=DB::select('insert into encuestasatisfaccion (N_Cliente,pregunta, respuesta,created_at) values ("'.$no_cli.'","¿Cómo se enteró de nosotros?","'.$Amigos.'",now())');
+				$insertEncuesta=DB::select('insert into EncuestaSatisfaccion (N_Cliente,pregunta, respuesta,created_at) values ("'.$no_cli.'","¿Cómo se enteró de nosotros?","'.$Amigos.'",now())');
 			}
 			if ($Agentes == "Agentes de venta") {
-				$insertEncuesta=DB::select('insert into encuestasatisfaccion (N_Cliente,pregunta, respuesta,created_at) values ("'.$no_cli.'","¿Cómo se enteró de nosotros?","'.$Agentes.'",now())');
+				$insertEncuesta=DB::select('insert into EncuestaSatisfaccion (N_Cliente,pregunta, respuesta,created_at) values ("'.$no_cli.'","¿Cómo se enteró de nosotros?","'.$Agentes.'",now())');
 			}
 			if ($Otro == "Otros") {
-				$insertEncuesta=DB::select('insert into encuestasatisfaccion (N_Cliente,pregunta, respuesta,created_at) values ("'.$no_cli.'","¿Cómo se enteró de nosotros?","'.$otros.'",now())');
+				$insertEncuesta=DB::select('insert into EncuestaSatisfaccion (N_Cliente,pregunta, respuesta,created_at) values ("'.$no_cli.'","¿Cómo se enteró de nosotros?","'.$otros.'",now())');
 			}
 
 			$proyectos=DB::select('SELECT * FROM cat_proyectos');
