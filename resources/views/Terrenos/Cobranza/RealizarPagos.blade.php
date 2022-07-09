@@ -77,7 +77,7 @@
 
 														<div class="col-md-3">
 															<label>Pagos realizados </label>
-															<input required="" type="text"  maxlength="9"  class="form-control" id="PagosRealizados" name="PagosRealizados" disabled >
+															<input required="" type="text"  maxlength="9" value="1/24"  class="form-control" id="PagosRealizados" name="PagosRealizados" disabled >
 														</div>
 														<div class="col-md-3">
 															<label>Pago del mes </label>
@@ -85,6 +85,23 @@
 														</div>
 														
 
+													</div>
+													<div class="form-row">
+														<div class="col-md-3">
+															<label>Saldo a favor </label>
+															<input required="" type="text"  class="form-control" disabled value="0" id="situacionCompra" name="situacionCompra" >
+														</div>
+														<div class="col-md-3">
+															<label>Cantidad recibida </label>
+															<input required="" type="text"  class="form-control"  id="situacionCompra" name="situacionCompra" >
+														</div>
+														&nbsp;
+														&nbsp;
+														&nbsp;
+														&nbsp;
+														&nbsp;
+														<input type="submit" id="CrearPDF" value="Comprobante" onclick="abrir_Popup()" style="color:#fff;" class="btn btn-success">
+														
 													</div>
 													<div class="form-row">
 
@@ -113,7 +130,7 @@
 													
 												</div>
 												<div class="card-footer">
-													<input type="submit" id="CrearPDF" value="Comprobante" onclick="abrir_Popup()" style="color:#fff;" class="btn btn-success">
+													
 												</div>
 
 											</div>
