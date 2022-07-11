@@ -564,7 +564,6 @@ public function update_mi_perfil(Request $request)
 
     $actualizar->update([
       'email'=>$request['email'],
-      'name'=>$request['name'],
       'password'=>$password
   ]);
 
