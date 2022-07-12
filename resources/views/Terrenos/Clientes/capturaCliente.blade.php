@@ -1451,6 +1451,7 @@
 								tratos();
 								ActualizaDatosPersonales();
 								mensaje('success','Usuario ya existe en la base de datos!!');
+								codigoPOstal();
 							}
 
 
@@ -1671,6 +1672,7 @@ $('#llenaTabla2').html("");
 							$('#HijosdependienteActualiza').val(response[0].HijoDependiente);
 							$('#IdenificacionActualiza').val(response[0].Identificacion);
 							$('#NoIdentificaciónActualiza').val(response[0].NoIdentificacion);
+							codigoPOstal();
 							 saberEdad();
 
 					},
