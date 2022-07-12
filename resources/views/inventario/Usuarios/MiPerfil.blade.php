@@ -35,11 +35,15 @@
 
 
 
-			<form id="exampleValidation" method="post" action="{{url('/actualizar_miperfil')}}">
+			<form id="exampleValidation" method="post" action="{{url('/actualizar_miperfil')}}" enctype="multipart/form-data">
 				  @csrf
 				<div class="card-body">
 					
-					
+											<div class="input-file input-file-image">
+												<img class="img-upload-preview img-circle" id="ponerFoto" width="100" height="100" src="{{url('assets/img/profile.png')}}" alt="preview">
+												<input type="file" class="form-control form-control-file" id="uploadImg1" name="uploadImg1" accept="image/*" >
+												<label for="uploadImg1" id="FotoInput"   class=" label-input-file btn btn-icon btn-default btn-round btn-lg"><i class="la la-file-image-o"></i> Cargar Foto</label>
+											</div>
 					<div class="form-group form-show-validation row">
 						<label for="email" class="col-lg-3 col-md-3 col-sm-4 mt-sm-2 text-right">Correo <span class="required-label">*</span></label>
 						<div class="col-lg-4 col-md-9 col-sm-8">
