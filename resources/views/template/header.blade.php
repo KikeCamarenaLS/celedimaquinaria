@@ -85,11 +85,11 @@
 
 
                         <li class="nav-item dropdown hidden-caret">
-                            <a class="dropdown-toggle profile-pic" data-toggle="dropdown" href="#" aria-expanded="false"  > <img src="{{url('/assets')}}/img/profile.png" alt="image profile" width="36" class="img-circle"></a>
+                            <a class="dropdown-toggle profile-pic" data-toggle="dropdown" href="#" aria-expanded="false"  > <img src="{{url('/archivero')}}/{{ Auth::user()->Foto }}" alt="image profile" width="45" class="img-circle"></a>
                             <ul class="dropdown-menu dropdown-user animated fadeIn">
                                 <li>
                                     <div class="user-box">
-                                        <div class="u-img"><img src="{{url('/assets')}}/img/profile.png" alt="image profile"></div>
+                                        <div class="u-img"><img src="{{url('/archivero')}}/{{ Auth::user()->Foto }}"  alt="image profile"></div>
                                         <div class="u-text">
                                             <h4> {{ Auth::user()->name }} </h4>
                                             <p class="text-muted">{{ Auth::user()->email }}</p>
@@ -130,7 +130,7 @@
                 <div class="sidebar-content">
                     <div class="user">
                         <div class="photo">
-                            <img src="{{url('/assets')}}/img/profile.png" alt="image profile">
+                            <img src="{{url('/archivero')}}/{{ Auth::user()->Foto }}" alt="image profile">
                         </div>
                         <div class="info" style="word-wrap: break-word; ">
                              <div data-toggle="collapse" href="#collapseExample" aria-expanded="true" style="word-wrap: break-word; color:black;">

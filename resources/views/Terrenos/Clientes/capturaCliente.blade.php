@@ -2128,10 +2128,19 @@ $('#llenaTabla2').html("");
 
 			}
 			function codigoPOstal(){
-				if($('#CodigoPostal').val().length == 5){
+				if($('#CodigoPostal').val().length == 5 || $('#CodigoPostalActualiza').val().length == 5){
+					
+
+					var codigoPOs=0;
+					if ($('#CodigoPostal').val().length == 5) {
+						codigoPOs=$('#CodigoPostal').val();
+					}
+					if ($('#CodigoPostalActualiza').val().length == 5) {
+						codigoPOs=$('#CodigoPostalActualiza').val();
+					}
 					$.ajax({
 						data:  {
-							"codigo":$('#CodigoPostal').val(),
+							"codigo":codigoPOs,
 						}, 
 						url:   "{{url('consulta/codigoPostal')}}",
 						type:  'get',
@@ -2141,6 +2150,9 @@ $('#llenaTabla2').html("");
 							$('#Estado').val(data[0].estado);
 							$('#Municipio').val(data[0].municipio);
 							$('#Poblacion').val(data[0].ciudad);
+							$('#EstadoActualiza').val(data[0].estado);
+							$('#MunicipioActualiza').val(data[0].municipio);
+							$('#PoblacionActualiza').val(data[0].ciudad);
 							var html='';
 							console.log(data.length);
 							for (var i = 0; i < data.length; i++) {
@@ -2148,6 +2160,7 @@ $('#llenaTabla2').html("");
 								
 							}
 							$('#Colonia').html(html);
+							$('#ColoniaActualiza').html(html);
 							console.log(html);
 						},
 					});
