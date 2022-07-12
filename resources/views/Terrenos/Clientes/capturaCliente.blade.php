@@ -328,14 +328,14 @@
 							<ul class="nav nav-pills nav-secondary  nav-pills-no-bd nav-pills-icons justify-content-center" id="pills-tab-with-icon" role="tablist">
 								 @can('Cobranza')
 								<li class="nav-item submenu">
-									<a class="nav-link active show" id="pills-home-tab-icon" data-toggle="pill" href="#pills-home-icon" role="tab" aria-controls="pills-home-icon" aria-selected="false">
+									<a class="nav-link " id="pills-home-tab-icon" data-toggle="pill" href="#pills-home-icon" role="tab" aria-controls="pills-home-icon" aria-selected="false">
 										<i class="flaticon-home"></i>
 										Registrar Contrato
 									</a>
 								</li>
 								@endcan
 								<li class="nav-item submenu">
-									<a class="nav-link " id="pills-check-tab-icon" data-toggle="pill" href="#pills-check-icon" role="tab" aria-controls="pills-check-icon" aria-selected="true" onclick="ActualizaDatosPersonales()">
+									<a class="nav-link active show" id="pills-check-tab-icon" data-toggle="pill" href="#pills-check-icon" role="tab" aria-controls="pills-check-icon" aria-selected="true" onclick="ActualizaDatosPersonales()">
 										<i class="flaticon-check"></i>
 										Informacion personal
 									</a>
@@ -1449,6 +1449,7 @@
 								$('#validaexiste').css("display", "none");
 								$('#validaExisteContrato').css("display", "block");
 								tratos();
+								ActualizaDatosPersonales();
 								mensaje('success','Usuario ya existe en la base de datos!!');
 							}
 
