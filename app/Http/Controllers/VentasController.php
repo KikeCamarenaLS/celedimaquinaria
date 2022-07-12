@@ -170,6 +170,12 @@ public function consultacodigoPostal(Request $request){
   return DB::select('select * from cat_CodigoPostal where codigo_postal="'.$codigo.'"');
 }
 
+public function consultacodigoPostalColonia(Request $request){
+  $codigo= Request::input("codigo");
+  $Colonia= Request::input("Colonia");
+  return DB::select('select * from cat_CodigoPostal where codigo_postal="'.$codigo.'" order by Colonia ');
+}
+
 public function ventalotesView32(){
 
   $proyectos=DB::select('SELECT * FROM cat_proyectos ORDER BY PROYECTO ASC');
@@ -426,7 +432,7 @@ public function ventalotesView24(){
 
 public function CalcularFechaNac(){
   $Fecha= Request::input("Fecha");
-  return DB::select("SELECT TIMESTAMPDIFF(YEAR,'".$Fecha."',CURDATE()) AS edad FROM roles;");
+  return DB::select("SELECT TIMESTAMPDIFF(YEAR,'".$Fecha."',CURDATE()) AS edad FROM users;");
 }
 
 

@@ -1216,24 +1216,42 @@
 			}
 
 			function saberEdad(){
-				
-				$.ajax({
-					data:  {
-						"Fecha":$('#fechaNac').val(),
+				if($('#fechaNac').val()!=''){
+					$.ajax({
+						data:  {
+							"Fecha":$('#fechaNac').val(),
 
-					}, 
-					url:   "{{url('calcular/fechaNac')}}",
-					type:  'get',
-					success:  function (data) { 
-						console.log(0);
-						$('#Edad').val(data[0].edad);
-						$('#EdadActualiza').val(data[0].edad);
-					},
-					error: function(XMLHttpRequest, textStatus, errorThrown) { 
-						$('#modalCobranza').modal('show');
-						mensaje('danger','Algo salio mal, intentelo mas tarde!!');
-					}   
-				});
+						}, 
+						url:   "{{url('calcular/fechaNac')}}",
+						type:  'get',
+						success:  function (data) { 
+							console.log(data);
+							$('#Edad').val(data[0].edad);
+							$('#EdadActualiza').val(data[0].edad);
+						},
+						error: function(XMLHttpRequest, textStatus, errorThrown) { 
+
+						}   
+					});
+				}else if($('#fechaNacActualiza').val()!=''){
+					$.ajax({
+						data:  {
+							"Fecha":$('#fechaNacActualiza').val(),
+
+						}, 
+						url:   "{{url('calcular/fechaNac')}}",
+						type:  'get',
+						success:  function (data) { 
+							console.log(data);
+							$('#Edad').val(data[0].edad);
+							$('#EdadActualiza').val(data[0].edad);
+						},
+						error: function(XMLHttpRequest, textStatus, errorThrown) { 
+
+						}   
+					});
+				}
+				
 				
 			}
 			function validaAdquisicion(){
@@ -1639,11 +1657,11 @@ $('#llenaTabla2').html("");
 					success:  function (response) { 
 						console.log(response);
 						
+							$('#CodigoPostalActualiza').val(response[0].CP);
 							$('#Telefono_1Actualiza').val(response[0].Telefono1);
 							$('#Telefono_3Actualiza').val(response[0].Telefono2);
 							$('#CorreoActualiza').val(response[0].Correo);
 							$('#CalleActualiza').val(response[0].Calle);
-							$('#CodigoPostalActualiza').val(response[0].CP);
 							$('#NinteriorActualiza').val(response[0].Ninterior);
 							$('#NExteriorActualiza').val(response[0].Nexterior);
 							$('#ColoniaActualiza').val(response[0].Colonia);
@@ -1672,12 +1690,31 @@ $('#llenaTabla2').html("");
 							$('#HijosdependienteActualiza').val(response[0].HijoDependiente);
 							$('#IdenificacionActualiza').val(response[0].Identificacion);
 							$('#NoIdentificaciónActualiza').val(response[0].NoIdentificacion);
-							codigoPOstal();
-							 saberEdad();
+							codigoPOstalactualizar(response[0].CP,response[0].Colonia);
+							 actualizaredaddos(response[0].fechaNac);
 
 					},
 				});
 			
+			}
+
+			function actualizaredaddos(fecha){
+				$.ajax({
+					data:  {
+						"Fecha":fecha,
+
+					}, 
+					url:   "{{url('calcular/fechaNac')}}",
+					type:  'get',
+					success:  function (data) { 
+						console.log(data);
+						$('#Edad').val(data[0].edad);
+						$('#EdadActualiza').val(data[0].edad);
+					},
+					error: function(XMLHttpRequest, textStatus, errorThrown) { 
+
+					}   
+				});
 			}
 			function actualizaTabla(){
 				console.log(numcliente);
@@ -2128,6 +2165,42 @@ $('#llenaTabla2').html("");
 					});
 				}
 
+			}
+
+			function codigoPOstalactualizar(cp,Colonia){
+				$.ajax({
+						data:  {
+							"codigo":cp,
+							"Colonia":Colonia,
+						}, 
+						url:   "{{url('consulta/codigoPostal/Colonia')}}",
+						type:  'get',
+						success:  function (data) { 
+							console.log(data);
+							
+							$('#Estado').val(data[0].estado);
+							$('#Municipio').val(data[0].municipio);
+							$('#Poblacion').val(data[0].ciudad);
+							$('#EstadoActualiza').val(data[0].estado);
+							$('#MunicipioActualiza').val(data[0].municipio);
+							$('#PoblacionActualiza').val(data[0].ciudad);
+							var html='';
+							var html2='';
+							console.log(Colonia);
+							for (var i = 0; i < data.length; i++) {
+								if (Colonia==data[i].colonia) {
+									html2+='<option>'+data[i].colonia+'</option>';
+								}else
+								{
+									html+='<option>'+data[i].colonia+'</option>';
+								}
+								
+							}
+							$('#Colonia').html(html2+html);
+							$('#ColoniaActualiza').html(html2+html);
+							console.log();
+						},
+					});
 			}
 			function codigoPOstal(){
 				if($('#CodigoPostal').val().length == 5 || $('#CodigoPostalActualiza').val().length == 5){

@@ -404,6 +404,8 @@ Route::get('/ventalotesView17', 'VentasController@ventalotesView17');
 Route::get('/ventalotesView19', 'VentasController@ventalotesView19');
 Route::get('/ventalotesView21', 'VentasController@ventalotesView21');
 Route::get('/consulta/codigoPostal', 'VentasController@consultacodigoPostal');
+Route::get('/consulta/codigoPostal/Colonia', 'VentasController@consultacodigoPostalColonia');
+
 Route::get('/cliente/buscaLote', 'ClienteController@buscaLote');
 Route::get('/ventalotesView32', 'VentasController@ventalotesView32');
 Route::get('/ventalotesView29', 'VentasController@ventalotesView29');
