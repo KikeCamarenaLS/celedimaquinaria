@@ -42,7 +42,7 @@ class ClienteController extends Controller
 		$Poblacion= $request->input("Poblacion");
 		$Estado= $request->input("Estado");
 
-		$validaExistente=DB::select('insert into cat_codigopostal (codigo_postal,colonia,municipio,ciudad,estado) values ("'.$CodigoPostal.'" , "'.$Colonia.'","'.$Municipio.'","'.$Poblacion.'","'.$Estado.'")');
+		$validaExistente=DB::select('insert into cat_CodigoPostal (codigo_postal,colonia,municipio,ciudad,estado) values ("'.$CodigoPostal.'" , "'.$Colonia.'","'.$Municipio.'","'.$Poblacion.'","'.$Estado.'")');
 
 
 		if($validaExistente){
