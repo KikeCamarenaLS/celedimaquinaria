@@ -51,7 +51,7 @@
 							<span class="required-label"  id="validaP" style="color:red;  display: none;" ><font size="1">Es necesario llenar este campo</font></span>
 						</div>
 						<div class="col-md-3">
-							<label>Apellido Materno<span class="required-label">*</span></label>
+							<label>Apellido Materno<span class="required-label"></span></label>
 							<input  type="text" class="form-control" id="Apellido_Materno" name="Apellido_Materno" >
 							<span class="required-label" id="validaM" style="color:red;  display: none;" ><font size="1">Es necesario llenar este campo</font></span>
 						</div>
