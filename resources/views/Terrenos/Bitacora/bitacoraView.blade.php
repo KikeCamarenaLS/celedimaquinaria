@@ -22,7 +22,7 @@
 
 				<div class="form-group row ">
 					<div class="col-md-3" >
-							<label>Modulo <span class="required-label"></span></label>
+							<label>Rol <span class="required-label"></span></label>
 							<select class="form-control success" id="modulo">
 								<option value="Todos">Todos</option>
 								@foreach($permissions as $permission)
@@ -67,7 +67,7 @@
 							<thead>
 								<tr>
 									<th class="bg-danger" style="color:#ffffff; width: 6%;"><center>Empleado</center> </th>
-									<th class="bg-danger" style="color:#ffffff; width: 6%;"><center>Modulo</center> </th>
+									<th class="bg-danger" style="color:#ffffff; width: 6%;"><center>Rol</center> </th>
 									<th class="bg-danger" style="color:#ffffff; width: 23%;"><center>Nombre Empleao</center> </th>
 									<th class="bg-danger" style="color:#ffffff; width: 50%;"><center>Movimiento</center> </th>
 									
