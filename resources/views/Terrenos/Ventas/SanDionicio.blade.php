@@ -89,10 +89,35 @@
 
 					</div>
 					<div class="col-md-2">
-						<label>Vendido</label>
+						<label>Enganche (Sin contrato)</label>
 						<table>
 							<tr>
-								<td style="width: 30px; height:30px; background-color: rgb(131,131,254);">
+								<td style="width: 30px; height:30px; background-color: rgb(255,174,94);">
+									&nbsp;
+								</td>
+							</tr>
+
+						</table>
+
+					</div>
+					<div class="col-md-2">
+						<label>En Pausa</label>
+						<table>
+							<tr>
+								<td style="width: 30px; height:30px; background-color: rgb(192,192,192);">
+									&nbsp;
+								</td>
+							</tr>
+
+						</table>
+
+					</div>
+					
+					<div class="col-md-2">
+						<label>Proceso de rescisión</label>
+						<table>
+							<tr>
+								<td style="width: 30px; height:30px; background-color: rgb(159,240,238);">
 									&nbsp;
 								</td>
 							</tr>
@@ -104,19 +129,7 @@
 						<label>No Disponible</label>
 						<table>
 							<tr>
-								<td style="width: 30px; height:30px; background-color: rgb(199,199,199);">
-									&nbsp;
-								</td>
-							</tr>
-
-						</table>
-
-					</div>
-					<div class="col-md-2">
-						<label>Proceso de rescisión</label>
-						<table>
-							<tr>
-								<td style="width: 30px; height:30px; background-color: rgb(159,240,238);">
+								<td style="width: 30px; height:30px; background-color: rgb(255,65,55);">
 									&nbsp;
 								</td>
 							</tr>
