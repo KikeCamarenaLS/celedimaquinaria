@@ -25,10 +25,26 @@ class ClienteController extends Controller
 		$situaciones=DB::select('SELECT * FROM cat_situacion');
 		$mensaje="sin_mensaje";
 		$color="sin_mensaje";
+
+
+date_default_timezone_set("America/Mexico_City");
+$fechaPHP=date('Y-m-d H:i:s');
+$idUsuarioSistema = Auth::user()->id;
+$nombreUsuarioSistema=DB::select('select CONCAT(Nombre," ",Apellido_Paterno," ",Apellido_Materno)as nombre from users where id='.$idUsuarioSistema);
+$bitacora=DB::select('insert into tb_bitacora (ID_Bitacora,ID_EMPLEADO,nomempleado,created_at, CVE_MOVIMIENTO, MOVIMIENTO) values (null,"'.$idUsuarioSistema.'","'.$nombreUsuarioSistema[0]->nombre.'","'.$fechaPHP.'",6," Ingreso al modulo de alta de clientes" )');
+
+
 			return view('Terrenos.Clientes.capturaCliente',compact('proyectos','vendedores','situaciones','mensaje','color'));
 	}
 
 	public function nuevoCodigoPostal(){
+
+
+date_default_timezone_set("America/Mexico_City");
+$fechaPHP=date('Y-m-d H:i:s');
+$idUsuarioSistema = Auth::user()->id;
+$nombreUsuarioSistema=DB::select('select CONCAT(Nombre," ",Apellido_Paterno," ",Apellido_Materno)as nombre from users where id='.$idUsuarioSistema);
+$bitacora=DB::select('insert into tb_bitacora (ID_Bitacora,ID_EMPLEADO,nomempleado,created_at, CVE_MOVIMIENTO, MOVIMIENTO) values (null,"'.$idUsuarioSistema.'","'.$nombreUsuarioSistema[0]->nombre.'","'.$fechaPHP.'",6," Ingreso al modulo de Registrar Colonias" )');
 
 			return view('Terrenos.Clientes.nuevoCodigoPostal');
 	}
@@ -44,6 +60,12 @@ class ClienteController extends Controller
 
 		$validaExistente=DB::select('insert into cat_CodigoPostal (codigo_postal,colonia,municipio,ciudad,estado) values ("'.$CodigoPostal.'" , "'.$Colonia.'","'.$Municipio.'","'.$Poblacion.'","'.$Estado.'")');
 
+
+date_default_timezone_set("America/Mexico_City");
+$fechaPHP=date('Y-m-d H:i:s');
+$idUsuarioSistema = Auth::user()->id;
+$nombreUsuarioSistema=DB::select('select CONCAT(Nombre," ",Apellido_Paterno," ",Apellido_Materno)as nombre from users where id='.$idUsuarioSistema);
+$bitacora=DB::select('insert into tb_bitacora (ID_Bitacora,ID_EMPLEADO,nomempleado,created_at, CVE_MOVIMIENTO, MOVIMIENTO) values (null,"'.$idUsuarioSistema.'","'.$nombreUsuarioSistema[0]->nombre.'","'.$fechaPHP.'",6," Registro la colonia '.$Colonia.', del codigo postal '.$CodigoPostal.' " )');
 
 		if($validaExistente){
 			return $validaExistente;
@@ -75,6 +97,12 @@ class ClienteController extends Controller
 			CONCAT(u.Nombre," ",u.Apellido_Paterno," ",u.Apellido_Materno) as idElemento, p.TipoVenta,  p.CostoContadoTotal, p.CostoFinanciadoTotal from tratosVendedores t 
 			inner join  proyectoLote p ON p.mz=t.mz AND p.lt=t.lt AND p.proyecto=t.proyecto
 			inner join users u on u.id=p.idElemento  where t.proyecto="'.$proyecto.'" and t.mz="'.$Mz.'" and t.lt="'.$Lote.'" AND t.idCliente="'.$NclienteHide.'"');
+
+date_default_timezone_set("America/Mexico_City");
+$fechaPHP=date('Y-m-d H:i:s');
+$idUsuarioSistema = Auth::user()->id;
+$nombreUsuarioSistema=DB::select('select CONCAT(Nombre," ",Apellido_Paterno," ",Apellido_Materno)as nombre from users where id='.$idUsuarioSistema);
+$bitacora=DB::select('insert into tb_bitacora (ID_Bitacora,ID_EMPLEADO,nomempleado,created_at, CVE_MOVIMIENTO, MOVIMIENTO) values (null,"'.$idUsuarioSistema.'","'.$nombreUsuarioSistema[0]->nombre.'","'.$fechaPHP.'",6," Busco el lote  '.$Lote.' con Mz. '.$Mz.' en el proyecto '.$proyecto.' previo a realizar contrato del cliente '.$NclienteHide.'" )');
 
 
 		if($validaExistente){
@@ -116,6 +144,10 @@ class ClienteController extends Controller
 
 date_default_timezone_set("America/Mexico_City");
 $fechaPHP=date('Y-m-d H:i:s');
+
+$idUsuarioSistema = Auth::user()->id;
+$nombreUsuarioSistema=DB::select('select CONCAT(Nombre," ",Apellido_Paterno," ",Apellido_Materno)as nombre from users where id='.$idUsuarioSistema);
+$bitacora=DB::select('insert into tb_bitacora (ID_Bitacora,ID_EMPLEADO,nomempleado,created_at, CVE_MOVIMIENTO, MOVIMIENTO) values (null,"'.$idUsuarioSistema.'","'.$nombreUsuarioSistema[0]->nombre.'","'.$fechaPHP.'",6," Se registro el contrato '.$ncontrato.' en el apartado de contrato cobranza" )');
 
 
 		$id = Auth::user()->id;
@@ -187,7 +219,7 @@ $fechaPHP=date('Y-m-d H:i:s');
 
 		$idUsuarioSistema = Auth::user()->id;
 				$nombreUsuarioSistema=DB::select('select CONCAT(Nombre," ",Apellido_Paterno," ",Apellido_Materno)as nombre from users where id='.$idUsuarioSistema);
-				$bitacora=DB::select('insert into tb_bitacora (ID_Bitacora,ID_EMPLEADO,created_at, CVE_MOVIMIENTO, MOVIMIENTO) values (null,"'.$idUsuarioSistema.'","'.$fechaPHP.'",6,"El usuario '.$nombreUsuarioSistema[0]->nombre.' con el ID_Empleado '.$idUsuarioSistema.' registro un nuevo contrato con el numero '.$no_contrato.' " )');
+				$bitacora=DB::select('insert into tb_bitacora (ID_Bitacora,ID_EMPLEADO,nomempleado,created_at, CVE_MOVIMIENTO, MOVIMIENTO) values (null,"'.$idUsuarioSistema.'","'.$nombreUsuarioSistema[0]->nombre.'","'.$fechaPHP.'",6,"Registro un nuevo contrato con el numero '.$no_contrato.' " )');
 
 		
 		if($Adquisición="Contado"){
@@ -332,7 +364,7 @@ $fechaPHP=date('Y-m-d H:i:s');
 
 				$idUsuarioSistema = Auth::user()->id;
 				$nombreUsuarioSistema=DB::select('select CONCAT(Nombre," ",Apellido_Paterno," ",Apellido_Materno)as nombre from users where id='.$idUsuarioSistema);
-				$bitacora=DB::select('insert into tb_bitacora (ID_Bitacora,ID_EMPLEADO,created_at, CVE_MOVIMIENTO, MOVIMIENTO) values (null,"'.$idUsuarioSistema.'","'.$fechaPHP.'",6,"El usuario '.$nombreUsuarioSistema[0]->nombre.' con el ID_Empleado '.$idUsuarioSistema.' Registro Al cliente  '.$Nombre.' '.$Apellido_Paterno.' '.$Apellido_Materno.', numero de cliente asignado es  '.$no_cli.'" )');
+				$bitacora=DB::select('insert into tb_bitacora (ID_Bitacora,ID_EMPLEADO,nomempleado,created_at, CVE_MOVIMIENTO, MOVIMIENTO) values (null,"'.$idUsuarioSistema.'","'.$nombreUsuarioSistema[0]->nombre.'","'.$fechaPHP.'",6," Registro Al cliente  '.$Nombre.' '.$Apellido_Paterno.' '.$Apellido_Materno.', numero de cliente asignado es  '.$no_cli.'" )');
 
 
 			if ($Redes == "Redes sociales") {
@@ -411,13 +443,13 @@ $fechaPHP=date('Y-m-d H:i:s');
 $fechaPHP=date('Y-m-d H:i:s');
 
 			$insertUsuario=DB::select('update clientes set Estado_civil="'.$Estado_civil.'", Género="'.$Género.'", estudio="'.$estudio.'",dependiente="'.$dependiente.'", espectacular="'.$espectacular.'", QuienRecomendo="'.$QuienRecomendo.'", Telefono1="'.$Telefono_1.'", Telefono2="'.$Telefono_2.'", correo="'.$Correo.'", Calle="'.$Calle.'", Ninterior="'.$Ninterior.'", NExterior="'.$NExterior.'", Colonia="'.$Colonia.'", Municipio="'.$Municipio.'", Estado="'.$Estado.'", cp="'.$CodigoPostal.'", id_personal="'.$id.'", Referencia="'.$Referencia.'",CURP="'.$CURP.'",RFC="'.$RFC.'",fechaNac="'.$fechaNac.'",Ocupación="'.$Ocupación.'",Poblacion="'.$Poblacion.'",Nacionalidad="'.$Nacionalidad.'",Hijodependiente="'.$Hijosdependiente.'",Identificacion="'.$Idenificacion.'",NoIdentificacion="'.$NoIdentificación.'",Geolocalización="'.$Geolocalización.'"  where N_Cliente="'.$Ncliente.'"');
-			if ($insertUsuario) {
+
 
 				$idUsuarioSistema = Auth::user()->id;
 				$nombreUsuarioSistema=DB::select('select CONCAT(Nombre," ",Apellido_Paterno," ",Apellido_Materno)as nombre from users where id='.$idUsuarioSistema);
-				$bitacora=DB::select('insert into tb_bitacora (ID_Bitacora,ID_EMPLEADO,created_at, CVE_MOVIMIENTO, MOVIMIENTO) values (null,"'.$idUsuarioSistema.'","'.$fechaPHP.'",6,"El usuario '.$nombreUsuarioSistema[0]->nombre.' con el ID_Empleado '.$idUsuarioSistema.' Modifico la informacion del cliente con el numero asignado de  '.$Ncliente.'" )');
+				$bitacora=DB::select('insert into tb_bitacora (ID_Bitacora,ID_EMPLEADO,nomempleado,created_at, CVE_MOVIMIENTO, MOVIMIENTO) values (null,"'.$idUsuarioSistema.'","'.$nombreUsuarioSistema[0]->nombre.'","'.$fechaPHP.'",6," Modifico la informacion del cliente con el numero asignado de  '.$Ncliente.'" )');
 
-			}
+
 
 			
 
@@ -487,7 +519,7 @@ $fechaPHP=date('Y-m-d H:i:s');
 
 				$idUsuarioSistema = Auth::user()->id;
 				$nombreUsuarioSistema=DB::select('select CONCAT(Nombre," ",Apellido_Paterno," ",Apellido_Materno)as nombre from users where id='.$idUsuarioSistema);
-				$bitacora=DB::select('insert into tb_bitacora (ID_Bitacora,ID_EMPLEADO,created_at, CVE_MOVIMIENTO, MOVIMIENTO) values (null,"'.$idUsuarioSistema.'","'.$fechaPHP.'",6,"El usuario '.$nombreUsuarioSistema[0]->nombre.' con el ID_Empleado '.$idUsuarioSistema.' Registro Al cliente  '.$Nombre.' '.$Apellido_Paterno.' '.$Apellido_Materno.', numero de cliente asignado es  '.$no_cli.'" )');
+				$bitacora=DB::select('insert into tb_bitacora (ID_Bitacora,ID_EMPLEADO,nomempleado,created_at, CVE_MOVIMIENTO, MOVIMIENTO) values (null,"'.$idUsuarioSistema.'","'.$nombreUsuarioSistema[0]->nombre.'","'.$fechaPHP.'",6," Registro Al cliente  '.$Nombre.' '.$Apellido_Paterno.' '.$Apellido_Materno.', numero de cliente asignado es  '.$no_cli.'" )');
 
 			}
 
