@@ -347,9 +347,10 @@
                                             <span class="sub-item">Alta de Clientes</span>
                                         </a>
                                     </li>
+                                   
                                     <li>
-                                        <a href="{{url('/reporte_captura')}}">
-                                            <span class="sub-item">Actualización y Modificación</span>
+                                        <a href="{{url('/nuevo/CodigoPostal')}}">
+                                            <span class="sub-item">Registrar Colonias</span>
                                         </a>
                                     </li>
                                 </ul>
