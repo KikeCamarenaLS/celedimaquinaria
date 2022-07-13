@@ -468,6 +468,9 @@ Route::get('/ventalotesView24', 'VentasController@ventalotesView24');
 
 
 Route::get('/cliente/ConsultaCliente', 'ClienteController@ConsultaCliente');
+Route::get('/nuevo/CodigoPostal', 'ClienteController@nuevoCodigoPostal');
+Route::get('/registrarNuevo/codigoPostal', 'ClienteController@RegistranuevoCodigoPostal');
+
 Route::get('/user/validaExistencia', 'Inventario\UsuarioController@validaExistencia');
 
 

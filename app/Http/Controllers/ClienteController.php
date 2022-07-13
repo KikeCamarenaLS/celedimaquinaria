@@ -27,6 +27,30 @@ class ClienteController extends Controller
 		$color="sin_mensaje";
 			return view('Terrenos.Clientes.capturaCliente',compact('proyectos','vendedores','situaciones','mensaje','color'));
 	}
+
+	public function nuevoCodigoPostal(){
+
+			return view('Terrenos.Clientes.nuevoCodigoPostal');
+	}
+
+	
+
+	public function RegistranuevoCodigoPostal(Request $request){
+		$CodigoPostal= $request->input("CodigoPostal");
+		$Colonia= $request->input("Colonia");
+		$Municipio= $request->input("Municipio");
+		$Poblacion= $request->input("Poblacion");
+		$Estado= $request->input("Estado");
+
+		$validaExistente=DB::select('insert into cat_codigopostal (codigo_postal,colonia,municipio,ciudad,estado) values ("'.$CodigoPostal.'" , "'.$Colonia.'","'.$Municipio.'","'.$Poblacion.'","'.$Estado.'")');
+
+
+		if($validaExistente){
+			return $validaExistente;
+		}else{
+			return "no valido";
+		}
+	}
 	
 	public function validaExistencia(Request $request){
 		$Nombre= $request->input("Nombre");
