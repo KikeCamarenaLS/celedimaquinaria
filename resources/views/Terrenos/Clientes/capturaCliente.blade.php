@@ -1424,10 +1424,8 @@
 				if($('#Apellido_Paterno').val()==""){
 					$('#validaP').css("display", "block");
 				}else{$('#validaP').css("display", "none");	}
-				if($('#Apellido_Materno').val()==""){
-					$('#validaM').css("display", "block");
-				}else{$('#validaM').css("display", "none");	}
-				if($('#Nombre').val()=="" || $('#Apellido_Paterno').val()=="" || $('#Apellido_Materno').val()==""){
+				
+				if($('#Nombre').val()=="" || $('#Apellido_Paterno').val()=="" ){
 
 					mensaje('danger','Es necesario llenar el campos obligatorios  ');
 
