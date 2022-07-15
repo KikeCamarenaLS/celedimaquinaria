@@ -789,27 +789,37 @@
 												</select>
 											</div>
 										</div>
-										<div class="col-md-3">
+										<div class="col-md-2">
 											<label>Monto mensual </label>
 											<input required="" type="text" maxlength="10" onkeyup="MontoMensualFormato()" maxlength="9" onKeypress="if (event.keyCode < 45 || event.keyCode > 57) event.returnValue = false;" class="form-control" id="MontoMensual" name="MontoMensual" >
 											<span class="required-label"  id="validaMontoMensual" style="color:red; display: none;" ><font size="1">Es obligatorio llenar este campo</font></span>
 										</div>
+										<div class="col-md-2">
+											<label>Porcentaje de interés  </label>
+											<input required="" type="number" class="form-control" id="Porcentaje" name="Porcentaje" >
+											<span class="required-label"  id="validaPorcentaje" style="color:red; display: none;" ><font size="1">Es obligatorio llenar este campo</font></span>
+										</div>
+									</div>
+									<div class="form-group row " >
+										<div class="col-md-4">
+											<label>Nombre Aval</label>
+											<input required=""  type="text" class="form-control" id="nombre_aval" name="nombre_aval" >
+											<span class="required-label"  id="validanombre_aval" style="color:red; display: none;" ><font size="1">Es obligatorio llenar este campo</font></span>
+										</div>
+
 										<div class="col-md-3">
 											<label>Telefono Aval</label>
 											<input required="" maxlength="10" onKeypress="if (event.keyCode < 45 || event.keyCode > 57) event.returnValue = false;"  type="text" class="form-control" id="Telefono_2" name="Telefono_2" >
 											<span class="required-label"  id="validaTelefono_2" style="color:red; display: none;" ><font size="1">Es obligatorio llenar este campo</font></span>
 										</div>
 
-									</div>
-									<div class="form-group row " >
-
-
-										
 										<div class="col-md-3">
-											<label>Porcentaje de interés  </label>
-											<input required="" type="number" class="form-control" id="Porcentaje" name="Porcentaje" >
-											<span class="required-label"  id="validaPorcentaje" style="color:red; display: none;" ><font size="1">Es obligatorio llenar este campo</font></span>
+											<label>Parentesco </label>
+											<input required=""   type="text" class="form-control" id="Parentesco" name="Parentesco" >
+											<span class="required-label"  id="ParentescoTelefono_2" style="color:red; display: none;" ><font size="1">Es obligatorio llenar este campo</font></span>
 										</div>
+										
+										
 
 
 
@@ -1903,6 +1913,9 @@ $('#llenaTabla2').html("");
 							"Vendedor":$('#Vendedor').val(),
 							"Adquisición":$('#Adquisición').val(),
 							"Nparcialidades":$('#Nparcialidades').val(),
+							"nombre_aval":$('#nombre_aval').val(),
+							"Parentesco":$('#Parentesco').val(),
+
 
 							"CostoTotal":$('#CostoTotal').val(),
 							"FechaPago":$('#FechaPago').val(),
@@ -1913,11 +1926,10 @@ $('#llenaTabla2').html("");
 						url:   "{{url('alta/capturaContratos')}}",
 						type:  'get',
 						success:  function (data) { 
-							console.log(data);
+							console.log('numero de contrato;'+data);
 							ncontrato=data;
 
 
-							$('#numeroContr').val(data);
 							$('#numeroContr').val(ncontrato);
 
 							$('#modalCobranza').modal('show');
@@ -1925,7 +1937,7 @@ $('#llenaTabla2').html("");
 						//limpiar();
 						$('#Fecha_Venta').val("")		
 						$('#Fecha_Contrato').val("")
-						$('#proyecto').val("")
+						
 						$('#Mz').val("")
 						$('#Lote').val("")
 						$('#Superficie').val("")
@@ -1943,6 +1955,8 @@ $('#llenaTabla2').html("");
 						$('#Porcentaje').val("")
 						$('#EstatusVenta').val("")
 						$('#Telefono_2').val("")
+						$('#nombre_aval').val("")
+						$('#Parentesco').val("")
 
 						mensaje('success','Registro exitoso!!');
 
@@ -1972,6 +1986,8 @@ $('#llenaTabla2').html("");
 							"Vendedor":$('#Vendedor').val(),
 							"Adquisición":$('#Adquisición').val(),
 							"Nparcialidades":$('#Nparcialidades').val(),
+							"nombre_aval":$('#nombre_aval').val(),
+							"Parentesco":$('#Parentesco').val(), 
 
 							"CostoTotal":$('#CostoTotal').val(),
 							"FechaPago":$('#FechaPago').val(),
@@ -1982,13 +1998,17 @@ $('#llenaTabla2').html("");
 						url:   "{{url('alta/capturaContratos')}}",
 						type:  'get',
 						success:  function (data) { 
-							console.log(data);
+							console.log('numero de contrato;'+data);
+							ncontrato=data;
+
+
+							$('#numeroContr').val(ncontrato);
 							$('#modalCobranza').modal('show');
 
 						//limpiar();
 						$('#Fecha_Venta').val("")		
 						$('#Fecha_Contrato').val("")
-						$('#proyecto').val("")
+
 						$('#Mz').val("")
 						$('#Lote').val("")
 						$('#Superficie').val("")
@@ -2005,6 +2025,8 @@ $('#llenaTabla2').html("");
 						$('#MontoMensual').val("")
 						$('#Porcentaje').val("")
 						$('#EstatusVenta').val("")
+						$('#nombre_aval').val("")
+						$('#Parentesco').val("")
 						mensaje('success','Registro exitoso!!');
 
 

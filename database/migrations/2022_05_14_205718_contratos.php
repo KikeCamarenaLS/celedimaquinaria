@@ -32,6 +32,8 @@ class Contratos extends Migration
             $table->bigInteger('DiaPago');
             $table->string('MontoMensual');
             $table->string('TelefonoAval');
+            $table->string('Parentesco');
+            $table->string('nombre_aval');
             $table->string('Interes');
             $table->rememberToken();
             $table->timestamps();

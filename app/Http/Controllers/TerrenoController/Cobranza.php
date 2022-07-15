@@ -53,7 +53,7 @@ CONCAT (clientes.nombre," ",clientes.A_paterno," ",clientes.A_materno) LIKE "%'.
         {
             $Busqueda= $request->input("Busqueda");
             $insert =DB::select('SELECT contratos.id_contratos,contratos.N_Cliente,contratos.FechaVenta,
-contratos.Enganche,contratos.FechaContrato,contratos.Proyecto,contratos.vendedor,contratos.Mz,contratos.Lt,proyectolote.estatus,contratos.Superficie,
+contratos.Enganche,contratos.FechaContrato,contratos.Proyecto,contratos.vendedor,contratos.Mz,contratos.Lt,proyectoLote.estatus,contratos.Superficie,
 contratos.TipoSuperficie,contratos.TipoPredio,contratos.Vendedor,cat_proyectos.proyecto AS nom_proyecto,
 contratos.Adquisicion,contratos.N_Parcialidades,contratos.Costo,
 contratos.DiaPago,contratos.MontoMensual,contratos.TelefonoAval,
@@ -61,7 +61,7 @@ CONCAT (clientes.nombre," ",clientes.A_paterno," ",clientes.A_materno) AS Nombre
 contratos.Interes, clientes.id_clientes FROM contratos
 INNER JOIN clientes ON clientes.N_Cliente=contratos.N_Cliente 
 
-INNER JOIN proyectolote ON proyectolote.Proyecto=contratos.Proyecto and proyectolote.Mz=contratos.Mz and proyectolote.Lt=contratos.Lt
+INNER JOIN proyectoLote ON proyectoLote.Proyecto=contratos.Proyecto and proyectoLote.Mz=contratos.Mz and proyectoLote.Lt=contratos.Lt
 INNER JOIN cat_proyectos ON cat_proyectos.id_proyecto=contratos.Proyecto
 INNER JOIN contrato_cobranza ON contrato_cobranza.N_Cliente=clientes.N_Cliente
 WHERE contratos.n_cliente="'.$Busqueda.'" OR contratos.id_contratos="'.$Busqueda.'" OR 
