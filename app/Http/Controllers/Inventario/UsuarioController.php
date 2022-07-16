@@ -809,7 +809,7 @@ date_default_timezone_set("America/Mexico_City");
 $fechaPHP=date('Y-m-d H:i:s');
 $idUsuarioSistema = Auth::user()->id;
 $nombreUsuarioSistema=DB::select('select CONCAT(Nombre," ",Apellido_Paterno," ",Apellido_Materno)as nombre from users where id='.$idUsuarioSistema);
-$bitacora=DB::select('insert into tb_bitacora (ID_Bitacora,ID_EMPLEADO,nomempleado,created_at, CVE_MOVIMIENTO, MOVIMIENTO) values (null,"'.$idUsuarioSistema.'","'.$$nombreUsuarioSistema[0]->nombre.'","'.$fechaPHP.'",4," Actualizo el estatus a '.$new_status_text.' del usuario con el id '.$request['id_user'].'   " )');
+$bitacora=DB::select('insert into tb_bitacora (ID_Bitacora,ID_EMPLEADO,nomempleado,created_at, CVE_MOVIMIENTO, MOVIMIENTO) values (null,"'.$idUsuarioSistema.'","'.$nombreUsuarioSistema[0]->nombre.'","'.$fechaPHP.'",4," Actualizo el estatus a '.$new_status_text.' del usuario con el id '.$request['id_user'].'   " )');
 
 return redirect('/listado_usuario')->with(['message' => 'Actualización correcta', 'color' => 'success']);
 }

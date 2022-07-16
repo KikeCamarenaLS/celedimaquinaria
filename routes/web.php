@@ -472,6 +472,10 @@ Route::get('/nuevo/CodigoPostal', 'ClienteController@nuevoCodigoPostal');
 Route::get('/registrarNuevo/codigoPostal', 'ClienteController@RegistranuevoCodigoPostal');
 
 Route::get('/user/validaExistencia', 'Inventario\UsuarioController@validaExistencia');
+Route::get('/registrar/CobroMes', 'TerrenoController\Cobranza@insertaCobro');
+Route::get('/busqueda/pagosRealizadoscontrato', 'TerrenoController\Cobranza@pagosRealizadoscontrato');
+
+
 
 
 

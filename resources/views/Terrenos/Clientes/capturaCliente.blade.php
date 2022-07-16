@@ -1596,6 +1596,8 @@ $('#llenaTabla2').html("");
 						$('#MontoMensual').val("")
 						$('#Porcentaje').val("")
 						$('#EstatusVenta').val("")
+						$('#clienteid').attr("display","none")
+
 						mensaje('success','Registro exitoso!!');
 
 
