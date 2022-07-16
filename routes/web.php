@@ -418,7 +418,7 @@ Route::get('/bitacoraView', 'bitacoraController@bitacoraView');
 Route::get('/buscar/tratos', 'ClienteController@buscarTratos');
 Route::get('/consultar/bitacora', 'bitacoraController@bitacoraconsultar');
 Route::get('/crea/PDF/BITACORA/{modulo}/{consulta}', 'bitacoraController@bitacoraPDF');
-Route::get('/crea/PDF/ComprobanteCobranza/{consulta}', 'TerrenoController\Cobranza@ComprobanteCobranzaPDF');
+Route::get('/crea/PDF/ComprobanteCobranza/{id_contratos}/{no_pago}', 'TerrenoController\Cobranza@ComprobanteCobranzaPDF');
 
 
 Route::get('/generar/excel/{modulo}/{consulta}', 'bitacoraController@generarExcel');

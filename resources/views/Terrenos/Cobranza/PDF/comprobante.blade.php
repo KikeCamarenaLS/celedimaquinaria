@@ -55,7 +55,7 @@
 	    	border-bottom: 1px solid #646464;
 	    	border-left: 1px solid #646464;
 
-	    	font-size: 8px;
+	    	font-size: 12px;
 	    	height: 20px;
 	    	color: #646464;
 
@@ -84,7 +84,7 @@
 
 	    }
 	    .tablaPrincipal{
-	    	font-size: 8px;
+	    	font-size: 10px;
 	    	height: 20px;
 	    	color: #646464;
 
@@ -92,11 +92,11 @@
 	</style>
 </head>
 
-	<div class="contenido" style="margin-top: -10px">
+	<div class="contenido" style="margin-top: -10px; margin-left: 30px;  margin-right: 30px;">
 	
 		<div id="vale">
 			<div class="inline-block" style="margin:-5px;">
-				<img class="img-responsive " src="{{url('assets/LogosTerreno/logo.png')}}" width="100px" align="right">
+				<img class="img-responsive " style="margin:-20px;" src="{{url('assets/LogosTerreno/logo.png')}}" width="100px" align="right">
 			</div>
 			<br>
 			<br>
@@ -121,15 +121,13 @@
 							<td align="center" width="1%"  class="Rejillas3">
 								&nbsp;
 							</td>
-							<td align="center" width="20%"  class="Rejillas" >
+							<td align="center" width="30%"  class="Rejillas" >
 								PROYECTO
 							</td>
 							<td align="center" width="1%"  class="Rejillas3">
 								&nbsp;
 							</td>
-							<td align="center" width="10%"  class="Rejillas3" >
-
-							</td>
+							
 							<td align="center" width="1%"  class="Rejillas3">
 								&nbsp;
 							</td>
@@ -153,33 +151,31 @@
 					<tbody>
 						<tr>
 							<td align="center" width="35%"  class="Rejillas2" >
-								
+								<b>{{$datos[0]->NombreCompleto}}</b>
 							</td>
 							<td align="center" width="1%"  class="Rejillas4">
 								&nbsp;
 							</td>
-							<td align="center" width="20%"  class="Rejillas2" >
-								
+							<td align="center" width="30%"  class="Rejillas2" >
+								<b>{{$datos[0]->nom_proyecto}}</b>
 							</td><td align="center" width="1%"  class="Rejillas4">
 								&nbsp;
 							</td>
-							<td align="center" width="10%"  class="Rejillas4" >
-								
+							<td align="center" width="1%"  class="Rejillas4">
+								&nbsp;
+							</td>
+							<td align="center" width="15%"  class="Rejillas2" >
+								<b>{{$datos[0]->Mz}}</b>
 							</td><td align="center" width="1%"  class="Rejillas4">
 								&nbsp;
 							</td>
 							<td align="center" width="15%"  class="Rejillas2" >
-								
-							</td><td align="center" width="1%"  class="Rejillas4">
-								&nbsp;
-							</td>
-							<td align="center" width="15%"  class="Rejillas2" >
-								
+								<b>{{$datos[0]->Lt}}</b>
 							</td><td align="center" width="1%"  class="Rejillas4">
 								&nbsp;
 							</td>
 							<td align="center" width="10%"  class="Rejillas2" >
-								
+								<b>{{$datos[0]->no_pago}}</b>
 							</td>
 						</tr>
 
@@ -221,20 +217,28 @@
 					<tbody>
 						<tr>
 							<td align="center" width="5%" style="height:90px; border-top:0px solid black;" class="tablaPrincipal" >
-								
+								{{$datos[0]->no_pago}}
 							</td>
 							
-							<td align="left" width="35%" style="height:90px; border-top:0px solid black;" class="tablaPrincipal" >
+							<td valign="top" width="35%" style="height:90px; border-top:0px solid black;" class="tablaPrincipal" >
 								
+								Monto a cubrir
 
-								<br><br><br><br>
+								<br><br>
+								Monto aportado
+								<br><br>
+								Saldo a favor
 								
 								
 							</td>
 							
 							<td valign="top" align="center" width="10%" style="height:90px; border-top:0px solid black;" class="tablaPrincipal" >
+								$ {{$datos[0]->MontoMensual}}
+								<br><br>
+								$ {{$datos[0]->cantidadrecibida}}
+								<br><br>
+								$ {{$datos[0]->masmenos}}
 								
-								<br><br><br><br>
 									
 							</td>
 							<td valign="top" align="center" width="5%" style="height:90px; border-top:0px solid black;" class="tablaPrincipal" >
@@ -246,7 +250,7 @@
 								
 							</td>
 							<td valign="top" align="center" width="10%" style="height:90px; border-top:0px solid black;" class="tablaPrincipal" >
-								
+								$0
 								
 							</td>
 						</tr>
@@ -265,13 +269,13 @@
 								TOTAL $
 							</td>
 							<td align="center" width="4%" style="border-top:0px solid black;" class="tablaPrincipal" >
-								
+								$ {{$datos[0]->MontoMensual}}
 							</td>
 							<td align="center" width="16%" style="border-top:0px solid black;" class="tablaPrincipal" >
 								TOTAL $
 							</td>
 							<td align="center" width="4%" style=" border-top:0px solid black;" class="tablaPrincipal" >
-
+								$0
 								
 								
 							</td>
@@ -293,7 +297,7 @@
 								<Strong>IMPORTE NETO $</Strong>
 							</td>
 							<td align="center" width="10%" style="border-top:0px solid black;" class="tablaPrincipal" >
-
+								$ {{$datos[0]->MontoMensual}}
 								
 								
 							</td>
@@ -323,11 +327,11 @@
 
 			<br>
 
-			<div class="contenido" style="margin-top: 40px">
+			<div class="contenido" style="margin-top: 60px">
 	
 		<div id="vale">
 			<div class="inline-block" style="margin:-5px;">
-				<img class="img-responsive " src="{{url('assets/LogosTerreno/logo.png')}}" width="100px" align="right">
+				<img class="img-responsive " style="margin:-20px;"src="{{url('assets/LogosTerreno/logo.png')}}" width="100px" align="right">
 			</div>
 			<br>
 			<br>
@@ -352,14 +356,11 @@
 							<td align="center" width="1%"  class="Rejillas3">
 								&nbsp;
 							</td>
-							<td align="center" width="20%"  class="Rejillas" >
+							<td align="center" width="30%"  class="Rejillas" >
 								PROYECTO
 							</td>
 							<td align="center" width="1%"  class="Rejillas3">
 								&nbsp;
-							</td>
-							<td align="center" width="10%"  class="Rejillas3" >
-
 							</td>
 							<td align="center" width="1%"  class="Rejillas3">
 								&nbsp;
@@ -384,33 +385,31 @@
 					<tbody>
 						<tr>
 							<td align="center" width="35%"  class="Rejillas2" >
-								
+								<b>{{$datos[0]->NombreCompleto}}</b>
 							</td>
 							<td align="center" width="1%"  class="Rejillas4">
 								&nbsp;
 							</td>
-							<td align="center" width="20%"  class="Rejillas2" >
-								
+							<td align="center" width="30%"  class="Rejillas2" >
+								<b>{{$datos[0]->nom_proyecto}}</b>
 							</td><td align="center" width="1%"  class="Rejillas4">
 								&nbsp;
 							</td>
-							<td align="center" width="10%"  class="Rejillas4" >
-								
+							<td align="center" width="1%"  class="Rejillas4">
+								&nbsp;
+							</td>
+							<td align="center" width="15%"  class="Rejillas2" >
+								<b>{{$datos[0]->Mz}}</b>
 							</td><td align="center" width="1%"  class="Rejillas4">
 								&nbsp;
 							</td>
 							<td align="center" width="15%"  class="Rejillas2" >
-								
-							</td><td align="center" width="1%"  class="Rejillas4">
-								&nbsp;
-							</td>
-							<td align="center" width="15%"  class="Rejillas2" >
-								
+								<b>{{$datos[0]->Lt}}</b>
 							</td><td align="center" width="1%"  class="Rejillas4">
 								&nbsp;
 							</td>
 							<td align="center" width="10%"  class="Rejillas2" >
-								
+								<b>{{$datos[0]->no_pago}}</b>
 							</td>
 						</tr>
 
@@ -452,20 +451,29 @@
 					<tbody>
 						<tr>
 							<td align="center" width="5%" style="height:90px; border-top:0px solid black;" class="tablaPrincipal" >
-								
+								{{$datos[0]->no_pago}}
+
 							</td>
 							
-							<td align="left" width="35%" style="height:90px; border-top:0px solid black;" class="tablaPrincipal" >
+							<td valign="top" width="35%" style="height:90px; border-top:0px solid black;" class="tablaPrincipal" >
 								
+								Monto a cubrir
 
-								<br><br><br><br>
+								<br><br>
+								Monto aportado
+								<br><br>
+								Saldo a favor
 								
 								
 							</td>
 							
 							<td valign="top" align="center" width="10%" style="height:90px; border-top:0px solid black;" class="tablaPrincipal" >
+								$ {{$datos[0]->MontoMensual}}
+								<br><br>
+								$ {{$datos[0]->cantidadrecibida}}
+								<br><br>
+								$ {{$datos[0]->masmenos}}
 								
-								<br><br><br><br>
 									
 							</td>
 							<td valign="top" align="center" width="5%" style="height:90px; border-top:0px solid black;" class="tablaPrincipal" >
@@ -478,7 +486,7 @@
 							</td>
 							<td valign="top" align="center" width="10%" style="height:90px; border-top:0px solid black;" class="tablaPrincipal" >
 								
-								
+								$0
 							</td>
 						</tr>
 						
@@ -496,14 +504,14 @@
 								TOTAL $
 							</td>
 							<td align="center" width="4%" style="border-top:0px solid black;" class="tablaPrincipal" >
-								
+									$ {{$datos[0]->MontoMensual}}
 							</td>
 							<td align="center" width="16%" style="border-top:0px solid black;" class="tablaPrincipal" >
 								TOTAL $
 							</td>
 							<td align="center" width="4%" style=" border-top:0px solid black;" class="tablaPrincipal" >
 
-								
+								$0
 								
 							</td>
 							
@@ -524,7 +532,7 @@
 								<Strong>IMPORTE NETO $</Strong>
 							</td>
 							<td align="center" width="10%" style="border-top:0px solid black;" class="tablaPrincipal" >
-
+									$ {{$datos[0]->MontoMensual}}
 								
 								
 							</td>

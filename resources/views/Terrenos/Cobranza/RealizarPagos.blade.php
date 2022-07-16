@@ -295,12 +295,12 @@
 
 		}
 
-		function descargarPDF(consulta) {
+		function descargarPDF(id_contratos,no_pago) {
 			var configuracion_ventana = "width=700,height=500,scrollbars=NO";
 
 			
 
-			objeto_window_referencia = window.open('{{url('crea/PDF/ComprobanteCobranza')}}'+'/'+consulta, configuracion_ventana);
+			objeto_window_referencia = window.open('{{url('crea/PDF/ComprobanteCobranza')}}'+'/'+id_contratos+'/'+no_pago, configuracion_ventana);
 		}
 		$('#list_user').DataTable({
 			scrollX:  false,
@@ -455,7 +455,6 @@
 		function abrirModal(contrato,costo,EstatusVenta,DiaPago,MontoMensual,N_Parcialidades,Interes){
 			$('#modalCobranza').modal('show');
 			$('#numeroContr').val(contrato);
-			$('#DiaPagos').val(DiaPago);
 			$('#situacionCompra').val(EstatusVenta);
 			$('#PagoMes').val(MontoMensual);
 			$('#PagosRealizados').val('1/'+N_Parcialidades);
@@ -496,7 +495,9 @@
 							$('#fechaultimopago').val(response[0].created_at);
 							<?php date_default_timezone_set("America/Mexico_City"); $fechaPHP=date('Y-m-d');?>
 							$('#fechahoy').val('<?php echo $fechaPHP ?>');
-							var fechaultimo=response[0].created_at;
+							var fechaultimo=response[0].FechaVenta;
+
+			$('#DiaPagos').val(response[0].FechaVenta);
 							var fechahoy='<?php echo $fechaPHP ?>';
 
 
@@ -515,12 +516,22 @@
 
 							var resuldia=  fechadiahoy - fechadiaultimo;
 
-							console.log(resulanos);
-							console.log(resulmes);
-							console.log(resuldia);
-							if(resulanos==0 && resulmes==0 && resuldia==0 ){
-								$('#interesgenerado')
-							}
+						
+						
+						var months; 
+					months = (fechaanohoy - fechaanoultimo )* 12; 
+					console.log(months);
+					months -= parseInt(fechamesultimo) ; console.log(months);
+					months += parseInt(fechameshoy); console.log(months);
+					console.log(parseInt(fechadiahoy));
+					console.log(parseInt(fechadiaultimo));
+					if (parseInt(fechadiahoy) >=parseInt(fechadiaultimo)) {
+						months++;
+					}
+
+						$('#interesgenerado').val(months);
+
+							
 							
 							//interesgenerado
 
@@ -544,7 +555,7 @@
 
 							html+="<td> <FONT  SIZE=2 style='color:red;'>"+response[i].masmenos+"</FONT></td>";
 							}
-							html+="<td> <FONT  SIZE=2><input type='submit' class='btn btn-success' value='PDF' onclick='descargarPDF()' ></FONT></td>";
+							html+="<td> <FONT  SIZE=2><input type='submit' class='btn btn-success' value='PDF' onclick='descargarPDF("+ response[i].id_contratos +","+ response[i].no_pago +")' ></FONT></td>";
 							
 							html+="</tr>";
 						}
@@ -582,6 +593,14 @@
 				},
 			});
 				}
+
+
+
+
+
+
+
+
 				function mensaje(color,mensaje){
 					if(mensaje=="sin_mensaje"){
 

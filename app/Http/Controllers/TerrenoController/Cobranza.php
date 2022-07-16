@@ -71,9 +71,23 @@ public function busquedaContratos(Request $request)
 
 
 }
-public function ComprobanteCobranzaPDF($consulta){
+public function ComprobanteCobranzaPDF($id_contratos,$no_pago){
 
-    $datos=DB::select('select * from tb_bitacora ');
+    $datos=DB::select('SELECT contratos.id_contratos,contratos.N_Cliente,contratos.FechaVenta,
+          contratos.Mz,contratos.Lt,
+          contratos.Vendedor,cat_proyectos.proyecto AS nom_proyecto,
+        contratos.Adquisicion,contratos.N_Parcialidades,contratos.Costo,
+        contratos.DiaPago,contratos.MontoMensual,contratos.N_Parcialidades,
+        CONCAT (clientes.nombre," ",clientes.A_paterno," ",clientes.A_materno) AS NombreCompleto,
+        contratos.Interes, clientes.id_clientes,contratos.Costo,cobroslotes.pago_a_cubrir,cobroslotes.cantidadrecibida,cobroslotes.created_at,cobroslotes.saldo_favor,cobroslotes.masmenos,cobroslotes.no_pago FROM contratos
+        INNER JOIN clientes ON clientes.N_Cliente=contratos.N_Cliente 
+
+        INNER JOIN proyectoLote ON proyectoLote.Proyecto=contratos.Proyecto and proyectoLote.Mz=contratos.Mz and proyectoLote.Lt=contratos.Lt
+        INNER JOIN cat_proyectos ON cat_proyectos.id_proyecto=contratos.Proyecto
+        INNER JOIN cobroslotes ON cobroslotes.n_contrato=contratos.id_contratos
+        WHERE cobroslotes.n_contrato="'.$id_contratos.'" and no_pago="'.$no_pago.'" order by cobroslotes.created_at desc');
+
+
     $pdf = PDF::loadView('Terrenos.Cobranza.PDF.comprobante', compact('datos'));
     $pdf->setPaper('A4', 'landscape');
     return $pdf->stream('reporte');
@@ -121,7 +135,7 @@ $masmenos='';
     }
     $no_pago= DB::select('select count(*) as cuantos from cobroslotes where n_contrato="'.$numeroContr.'";');
     $numpagos=$no_pago[0]->cuantos + 1;
-    
+
 
     DB::select('insert into cobroslotes (id_cobroslotes,n_contrato,pago_a_cubrir ,cantidadrecibida, saldo_favor ,dia_pago ,interes ,fecha,created_at, id_personal,masmenos,no_pago ) values (null,"'.$numeroContr.'","'.$PagoMes.'","'.$cantidadrecibida.'","'.$saldofavor.'","'.$DiaPagos.'","'.$interes.'","'.$fechaPHP.'","'.$fechaPHP.'","'.$idUsuarioSistema.'","'.$masmenos.'","'.$numpagos.'" )');
 
@@ -135,7 +149,7 @@ public function pagosRealizadoscontrato(Request $request)
         contratos.Adquisicion,contratos.N_Parcialidades,contratos.Costo,
         contratos.DiaPago,contratos.MontoMensual,contratos.N_Parcialidades,
         CONCAT (clientes.nombre," ",clientes.A_paterno," ",clientes.A_materno) AS NombreCompleto,
-        contratos.Interes, clientes.id_clientes,contratos.Costo,cobroslotes.pago_a_cubrir,cobroslotes.cantidadrecibida,cobroslotes.created_at,cobroslotes.saldo_favor,cobroslotes.masmenos FROM contratos
+        contratos.Interes, clientes.id_clientes,contratos.Costo,cobroslotes.pago_a_cubrir,cobroslotes.cantidadrecibida,cobroslotes.created_at,cobroslotes.saldo_favor,cobroslotes.masmenos,cobroslotes.no_pago FROM contratos
         INNER JOIN clientes ON clientes.N_Cliente=contratos.N_Cliente 
 
         INNER JOIN proyectoLote ON proyectoLote.Proyecto=contratos.Proyecto and proyectoLote.Mz=contratos.Mz and proyectoLote.Lt=contratos.Lt
