@@ -9,6 +9,8 @@ use DB;
 use Auth;
 use Barryvdh\DomPDF\Facade as PDF;
 
+use Mail;
+
 class Cobranza extends Controller
 {
    public function __construct()
@@ -137,7 +139,32 @@ $masmenos='';
     $numpagos=$no_pago[0]->cuantos + 1;
 
 
-    DB::select('insert into cobroslotes (id_cobroslotes,n_contrato,pago_a_cubrir ,cantidadrecibida, saldo_favor ,dia_pago ,interes ,fecha,created_at, id_personal,masmenos,no_pago ) values (null,"'.$numeroContr.'","'.$PagoMes.'","'.$cantidadrecibida.'","'.$saldofavor.'","'.$DiaPagos.'","'.$interes.'","'.$fechaPHP.'","'.$fechaPHP.'","'.$idUsuarioSistema.'","'.$masmenos.'","'.$numpagos.'" )');
+   $insert=DB::select('insert into cobroslotes (id_cobroslotes,n_contrato,pago_a_cubrir ,cantidadrecibida, saldo_favor ,dia_pago ,interes ,fecha,created_at, id_personal,masmenos,no_pago ) values (null,"'.$numeroContr.'","'.$PagoMes.'","'.$cantidadrecibida.'","'.$saldofavor.'","'.$DiaPagos.'","'.$interes.'","'.$fechaPHP.'","'.$fechaPHP.'","'.$idUsuarioSistema.'","'.$masmenos.'","'.$numpagos.'" )');
+
+    $mensaje_corrreo=DB::select('SELECT contratos.id_contratos,contratos.N_Cliente,contratos.FechaVenta,
+          contratos.Mz,contratos.Lt,
+          contratos.Vendedor,cat_proyectos.proyecto AS nom_proyecto,
+        contratos.Adquisicion,contratos.N_Parcialidades,contratos.Costo,
+        contratos.DiaPago,contratos.MontoMensual,contratos.N_Parcialidades,
+        CONCAT (clientes.nombre," ",clientes.A_paterno," ",clientes.A_materno) AS NombreCompleto,clientes.Correo,
+        contratos.Interes, clientes.id_clientes,contratos.Costo,cobroslotes.pago_a_cubrir,cobroslotes.cantidadrecibida,cobroslotes.created_at,cobroslotes.saldo_favor,cobroslotes.masmenos,cobroslotes.no_pago FROM contratos
+        INNER JOIN clientes ON clientes.N_Cliente=contratos.N_Cliente 
+
+        INNER JOIN proyectoLote ON proyectoLote.Proyecto=contratos.Proyecto and proyectoLote.Mz=contratos.Mz and proyectoLote.Lt=contratos.Lt
+        INNER JOIN cat_proyectos ON cat_proyectos.id_proyecto=contratos.Proyecto
+        INNER JOIN cobroslotes ON cobroslotes.n_contrato=contratos.id_contratos
+        WHERE cobroslotes.n_contrato="'.$numeroContr.'" && cobroslotes.no_pago="'.$numpagos.'" order by cobroslotes.no_pago desc');
+    
+
+        $subject = "Asunto del correo";
+        $for = $mensaje_corrreo[0]->Correo;
+
+        Mail::send('mails.emergency_call',$mensaje_corrreo, function($msj) use($subject,$for){
+            $msj->from("terrenos.y.edificaciones.mexico@gmail.com","Realizo un pago del contrato");
+            $msj->subject($subject);
+            $msj->to($for);
+        });
+        dd($numpagos);
     return $interes;
 
 }
