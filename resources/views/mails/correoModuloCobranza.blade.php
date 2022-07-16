@@ -1,8 +1,10 @@
+<body>
+	<h1>Terrenos y edificaciones del valle de mexico</h1>
 <table role="presentation" cellspacing="0" cellpadding="0" border="0" align="center" width="100%" class="m_8109600693566022295email-container" style="width:100%"><tbody><tr><td><table border="0" cellspacing="0" cellpadding="0" width="100%"><tbody><tr><td align="center"><table cellspacing="0" cellpadding="0" width="100%">
 	<tbody>
 		<tr>
 			<td style="font-size:0px;line-height:0;padding:0px;display:none;max-height:0px;max-width:0px;opacity:0;overflow:hidden;font-family:sans-serif">
-			¡No dejes pasar esta oportunidad!</td>
+			Pago Exitoso!!</td>
 		</tr>
 		<tr>
 			<td align="center">
@@ -98,3 +100,4 @@
 </tr>
 </tbody>
 </table>
+</body>

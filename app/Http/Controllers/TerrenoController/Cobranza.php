@@ -157,7 +157,6 @@ $masmenos='';
         WHERE cobroslotes.n_contrato="'.$numeroContr.'" && cobroslotes.no_pago="'.$numpagos.'" order by cobroslotes.no_pago desc');
     
 
-        $subject = "Asunto del correo";
         $for = $mensaje_corrreo[0]->Correo;
 
         
