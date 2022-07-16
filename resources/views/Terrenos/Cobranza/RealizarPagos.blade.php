@@ -227,15 +227,18 @@
 
 		function abrir_Popup() {
 			var PagoMes=$('#PagoMes').val();
+			var cantidadrecibida=Math.floor($('#cantidadrecibida').val());
 
 
 			PagoMes = PagoMes.replace(/,/g, "");
-
+			console.log(cantidadrecibida);
+			console.log(PagoMes);
 			if($('#utilizasaldofavor').val()=='No Utilizar'){
-				if($('#cantidadrecibida').val()>=PagoMes){
+				if(cantidadrecibida>=PagoMes){
+					console.log('entro');
 					$.ajax({
 						data:  {
-							"cantidadrecibida":$('#cantidadrecibida').val(),
+							"cantidadrecibida":cantidadrecibida,
 							"numeroContr":$('#numeroContr').val(),
 							"saldofavor":$('#saldofavor').val(),
 							"PagoMes":PagoMes,
@@ -250,7 +253,7 @@
 							
 
 								$('#mensajevalidapagos').html('<b style="color:green;">Registro Exitoso</b>')
-								llenartablacobros($('#numeroContr').val());
+								llenartablacobros($('#numeroContr').val(),response);
 							
 
 						},
@@ -280,7 +283,7 @@
 						success:  function (response) { 
 							
 								$('#cantidadrecibida').val('');
-								llenartablacobros($('#numeroContr').val());
+								llenartablacobros($('#numeroContr').val(),response);
 								$('#mensajevalidapagos').html('<b style="color:green;">Registro Exitoso</b>')
 							
 
@@ -541,7 +544,7 @@
 
 
 							html+="<tr>";
-							html+="<td> <FONT  SIZE=2>"+cuenta+"</FONT></td>";
+							html+="<td> <FONT  SIZE=2>"+response[i].no_pago+"</FONT></td>";
 							html+="<td> <FONT  SIZE=2>"+response[i].nom_proyecto+"</FONT></td>";
 							html+="<td> <FONT  SIZE=2>"+response[i].Mz+"</FONT></td>";
 							html+="<td> <FONT  SIZE=2>"+response[i].Lt+"</FONT></td>";

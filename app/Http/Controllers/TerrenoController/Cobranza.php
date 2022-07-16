@@ -138,6 +138,7 @@ $masmenos='';
 
 
     DB::select('insert into cobroslotes (id_cobroslotes,n_contrato,pago_a_cubrir ,cantidadrecibida, saldo_favor ,dia_pago ,interes ,fecha,created_at, id_personal,masmenos,no_pago ) values (null,"'.$numeroContr.'","'.$PagoMes.'","'.$cantidadrecibida.'","'.$saldofavor.'","'.$DiaPagos.'","'.$interes.'","'.$fechaPHP.'","'.$fechaPHP.'","'.$idUsuarioSistema.'","'.$masmenos.'","'.$numpagos.'" )');
+    return $interes;
 
 }
 public function pagosRealizadoscontrato(Request $request)
@@ -155,7 +156,7 @@ public function pagosRealizadoscontrato(Request $request)
         INNER JOIN proyectoLote ON proyectoLote.Proyecto=contratos.Proyecto and proyectoLote.Mz=contratos.Mz and proyectoLote.Lt=contratos.Lt
         INNER JOIN cat_proyectos ON cat_proyectos.id_proyecto=contratos.Proyecto
         INNER JOIN cobroslotes ON cobroslotes.n_contrato=contratos.id_contratos
-        WHERE cobroslotes.n_contrato="'.$contrato.'" order by cobroslotes.created_at desc');
+        WHERE cobroslotes.n_contrato="'.$contrato.'" order by cobroslotes.no_pago desc');
 
     return $insert;
 
