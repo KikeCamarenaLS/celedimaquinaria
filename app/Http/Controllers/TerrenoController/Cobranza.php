@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use DB;
 use Auth;
+use App\Mail\correoCobranzaPagos;
 use Barryvdh\DomPDF\Facade as PDF;
 
 use Mail;
@@ -159,12 +160,8 @@ $masmenos='';
         $subject = "Asunto del correo";
         $for = $mensaje_corrreo[0]->Correo;
 
-        Mail::send('mails.emergency_call',$mensaje_corrreo, function($msj) use($subject,$for){
-            $msj->from("terrenos.y.edificaciones.mexico@gmail.com","Realizo un pago del contrato");
-            $msj->subject($subject);
-            $msj->to($for);
-        });
-        dd($numpagos);
+        
+        Mail::to($for)->send(new correoCobranzaPagos($mensaje_corrreo));
     return $interes;
 
 }
