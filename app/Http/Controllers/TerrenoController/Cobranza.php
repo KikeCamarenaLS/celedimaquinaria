@@ -92,7 +92,7 @@ public function ComprobanteCobranzaPDF($id_contratos,$no_pago){
 
 
     $pdf = PDF::loadView('Terrenos.Cobranza.PDF.comprobante', compact('datos'));
-    $pdf->setPaper('A4', 'landscape');
+    $pdf->setPaper('A4');
     return $pdf->stream('reporte');
 }
 
