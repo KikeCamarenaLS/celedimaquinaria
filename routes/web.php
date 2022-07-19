@@ -418,7 +418,7 @@ Route::get('/bitacoraView', 'bitacoraController@bitacoraView');
 Route::get('/buscar/tratos', 'ClienteController@buscarTratos');
 Route::get('/consultar/bitacora', 'bitacoraController@bitacoraconsultar');
 Route::get('/crea/PDF/BITACORA/{modulo}/{consulta}', 'bitacoraController@bitacoraPDF');
-Route::get('/crea/PDF/ComprobanteCobranza/{consulta}', 'TerrenoController\Cobranza@ComprobanteCobranzaPDF');
+Route::get('/crea/PDF/ComprobanteCobranza/{id_contratos}/{no_pago}', 'TerrenoController\Cobranza@ComprobanteCobranzaPDF');
 
 
 Route::get('/generar/excel/{modulo}/{consulta}', 'bitacoraController@generarExcel');
@@ -458,6 +458,10 @@ Route::get('/ventalotesView12', 'VentasController@ventalotesView12');
 Route::get('/ventalotesView7', 'VentasController@ventalotesView7');
 Route::get('/ventalotesView31', 'VentasController@ventalotesView31');
 Route::get('/ventalotesView24', 'VentasController@ventalotesView24');
+Route::get('/ventalotesView38', 'VentasController@ventalotesView38');
+Route::get('/ventalotesView39', 'VentasController@ventalotesView39');
+
+
 
 
 
@@ -472,6 +476,10 @@ Route::get('/nuevo/CodigoPostal', 'ClienteController@nuevoCodigoPostal');
 Route::get('/registrarNuevo/codigoPostal', 'ClienteController@RegistranuevoCodigoPostal');
 
 Route::get('/user/validaExistencia', 'Inventario\UsuarioController@validaExistencia');
+Route::get('/registrar/CobroMes', 'TerrenoController\Cobranza@insertaCobro');
+Route::get('/busqueda/pagosRealizadoscontrato', 'TerrenoController\Cobranza@pagosRealizadoscontrato');
+
+
 
 
 

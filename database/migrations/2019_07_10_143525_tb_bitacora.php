@@ -17,6 +17,7 @@ class TbBitacora extends Migration
             $table->engine = 'InnoDB';
             $table->bigIncrements('ID_Bitacora')->index();
             $table->bigInteger('ID_EMPLEADO');
+            $table->bigInteger('nomempleado');
 
             $table->bigInteger('CVE_MOVIMIENTO');
             $table->string('Movimiento',1200);

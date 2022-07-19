@@ -22,7 +22,7 @@
 
 				<div class="form-group row ">
 					<div class="col-md-3" >
-							<label>Modulo <span class="required-label"></span></label>
+							<label>Rol <span class="required-label"></span></label>
 							<select class="form-control success" id="modulo">
 								<option value="Todos">Todos</option>
 								@foreach($permissions as $permission)
@@ -67,7 +67,9 @@
 							<thead>
 								<tr>
 									<th class="bg-danger" style="color:#ffffff; width: 6%;"><center>Empleado</center> </th>
-									<th class="bg-danger" style="color:#ffffff; width: 80%;"><center>Movimiento</center> </th>
+									<th class="bg-danger" style="color:#ffffff; width: 6%;"><center>Rol</center> </th>
+									<th class="bg-danger" style="color:#ffffff; width: 23%;"><center>Nombre Empleao</center> </th>
+									<th class="bg-danger" style="color:#ffffff; width: 50%;"><center>Movimiento</center> </th>
 									
 									<th class="bg-danger" style="color:#ffffff; width: 14%;"><center>Fecha </center></th>
 									
@@ -207,7 +209,9 @@ $("#btnConsultar").click(function(event)  {
 								html+="<tr>";
 
 								html+="<td style='width:6%;'>"+response[i].ID_EMPLEADO+"</td>";
-								html+="<td style='width:80%;'>"+response[i].Movimiento+"</td>";
+								html+="<td style='width:6%;'>"+response[i].CVE_MOVIMIENTO+"</td>";
+								html+="<td style='width:23%;'>"+response[i].nomempleado+"</td>";
+								html+="<td style='width:50%;'>"+response[i].Movimiento+"</td>";
 								html+="<td style='width:14%;'>"+response[i].created_at+"</td>";
 
 								
