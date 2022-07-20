@@ -122,7 +122,7 @@
 			if ($('#Empleado').val()!='') {
 				consulta+=" ID_EMPLEADO='"+$('#Empleado').val()+"' and ";
 			}
-			consulta+="  ID_Bitacora!='' and ORDER BY tb_bitacora.ID_Bitacora desc";
+			consulta+="  ID_Bitacora!=''  ORDER BY tb_bitacora.ID_Bitacora desc";
 
   objeto_window_referencia = window.open('{{url('crea/PDF/BITACORA')}}'+'/'+$('#modulo').val()+'/'+consulta, configuracion_ventana);
 }
@@ -188,7 +188,7 @@ $("#btnConsultar").click(function(event)  {
 			if ($('#Empleado').val()!='') {
 				consulta+=" ID_EMPLEADO='"+$('#Empleado').val()+"' and ";
 			}
-			consulta+="  ID_Bitacora!='' and ORDER BY tb_bitacora.ID_Bitacora desc";
+			consulta+="  ID_Bitacora!=''  ORDER BY tb_bitacora.ID_Bitacora desc";
 			
 
 		$('#list_user').DataTable().destroy();
