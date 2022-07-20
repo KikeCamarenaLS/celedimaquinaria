@@ -447,13 +447,13 @@ Route::get('/ventalotesView13', 'VentasController@ventalotesView13');
 Route::get('/ventalotesView14', 'VentasController@ventalotesView14');
 Route::get('/ventalotesView10', 'VentasController@ventalotesView10');
 Route::get('/ventalotesView5', 'VentasController@ventalotesView5');
-
-
-
 Route::get('/ventalotesView26', 'VentasController@ventalotesView26');
 Route::get('/ventalotesView23', 'VentasController@ventalotesView23');
 Route::get('/ventalotesView4', 'VentasController@ventalotesView4');
 Route::get('/ventalotesView15', 'VentasController@ventalotesView15');
+
+
+
 Route::get('/ventalotesView12', 'VentasController@ventalotesView12');
 Route::get('/ventalotesView7', 'VentasController@ventalotesView7');
 Route::get('/ventalotesView31', 'VentasController@ventalotesView31');
