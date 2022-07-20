@@ -265,8 +265,8 @@
 														<td style="width: 100px; height:45px;cursor:pointer;" colspan="2" id="71" onclick="cambiar('7','1')"></td>
 														<td style="width: 100px; height:45px; border:0px black solid;"  ></td>
 														<td style="width: 100px; height:45px; border:0px black solid;"  ></td>
-														<td style="width: 100px; height:45px;cursor:pointer;" colspan="2" id="13_3" onclick="cambiar('13','3')"></td>
-														<td style="width: 100px; height:45px;cursor:pointer;" colspan="2" id="13_3" onclick="cambiar('13','3')"></td>
+														<td style="width: 100px; height:45px;cursor:pointer;" colspan="2" id="534" onclick="cambiar('5','34')"></td>
+														<td style="width: 100px; height:45px;cursor:pointer;" colspan="2" id="51" onclick="cambiar('5','1')"></td>
 														<td style="width: 100px; height:45px; border:0px black solid;"  ></td>
 														<td style="width: 100px; height:45px; border:0px black solid;"  ></td>
 														<td style="width: 100px; height:45px;cursor:pointer;" colspan="2" id="13_3" onclick="cambiar('13','3')"></td>
@@ -304,8 +304,8 @@
 														<td style="width: 100px; height:45px;cursor:pointer;" colspan="2" id="72" onclick="cambiar('7','2')"></td>
 														<td style="width: 100px; height:45px; border:0px black solid;"  ></td>
 														<td style="width: 100px; height:45px; border:0px black solid;"  ></td>
-														<td style="width: 100px; height:45px;cursor:pointer;" colspan="2" id="13_3" onclick="cambiar('13','3')"></td>
-														<td style="width: 100px; height:45px;cursor:pointer;" colspan="2" id="13_3" onclick="cambiar('13','3')"></td>
+														<td style="width: 100px; height:45px;cursor:pointer;" colspan="2" id="533" onclick="cambiar('5','33')"></td>
+														<td style="width: 100px; height:45px;cursor:pointer;" colspan="2" id="52" onclick="cambiar('5','2')"></td>
 														<td style="width: 100px; height:45px; border:0px black solid;"  ></td>
 														<td style="width: 100px; height:45px; border:0px black solid;"  ></td>
 														<td style="width: 100px; height:45px;cursor:pointer;" colspan="2" id="13_3" onclick="cambiar('13','3')"></td>
@@ -345,8 +345,8 @@
 														<td style="width: 100px; height:45px;cursor:pointer;" colspan="2" id="73" onclick="cambiar('7','3')"></td>
 														<td style="width: 100px; height:45px; border:0px black solid;"  ></td>
 														<td style="width: 100px; height:45px; border:0px black solid;"  ></td>
-														<td style="width: 100px; height:45px;cursor:pointer;" colspan="2" id="13_3" onclick="cambiar('13','3')"></td>
-														<td style="width: 100px; height:45px;cursor:pointer;" colspan="2" id="13_3" onclick="cambiar('13','3')"></td>
+														<td style="width: 100px; height:45px;cursor:pointer;" colspan="2" id="532" onclick="cambiar('5','32')"></td>
+														<td style="width: 100px; height:45px;cursor:pointer;" colspan="2" id="53" onclick="cambiar('5','3')"></td>
 														<td style="width: 100px; height:45px; border:0px black solid;"  ></td>
 														<td style="width: 100px; height:45px; border:0px black solid;"  ></td>
 														<td style="width: 100px; height:45px;cursor:pointer;" colspan="2" id="13_3" onclick="cambiar('13','3')"></td>
@@ -385,8 +385,8 @@
 														<td style="width: 100px; height:45px;cursor:pointer;" colspan="2" id="74" onclick="cambiar('7','4')"></td>
 														<td style="width: 100px; height:45px; border:0px black solid;"  ></td>
 														<td style="width: 100px; height:45px; border:0px black solid;"  ></td>
-														<td style="width: 100px; height:45px;cursor:pointer;" colspan="2" id="13_3" onclick="cambiar('13','3')"></td>
-														<td style="width: 100px; height:45px;cursor:pointer;" colspan="2" id="13_3" onclick="cambiar('13','3')"></td>
+														<td style="width: 100px; height:45px;cursor:pointer;" colspan="2" id="531" onclick="cambiar('5','31')"></td>
+														<td style="width: 100px; height:45px;cursor:pointer;" colspan="2" id="54" onclick="cambiar('5','4')"></td>
 														<td style="width: 100px; height:45px; border:0px black solid;"  ></td>
 														<td style="width: 100px; height:45px; border:0px black solid;"  ></td>
 														<td style="width: 100px; height:45px;cursor:pointer;" colspan="2" id="13_3" onclick="cambiar('13','3')"></td>
@@ -426,8 +426,8 @@
 														<td style="width: 100px; height:45px;cursor:pointer;" colspan="2" id="75" onclick="cambiar('7','5')"></td>
 														<td style="width: 100px; height:45px; border:0px black solid;"  ></td>
 														<td style="width: 100px; height:45px; border:0px black solid;"  ></td>
-														<td style="width: 100px; height:45px;cursor:pointer;" colspan="2" id="13_3" onclick="cambiar('13','3')"></td>
-														<td style="width: 100px; height:45px;cursor:pointer;" colspan="2" id="13_3" onclick="cambiar('13','3')"></td>
+														<td style="width: 100px; height:45px;cursor:pointer;" colspan="2" id="530" onclick="cambiar('5','30')"></td>
+														<td style="width: 100px; height:45px;cursor:pointer;" colspan="2" id="55" onclick="cambiar('5','5')"></td>
 														<td style="width: 100px; height:45px; border:0px black solid;"  ></td>
 														<td style="width: 100px; height:45px; border:0px black solid;"  ></td>
 														<td style="width: 100px; height:45px;cursor:pointer;" colspan="2" id="13_3" onclick="cambiar('13','3')"></td>
@@ -466,8 +466,8 @@
 														<td style="width: 100px; height:45px;cursor:pointer;" colspan="2" id="76" onclick="cambiar('7','6')"></td>
 														<td style="width: 100px; height:45px; border:0px black solid;"  ></td>
 														<td style="width: 100px; height:45px; border:0px black solid;"  ></td>
-														<td style="width: 100px; height:45px;cursor:pointer;" colspan="2" id="13_3" onclick="cambiar('13','3')"></td>
-														<td style="width: 100px; height:45px;cursor:pointer;" colspan="2" id="13_3" onclick="cambiar('13','3')"></td>
+														<td style="width: 100px; height:45px;cursor:pointer;" colspan="2" id="529" onclick="cambiar('5','29')"></td>
+														<td style="width: 100px; height:45px;cursor:pointer;" colspan="2" id="56" onclick="cambiar('5','6')"></td>
 														<td style="width: 100px; height:45px; border:0px black solid;"  ></td>
 														<td style="width: 100px; height:45px; border:0px black solid;"  ></td>
 														<td style="width: 100px; height:45px;cursor:pointer;" colspan="2" id="13_3" onclick="cambiar('13','3')"></td>
@@ -506,8 +506,8 @@
 														<td style="width: 100px; height:45px;cursor:pointer;" colspan="2" id="77" onclick="cambiar('7','7')"></td>
 														<td style="width: 100px; height:45px; border:0px black solid;"  ></td>
 														<td style="width: 100px; height:45px; border:0px black solid;"  ></td>
-														<td style="width: 100px; height:45px;cursor:pointer;" colspan="2" id="13_3" onclick="cambiar('13','3')"></td>
-														<td style="width: 100px; height:45px;cursor:pointer;" colspan="2" id="13_3" onclick="cambiar('13','3')"></td>
+														<td style="width: 100px; height:45px;cursor:pointer;" colspan="2" id="528" onclick="cambiar('5','28')"></td>
+														<td style="width: 100px; height:45px;cursor:pointer;" colspan="2" id="57" onclick="cambiar('5','7')"></td>
 														<td style="width: 100px; height:45px; border:0px black solid;"  ></td>
 														<td style="width: 100px; height:45px; border:0px black solid;"  ></td>
 														<td style="width: 100px; height:45px;cursor:pointer;" colspan="2" id="13_3" onclick="cambiar('13','3')"></td>
@@ -546,8 +546,8 @@
 														<td style="width: 100px; height:45px;cursor:pointer;" colspan="2" id="78" onclick="cambiar('7','8')"></td>
 														<td style="width: 100px; height:45px; border:0px black solid;"  ></td>
 														<td style="width: 100px; height:45px; border:0px black solid;"  ></td>
-														<td style="width: 100px; height:45px;cursor:pointer;" colspan="2" id="13_3" onclick="cambiar('13','3')"></td>
-														<td style="width: 100px; height:45px;cursor:pointer;" colspan="2" id="13_3" onclick="cambiar('13','3')"></td>
+														<td style="width: 100px; height:45px;cursor:pointer;" colspan="2" id="527" onclick="cambiar('5','27')"></td>
+														<td style="width: 100px; height:45px;cursor:pointer;" colspan="2" id="58" onclick="cambiar('5','8')"></td>
 														<td style="width: 100px; height:45px; border:0px black solid;"  ></td>
 														<td style="width: 100px; height:45px; border:0px black solid;"  ></td>
 														<td style="width: 100px; height:45px;cursor:pointer;" colspan="2" id="13_3" onclick="cambiar('13','3')"></td>
@@ -586,8 +586,8 @@
 														<td style="width: 100px; height:45px;cursor:pointer;" colspan="2" id="79" onclick="cambiar('7','9')"></td>
 														<td style="width: 100px; height:45px; border:0px black solid;"  ></td>
 														<td style="width: 100px; height:45px; border:0px black solid;"  ></td>
-														<td style="width: 100px; height:45px;cursor:pointer;" colspan="2" id="13_3" onclick="cambiar('13','3')"></td>
-														<td style="width: 100px; height:45px;cursor:pointer;" colspan="2" id="13_3" onclick="cambiar('13','3')"></td>
+														<td style="width: 100px; height:45px;cursor:pointer;" colspan="2" id="526" onclick="cambiar('5','26')"></td>
+														<td style="width: 100px; height:45px;cursor:pointer;" colspan="2" id="59" onclick="cambiar('5','9')"></td>
 														<td style="width: 100px; height:45px; border:0px black solid;"  ></td>
 														<td style="width: 100px; height:45px; border:0px black solid;"  ></td>
 														<td style="width: 100px; height:45px;cursor:pointer;" colspan="2" id="13_3" onclick="cambiar('13','3')"></td>
@@ -626,8 +626,8 @@
 														<td style="width: 100px; height:45px;cursor:pointer;" colspan="2" id="710" onclick="cambiar('7','10')"></td>
 														<td style="width: 100px; height:45px; border:0px black solid;"  ></td>
 														<td style="width: 100px; height:45px; border:0px black solid;"  ></td>
-														<td style="width: 100px; height:45px;cursor:pointer;" colspan="2" id="13_3" onclick="cambiar('13','3')"></td>
-														<td style="width: 100px; height:45px;cursor:pointer;" colspan="2" id="13_3" onclick="cambiar('13','3')"></td>
+														<td style="width: 100px; height:45px;cursor:pointer;" colspan="2" id="525" onclick="cambiar('5','25')"></td>
+														<td style="width: 100px; height:45px;cursor:pointer;" colspan="2" id="510" onclick="cambiar('5','10')"></td>
 														<td style="width: 100px; height:45px; border:0px black solid;"  ></td>
 														<td style="width: 100px; height:45px; border:0px black solid;"  ></td>
 														<td style="width: 100px; height:45px;cursor:pointer;" colspan="2" id="13_3" onclick="cambiar('13','3')"></td>
@@ -666,8 +666,8 @@
 														<td style="width: 100px; height:45px;cursor:pointer;" colspan="2" id="711" onclick="cambiar('7','11')"></td>
 														<td style="width: 100px; height:45px; border:0px black solid;"  ></td>
 														<td style="width: 100px; height:45px; border:0px black solid;"  ></td>
-														<td style="width: 100px; height:45px;cursor:pointer;" colspan="2" id="13_3" onclick="cambiar('13','3')"></td>
-														<td style="width: 100px; height:45px;cursor:pointer;" colspan="2" id="13_3" onclick="cambiar('13','3')"></td>
+														<td style="width: 100px; height:45px;cursor:pointer;" colspan="2" id="524" onclick="cambiar('5','24')"></td>
+														<td style="width: 100px; height:45px;cursor:pointer;" colspan="2" id="511" onclick="cambiar('5','11')"></td>
 														<td style="width: 100px; height:45px; border:0px black solid;"  ></td>
 														<td style="width: 100px; height:45px; border:0px black solid;"  ></td>
 														<td style="width: 100px; height:45px;cursor:pointer;" colspan="2" id="13_3" onclick="cambiar('13','3')"></td>
@@ -706,8 +706,8 @@
 														<td style="width: 100px; height:45px;cursor:pointer;" colspan="2" id="712" onclick="cambiar('7','12')"></td>
 														<td style="width: 100px; height:45px; border:0px black solid;"  ></td>
 														<td style="width: 100px; height:45px; border:0px black solid;"  ></td>
-														<td style="width: 100px; height:45px;cursor:pointer;" colspan="2" id="13_3" onclick="cambiar('13','3')"></td>
-														<td style="width: 100px; height:45px;cursor:pointer;" colspan="2" id="13_3" onclick="cambiar('13','3')"></td>
+														<td style="width: 100px; height:45px;cursor:pointer;" colspan="2" id="523" onclick="cambiar('5','23')"></td>
+														<td style="width: 100px; height:45px;cursor:pointer;" colspan="2" id="512" onclick="cambiar('5','12')"></td>
 														<td style="width: 100px; height:45px; border:0px black solid;"  ></td>
 														<td style="width: 100px; height:45px; border:0px black solid;"  ></td>
 														<td style="width: 100px; height:45px;cursor:pointer;" colspan="2" id="13_3" onclick="cambiar('13','3')"></td>
@@ -746,8 +746,8 @@
 														<td style="width: 100px; height:45px;cursor:pointer;" colspan="2" id="713" onclick="cambiar('7','13')"></td>
 														<td style="width: 100px; height:45px; border:0px black solid;"  ></td>
 														<td style="width: 100px; height:45px; border:0px black solid;"  ></td>
-														<td style="width: 100px; height:45px;cursor:pointer;" colspan="2" id="13_3" onclick="cambiar('13','3')"></td>
-														<td style="width: 100px; height:45px;cursor:pointer;" colspan="2" id="13_3" onclick="cambiar('13','3')"></td>
+														<td style="width: 100px; height:45px;cursor:pointer;" colspan="2" id="522" onclick="cambiar('5','22')"></td>
+														<td style="width: 100px; height:45px;cursor:pointer;" colspan="2" id="513" onclick="cambiar('5','13')"></td>
 														<td style="width: 100px; height:45px; border:0px black solid;"  ></td>
 														<td style="width: 100px; height:45px; border:0px black solid;"  ></td>
 														<td style="width: 100px; height:45px;cursor:pointer;" colspan="2" id="13_3" onclick="cambiar('13','3')"></td>
@@ -786,8 +786,8 @@
 														<td style="width: 100px; height:45px;cursor:pointer;" colspan="2" id="714" onclick="cambiar('7','14')"></td>
 														<td style="width: 100px; height:45px; border:0px black solid;"  ></td>
 														<td style="width: 100px; height:45px; border:0px black solid;"  ></td>
-														<td style="width: 100px; height:45px;cursor:pointer;" colspan="2" id="13_3" onclick="cambiar('13','3')"></td>
-														<td style="width: 100px; height:45px;cursor:pointer;" colspan="2" id="13_3" onclick="cambiar('13','3')"></td>
+														<td style="width: 100px; height:45px;cursor:pointer;" colspan="2" id="521" onclick="cambiar('5','21')"></td>
+														<td style="width: 100px; height:45px;cursor:pointer;" colspan="2" id="514" onclick="cambiar('5','14')"></td>
 														<td style="width: 100px; height:45px; border:0px black solid;"  ></td>
 														<td style="width: 100px; height:45px; border:0px black solid;"  ></td>
 														<td style="width: 100px; height:45px;cursor:pointer;" colspan="2" id="13_3" onclick="cambiar('13','3')"></td>
@@ -826,8 +826,8 @@
 														<td style="width: 100px; height:45px;cursor:pointer;" colspan="2" id="715" onclick="cambiar('7','15')"></td>
 														<td style="width: 100px; height:45px; border:0px black solid;"  ></td>
 														<td style="width: 100px; height:45px; border:0px black solid;"  ></td>
-														<td style="width: 100px; height:45px;cursor:pointer;" colspan="2" id="13_3" onclick="cambiar('13','3')"></td>
-														<td style="width: 100px; height:45px;cursor:pointer;" colspan="2" id="13_3" onclick="cambiar('13','3')"></td>
+														<td style="width: 100px; height:45px;cursor:pointer;" colspan="2" id="520" onclick="cambiar('5','20')"></td>
+														<td style="width: 100px; height:45px;cursor:pointer;" colspan="2" id="515" onclick="cambiar('5','15')"></td>
 														<td style="width: 100px; height:45px; border:0px black solid;"  ></td>
 														<td style="width: 100px; height:45px; border:0px black solid;"  ></td>
 														<td style="width: 100px; height:45px;cursor:pointer;" colspan="2" id="13_3" onclick="cambiar('13','3')"></td>
@@ -866,8 +866,8 @@
 														<td style="width: 100px; height:45px;cursor:pointer;" colspan="2" id="716" onclick="cambiar('7','16')"></td>
 														<td style="width: 100px; height:45px; border:0px black solid;"  ></td>
 														<td style="width: 100px; height:45px; border:0px black solid;"  ></td>
-														<td style="width: 100px; height:45px;cursor:pointer;" colspan="2" id="13_3" onclick="cambiar('13','3')"></td>
-														<td style="width: 100px; height:45px;cursor:pointer;" colspan="2" id="13_3" onclick="cambiar('13','3')"></td>
+														<td style="width: 100px; height:45px;cursor:pointer;" colspan="2" id="519" onclick="cambiar('5','19')"></td>
+														<td style="width: 100px; height:45px;cursor:pointer;" colspan="2" id="516" onclick="cambiar('5','16')"></td>
 														<td style="width: 100px; height:45px; border:0px black solid;"  ></td>
 														<td style="width: 100px; height:45px; border:0px black solid;"  ></td>
 														<td style="width: 100px; height:45px;cursor:pointer;" colspan="2" id="13_3" onclick="cambiar('13','3')"></td>
@@ -906,8 +906,8 @@
 														<td style="width: 100px; height:45px;cursor:pointer;" colspan="2" id="717" onclick="cambiar('7','17')"></td>
 														<td style="width: 100px; height:45px; border:0px black solid;"  ></td>
 														<td style="width: 100px; height:45px; border:0px black solid;"  ></td>
-														<td style="width: 100px; height:45px;cursor:pointer;" colspan="2" id="13_3" onclick="cambiar('13','3')"></td>
-														<td style="width: 100px; height:45px;cursor:pointer;" colspan="2" id="13_3" onclick="cambiar('13','3')"></td>
+														<td style="width: 100px; height:45px;cursor:pointer;" colspan="2" id="518" onclick="cambiar('5','18')"></td>
+														<td style="width: 100px; height:45px;cursor:pointer;" colspan="2" id="517" onclick="cambiar('5','17')"></td>
 														<td style="width: 100px; height:45px; border:0px black solid;"  ></td>
 														<td style="width: 100px; height:45px; border:0px black solid;"  ></td>
 														<td style="width: 100px; height:45px;cursor:pointer;" colspan="2" id="13_3" onclick="cambiar('13','3')"></td>
@@ -950,8 +950,10 @@
 														<td style="width: 100px; height:45px;cursor:pointer;" colspan="2" id="718" onclick="cambiar('7','18')"></td>
 														<td style="width: 100px; height:45px; border:0px black solid;"  ></td>
 														<td style="width: 100px; height:45px; border:0px black solid;"  ></td>
-														<td style="width: 100px; height:45px;cursor:pointer;" colspan="2" id="13_3" onclick="cambiar('13','3')"></td>
-														<td style="width: 100px; height:45px;cursor:pointer;" colspan="2" id="13_3" onclick="cambiar('13','3')"></td>
+														<td style="width: 100px; height:45px; border:0px black solid;"  ></td>
+														<td style="width: 100px; height:45px; border:0px black solid;"  ></td>
+														<td style="width: 100px; height:45px; border:0px black solid;"  ></td>
+														<td style="width: 100px; height:45px; border:0px black solid;"  ></td>
 														<td style="width: 100px; height:45px; border:0px black solid;"  ></td>
 														<td style="width: 100px; height:45px; border:0px black solid;"  ></td>
 														<td style="width: 100px; height:45px;cursor:pointer;" colspan="2" id="13_3" onclick="cambiar('13','3')"></td>
@@ -994,8 +996,10 @@
 														<td style="width: 100px; height:45px;cursor:pointer;" colspan="2" id="719" onclick="cambiar('7','19')"></td>
 														<td style="width: 100px; height:45px; border:0px black solid;"  ></td>
 														<td style="width: 100px; height:45px; border:0px black solid;"  ></td>
-														<td style="width: 100px; height:45px;cursor:pointer;" colspan="2" id="13_3" onclick="cambiar('13','3')"></td>
-														<td style="width: 100px; height:45px;cursor:pointer;" colspan="2" id="13_3" onclick="cambiar('13','3')"></td>
+														<td style="width: 100px; height:45px; border:0px black solid;"  ></td>
+														<td style="width: 100px; height:45px; border:0px black solid;"  ></td>
+														<td style="width: 100px; height:45px; border:0px black solid;"  ></td>
+														<td style="width: 100px; height:45px; border:0px black solid;"  ></td>
 														<td style="width: 100px; height:45px; border:0px black solid;"  ></td>
 														<td style="width: 100px; height:45px; border:0px black solid;"  ></td>
 														<td style="width: 100px; height:45px;cursor:pointer;" colspan="2" id="13_3" onclick="cambiar('13','3')"></td>
@@ -1074,8 +1078,8 @@
 														<td style="width: 100px; height:45px;cursor:pointer;" colspan="2" id="721" onclick="cambiar('7','21')"></td>
 														<td style="width: 100px; height:45px; border:0px black solid;"  ></td>
 														<td style="width: 100px; height:45px; border:0px black solid;"  ></td>
-														<td style="width: 100px; height:45px;cursor:pointer;" colspan="2" id="13_3" onclick="cambiar('13','3')"></td>
-														<td style="width: 100px; height:45px;cursor:pointer;" colspan="2" id="13_3" onclick="cambiar('13','3')"></td>
+														<td style="width: 100px; height:45px;cursor:pointer;" colspan="2" id="637" onclick="cambiar('6','37')"></td>
+														<td style="width: 100px; height:45px;cursor:pointer;" colspan="2" id="61" onclick="cambiar('6','1')"></td>
 														<td style="width: 100px; height:45px; border:0px black solid;"  ></td>
 														<td style="width: 100px; height:45px; border:0px black solid;"  ></td>
 														<td style="width: 100px; height:45px;cursor:pointer;" colspan="2" id="13_3" onclick="cambiar('13','3')"></td>
@@ -1114,8 +1118,8 @@
 														<td style="width: 100px; height:45px;cursor:pointer;" colspan="2" id="722" onclick="cambiar('7','22')"></td>
 														<td style="width: 100px; height:45px; border:0px black solid;"  ></td>
 														<td style="width: 100px; height:45px; border:0px black solid;"  ></td>
-														<td style="width: 100px; height:45px;cursor:pointer;" colspan="2" id="13_3" onclick="cambiar('13','3')"></td>
-														<td style="width: 100px; height:45px;cursor:pointer;" colspan="2" id="13_3" onclick="cambiar('13','3')"></td>
+														<td style="width: 100px; height:45px;cursor:pointer;" colspan="2" id="636" onclick="cambiar('6','36')"></td>
+														<td style="width: 100px; height:45px;cursor:pointer;" colspan="2" id="62" onclick="cambiar('6','2')"></td>
 														<td style="width: 100px; height:45px; border:0px black solid;"  ></td>
 														<td style="width: 100px; height:45px; border:0px black solid;"  ></td>
 														<td style="width: 100px; height:45px;cursor:pointer;" colspan="2" id="13_3" onclick="cambiar('13','3')"></td>
@@ -1150,12 +1154,12 @@
 														<td style="width: 100px; height:45px;cursor:pointer;" colspan="2" id="93" onclick="cambiar('9','3')"></td>
 														<td style="width: 100px; height:45px; border:0px black solid;"  ></td>
 														<td style="width: 100px; height:45px; border:0px black solid;"  ></td>
-														<td style="width: 100px; height:45px;cursor:pointer;" colspan="2" id="13_3" onclick="cambiar('13','3')"></td>
-														<td style="width: 100px; height:45px;cursor:pointer;" colspan="2" id="13_3" onclick="cambiar('13','3')"></td>
+														<td style="width: 100px; height:45px;cursor:pointer;" colspan="2" id="753" onclick="cambiar('7','53')"></td>
+														<td style="width: 100px; height:45px;cursor:pointer;" colspan="2" id="723" onclick="cambiar('7','23')"></td>
 														<td style="width: 100px; height:45px; border:0px black solid;"  ></td>
 														<td style="width: 100px; height:45px; border:0px black solid;"  ></td>
-														<td style="width: 100px; height:45px;cursor:pointer;" colspan="2" id="13_3" onclick="cambiar('13','3')"></td>
-														<td style="width: 100px; height:45px;cursor:pointer;" colspan="2" id="13_3" onclick="cambiar('13','3')"></td>
+														<td style="width: 100px; height:45px;cursor:pointer;" colspan="2" id="635" onclick="cambiar('6','35')"></td>
+														<td style="width: 100px; height:45px;cursor:pointer;" colspan="2" id="63" onclick="cambiar('6','3')"></td>
 														<td style="width: 100px; height:45px; border:0px black solid;"  ></td>
 														<td style="width: 100px; height:45px; border:0px black solid;"  ></td>
 														<td style="width: 100px; height:45px;cursor:pointer;" colspan="2" id="13_3" onclick="cambiar('13','3')"></td>
@@ -1190,12 +1194,12 @@
 														<td style="width: 100px; height:45px;cursor:pointer;" colspan="2" id="94" onclick="cambiar('9','4')"></td>
 														<td style="width: 100px; height:45px; border:0px black solid;"  ></td>
 														<td style="width: 100px; height:45px; border:0px black solid;"  ></td>
-														<td style="width: 100px; height:45px;cursor:pointer;" colspan="2" id="13_3" onclick="cambiar('13','3')"></td>
-														<td style="width: 100px; height:45px;cursor:pointer;" colspan="2" id="13_3" onclick="cambiar('13','3')"></td>
+														<td style="width: 100px; height:45px;cursor:pointer;" colspan="2" id="752" onclick="cambiar('7','52')"></td>
+														<td style="width: 100px; height:45px;cursor:pointer;" colspan="2" id="724" onclick="cambiar('7','24')"></td>
 														<td style="width: 100px; height:45px; border:0px black solid;"  ></td>
 														<td style="width: 100px; height:45px; border:0px black solid;"  ></td>
-														<td style="width: 100px; height:45px;cursor:pointer;" colspan="2" id="13_3" onclick="cambiar('13','3')"></td>
-														<td style="width: 100px; height:45px;cursor:pointer;" colspan="2" id="13_3" onclick="cambiar('13','3')"></td>
+														<td style="width: 100px; height:45px;cursor:pointer;" colspan="2" id="634" onclick="cambiar('6','34')"></td>
+														<td style="width: 100px; height:45px;cursor:pointer;" colspan="2" id="64" onclick="cambiar('6','4')"></td>
 														<td style="width: 100px; height:45px; border:0px black solid;"  ></td>
 														<td style="width: 100px; height:45px; border:0px black solid;"  ></td>
 														<td style="width: 100px; height:45px;cursor:pointer;" colspan="2" id="13_3" onclick="cambiar('13','3')"></td>
@@ -1230,12 +1234,12 @@
 														<td style="width: 100px; height:45px;cursor:pointer;" colspan="2" id="95" onclick="cambiar('9','5')"></td>
 														<td style="width: 100px; height:45px; border:0px black solid;"  ></td>
 														<td style="width: 100px; height:45px; border:0px black solid;"  ></td>
-														<td style="width: 100px; height:45px;cursor:pointer;" colspan="2" id="13_3" onclick="cambiar('13','3')"></td>
-														<td style="width: 100px; height:45px;cursor:pointer;" colspan="2" id="13_3" onclick="cambiar('13','3')"></td>
+														<td style="width: 100px; height:45px;cursor:pointer;" colspan="2" id="751" onclick="cambiar('7','51')"></td>
+														<td style="width: 100px; height:45px;cursor:pointer;" colspan="2" id="725" onclick="cambiar('7','25')"></td>
 														<td style="width: 100px; height:45px; border:0px black solid;"  ></td>
 														<td style="width: 100px; height:45px; border:0px black solid;"  ></td>
-														<td style="width: 100px; height:45px;cursor:pointer;" colspan="2" id="13_3" onclick="cambiar('13','3')"></td>
-														<td style="width: 100px; height:45px;cursor:pointer;" colspan="2" id="13_3" onclick="cambiar('13','3')"></td>
+														<td style="width: 100px; height:45px;cursor:pointer;" colspan="2" id="633" onclick="cambiar('6','33')"></td>
+														<td style="width: 100px; height:45px;cursor:pointer;" colspan="2" id="65" onclick="cambiar('6','5')"></td>
 														<td style="width: 100px; height:45px; border:0px black solid;"  ></td>
 														<td style="width: 100px; height:45px; border:0px black solid;"  ></td>
 														<td style="width: 100px; height:45px;cursor:pointer;" colspan="2" id="13_3" onclick="cambiar('13','3')"></td>
@@ -1270,12 +1274,12 @@
 														<td style="width: 100px; height:45px;cursor:pointer;" colspan="2" id="96" onclick="cambiar('9','6')"></td>
 														<td style="width: 100px; height:45px; border:0px black solid;"  ></td>
 														<td style="width: 100px; height:45px; border:0px black solid;"  ></td>
-														<td style="width: 100px; height:45px;cursor:pointer;" colspan="2" id="13_3" onclick="cambiar('13','3')"></td>
-														<td style="width: 100px; height:45px;cursor:pointer;" colspan="2" id="13_3" onclick="cambiar('13','3')"></td>
+														<td style="width: 100px; height:45px;cursor:pointer;" colspan="2" id="750" onclick="cambiar('7','50')"></td>
+														<td style="width: 100px; height:45px;cursor:pointer;" colspan="2" id="726" onclick="cambiar('7','26')"></td>
 														<td style="width: 100px; height:45px; border:0px black solid;"  ></td>
 														<td style="width: 100px; height:45px; border:0px black solid;"  ></td>
-														<td style="width: 100px; height:45px;cursor:pointer;" colspan="2" id="13_3" onclick="cambiar('13','3')"></td>
-														<td style="width: 100px; height:45px;cursor:pointer;" colspan="2" id="13_3" onclick="cambiar('13','3')"></td>
+														<td style="width: 100px; height:45px;cursor:pointer;" colspan="2" id="632" onclick="cambiar('6','32')"></td>
+														<td style="width: 100px; height:45px;cursor:pointer;" colspan="2" id="66" onclick="cambiar('6','6')"></td>
 														<td style="width: 100px; height:45px; border:0px black solid;"  ></td>
 														<td style="width: 100px; height:45px; border:0px black solid;"  ></td>
 														<td style="width: 100px; height:45px;cursor:pointer;" colspan="2" id="13_3" onclick="cambiar('13','3')"></td>
@@ -1310,12 +1314,12 @@
 														<td style="width: 100px; height:45px;cursor:pointer;" colspan="2" id="97" onclick="cambiar('9','7')"></td>
 														<td style="width: 100px; height:45px; border:0px black solid;"  ></td>
 														<td style="width: 100px; height:45px; border:0px black solid;"  ></td>
-														<td style="width: 100px; height:45px;cursor:pointer;" colspan="2" id="13_3" onclick="cambiar('13','3')"></td>
-														<td style="width: 100px; height:45px;cursor:pointer;" colspan="2" id="13_3" onclick="cambiar('13','3')"></td>
+														<td style="width: 100px; height:45px;cursor:pointer;" colspan="2" id="749" onclick="cambiar('7','49')"></td>
+														<td style="width: 100px; height:45px;cursor:pointer;" colspan="2" id="727" onclick="cambiar('7','27')"></td>
 														<td style="width: 100px; height:45px; border:0px black solid;"  ></td>
 														<td style="width: 100px; height:45px; border:0px black solid;"  ></td>
-														<td style="width: 100px; height:45px;cursor:pointer;" colspan="2" id="13_3" onclick="cambiar('13','3')"></td>
-														<td style="width: 100px; height:45px;cursor:pointer;" colspan="2" id="13_3" onclick="cambiar('13','3')"></td>
+														<td style="width: 100px; height:45px;cursor:pointer;" colspan="2" id="631" onclick="cambiar('6','31')"></td>
+														<td style="width: 100px; height:45px;cursor:pointer;" colspan="2" id="67" onclick="cambiar('6','7')"></td>
 														<td style="width: 100px; height:45px; border:0px black solid;"  ></td>
 														<td style="width: 100px; height:45px; border:0px black solid;"  ></td>
 														<td style="width: 100px; height:45px;cursor:pointer;" colspan="2" id="13_3" onclick="cambiar('13','3')"></td>
@@ -1350,12 +1354,12 @@
 														<td style="width: 100px; height:45px;cursor:pointer;" colspan="2" id="98" onclick="cambiar('9','8')"></td>
 														<td style="width: 100px; height:45px; border:0px black solid;"  ></td>
 														<td style="width: 100px; height:45px; border:0px black solid;"  ></td>
-														<td style="width: 100px; height:45px;cursor:pointer;" colspan="2" id="13_3" onclick="cambiar('13','3')"></td>
-														<td style="width: 100px; height:45px;cursor:pointer;" colspan="2" id="13_3" onclick="cambiar('13','3')"></td>
+														<td style="width: 100px; height:45px;cursor:pointer;" colspan="2" id="748" onclick="cambiar('7','48')"></td>
+														<td style="width: 100px; height:45px;cursor:pointer;" colspan="2" id="728" onclick="cambiar('7','28')"></td>
 														<td style="width: 100px; height:45px; border:0px black solid;"  ></td>
 														<td style="width: 100px; height:45px; border:0px black solid;"  ></td>
-														<td style="width: 100px; height:45px;cursor:pointer;" colspan="2" id="13_3" onclick="cambiar('13','3')"></td>
-														<td style="width: 100px; height:45px;cursor:pointer;" colspan="2" id="13_3" onclick="cambiar('13','3')"></td>
+														<td style="width: 100px; height:45px;cursor:pointer;" colspan="2" id="630" onclick="cambiar('6','30')"></td>
+														<td style="width: 100px; height:45px;cursor:pointer;" colspan="2" id="68" onclick="cambiar('6','8')"></td>
 														<td style="width: 100px; height:45px; border:0px black solid;"  ></td>
 														<td style="width: 100px; height:45px; border:0px black solid;"  ></td>
 														<td style="width: 100px; height:45px;cursor:pointer;" colspan="2" id="13_3" onclick="cambiar('13','3')"></td>
@@ -1390,12 +1394,12 @@
 														<td style="width: 100px; height:45px;cursor:pointer;" colspan="2" id="99" onclick="cambiar('9','9')"></td>
 														<td style="width: 100px; height:45px; border:0px black solid;"  ></td>
 														<td style="width: 100px; height:45px; border:0px black solid;"  ></td>
-														<td style="width: 100px; height:45px;cursor:pointer;" colspan="2" id="13_3" onclick="cambiar('13','3')"></td>
-														<td style="width: 100px; height:45px;cursor:pointer;" colspan="2" id="13_3" onclick="cambiar('13','3')"></td>
+														<td style="width: 100px; height:45px;cursor:pointer;" colspan="2" id="747" onclick="cambiar('7','47')"></td>
+														<td style="width: 100px; height:45px;cursor:pointer;" colspan="2" id="729" onclick="cambiar('7','29')"></td>
 														<td style="width: 100px; height:45px; border:0px black solid;"  ></td>
 														<td style="width: 100px; height:45px; border:0px black solid;"  ></td>
-														<td style="width: 100px; height:45px;cursor:pointer;" colspan="2" id="13_3" onclick="cambiar('13','3')"></td>
-														<td style="width: 100px; height:45px;cursor:pointer;" colspan="2" id="13_3" onclick="cambiar('13','3')"></td>
+														<td style="width: 100px; height:45px;cursor:pointer;" colspan="2" id="629" onclick="cambiar('6','29')"></td>
+														<td style="width: 100px; height:45px;cursor:pointer;" colspan="2" id="69" onclick="cambiar('6','9')"></td>
 														<td style="width: 100px; height:45px; border:0px black solid;"  ></td>
 														<td style="width: 100px; height:45px; border:0px black solid;"  ></td>
 														<td style="width: 100px; height:45px;cursor:pointer;" colspan="2" id="13_3" onclick="cambiar('13','3')"></td>
@@ -1430,12 +1434,12 @@
 														<td style="width: 100px; height:45px;cursor:pointer;" colspan="2" id="910" onclick="cambiar('9','10')"></td>
 														<td style="width: 100px; height:45px; border:0px black solid;"  ></td>
 														<td style="width: 100px; height:45px; border:0px black solid;"  ></td>
-														<td style="width: 100px; height:45px;cursor:pointer;" colspan="2" id="13_3" onclick="cambiar('13','3')"></td>
-														<td style="width: 100px; height:45px;cursor:pointer;" colspan="2" id="13_3" onclick="cambiar('13','3')"></td>
+														<td style="width: 100px; height:45px;cursor:pointer;" colspan="2" id="746" onclick="cambiar('7','46')"></td>
+														<td style="width: 100px; height:45px;cursor:pointer;" colspan="2" id="730" onclick="cambiar('7','30')"></td>
 														<td style="width: 100px; height:45px; border:0px black solid;"  ></td>
 														<td style="width: 100px; height:45px; border:0px black solid;"  ></td>
-														<td style="width: 100px; height:45px;cursor:pointer;" colspan="2" id="13_3" onclick="cambiar('13','3')"></td>
-														<td style="width: 100px; height:45px;cursor:pointer;" colspan="2" id="13_3" onclick="cambiar('13','3')"></td>
+														<td style="width: 100px; height:45px;cursor:pointer;" colspan="2" id="628" onclick="cambiar('6','28')"></td>
+														<td style="width: 100px; height:45px;cursor:pointer;" colspan="2" id="610" onclick="cambiar('6','10')"></td>
 														<td style="width: 100px; height:45px; border:0px black solid;"  ></td>
 														<td style="width: 100px; height:45px; border:0px black solid;"  ></td>
 														<td style="width: 100px; height:45px;cursor:pointer;" colspan="2" id="13_3" onclick="cambiar('13','3')"></td>
@@ -1466,16 +1470,16 @@
 														<td style="width: 100px; height:45px;cursor:pointer;" colspan="2" id="10_31" onclick="cambiar('10','31')"></td>
 														<td style="width: 100px; height:45px; border:0px black solid;"  ></td>
 														<td style="width: 100px; height:45px; border:0px black solid;"  ></td>
-														<td style="width: 100px; height:45px;cursor:pointer;" colspan="2" id="927" onclick="cambiar('9','27')"></td>
-														<td style="width: 100px; height:45px;cursor:pointer;" colspan="2" id="911" onclick="cambiar('9','11')"></td>
+														<td style="width: 100px; height:45px;cursor:pointer;" colspan="2" id="928" onclick="cambiar('9','28')"></td>
+														<td style="width: 100px; height:45px;cursor:pointer;" colspan="2" id="910" onclick="cambiar('9','10')"></td>
 														<td style="width: 100px; height:45px; border:0px black solid;"  ></td>
 														<td style="width: 100px; height:45px; border:0px black solid;"  ></td>
-														<td style="width: 100px; height:45px;cursor:pointer;" colspan="2" id="13_3" onclick="cambiar('13','3')"></td>
-														<td style="width: 100px; height:45px;cursor:pointer;" colspan="2" id="13_3" onclick="cambiar('13','3')"></td>
+														<td style="width: 100px; height:45px;cursor:pointer;" colspan="2" id="745" onclick="cambiar('7','45')"></td>
+														<td style="width: 100px; height:45px;cursor:pointer;" colspan="2" id="731" onclick="cambiar('7','31')"></td>
 														<td style="width: 100px; height:45px; border:0px black solid;"  ></td>
 														<td style="width: 100px; height:45px; border:0px black solid;"  ></td>
-														<td style="width: 100px; height:45px;cursor:pointer;" colspan="2" id="13_3" onclick="cambiar('13','3')"></td>
-														<td style="width: 100px; height:45px;cursor:pointer;" colspan="2" id="13_3" onclick="cambiar('13','3')"></td>
+														<td style="width: 100px; height:45px;cursor:pointer;" colspan="2" id="628" onclick="cambiar('6','28')"></td>
+														<td style="width: 100px; height:45px;cursor:pointer;" colspan="2" id="610" onclick="cambiar('6','10')"></td>
 														<td style="width: 100px; height:45px; border:0px black solid;"  ></td>
 														<td style="width: 100px; height:45px; border:0px black solid;"  ></td>
 														<td style="width: 100px; height:45px;cursor:pointer;" colspan="2" id="13_3" onclick="cambiar('13','3')"></td>
@@ -1510,12 +1514,12 @@
 														<td style="width: 100px; height:45px;cursor:pointer;" colspan="2" id="912" onclick="cambiar('9','12')"></td>
 														<td style="width: 100px; height:45px; border:0px black solid;"  ></td>
 														<td style="width: 100px; height:45px; border:0px black solid;"  ></td>
-														<td style="width: 100px; height:45px;cursor:pointer;" colspan="2" id="13_3" onclick="cambiar('13','3')"></td>
-														<td style="width: 100px; height:45px;cursor:pointer;" colspan="2" id="13_3" onclick="cambiar('13','3')"></td>
+														<td style="width: 100px; height:45px;cursor:pointer;" colspan="2" id="744" onclick="cambiar('7','44')"></td>
+														<td style="width: 100px; height:45px;cursor:pointer;" colspan="2" id="732" onclick="cambiar('7','32')"></td>
 														<td style="width: 100px; height:45px; border:0px black solid;"  ></td>
 														<td style="width: 100px; height:45px; border:0px black solid;"  ></td>
-														<td style="width: 100px; height:45px;cursor:pointer;" colspan="2" id="13_3" onclick="cambiar('13','3')"></td>
-														<td style="width: 100px; height:45px;cursor:pointer;" colspan="2" id="13_3" onclick="cambiar('13','3')"></td>
+														<td style="width: 100px; height:45px;cursor:pointer;" colspan="2" id="626" onclick="cambiar('6','26')"></td>
+														<td style="width: 100px; height:45px;cursor:pointer;" colspan="2" id="612" onclick="cambiar('6','12')"></td>
 														<td style="width: 100px; height:45px; border:0px black solid;"  ></td>
 														<td style="width: 100px; height:45px; border:0px black solid;"  ></td>
 														<td style="width: 100px; height:45px;cursor:pointer;" colspan="2" id="13_3" onclick="cambiar('13','3')"></td>
@@ -1550,12 +1554,12 @@
 														<td style="width: 100px; height:45px;cursor:pointer;" colspan="2" id="913" onclick="cambiar('9','13')"></td>
 														<td style="width: 100px; height:45px; border:0px black solid;"  ></td>
 														<td style="width: 100px; height:45px; border:0px black solid;"  ></td>
-														<td style="width: 100px; height:45px;cursor:pointer;" colspan="2" id="13_3" onclick="cambiar('13','3')"></td>
-														<td style="width: 100px; height:45px;cursor:pointer;" colspan="2" id="13_3" onclick="cambiar('13','3')"></td>
+														<td style="width: 100px; height:45px;cursor:pointer;" colspan="2" id="743" onclick="cambiar('7','43')"></td>
+														<td style="width: 100px; height:45px;cursor:pointer;" colspan="2" id="733" onclick="cambiar('7','33')"></td>
 														<td style="width: 100px; height:45px; border:0px black solid;"  ></td>
 														<td style="width: 100px; height:45px; border:0px black solid;"  ></td>
-														<td style="width: 100px; height:45px;cursor:pointer;" colspan="2" id="13_3" onclick="cambiar('13','3')"></td>
-														<td style="width: 100px; height:45px;cursor:pointer;" colspan="2" id="13_3" onclick="cambiar('13','3')"></td>
+														<td style="width: 100px; height:45px;cursor:pointer;" colspan="2" id="625" onclick="cambiar('6','25')"></td>
+														<td style="width: 100px; height:45px;cursor:pointer;" colspan="2" id="613" onclick="cambiar('6','13')"></td>
 														<td style="width: 100px; height:45px; border:0px black solid;"  ></td>
 														<td style="width: 100px; height:45px; border:0px black solid;"  ></td>
 														<td style="width: 100px; height:45px;cursor:pointer;" colspan="2" id="13_3" onclick="cambiar('13','3')"></td>
@@ -1590,12 +1594,12 @@
 														<td style="width: 100px; height:45px;cursor:pointer;" colspan="2" id="914" onclick="cambiar('9','14')"></td>
 														<td style="width: 100px; height:45px; border:0px black solid;"  ></td>
 														<td style="width: 100px; height:45px; border:0px black solid;"  ></td>
-														<td style="width: 100px; height:45px;cursor:pointer;" colspan="2" id="13_3" onclick="cambiar('13','3')"></td>
-														<td style="width: 100px; height:45px;cursor:pointer;" colspan="2" id="13_3" onclick="cambiar('13','3')"></td>
+														<td style="width: 100px; height:45px;cursor:pointer;" colspan="2" id="742" onclick="cambiar('7','42')"></td>
+														<td style="width: 100px; height:45px;cursor:pointer;" colspan="2" id="734" onclick="cambiar('7','34')"></td>
 														<td style="width: 100px; height:45px; border:0px black solid;"  ></td>
 														<td style="width: 100px; height:45px; border:0px black solid;"  ></td>
-														<td style="width: 100px; height:45px;cursor:pointer;" colspan="2" id="13_3" onclick="cambiar('13','3')"></td>
-														<td style="width: 100px; height:45px;cursor:pointer;" colspan="2" id="13_3" onclick="cambiar('13','3')"></td>
+														<td style="width: 100px; height:45px;cursor:pointer;" colspan="2" id="624" onclick="cambiar('6','24')"></td>
+														<td style="width: 100px; height:45px;cursor:pointer;" colspan="2" id="614" onclick="cambiar('6','14')"></td>
 														<td style="width: 100px; height:45px; border:0px black solid;"  ></td>
 														<td style="width: 100px; height:45px; border:0px black solid;"  ></td>
 														<td style="width: 100px; height:45px;cursor:pointer;" colspan="2" id="13_3" onclick="cambiar('13','3')"></td>
@@ -1630,12 +1634,12 @@
 														<td style="width: 100px; height:45px;cursor:pointer;" colspan="2" id="915" onclick="cambiar('9','15')"></td>
 														<td style="width: 100px; height:45px; border:0px black solid;"  ></td>
 														<td style="width: 100px; height:45px; border:0px black solid;"  ></td>
-														<td style="width: 100px; height:45px;cursor:pointer;" colspan="2" id="13_3" onclick="cambiar('13','3')"></td>
-														<td style="width: 100px; height:45px;cursor:pointer;" colspan="2" id="13_3" onclick="cambiar('13','3')"></td>
+														<td style="width: 100px; height:45px;cursor:pointer;" colspan="2" id="741" onclick="cambiar('7','41')"></td>
+														<td style="width: 100px; height:45px;cursor:pointer;" colspan="2" id="735" onclick="cambiar('7','35')"></td>
 														<td style="width: 100px; height:45px; border:0px black solid;"  ></td>
 														<td style="width: 100px; height:45px; border:0px black solid;"  ></td>
-														<td style="width: 100px; height:45px;cursor:pointer;" colspan="2" id="13_3" onclick="cambiar('13','3')"></td>
-														<td style="width: 100px; height:45px;cursor:pointer;" colspan="2" id="13_3" onclick="cambiar('13','3')"></td>
+														<td style="width: 100px; height:45px;cursor:pointer;" colspan="2" id="623" onclick="cambiar('6','23')"></td>
+														<td style="width: 100px; height:45px;cursor:pointer;" colspan="2" id="615" onclick="cambiar('6','15')"></td>
 														<td style="width: 100px; height:45px; border:0px black solid;"  ></td>
 														<td style="width: 100px; height:45px; border:0px black solid;"  ></td>
 														<td style="width: 100px; height:45px;cursor:pointer;" colspan="2" id="13_3" onclick="cambiar('13','3')"></td>
@@ -1670,12 +1674,12 @@
 														<td style="width: 100px; height:45px;cursor:pointer;" colspan="2" id="916" onclick="cambiar('9','16')"></td>
 														<td style="width: 100px; height:45px; border:0px black solid;"  ></td>
 														<td style="width: 100px; height:45px; border:0px black solid;"  ></td>
-														<td style="width: 100px; height:45px;cursor:pointer;" colspan="2" id="13_3" onclick="cambiar('13','3')"></td>
-														<td style="width: 100px; height:45px;cursor:pointer;" colspan="2" id="13_3" onclick="cambiar('13','3')"></td>
+														<td style="width: 100px; height:45px;cursor:pointer;" colspan="2" id="740" onclick="cambiar('7','40')"></td>
+														<td style="width: 100px; height:45px;cursor:pointer;" colspan="2" id="736" onclick="cambiar('7','36')"></td>
 														<td style="width: 100px; height:45px; border:0px black solid;"  ></td>
 														<td style="width: 100px; height:45px; border:0px black solid;"  ></td>
-														<td style="width: 100px; height:45px;cursor:pointer;" colspan="2" id="13_3" onclick="cambiar('13','3')"></td>
-														<td style="width: 100px; height:45px;cursor:pointer;" colspan="2" id="13_3" onclick="cambiar('13','3')"></td>
+														<td style="width: 100px; height:45px;cursor:pointer;" colspan="2" id="622" onclick="cambiar('6','22')"></td>
+														<td style="width: 100px; height:45px;cursor:pointer;" colspan="2" id="616" onclick="cambiar('6','16')"></td>
 														<td style="width: 100px; height:45px; border:0px black solid;"  ></td>
 														<td style="width: 100px; height:45px; border:0px black solid;"  ></td>
 														<td style="width: 100px; height:45px;cursor:pointer;" colspan="2" id="13_3" onclick="cambiar('13','3')"></td>
@@ -1711,12 +1715,13 @@
 														<td style="width: 100px; height:45px;cursor:pointer;" colspan="2" id="917" onclick="cambiar('9','17')"></td>
 														<td style="width: 100px; height:45px; border:0px black solid;"  ></td>
 														<td style="width: 100px; height:45px; border:0px black solid;"  ></td>
-														<td style="width: 100px; height:45px;cursor:pointer;" colspan="2" id="13_3" onclick="cambiar('13','3')"></td>
-														<td style="width: 100px; height:45px;cursor:pointer;" colspan="2" id="13_3" onclick="cambiar('13','3')"></td>
+														<td style="width: 100px; height:45px;cursor:pointer;" colspan="2" id="739" onclick="cambiar('7','39')"></td>
+														<td style="width: 100px; height:45px;cursor:pointer;"  id="738" onclick="cambiar('7','38')"></td>
+														<td style="width: 100px; height:45px;cursor:pointer;"  id="737" onclick="cambiar('7','37')"></td>
 														<td style="width: 100px; height:45px; border:0px black solid;"  ></td>
 														<td style="width: 100px; height:45px; border:0px black solid;"  ></td>
-														<td style="width: 100px; height:45px;cursor:pointer;" colspan="2" id="13_3" onclick="cambiar('13','3')"></td>
-														<td style="width: 100px; height:45px;cursor:pointer;" colspan="2" id="13_3" onclick="cambiar('13','3')"></td>
+														<td style="width: 100px; height:45px;cursor:pointer;" colspan="2" id="621" onclick="cambiar('6','21')"></td>
+														<td style="width: 100px; height:45px;cursor:pointer;" colspan="2" id="617" onclick="cambiar('6','17')"></td>
 														<td style="width: 100px; height:45px; border:0px black solid;"  ></td>
 														<td style="width: 100px; height:45px; border:0px black solid;"  ></td>
 														<td style="width: 100px; height:45px;cursor:pointer;" colspan="2" id="13_3" onclick="cambiar('13','3')"></td>
@@ -1756,12 +1761,14 @@
 														<td style="width: 100px; height:45px;cursor:pointer;" colspan="2" rowspan="2" id="918" onclick="cambiar('9','18')"></td>
 														<td style="width: 100px; height:45px; border:0px black solid;"  ></td>
 														<td style="width: 100px; height:45px; border:0px black solid;"  ></td>
-														<td style="width: 100px; height:45px;cursor:pointer;" colspan="2" id="13_3" onclick="cambiar('13','3')"></td>
-														<td style="width: 100px; height:45px;cursor:pointer;" colspan="2" id="13_3" onclick="cambiar('13','3')"></td>
 														<td style="width: 100px; height:45px; border:0px black solid;"  ></td>
 														<td style="width: 100px; height:45px; border:0px black solid;"  ></td>
-														<td style="width: 100px; height:45px;cursor:pointer;" colspan="2" id="13_3" onclick="cambiar('13','3')"></td>
-														<td style="width: 100px; height:45px;cursor:pointer;" colspan="2" id="13_3" onclick="cambiar('13','3')"></td>
+														<td style="width: 100px; height:45px; border:0px black solid;"  ></td>
+														<td style="width: 100px; height:45px; border:0px black solid;"  ></td>
+														<td style="width: 100px; height:45px; border:0px black solid;"  ></td>
+														<td style="width: 100px; height:45px; border:0px black solid;"  ></td>
+														<td style="width: 100px; height:45px;cursor:pointer;" colspan="2" id="620" onclick="cambiar('6','20')"></td>
+														<td style="width: 100px; height:45px;cursor:pointer;" colspan="2" rowspan="2" id="618" onclick="cambiar('6','18')"></td>
 														<td style="width: 100px; height:45px; border:0px black solid;"  ></td>
 														<td style="width: 100px; height:45px; border:0px black solid;"  ></td>
 														<td style="width: 100px; height:45px;cursor:pointer;" colspan="2" id="13_3" onclick="cambiar('13','3')"></td>
@@ -1797,6 +1804,15 @@
 														<td style="width: 100px; height:45px; border:0px black solid;"  ></td>
 														<td style="width: 100px; height:45px; border:0px black solid;"  ></td>
 														<td style="width: 100px; height:45px;cursor:pointer;" colspan="2" id="919" onclick="cambiar('9','19')"></td>
+														<td style="width: 100px; height:45px; border:0px black solid;"  ></td>
+														<td style="width: 100px; height:45px; border:0px black solid;"  ></td>
+														<td style="width: 100px; height:45px; border:0px black solid;"  ></td>
+														<td style="width: 100px; height:45px; border:0px black solid;"  ></td>
+														<td style="width: 100px; height:45px; border:0px black solid;"  ></td>
+														<td style="width: 100px; height:45px; border:0px black solid;"  ></td>
+														<td style="width: 100px; height:45px; border:0px black solid;"  ></td>
+														<td style="width: 100px; height:45px; border:0px black solid;"  ></td>
+														<td style="width: 100px; height:45px;cursor:pointer;" colspan="2" id="619" onclick="cambiar('6','19')"></td>
 														<td style="width: 100px; height:45px; border:0px black solid;"  ></td>
 													</tr>
 													<tr>
@@ -2008,7 +2024,7 @@
 						data:  {
 							"mz":mz,
 							"lote":lote,
-							"proyecto":26,
+							"proyecto":12,
 						}, 
 						url:   "{{url('buscar/ProyectosLotes')}}",
 						type:  'get',
