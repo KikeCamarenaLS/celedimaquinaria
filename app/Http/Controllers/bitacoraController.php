@@ -33,7 +33,7 @@ class bitacoraController extends Controller
       $modulo= Request::input("modulo");
       $consulta= Request::input("consulta");
 
-      return DB::select('select tb_bitacora.ID_EMPLEADO,permissions.name as CVE_MOVIMIENTO, tb_bitacora.nomempleado, tb_bitacora.Movimiento, tb_bitacora.created_at from tb_bitacora inner join permissions on permissions.id= tb_bitacora.CVE_MOVIMIENTO  where '.$consulta.' and order by tb_bitacora.created_at asc');
+      return DB::select('select tb_bitacora.ID_EMPLEADO,permissions.name as CVE_MOVIMIENTO, tb_bitacora.nomempleado, tb_bitacora.Movimiento, tb_bitacora.created_at from tb_bitacora inner join permissions on permissions.id= tb_bitacora.CVE_MOVIMIENTO  where '.$consulta);
 
 
   }

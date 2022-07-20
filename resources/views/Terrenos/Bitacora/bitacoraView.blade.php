@@ -122,7 +122,7 @@
 			if ($('#Empleado').val()!='') {
 				consulta+=" ID_EMPLEADO='"+$('#Empleado').val()+"' and ";
 			}
-			consulta+="  ID_Bitacora!=''";
+			consulta+="  ID_Bitacora!='' and ORDER BY tb_bitacora.created_at desc";
 
   objeto_window_referencia = window.open('{{url('crea/PDF/BITACORA')}}'+'/'+$('#modulo').val()+'/'+consulta, configuracion_ventana);
 }
