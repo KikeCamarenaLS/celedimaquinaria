@@ -227,6 +227,7 @@ $("#btnConsultar").click(function(event)  {
   							filter: true,
   							lengthMenu:   [[7, 14, 21, 28, 35, -1], [7, 14, 21, 28, 35, "Todos"]],
   							iDisplayLength: 7,
+  							"aaSorting": [],
   							"language" : {
   								"lengthMenu" : "Mostrar _MENU_ datos",
   								"zeroRecords" : "No existe el dato introducido",
