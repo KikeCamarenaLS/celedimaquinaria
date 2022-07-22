@@ -553,7 +553,7 @@ $bitacora=DB::select('insert into tb_bitacora (ID_Bitacora,ID_EMPLEADO,nomemplea
 
 public function capturaProyectos()
 {
-  $proyectos=DB::select('SELECT * FROM cat_proyectos ORDER BY PROYECTO ASC');
+  $proyectos=DB::select('SELECT * FROM cat_proyectos WHERE oficina="'.Auth::user()->oficina.'" ORDER BY PROYECTO ASC');
   $situaciones=DB::select('SELECT * FROM cat_situacion');
  date_default_timezone_set("America/Mexico_City");
 $fechaPHP=date('Y-m-d H:i:s');
