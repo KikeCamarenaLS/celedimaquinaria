@@ -548,12 +548,20 @@ $bitacora=DB::select('insert into tb_bitacora (ID_Bitacora,ID_EMPLEADO,nomemplea
 
 
 
-
+public function cat_proyect(){
+  $proyectos;
+  if (Auth::user()->oficina == 'TODOS') {
+    $proyectos=DB::select('SELECT * FROM cat_proyectos  ORDER BY PROYECTO ASC');
+  }else{
+    $proyectos=DB::select('SELECT * FROM cat_proyectos WHERE oficina="'.Auth::user()->oficina.'" ORDER BY PROYECTO ASC');
+  }
+  return $proyectos;
+}
 
 
 public function capturaProyectos()
 {
-  $proyectos=DB::select('SELECT * FROM cat_proyectos WHERE oficina="'.Auth::user()->oficina.'" ORDER BY PROYECTO ASC');
+  $proyectos=\App::call('App\Http\Controllers\VentasController@cat_proyect');
   $situaciones=DB::select('SELECT * FROM cat_situacion');
  date_default_timezone_set("America/Mexico_City");
 $fechaPHP=date('Y-m-d H:i:s');
