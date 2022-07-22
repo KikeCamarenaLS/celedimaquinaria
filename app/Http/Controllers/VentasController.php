@@ -18,7 +18,7 @@ class VentasController extends Controller
 
 public function ventalotesView()
 {
-  $proyectos=DB::select('SELECT * FROM cat_proyectos WHERE oficina="'.Auth::user()->oficina.'" ORDER BY PROYECTO ASC');
+  $proyectos=\App::call('App\Http\Controllers\VentasController@cat_proyect');
   $lotes=DB::select('SELECT * FROM proyectoLote where proyecto=1');
   $id_proy=1;
   date_default_timezone_set("America/Mexico_City");
@@ -31,7 +31,7 @@ $bitacora=DB::select('insert into tb_bitacora (ID_Bitacora,ID_EMPLEADO,nomemplea
 }
 public function ventalotesView6()
 {
-  $proyectos=DB::select('SELECT * FROM cat_proyectos ORDER BY PROYECTO ASC');
+  $proyectos=\App::call('App\Http\Controllers\VentasController@cat_proyect');
   $lotes=DB::select('SELECT * FROM proyectoLote where proyecto=6');
   $id_proy=6;
 
@@ -46,7 +46,7 @@ $bitacora=DB::select('insert into tb_bitacora (ID_Bitacora,ID_EMPLEADO,nomemplea
 }
 public function ventalotesView2()
 {
-  $proyectos=DB::select('SELECT * FROM cat_proyectos ORDER BY PROYECTO ASC');
+  $proyectos=\App::call('App\Http\Controllers\VentasController@cat_proyect');
   $lotes=DB::select('SELECT * FROM proyectoLote where proyecto=2');
   $id_proy=2;
 
@@ -61,7 +61,7 @@ $bitacora=DB::select('insert into tb_bitacora (ID_Bitacora,ID_EMPLEADO,nomemplea
 }
 public function ventalotesView3()
 {
-  $proyectos=DB::select('SELECT * FROM cat_proyectos ORDER BY PROYECTO ASC');
+  $proyectos=\App::call('App\Http\Controllers\VentasController@cat_proyect');
   $lotes=DB::select('SELECT * FROM proyectoLote where proyecto=3');
   $id_proy=3;
 
@@ -76,7 +76,7 @@ $bitacora=DB::select('insert into tb_bitacora (ID_Bitacora,ID_EMPLEADO,nomemplea
 }
 public function ventalotesView8()
 {
-  $proyectos=DB::select('SELECT * FROM cat_proyectos ORDER BY PROYECTO ASC');
+  $proyectos=\App::call('App\Http\Controllers\VentasController@cat_proyect');
   $lotes=DB::select('SELECT * FROM proyectoLote where proyecto=8');
   $id_proy=8;
 
@@ -92,7 +92,7 @@ $bitacora=DB::select('insert into tb_bitacora (ID_Bitacora,ID_EMPLEADO,nomemplea
 
 public function ventalotesView9(){
 
-  $proyectos=DB::select('SELECT * FROM cat_proyectos ORDER BY PROYECTO ASC');
+  $proyectos=\App::call('App\Http\Controllers\VentasController@cat_proyect');
   $lotes=DB::select('SELECT * FROM proyectoLote where proyecto=9');
   $id_proy=9;
 
@@ -106,7 +106,7 @@ $bitacora=DB::select('insert into tb_bitacora (ID_Bitacora,ID_EMPLEADO,nomemplea
 }
 public function ventalotesView18(){
 
-  $proyectos=DB::select('SELECT * FROM cat_proyectos ORDER BY PROYECTO ASC');
+  $proyectos=\App::call('App\Http\Controllers\VentasController@cat_proyect');
   $lotes=DB::select('SELECT * FROM proyectoLote where proyecto=18');
   $id_proy=18;
 
@@ -120,7 +120,7 @@ $bitacora=DB::select('insert into tb_bitacora (ID_Bitacora,ID_EMPLEADO,nomemplea
 }
 public function ventalotesView11(){
 
-  $proyectos=DB::select('SELECT * FROM cat_proyectos ORDER BY PROYECTO ASC');
+  $proyectos=\App::call('App\Http\Controllers\VentasController@cat_proyect');
   $lotes=DB::select('SELECT * FROM proyectoLote where proyecto=11');
   $id_proy=11;
 
@@ -148,7 +148,7 @@ $bitacora=DB::select('insert into tb_bitacora (ID_Bitacora,ID_EMPLEADO,nomemplea
 }
 public function ventalotesView17(){
 
-  $proyectos=DB::select('SELECT * FROM cat_proyectos ORDER BY PROYECTO ASC');
+  $proyectos=\App::call('App\Http\Controllers\VentasController@cat_proyect');
   $lotes=DB::select('SELECT * FROM proyectoLote where proyecto=17');
   $id_proy=17;
 
@@ -162,7 +162,7 @@ $bitacora=DB::select('insert into tb_bitacora (ID_Bitacora,ID_EMPLEADO,nomemplea
 }
 public function ventalotesView19(){
 
-  $proyectos=DB::select('SELECT * FROM cat_proyectos ORDER BY PROYECTO ASC');
+  $proyectos=\App::call('App\Http\Controllers\VentasController@cat_proyect');
   $lotes=DB::select('SELECT * FROM proyectoLote where proyecto=19');
   $id_proy=19;
 
@@ -176,7 +176,7 @@ $bitacora=DB::select('insert into tb_bitacora (ID_Bitacora,ID_EMPLEADO,nomemplea
 }
 public function ventalotesView21(){
 
-  $proyectos=DB::select('SELECT * FROM cat_proyectos ORDER BY PROYECTO ASC');
+  $proyectos=\App::call('App\Http\Controllers\VentasController@cat_proyect');
   $lotes=DB::select('SELECT * FROM proyectoLote where proyecto=21');
   $id_proy=21;
 
@@ -202,7 +202,7 @@ public function consultacodigoPostalColonia(Request $request){
 
 public function ventalotesView32(){
 
-  $proyectos=DB::select('SELECT * FROM cat_proyectos ORDER BY PROYECTO ASC');
+  $proyectos=\App::call('App\Http\Controllers\VentasController@cat_proyect');
   $lotes=DB::select('SELECT * FROM proyectoLote where proyecto=32');
   $id_proy=32;
 
@@ -216,7 +216,7 @@ $bitacora=DB::select('insert into tb_bitacora (ID_Bitacora,ID_EMPLEADO,nomemplea
 }
 public function ventalotesView29(){
 
-  $proyectos=DB::select('SELECT * FROM cat_proyectos ORDER BY PROYECTO ASC');
+  $proyectos=\App::call('App\Http\Controllers\VentasController@cat_proyect');
   $lotes=DB::select('SELECT * FROM proyectoLote where proyecto=29');
   $id_proy=29;
 
@@ -230,7 +230,7 @@ $bitacora=DB::select('insert into tb_bitacora (ID_Bitacora,ID_EMPLEADO,nomemplea
 }
 public function ventalotesView30(){
 
-  $proyectos=DB::select('SELECT * FROM cat_proyectos ORDER BY PROYECTO ASC');
+  $proyectos=\App::call('App\Http\Controllers\VentasController@cat_proyect');
   $lotes=DB::select('SELECT * FROM proyectoLote where proyecto=30');
   $id_proy=30;
 
@@ -244,7 +244,7 @@ $bitacora=DB::select('insert into tb_bitacora (ID_Bitacora,ID_EMPLEADO,nomemplea
 }
 public function ventalotesView25(){
 
-  $proyectos=DB::select('SELECT * FROM cat_proyectos ORDER BY PROYECTO ASC');
+  $proyectos=\App::call('App\Http\Controllers\VentasController@cat_proyect');
   $lotes=DB::select('SELECT * FROM proyectoLote where proyecto=25');
   $id_proy=25;
 
@@ -258,7 +258,7 @@ $bitacora=DB::select('insert into tb_bitacora (ID_Bitacora,ID_EMPLEADO,nomemplea
 }
 public function ventalotesView22(){
 
-  $proyectos=DB::select('SELECT * FROM cat_proyectos ORDER BY PROYECTO ASC');
+  $proyectos=\App::call('App\Http\Controllers\VentasController@cat_proyect');
   $lotes=DB::select('SELECT * FROM proyectoLote where proyecto=22');
   $id_proy=22;
 
@@ -272,7 +272,7 @@ $bitacora=DB::select('insert into tb_bitacora (ID_Bitacora,ID_EMPLEADO,nomemplea
 }
 
 public function ventalotesView20(){
-  $proyectos=DB::select('SELECT * FROM cat_proyectos ORDER BY PROYECTO ASC');
+  $proyectos=\App::call('App\Http\Controllers\VentasController@cat_proyect');
   $lotes=DB::select('SELECT * FROM proyectoLote where proyecto=20');
   $id_proy=20;
 
@@ -286,7 +286,7 @@ $bitacora=DB::select('insert into tb_bitacora (ID_Bitacora,ID_EMPLEADO,nomemplea
 }
 
 public function ventalotesView33(){
-  $proyectos=DB::select('SELECT * FROM cat_proyectos ORDER BY PROYECTO ASC');
+  $proyectos=\App::call('App\Http\Controllers\VentasController@cat_proyect');
   $lotes=DB::select('SELECT * FROM proyectoLote where proyecto=33');
   $id_proy=33;
 
@@ -300,7 +300,7 @@ $bitacora=DB::select('insert into tb_bitacora (ID_Bitacora,ID_EMPLEADO,nomemplea
 }
 
 public function ventalotesView28(){
-  $proyectos=DB::select('SELECT * FROM cat_proyectos ORDER BY PROYECTO ASC');
+  $proyectos=\App::call('App\Http\Controllers\VentasController@cat_proyect');
   $lotes=DB::select('SELECT * FROM proyectoLote where proyecto=28');
   $id_proy=28;
 
@@ -313,7 +313,7 @@ $bitacora=DB::select('insert into tb_bitacora (ID_Bitacora,ID_EMPLEADO,nomemplea
   return view('Terrenos.Ventas.sanpabloIV',compact('proyectos','lotes','id_proy'));
 }
 public function ventalotesView27(){
-  $proyectos=DB::select('SELECT * FROM cat_proyectos ORDER BY PROYECTO ASC');
+  $proyectos=\App::call('App\Http\Controllers\VentasController@cat_proyect');
   $lotes=DB::select('SELECT * FROM proyectoLote where proyecto=27');
   $id_proy=27;
 
@@ -326,7 +326,7 @@ $bitacora=DB::select('insert into tb_bitacora (ID_Bitacora,ID_EMPLEADO,nomemplea
   return view('Terrenos.Ventas.sanpabloIII',compact('proyectos','lotes','id_proy'));
 }
 public function ventalotesView13(){
-  $proyectos=DB::select('SELECT * FROM cat_proyectos ORDER BY PROYECTO ASC');
+  $proyectos=\App::call('App\Http\Controllers\VentasController@cat_proyect');
   $lotes=DB::select('SELECT * FROM proyectoLote where proyecto=13');
   $id_proy=13;
 
@@ -339,7 +339,7 @@ $bitacora=DB::select('insert into tb_bitacora (ID_Bitacora,ID_EMPLEADO,nomemplea
   return view('Terrenos.Ventas.Bugambilias',compact('proyectos','lotes','id_proy'));
 }
 public function ventalotesView26(){
-  $proyectos=DB::select('SELECT * FROM cat_proyectos ORDER BY PROYECTO ASC');
+  $proyectos=\App::call('App\Http\Controllers\VentasController@cat_proyect');
   $lotes=DB::select('SELECT * FROM proyectoLote where proyecto=26');
   $id_proy=26;
 
@@ -352,7 +352,7 @@ $bitacora=DB::select('insert into tb_bitacora (ID_Bitacora,ID_EMPLEADO,nomemplea
   return view('Terrenos.Ventas.SanPabloII',compact('proyectos','lotes','id_proy'));
 }
 public function ventalotesView14(){
-  $proyectos=DB::select('SELECT * FROM cat_proyectos ORDER BY PROYECTO ASC');
+  $proyectos=\App::call('App\Http\Controllers\VentasController@cat_proyect');
   $lotes=DB::select('SELECT * FROM proyectoLote where proyecto=14');
   $id_proy=14;
 
@@ -366,7 +366,7 @@ $bitacora=DB::select('insert into tb_bitacora (ID_Bitacora,ID_EMPLEADO,nomemplea
 }
 
 public function ventalotesView23(){
-  $proyectos=DB::select('SELECT * FROM cat_proyectos ORDER BY PROYECTO ASC');
+  $proyectos=\App::call('App\Http\Controllers\VentasController@cat_proyect');
   $lotes=DB::select('SELECT * FROM proyectoLote where proyecto=23');
   $id_proy=23;
 
@@ -380,7 +380,7 @@ $bitacora=DB::select('insert into tb_bitacora (ID_Bitacora,ID_EMPLEADO,nomemplea
 }
 
 public function ventalotesView4(){
-  $proyectos=DB::select('SELECT * FROM cat_proyectos ORDER BY PROYECTO ASC');
+  $proyectos=\App::call('App\Http\Controllers\VentasController@cat_proyect');
   $lotes=DB::select('SELECT * FROM proyectoLote where proyecto=4');
   $id_proy=4;
 
@@ -394,7 +394,7 @@ $bitacora=DB::select('insert into tb_bitacora (ID_Bitacora,ID_EMPLEADO,nomemplea
 }
 
 public function ventalotesView15(){
-  $proyectos=DB::select('SELECT * FROM cat_proyectos ORDER BY PROYECTO ASC');
+  $proyectos=\App::call('App\Http\Controllers\VentasController@cat_proyect');
   $lotes=DB::select('SELECT * FROM proyectoLote where proyecto=15');
   $id_proy=15;
 
@@ -408,7 +408,7 @@ $bitacora=DB::select('insert into tb_bitacora (ID_Bitacora,ID_EMPLEADO,nomemplea
 }
 
 public function ventalotesView12(){
-  $proyectos=DB::select('SELECT * FROM cat_proyectos ORDER BY PROYECTO ASC');
+  $proyectos=\App::call('App\Http\Controllers\VentasController@cat_proyect');
   $lotes=DB::select('SELECT * FROM proyectoLote where proyecto=12');
   $id_proy=12;
 
@@ -422,7 +422,7 @@ $bitacora=DB::select('insert into tb_bitacora (ID_Bitacora,ID_EMPLEADO,nomemplea
 }
 
 public function ventalotesView7(){
-  $proyectos=DB::select('SELECT * FROM cat_proyectos ORDER BY PROYECTO ASC');
+  $proyectos=\App::call('App\Http\Controllers\VentasController@cat_proyect');
   $lotes=DB::select('SELECT * FROM proyectoLote where proyecto=7');
   $id_proy=7;
 
@@ -436,7 +436,7 @@ $bitacora=DB::select('insert into tb_bitacora (ID_Bitacora,ID_EMPLEADO,nomemplea
 }
 
 public function ventalotesView10(){
-  $proyectos=DB::select('SELECT * FROM cat_proyectos ORDER BY PROYECTO ASC');
+  $proyectos=\App::call('App\Http\Controllers\VentasController@cat_proyect');
   $lotes=DB::select('SELECT * FROM proyectoLote where proyecto=10');
   $id_proy=10;
 
@@ -449,7 +449,7 @@ $bitacora=DB::select('insert into tb_bitacora (ID_Bitacora,ID_EMPLEADO,nomemplea
   return view('Terrenos.Ventas.SanBartoloIV',compact('proyectos','lotes','id_proy'));
 }
 public function ventalotesView5(){
-  $proyectos=DB::select('SELECT * FROM cat_proyectos ORDER BY PROYECTO ASC');
+  $proyectos=\App::call('App\Http\Controllers\VentasController@cat_proyect');
   $lotes=DB::select('SELECT * FROM proyectoLote where proyecto=5');
   $id_proy=5;
 
@@ -462,7 +462,7 @@ $bitacora=DB::select('insert into tb_bitacora (ID_Bitacora,ID_EMPLEADO,nomemplea
   return view('Terrenos.Ventas.LaMina',compact('proyectos','lotes','id_proy'));
 }
 public function ventalotesView31(){
-  $proyectos=DB::select('SELECT * FROM cat_proyectos ORDER BY PROYECTO ASC');
+  $proyectos=\App::call('App\Http\Controllers\VentasController@cat_proyect');
   $lotes=DB::select('SELECT * FROM proyectoLote where proyecto=31');
   $id_proy=31;
 
@@ -475,7 +475,7 @@ $bitacora=DB::select('insert into tb_bitacora (ID_Bitacora,ID_EMPLEADO,nomemplea
   return view('Terrenos.Ventas.SanPabloXII',compact('proyectos','lotes','id_proy'));
 }
 public function ventalotesView24(){
-  $proyectos=DB::select('SELECT * FROM cat_proyectos ORDER BY PROYECTO ASC');
+  $proyectos=\App::call('App\Http\Controllers\VentasController@cat_proyect');
   $lotes=DB::select('SELECT * FROM proyectoLote where proyecto=24');
   $id_proy=24;
 
@@ -489,7 +489,7 @@ $bitacora=DB::select('insert into tb_bitacora (ID_Bitacora,ID_EMPLEADO,nomemplea
 }
 
 public function ventalotesView38(){
-  $proyectos=DB::select('SELECT * FROM cat_proyectos ORDER BY PROYECTO ASC');
+  $proyectos=\App::call('App\Http\Controllers\VentasController@cat_proyect');
   $lotes=DB::select('SELECT * FROM proyectoLote where proyecto=38');
   $id_proy=38;
 
@@ -502,7 +502,7 @@ $bitacora=DB::select('insert into tb_bitacora (ID_Bitacora,ID_EMPLEADO,nomemplea
   return view('Terrenos.Ventas.NuevoProyectoSnPedro',compact('proyectos','lotes','id_proy'));
 }
 public function ventalotesView39(){
-  $proyectos=DB::select('SELECT * FROM cat_proyectos ORDER BY PROYECTO ASC');
+  $proyectos=\App::call('App\Http\Controllers\VentasController@cat_proyect');
   $lotes=DB::select('SELECT * FROM proyectoLote where proyecto=39');
   $id_proy=39;
 
@@ -515,7 +515,17 @@ $bitacora=DB::select('insert into tb_bitacora (ID_Bitacora,ID_EMPLEADO,nomemplea
   return view('Terrenos.Ventas.ElTejocote',compact('proyectos','lotes','id_proy'));
 }
 
+public function ventaMapasInicio(){
+  $proyectos=\App::call('App\Http\Controllers\VentasController@cat_proyect');
 
+  date_default_timezone_set("America/Mexico_City");
+$fechaPHP=date('Y-m-d H:i:s');
+$idUsuarioSistema = Auth::user()->id;
+$nombreUsuarioSistema=DB::select('select CONCAT(Nombre," ",Apellido_Paterno," ",Apellido_Materno)as nombre from users where id='.$idUsuarioSistema);
+$bitacora=DB::select('insert into tb_bitacora (ID_Bitacora,ID_EMPLEADO,nomempleado,created_at, CVE_MOVIMIENTO, MOVIMIENTO) values (null,"'.$idUsuarioSistema.'","'.$nombreUsuarioSistema[0]->nombre.'","'.$fechaPHP.'",6," Ingreso a la vista Venta de lotes " )');
+
+  return view('Terrenos.Ventas.ventaMapasInicio',compact('proyectos'));
+}
 
 
 
@@ -533,7 +543,7 @@ public function CalcularFechaNac(){
 
 public function ventalotesViewSinMapas(){ 
   $situaciones=DB::select('SELECT * FROM cat_situacion');
-  $proyectos=DB::select('SELECT * FROM cat_proyectos ORDER BY PROYECTO ASC');
+  $proyectos=\App::call('App\Http\Controllers\VentasController@cat_proyect');
   $vendedores=DB::select('SELECT CONCAT(Nombre," ",Apellido_Paterno," ",Apellido_Materno)as vendedores,id FROM users where rolesuser="vendedor"');
 
   date_default_timezone_set("America/Mexico_City");
@@ -574,7 +584,7 @@ $bitacora=DB::select('insert into tb_bitacora (ID_Bitacora,ID_EMPLEADO,nomemplea
 
 public function notificacionesview()
 {
-  $proyectos=DB::select('SELECT * FROM cat_proyectos ORDER BY PROYECTO ASC');
+  $proyectos=\App::call('App\Http\Controllers\VentasController@cat_proyect');
   $situaciones=DB::select('SELECT * FROM cat_situacion');
  date_default_timezone_set("America/Mexico_City");
 $fechaPHP=date('Y-m-d H:i:s');
