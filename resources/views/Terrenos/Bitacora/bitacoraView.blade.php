@@ -69,7 +69,8 @@
 									<th class="bg-danger" style="color:#ffffff; width: 6%;"><center>Empleado</center> </th>
 									<th class="bg-danger" style="color:#ffffff; width: 6%;"><center>Rol</center> </th>
 									<th class="bg-danger" style="color:#ffffff; width: 23%;"><center>Nombre Empleao</center> </th>
-									<th class="bg-danger" style="color:#ffffff; width: 50%;"><center>Movimiento</center> </th>
+									<th class="bg-danger" style="color:#ffffff; width: 40%;"><center>Movimiento</center> </th>
+									<th class="bg-danger" style="color:#ffffff; width: 10%;"><center>Tipo Movimiento</center> </th>
 									
 									<th class="bg-danger" style="color:#ffffff; width: 14%;"><center>Fecha </center></th>
 									
@@ -211,7 +212,8 @@ $("#btnConsultar").click(function(event)  {
 								html+="<td style='width:6%;'>"+response[i].ID_EMPLEADO+"</td>";
 								html+="<td style='width:6%;'>"+response[i].CVE_MOVIMIENTO+"</td>";
 								html+="<td style='width:23%;'>"+response[i].nomempleado+"</td>";
-								html+="<td style='width:50%;'>"+response[i].Movimiento+"</td>";
+								html+="<td style='width:40%;'>"+response[i].Movimiento+"</td>";
+								html+="<td style='width:10%;'>"+response[i].tipo_movimiento+"</td>";
 								html+="<td style='width:14%;'>"+response[i].created_at+"</td>";
 
 								
