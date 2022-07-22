@@ -157,29 +157,7 @@
 				$('#proyectoH').select2({
 					theme: "bootstrap"
 				});
-				let lotes=$('#lotes').val();
-
 				
-				@foreach($lotes as $lote)
-				if('{{$lote->estatus}}'=='Disponible'){
-					$('#'+{{$lote->mz}}+{{$lote->lt}}).css('background-color','rgb(105,239,67)');
-				}else if('{{$lote->estatus}}'=='En Pausa'){
-					$('#'+{{$lote->mz}}+{{$lote->lt}}).css('background-color','rgb(192,192,192)');
-				}else if('{{$lote->estatus}}'=='Apartado' ){
-					$('#'+{{$lote->mz}}+{{$lote->lt}}).css('background-color','yellow');
-				}else if('{{$lote->estatus}}'=='Enganches' ){
-					$('#'+{{$lote->mz}}+{{$lote->lt}}).css('background-color','rgb(255,174,94)');
-				}else if('{{$lote->estatus}}'=='Proceso de rescisión' ){
-					$('#'+{{$lote->mz}}+{{$lote->lt}}).css('background-color','rgb(159,240,238)');
-				}else if('{{$lote->estatus}}'=='Donación' || '{{$lote->estatus}}'=='Liquidado'||'{{$lote->estatus}}'=='Financiado' ||'{{$lote->estatus}}'=='Al corriente' ||'{{$lote->estatus}}'=='Rescisión' ||'{{$lote->estatus}}'=='Atraso' ){
-					$('#'+{{$lote->mz}}+{{$lote->lt}}).css('background-color','rgb(255,65,55)');
-				} 
-				var area={{$lote->superficie}};
-				area=''+area+'';
-				console.log(area);
-				var areas=area.substr(0,6);
-				$('#'+{{$lote->mz}}+{{$lote->lt}}).html('<FONT FACE="arial" SIZE=1 id="area11"><center>'+areas+'m<sup>2</sup></center><br><center>LT'+{{$lote->lt}}+'</center></FONT>');
-				@endforeach
 
 
 
