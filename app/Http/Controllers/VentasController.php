@@ -134,7 +134,7 @@ $bitacora=DB::select('insert into tb_bitacora (ID_Bitacora,ID_EMPLEADO,nomemplea
 }
 public function ventalotesView16(){
 
-  $proyectos=DB::select('SELECT * FROM cat_proyectos ORDER BY PROYECTO asc');
+  $proyectos=\App::call('App\Http\Controllers\VentasController@cat_proyect');
   $lotes=DB::select('SELECT * FROM proyectoLote where proyecto=16');
   $id_proy=16;
 
