@@ -34,6 +34,7 @@
 					<div class="col-md-3">
 						<label>Proyecto </label>
 						<select class="form-control success"  id="proyectoH" onchange="cambiarProyecto()">
+							<option value="-Selecciona-" >-Selecciona-</option>
 							@foreach($proyectos as $proyecto)
 							<option value="{{$proyecto->id_proyecto}}" >{{$proyecto->proyecto}}</option>
 							@endforeach
