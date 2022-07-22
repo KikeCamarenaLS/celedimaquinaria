@@ -150,7 +150,11 @@
 					</div>
 					<div class="form-group row">
 
-						
+						<div class="col-md-2" id="validaFinanciadoNoAnualida">
+							<label>No.Anualidad</label>
+							<input  type="text" class="form-control" onKeypress="if (event.keyCode < 45 || event.keyCode > 57) event.returnValue = false;" id="NoAnualidad" name="NoAnualidad" >
+							
+						</div>
 						<div class="col-md-2" id="validaFinanciadoPlazo">
 							<label>Plazo (Mensualidades)</label>
 							<input  type="text" class="form-control" onKeypress="if (event.keyCode < 45 || event.keyCode > 57) event.returnValue = false;" id="Plazo" name="Plazo" >
@@ -425,10 +429,13 @@
 
 				$('#validaFinanciadoEnganche').css('display','block');
 				$('#validaFinanciadoAnualida').css('display','block');
+				$('#validaFinanciadoNoAnualida').css('display','block');
+
 				$('#validaFinanciadoPlazo').css('display','block');
 			}else{
 				$('#validaFinanciadoEnganche').css('display','none');
 				$('#validaFinanciadoAnualida').css('display','none');
+				$('#validaFinanciadoNoAnualida').css('display','none');
 				$('#validaFinanciadoPlazo').css('display','none');
 			}
 		}
@@ -471,6 +478,8 @@
 
 					"Enganche":$('#Enganche').val(),
 					"Anualidad":$('#Anualidad').val(),
+					"NoAnualidad":$('#NoAnualidad').val(),
+					
 					"Plazo":$('#Plazo').val(),
 					"Luz":luz,
 					"Agua":Agua,

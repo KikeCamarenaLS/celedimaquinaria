@@ -698,6 +698,8 @@ public function capturaProyectosLotes(Request $request)
 
   $Enganche= Request::input("Enganche");
   $Anualidad= Request::input("Anualidad");
+  $NoAnualidad= Request::input("NoAnualidad");
+  
   $Plazo= Request::input("Plazo");
   $Luz= Request::input("Luz");
   $Agua= Request::input("Agua");
@@ -708,7 +710,7 @@ public function capturaProyectosLotes(Request $request)
   if($validExiste){
     return 'Este lote ya esta registrado en el sistema';
   }else{
-     $insert =DB::select('insert into proyectoLote (idElemento,proyecto,mz,lt, superficie, Medidas,TipoSuperficie, TipoPredio, Localización, Estatus, TipoVenta, CostoContado, CostoContadoTotal, CostoFinanciado, CostoFinanciadoTotal, ClaveCatastralPredio, FechaClaveCatastralPredio, ClaveCatastralLote, FechaClaveCatastralLote,created_at,enganche ,anualidad,plazo,servicioluz,servicioagua ,serviciodrenaje,ColinanciaNorte,ColinanciaSur,ColinanciaEste,ColinanciaOeste,TipoSuelo,FechaPredial,ValorCompra,Detalle,NumeroEscritura) values ("'.$id.'","'.$proyecto.'","'.$Mz.'","'.$Lt.'","'.$Superficie.'","'.$Medidas.'","'.$TipoSuperficie.'","'.$TipoPredio.'","'.$Localización.'","'.$Estatus.'","'.$TipoVenta.'","'.$CostoContado.'","'.$CostoContadoTotal.'","'.$CostoFinanciado.'","'.$CostoFinanciadoTotal.'","'.$ClaveCatastralPredio.'","'.$FechaClaveCatastralPredio.'","'.$ClaveCatastralLote.'","'.$FechaClaveCatastralLote.'",now(),"'.$Enganche.'","'.$Anualidad.'","'.$Plazo.'","'.$Luz.'","'.$Agua.'","'.$Drenaje.'","'.$ColinanciaNorte.'","'.$ColinanciaSur.'","'.$ColinanciaEste.'","'.$ColinanciaOeste.'","'.$TipoSuelo.'","'.$FechaPredial.'","'.$ValorCompra.'","'.$Detalle.'","'.$NumeroEscritura.'")');
+     $insert =DB::select('insert into proyectoLote (idElemento,proyecto,mz,lt, superficie, Medidas,TipoSuperficie, TipoPredio, Localización, Estatus, TipoVenta, CostoContado, CostoContadoTotal, CostoFinanciado, CostoFinanciadoTotal, ClaveCatastralPredio, FechaClaveCatastralPredio, ClaveCatastralLote, FechaClaveCatastralLote,created_at,enganche ,anualidad,plazo,servicioluz,servicioagua ,serviciodrenaje,ColinanciaNorte,ColinanciaSur,ColinanciaEste,ColinanciaOeste,TipoSuelo,FechaPredial,ValorCompra,Detalle,NumeroEscritura,NoAnualidad) values ("'.$id.'","'.$proyecto.'","'.$Mz.'","'.$Lt.'","'.$Superficie.'","'.$Medidas.'","'.$TipoSuperficie.'","'.$TipoPredio.'","'.$Localización.'","'.$Estatus.'","'.$TipoVenta.'","'.$CostoContado.'","'.$CostoContadoTotal.'","'.$CostoFinanciado.'","'.$CostoFinanciadoTotal.'","'.$ClaveCatastralPredio.'","'.$FechaClaveCatastralPredio.'","'.$ClaveCatastralLote.'","'.$FechaClaveCatastralLote.'",now(),"'.$Enganche.'","'.$Anualidad.'","'.$Plazo.'","'.$Luz.'","'.$Agua.'","'.$Drenaje.'","'.$ColinanciaNorte.'","'.$ColinanciaSur.'","'.$ColinanciaEste.'","'.$ColinanciaOeste.'","'.$TipoSuelo.'","'.$FechaPredial.'","'.$ValorCompra.'","'.$Detalle.'","'.$NumeroEscritura.'","'.$NoAnualidad.'")');
  
     $proyect=DB::select('select proyecto from cat_proyectos where id_proyecto='.$proyecto);
     date_default_timezone_set("America/Mexico_City");
