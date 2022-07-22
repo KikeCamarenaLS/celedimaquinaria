@@ -18,7 +18,7 @@ class VentasController extends Controller
 
 public function ventalotesView()
 {
-  $proyectos=DB::select('SELECT * FROM cat_proyectos ORDER BY PROYECTO ASC');
+  $proyectos=DB::select('SELECT * FROM cat_proyectos WHERE oficina="'.Auth::user()->oficina.'" ORDER BY PROYECTO ASC');
   $lotes=DB::select('SELECT * FROM proyectoLote where proyecto=1');
   $id_proy=1;
   date_default_timezone_set("America/Mexico_City");
