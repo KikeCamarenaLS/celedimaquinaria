@@ -126,13 +126,13 @@
 							<input  type="text" class="form-control" onKeypress="if (event.keyCode < 45 || event.keyCode > 57) event.returnValue = false;" id="CostoContadoTotal" name="CostoContadoTotal" >
 							
 						</div>
-						<div class="col-md-2">
+						<div class="col-md-2" id="validaFinanciadoCosto">
 							<label>Costo por m<sup>2</sup> financiado</label>
 							<input  type="text" class="form-control" onkeyup="calculaCostofinanciado()" onKeypress="if (event.keyCode < 45 || event.keyCode > 57) event.returnValue = false;" id="CostoFinanciado" name="CostoFinanciado" >
 							
 						</div>
 						
-						<div class="col-md-2">
+						<div class="col-md-2" id="validaFinanciadoCosto2">
 							<label>Costo total financiado</label>
 							<input  type="text" class="form-control" onKeypress="if (event.keyCode < 45 || event.keyCode > 57) event.returnValue = false;" id="CostoFinanciadoTotal" name="CostoFinanciadoTotal" >
 							
@@ -430,12 +430,18 @@
 				$('#validaFinanciadoEnganche').css('display','block');
 				$('#validaFinanciadoAnualida').css('display','block');
 				$('#validaFinanciadoNoAnualida').css('display','block');
+				$('#validaFinanciadoCosto').css('display','block');
+				$('#validaFinanciadoCosto2').css('display','block');
+
 
 				$('#validaFinanciadoPlazo').css('display','block');
 			}else{
 				$('#validaFinanciadoEnganche').css('display','none');
 				$('#validaFinanciadoAnualida').css('display','none');
 				$('#validaFinanciadoNoAnualida').css('display','none');
+				$('#validaFinanciadoCosto').css('display','none');
+				$('#validaFinanciadoCosto2').css('display','none');
+
 				$('#validaFinanciadoPlazo').css('display','none');
 			}
 		}
@@ -479,7 +485,7 @@
 					"Enganche":$('#Enganche').val(),
 					"Anualidad":$('#Anualidad').val(),
 					"NoAnualidad":$('#NoAnualidad').val(),
-					
+
 					"Plazo":$('#Plazo').val(),
 					"Luz":luz,
 					"Agua":Agua,
