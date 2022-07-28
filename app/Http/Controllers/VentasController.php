@@ -528,6 +528,45 @@ $bitacora=DB::select('insert into tb_bitacora (ID_Bitacora,ID_EMPLEADO,nomemplea
 
   return view('Terrenos.Ventas.SanPedro',compact('proyectos','lotes','id_proy'));
 }
+public function ventalotesView40(){
+  $proyectos=\App::call('App\Http\Controllers\VentasController@cat_proyect');
+  $lotes=DB::select('SELECT * FROM proyectoLote where proyecto=40');
+  $id_proy=40;
+
+  date_default_timezone_set("America/Mexico_City");
+$fechaPHP=date('Y-m-d H:i:s');
+$idUsuarioSistema = Auth::user()->id;
+$nombreUsuarioSistema=DB::select('select CONCAT(Nombre," ",Apellido_Paterno," ",Apellido_Materno)as nombre from users where id='.$idUsuarioSistema);
+$bitacora=DB::select('insert into tb_bitacora (ID_Bitacora,ID_EMPLEADO,nomempleado,created_at, CVE_MOVIMIENTO, MOVIMIENTO,tipo_movimiento ) values (null,"'.$idUsuarioSistema.'","'.$nombreUsuarioSistema[0]->nombre.'","'.$fechaPHP.'",6," Ingreso al mapa Etapa 6 ","Visualización de módulo" )');
+
+  return view('Terrenos.Ventas.Etapa_6',compact('proyectos','lotes','id_proy'));
+}
+public function ventalotesView34(){
+  $proyectos=\App::call('App\Http\Controllers\VentasController@cat_proyect');
+  $lotes=DB::select('SELECT * FROM proyectoLote where proyecto=34');
+  $id_proy=34;
+
+  date_default_timezone_set("America/Mexico_City");
+$fechaPHP=date('Y-m-d H:i:s');
+$idUsuarioSistema = Auth::user()->id;
+$nombreUsuarioSistema=DB::select('select CONCAT(Nombre," ",Apellido_Paterno," ",Apellido_Materno)as nombre from users where id='.$idUsuarioSistema);
+$bitacora=DB::select('insert into tb_bitacora (ID_Bitacora,ID_EMPLEADO,nomempleado,created_at, CVE_MOVIMIENTO, MOVIMIENTO,tipo_movimiento ) values (null,"'.$idUsuarioSistema.'","'.$nombreUsuarioSistema[0]->nombre.'","'.$fechaPHP.'",6," Ingreso al mapa Casitas 2 ","Visualización de módulo" )');
+
+  return view('Terrenos.Ventas.Casitas_2',compact('proyectos','lotes','id_proy'));
+}
+public function ventalotesView35(){
+  $proyectos=\App::call('App\Http\Controllers\VentasController@cat_proyect');
+  $lotes=DB::select('SELECT * FROM proyectoLote where proyecto=35');
+  $id_proy=35;
+
+  date_default_timezone_set("America/Mexico_City");
+$fechaPHP=date('Y-m-d H:i:s');
+$idUsuarioSistema = Auth::user()->id;
+$nombreUsuarioSistema=DB::select('select CONCAT(Nombre," ",Apellido_Paterno," ",Apellido_Materno)as nombre from users where id='.$idUsuarioSistema);
+$bitacora=DB::select('insert into tb_bitacora (ID_Bitacora,ID_EMPLEADO,nomempleado,created_at, CVE_MOVIMIENTO, MOVIMIENTO,tipo_movimiento ) values (null,"'.$idUsuarioSistema.'","'.$nombreUsuarioSistema[0]->nombre.'","'.$fechaPHP.'",6," Ingreso al mapa Casitas 3 ","Visualización de módulo" )');
+
+  return view('Terrenos.Ventas.Casitas_3',compact('proyectos','lotes','id_proy'));
+}
 
 
 public function ventaMapasInicio(){

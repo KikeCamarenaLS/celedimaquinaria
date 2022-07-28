@@ -452,6 +452,10 @@ Route::get('/ventalotesView26', 'VentasController@ventalotesView26');
 Route::get('/ventalotesView23', 'VentasController@ventalotesView23');
 Route::get('/ventalotesView4', 'VentasController@ventalotesView4');
 Route::get('/ventalotesView15', 'VentasController@ventalotesView15');
+Route::get('/ventalotesView37', 'VentasController@ventalotesView37');
+Route::get('/ventalotesView40', 'VentasController@ventalotesView40');
+Route::get('/ventalotesView34', 'VentasController@ventalotesView34');
+Route::get('/ventalotesView35', 'VentasController@ventalotesView35');
 
 
 
@@ -461,7 +465,8 @@ Route::get('/ventalotesView31', 'VentasController@ventalotesView31');
 Route::get('/ventalotesView24', 'VentasController@ventalotesView24');
 Route::get('/ventalotesView38', 'VentasController@ventalotesView38');
 Route::get('/ventalotesView39', 'VentasController@ventalotesView39');
-Route::get('/ventalotesView37', 'VentasController@ventalotesView37');
+
+
 
 
 

@@ -64,7 +64,7 @@
 
 
 				<br>
-				<center><h3>Campestre San Pablo X</h3></center>
+				<center><h3>Etapa 10</h3></center>
 				<div class="row">
 					<div class="col-md-2">
 						<label>Disponible</label>
