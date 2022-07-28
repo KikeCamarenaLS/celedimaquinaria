@@ -9,6 +9,7 @@
         <label for="name">Mensaje</label>
                                 <input name="msg" type="text">
     </div>
+    <input type="date" name="fecha" max="28">
     <div class="form-group">
         <button type="submit" id='btn-contact' class="btn">Enviar</button>
     </div>

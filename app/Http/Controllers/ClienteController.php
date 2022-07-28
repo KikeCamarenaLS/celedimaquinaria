@@ -94,7 +94,7 @@ $bitacora=DB::select('insert into tb_bitacora (ID_Bitacora,ID_EMPLEADO,nomemplea
 		$NclienteHide= $request->input("NclienteHide");
 
 		$validaExistente=DB::select('select p.superficie,p.plazo,p.CostoFinanciadoTotal ,p.CostoContadoTotal , p.enganche, p.TipoSuperficie,p.TipoPredio,t.mz,t.lt,t.proyecto, p.TipoVenta, 
-			CONCAT(u.Nombre," ",u.Apellido_Paterno," ",u.Apellido_Materno) as idElemento, p.TipoVenta,  p.CostoContadoTotal, p.CostoFinanciadoTotal from tratosVendedores t 
+			CONCAT(u.Nombre," ",u.Apellido_Paterno," ",u.Apellido_Materno) as idElemento, p.TipoVenta,t.created_at , p.CostoContadoTotal, p.CostoFinanciadoTotal from tratosVendedores t 
 			inner join  proyectoLote p ON p.mz=t.mz AND p.lt=t.lt AND p.proyecto=t.proyecto
 			inner join users u on u.id=p.idElemento  where t.proyecto="'.$proyecto.'" and t.mz="'.$Mz.'" and t.lt="'.$Lote.'" AND t.idCliente="'.$NclienteHide.'"');
 
