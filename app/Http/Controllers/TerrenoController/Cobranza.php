@@ -66,7 +66,7 @@ public function busquedaContratos(Request $request)
 
         INNER JOIN proyectoLote ON proyectoLote.Proyecto=contratos.Proyecto and proyectoLote.Mz=contratos.Mz and proyectoLote.Lt=contratos.Lt
         INNER JOIN cat_proyectos ON cat_proyectos.id_proyecto=contratos.Proyecto
-        INNER JOIN contrato_cobranza ON contrato_cobranza.N_Cliente=clientes.N_Cliente
+        LEFT OUTER JOIN contrato_cobranza ON contrato_cobranza.N_Cliente=contratos.id_contratos
         WHERE contratos.n_cliente="'.$Busqueda.'" OR contratos.id_contratos="'.$Busqueda.'" OR 
         CONCAT (clientes.nombre," ",clientes.A_paterno," ",clientes.A_materno) LIKE "%'.$Busqueda.'%" ');
 
@@ -106,6 +106,8 @@ public function insertaCobro(Request $request)
     $DiaPagos= $request->input("DiaPagos");
     $cantidadrecibida= $request->input("cantidadrecibida");
     $utilizasaldofavor= $request->input("utilizasaldofavor");
+    $periodo= $request->input("periodo");
+
 
 
 date_default_timezone_set("America/Mexico_City");
@@ -140,7 +142,7 @@ $masmenos='';
     $numpagos=$no_pago[0]->cuantos + 1;
 
 
-   $insert=DB::select('insert into cobroslotes (id_cobroslotes,n_contrato,pago_a_cubrir ,cantidadrecibida, saldo_favor ,dia_pago ,interes ,fecha,created_at, id_personal,masmenos,no_pago ) values (null,"'.$numeroContr.'","'.$PagoMes.'","'.$cantidadrecibida.'","'.$saldofavor.'","'.$DiaPagos.'","'.$interes.'","'.$fechaPHP.'","'.$fechaPHP.'","'.$idUsuarioSistema.'","'.$masmenos.'","'.$numpagos.'" )');
+   $insert=DB::select('insert into cobroslotes (id_cobroslotes,n_contrato,pago_a_cubrir ,cantidadrecibida, saldo_favor ,dia_pago ,interes ,fecha,created_at, id_personal,masmenos,no_pago ,periodo) values (null,"'.$numeroContr.'","'.$PagoMes.'","'.$cantidadrecibida.'","'.$saldofavor.'","'.$DiaPagos.'","'.$interes.'","'.$fechaPHP.'","'.$fechaPHP.'","'.$idUsuarioSistema.'","'.$masmenos.'","'.$numpagos.'","'.$periodo.'" )');
 
     $mensaje_corrreo=DB::select('SELECT contratos.id_contratos,contratos.N_Cliente,contratos.FechaVenta,
           contratos.Mz,contratos.Lt,

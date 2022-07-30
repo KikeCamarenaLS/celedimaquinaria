@@ -74,40 +74,60 @@
 
 												<input required="" type="text"  class="form-control"  id="DiaPagos" name="DiaPagos"  disabled>
 											</div>
-												<div class="col-md-3">
+											<div class="col-md-3">
+												<label>Fecha Contrato</label>
+
+												<input required="" type="text"  class="form-control"  id="FechaDelContrato" name="FechaDelContrato"  disabled>
+											</div>
+											<div class="col-md-3">
 												<label>Fecha del ultimo pago</label>
 
 												<input required="" type="text"  class="form-control"  id="fechaultimopago" name="fechaultimopago"  disabled>
 											</div>
 											<div class="col-md-3">
-												<label>Fecha Actual</label>
+												<label>Fecha Hoy</label>
 
 												<input required="" type="text"  class="form-control"  id="fechahoy" name="fechahoy"  disabled>
 											</div>
+											
+											<div class="col-md-6">
+											<label>Pago correspondiente del - al</label>
 
-										</div>
-										<div class="form-group row">
+												<input required="" type="text"  class="form-control"  id="PagoCorrespondienteDelAl" name="PagoCorrespondienteDelAl"  disabled>
+											</div>
 											<div class="col-md-2">
 												<label>Interes(%) </label>
 												<input required="" type="text"  class="form-control" disabled id="interes" name="interes" >
 											</div>
+										</div>
+
+										<div class="form-group row">
+											
 											<div class="col-md-3">
 												<label>Pagos realizados </label>
 												<input required="" type="text"    class="form-control" id="PagosRealizados" name="PagosRealizados" disabled >
 											</div>
 											<div class="col-md-3">
+												<label>Total de Pagos </label>
+												<input required="" type="text"    class="form-control" id="TotalPagos" name="TotalPagos" disabled >
+											</div>
+											
+											<div class="col-md-3">
 												<label>Pago del mes </label>
 												<input required="" type="text"  maxlength="9"  class="form-control" id="PagoMes" name="PagoMes" disabled >
 											</div>
+											
 											<div class="col-md-3">
 												<label>Intereses generados </label>
 												<input required="" type="text"  maxlength="9"  class="form-control" id="interesgenerado" name="interesgenerado" disabled >
 											</div>
 
-
 										</div>
 										<div class="form-group row">
-											
+											<div class="col-md-3">
+												<label>Mensualidad + Intereses </label>
+												<input required="" type="text"  maxlength="9"  class="form-control" id="Mensualidadintereses" name="Mensualidadintereses" disabled >
+											</div>
 											<div class="col-md-3">
 												<label>Saldo a favor </label>
 												<input required="" type="text"  class="form-control" disabled value="0" id="saldofavor" name="saldofavor" >
@@ -226,8 +246,8 @@
 	<script type="text/javascript">
 
 		function abrir_Popup() {
-			var PagoMes=$('#PagoMes').val();
-			var cantidadrecibida=Math.floor($('#cantidadrecibida').val());
+			var PagoMes=$('#Mensualidadintereses').val();
+			var cantidadrecibida=parseFloat($('#cantidadrecibida').val());
 
 
 			PagoMes = PagoMes.replace(/,/g, "");
@@ -242,9 +262,10 @@
 							"numeroContr":$('#numeroContr').val(),
 							"saldofavor":$('#saldofavor').val(),
 							"PagoMes":PagoMes,
-							"interes":$('#interes').val(),
+							"interes":$('#interesgenerado').val(),
 							"DiaPagos":$('#DiaPagos').val(),
 							"utilizasaldofavor":$('#utilizasaldofavor').val(),
+							"periodo":$('#PagoCorrespondienteDelAl').val(),
 
 						}, 
 						url:   "{{url('registrar/CobroMes')}}",
@@ -273,9 +294,10 @@
 							"numeroContr":$('#numeroContr').val(),
 							"saldofavor":$('#saldofavor').val(),
 							"PagoMes":PagoMes,
-							"interes":$('#interes').val(),
+							"interes":$('#interesgenerado').val(),
 							"DiaPagos":$('#DiaPagos').val(),
 							"utilizasaldofavor":$('#utilizasaldofavor').val(),
+							"periodo":$('#PagoCorrespondienteDelAl').val(),
 
 						}, 
 						url:   "{{url('registrar/CobroMes')}}",
@@ -374,8 +396,9 @@
 							costocomilla='"'+response[i].Costo+'"';
 							Enganchecomilla='"'+response[i].Enganche+'"';
 							var FechaApartado='"'+response[i].FechaApartado+'"';
+
 							var Apartado='"'+response[i].Apartado+'"';
-							var FechaEnganche='"'+response[i].FechaEnganche+'"';
+							var FechaVenta='"'+response[i].FechaVenta+'"';
 							var ComplementoEnganche='"'+response[i].ComplementoEnganche+'"';
 							var DiaPago='"'+response[i].DiaPago+'"';
 							var vendedor='"'+response[i].vendedor+'"';
@@ -398,7 +421,7 @@
 							html+="<td> <FONT  SIZE=2>"+response[i].Mz+"</FONT></td>";
 							html+="<td> <FONT  SIZE=2>"+response[i].Lt+"</FONT></td>";
 							html+="<td> <FONT  SIZE=2>"+response[i].estatus+"</FONT></td>";
-							html+="<td><input type='submit' class='btn btn-success' value='Ver Detalles' onclick='abrirModal("+response[i].id_contratos+","+costocomilla+","+EstatusVenta+","+DiaPago+","+MontoMensual+","+N_Parcialidades+","+Interes+","+saldofavor+")'></td>";
+							html+="<td><input type='submit' class='btn btn-success' value='Ver Detalles' onclick='abrirModal("+response[i].id_contratos+","+costocomilla+","+EstatusVenta+","+DiaPago+","+MontoMensual+","+N_Parcialidades+","+Interes+","+saldofavor+","+FechaVenta+")'></td>";
 							html+="</tr>";
 						}$('#llenaTabla').html("");
 						$('#llenaTabla').html(html);
@@ -455,12 +478,25 @@
 			TotalDevengado = TotalDevengado.replace(/,/g, "");
 			$("#CostodelLoteCo").val(Intl.NumberFormat('es-MX').format(TotalDevengado));
 		}
-		function abrirModal(contrato,costo,EstatusVenta,DiaPago,MontoMensual,N_Parcialidades,Interes){
+		function abrirModal(contrato,costo,EstatusVenta,DiaPago,MontoMensual,N_Parcialidades,Interes,saldofavor,FechaVenta){
+
 			$('#modalCobranza').modal('show');
 			$('#numeroContr').val(contrato);
 			$('#situacionCompra').val(EstatusVenta);
 			$('#PagoMes').val(MontoMensual);
-			$('#PagosRealizados').val('1/'+N_Parcialidades);
+			$('#PagosRealizados').val('0');
+			$('#TotalPagos').val(N_Parcialidades);
+			<?php date_default_timezone_set("America/Mexico_City"); $fechaPHP=date('Y-m-d');?>
+							var fechahoy='<?php echo $fechaPHP ?>';
+
+			$('#fechahoy').val(fechahoy);
+			$('#FechaDelContrato').val(FechaVenta);
+
+
+
+			$('#DiaPagos').val(DiaPago);
+			console.log(FechaVenta);
+			$('#fechaultimopago').val(FechaVenta);
 
 			$('#interes').val(Interes);
 			$('#numeroContr').val(contrato);
@@ -469,11 +505,59 @@
 					$("#numeroContr").prop('disabled', true);
 					$("#CostodelLoteCo").prop('disabled', true);
 					$("#EngancheCobranzaCo").prop('disabled', true);
-					llenartablacobros(contrato,Interes);
+					llenartablacobros(contrato,Interes,DiaPago);
+					//interesesGenerados();
 					
 				}
+				function interesesGenerados(){
 
-				function llenartablacobros(contrato,Interes){
+					var PagosRealizados=$('#PagosRealizados').val();
+					var PagosRealizados=$('#PagosRealizados').val();
+					PagosRealizados=PagosRealizados.substr(0,4);
+					$.ajax({
+								data:  {
+									"Busqueda":$('#Busqueda').val(),
+								}, 
+								url:   "{{url('busqueda/realizarPagos')}}",
+								type:  'get',
+								success:  function (response) { 
+									
+
+
+
+								},
+							});
+		
+				}
+				function limpiaTabla2(){
+					$('#list_user2').DataTable().destroy();
+					$('#llenaTabla2').html("");
+						$('#list_user2').DataTable({
+							scrollX:  false,
+							scrollCollapse: true,
+							filter: true,
+							lengthMenu:   [[7, 14, 21, 28, 35, -1], [7, 14, 21, 28, 35, "Todos"]],
+							iDisplayLength: 7,
+							"aaSorting": [],
+							"language" : {
+								"lengthMenu" : "Mostrar _MENU_ datos",
+								"zeroRecords" : "No existe el dato introducido",
+								"info" : "Página _PAGE_ de _PAGES_ ",
+								"infoEmpty" : "Sin datos disponibles",
+								"infoFiltered": "(mostrando los datos filtrados: _MAX_)",
+								"paginate" : {
+									"first": "Primero",
+									"last": "Ultimo",
+									"next": "Siguiente",
+									"previous": "Anterior"
+								},
+								"search": "Buscar",
+								"processing" : "Buscando...",
+								"loadingRecords" : "Cargando..."
+							}
+						});
+				}
+				function llenartablacobros(contrato,Interes,DiaPago){
 					$('#list_user2').DataTable().destroy();
 
 			$.ajax({
@@ -488,36 +572,116 @@
 					var costocomilla="";
 					var Enganchecomilla="";
 					
-					$('#saldofavor').val(response[0].saldo_favor);
 					if(response.length==0){
 						mensaje('danger','No se encontraron registros de pagos');
+						limpiaTabla2();
+						
+				//muestra los intereses cuando no tiene ningun pago
+							var fecha_inicio=$('#FechaDelContrato').val();
+							<?php date_default_timezone_set("America/Mexico_City"); $fechaPHP=date('Y-m-d');?>
+							//var fechahoy=fcehaLimit;
+							var fechahoy='<?php echo $fechaPHP ?>';
+							var fechaanoultimo=fecha_inicio.substr(0,4);
+							var fechaanohoy=fechahoy.substr(0,4);
+							var resulanos= fechaanohoy - fechaanoultimo;
+						console.log('intereses en anos '+resulanos);
+							var fechamesultimo=fecha_inicio.substr(5,2);
+							var fechameshoy=fechahoy.substr(5,2);
+							var resulmes= fechameshoy - fechamesultimo;
+						console.log('intereses en meses '+resulmes);
+							var fechadiaultimo=fecha_inicio.substr(8,2);
+							var fechadiahoy=fechahoy.substr(8,2);
+							var resuldia=  fechadiahoy - fechadiaultimo;
+						console.log('intereses en dias '+resuldia);
+							var pagoalmes=$('#PagoMes').val();
+							pagoalmes = pagoalmes.replace(/,/g, "");
+							var porcentajeintere=parseInt($('#interes').val());
+							porcentajeintere=porcentajeintere*.01;
+							var totaldeinteresesjuntados=pagoalmes*porcentajeintere*(resulmes-parseInt(response.length));
+							$('#interesgenerado').val( totaldeinteresesjuntados);
+							var pagoalmes=$('#PagoMes').val();
+							pagoalmes = pagoalmes.replace(/,/g, "");
+							var sumaInteresesMensualidad=parseFloat(totaldeinteresesjuntados) + parseFloat(pagoalmes);
+							$('#Mensualidadintereses').val( sumaInteresesMensualidad);
+
+				//Termina muestra los intereses cuando no tiene ningun pago
+
+ 							var pagosRealzado=response.length;
+							var LimiteFechaVentaMes=fecha_inicio;
+
+							 //calculo para poner el periodo de fecha de cada pago 
+							 var LimiteFechaVentaAyo=LimiteFechaVentaMes;
+							 var realizadosmasmesoriginal=pagosRealzado+ parseInt(fecha_inicio.substr(5,2));
+							 var delayo=parseInt(realizadosmasmesoriginal/12);
+							 var alayo=parseInt((realizadosmasmesoriginal+1)/12);
+
+							  var delmes=parseInt(realizadosmasmesoriginal%12);
+							 var almes=parseInt((realizadosmasmesoriginal+1)%12);;
+
+							  if(delmes<=9){
+							 	delmes='0'+delmes;
+							 }
+							 if(almes<=9){
+							 	almes='0'+almes;
+							 }
+
+
+
+							 LimiteFechaVentaAyo=parseInt(LimiteFechaVentaAyo.substr(0,4));//2022
+
+						$('#PagoCorrespondienteDelAl').val( (LimiteFechaVentaAyo+delayo)+'-'+delmes+'-'+fecha_inicio.substr(8,2)+' al '+(LimiteFechaVentaAyo+alayo)+'-'+almes+'-'+fecha_inicio.substr(8,2));
+
+							 // fin calculo para poner el periodo de fecha de cada pago 
+
+
+
+
+
+
+
+
 					}else{
 
-							$('#PagosRealizados').val(response.length +'/'+response[0].N_Parcialidades);
-
+							$('#saldofavor').val(response[0].saldo_favor);
+							$('#PagosRealizados').val(response.length );
+							$('#TotalPagos').val(response[0].N_Parcialidades);
 							$('#fechaultimopago').val(response[0].created_at);
+							
+							var fechaultimo=response[0].created_at;
+							$('#DiaPagos').val(DiaPago);
+					//Aqui comienza el calculo para mostrar los intereses generados
+							var fecha_inicio=$('#FechaDelContrato').val();
 							<?php date_default_timezone_set("America/Mexico_City"); $fechaPHP=date('Y-m-d');?>
-							$('#fechahoy').val('<?php echo $fechaPHP ?>');
-							var fechaultimo=response[0].FechaVenta;
-
-			$('#DiaPagos').val(response[0].FechaVenta);
+											//var fechahoy=fcehaLimit;
 							var fechahoy='<?php echo $fechaPHP ?>';
 
-
-							var fechaanoultimo=fechaultimo.substr(0,4);
+							var fechaanoultimo=fecha_inicio.substr(0,4);
 							var fechaanohoy=fechahoy.substr(0,4);
-
 							var resulanos= fechaanohoy - fechaanoultimo;
-
-							var fechamesultimo=fechaultimo.substr(5,2);
+						console.log('intereses en anos '+resulanos);
+							var fechamesultimo=fecha_inicio.substr(5,2);
 							var fechameshoy=fechahoy.substr(5,2);
-
 							var resulmes= fechameshoy - fechamesultimo;
-
-							var fechadiaultimo=fechaultimo.substr(8,2);
+						console.log('intereses en meses '+resulmes);
+							var fechadiaultimo=fecha_inicio.substr(8,2);
 							var fechadiahoy=fechahoy.substr(8,2);
-
 							var resuldia=  fechadiahoy - fechadiaultimo;
+						console.log('intereses en dias '+resuldia);
+
+						var pagoalmes=$('#PagoMes').val();
+						pagoalmes = pagoalmes.replace(/,/g, "");
+						var porcentajeintere=parseInt($('#interes').val());
+						porcentajeintere=porcentajeintere*.01;
+						var totaldeinteresesjuntados=pagoalmes*porcentajeintere*(resulmes-parseInt(response.length));
+						$('#interesgenerado').val( totaldeinteresesjuntados);
+
+						var sumaInteresesMensualidad=parseFloat(totaldeinteresesjuntados) + parseFloat(pagoalmes);
+							$('#Mensualidadintereses').val( sumaInteresesMensualidad);
+						//Aqui termina el calculo para mostrar los intereses generados
+						
+
+
+						$('#PagoCorrespondienteDelAl').val( );
 
 						
 						
@@ -532,11 +696,64 @@
 						months++;
 					}
 
-						$('#interesgenerado').val(months);
+						console.log('intereses en meses '+months);
 
+
+							 var pagosRealzado=response.length;
+							
+							 //calculo para poner el periodo de fecha de cada pago 
+							 var LimiteFechaVentaAyo=response[0].FechaVenta;
+							 var realizadosmasmesoriginal=pagosRealzado+ parseInt(response[0].FechaVenta.substr(5,2));
+							 var delayo=parseInt(realizadosmasmesoriginal/12);
+							 var alayo=parseInt((realizadosmasmesoriginal+1)/12);
+
+							  var delmes=parseInt(realizadosmasmesoriginal%12);
+							 var almes=parseInt((realizadosmasmesoriginal+1)%12);;
+
+							  if(delmes<=9){
+							 	delmes='0'+delmes;
+							 }
+							 if(almes<=9){
+							 	almes='0'+almes;
+							 }
+
+
+
+							 LimiteFechaVentaAyo=parseInt(LimiteFechaVentaAyo.substr(0,4));//2022
+
+						$('#PagoCorrespondienteDelAl').val( (LimiteFechaVentaAyo+delayo)+'-'+delmes+'-'+response[0].FechaVenta.substr(8,2)+' al '+(LimiteFechaVentaAyo+alayo)+'-'+almes+'-'+response[0].FechaVenta.substr(8,2));
+
+							 // fin calculo para poner el periodo de fecha de cada pago 
+
+
+							 var sumaMeses=months%12;
+							 var sumaAyo=parseInt(months/12);
+							 console.log(sumaMeses+'-'+LimiteFechaVentaMes);
+							 console.log(sumaAyo+'-'+LimiteFechaVentaAyo);
+							 sumaMeses=sumaMeses+LimiteFechaVentaMes;
+							 sumaAyo=sumaAyo+LimiteFechaVentaAyo;
+							 if(sumaMeses<=9){
+							 	sumaMeses='0'+sumaMeses;
+							 }
+							 var fcehaLimit=sumaAyo+'-'+ sumaMeses+'-'+response[0].FechaVenta.substr(8,2);
+							//$('#LimitePagoFecha').val(fcehaLimit);
 							
 							
 							//interesgenerado
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 						for (var i = 0; i < response.length; i++) {
 							var cuenta=response.length - i;

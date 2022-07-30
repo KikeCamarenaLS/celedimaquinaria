@@ -800,21 +800,21 @@
 										<div class="col-md-2" id="SinAjuste">
 											<label id="MontoMensualPrimera">Monto mensual </label>
 											<input required="" type="text" maxlength="10" onkeyup="MontoMensualFormato()" maxlength="9" onKeypress="if (event.keyCode < 45 || event.keyCode > 57) event.returnValue = false;" class="form-control" id="MontoMensual" name="MontoMensual" >
-											<span class="required-label"  id="validaMontoMensual" style="color:red; display: none;" ><font size="1">Es obligatorio llenar este campo</font></span>
+											<span class="required-label"  id="validaMontoMensual"  ></span>
 										</div>
 										<div class="col-md-2" id="ConAjustePrimero" style="display: none;">
-											<label id="MontoMensualUltima">Monto mensual (1-35)</label>
-											<input required="" type="text" maxlength="10" onkeyup="montosobraUltima()" maxlength="9" onKeypress="if (event.keyCode < 45 || event.keyCode > 57) event.returnValue = false;" class="form-control" id="MontoMensualParcialidadesPrimeras" name="MontoMensualParcialidadesPrimeras" >
+											<label id="MontoMensualPrimer">Monto mensual (1-35)</label>
+											<input required="" type="text" maxlength="10" onkeyup="montosobraPrimeras()" maxlength="9" onKeypress="if (event.keyCode < 45 || event.keyCode > 57) event.returnValue = false;" class="form-control" id="MontoMensualParcialidadesPrimeras" name="MontoMensualParcialidadesPrimeras" >
 											
 										</div>
 										<div class="col-md-2" id="ConAjusteUltimo" style="display: none;">
 											<label id="MontoMensualUltima">Monto mensual (36)</label>
-											<input required="" type="text" maxlength="10" onkeyup="MontoMensualFormato()" maxlength="9" onKeypress="if (event.keyCode < 45 || event.keyCode > 57) event.returnValue = false;" class="form-control" id="MontoMensualParcialidadesUltima" name="MontoMensualParcialidadesUltima" >
+											<input required="" type="text" maxlength="10" onkeyup="MontoMensualUltimas()" maxlength="9" onKeypress="if (event.keyCode < 45 || event.keyCode > 57) event.returnValue = false;" class="form-control" id="MontoMensualParcialidadesUltima" name="MontoMensualParcialidadesUltima" >
 										
 										</div>
-										<div class="col-md-2" >
-											<label id="MontoMensualUltima">Suma total de los Montos</label>
-											<input required="" type="text" maxlength="10" onkeyup="MontoMensualFormato()" maxlength="9" onKeypress="if (event.keyCode < 45 || event.keyCode > 57) event.returnValue = false;" class="form-control" id="sumatotalmontos" name="sumatotalmontos" >
+										<div class="col-md-2" id='sumaTotalMontos' style="display: none;">
+											<label id="MontoMensualSuma">Suma total de los Montos</label>
+											<input required="" type="text" maxlength="10"  maxlength="9" onKeypress="if (event.keyCode < 45 || event.keyCode > 57) event.returnValue = false;" class="form-control" id="sumatotalmontos" name="sumatotalmontos" >
 										
 										</div>
 									</div>
@@ -824,8 +824,6 @@
 											<input required="" type="number" class="form-control" id="Porcentaje" name="Porcentaje" >
 											<span class="required-label"  id="validaPorcentaje" style="color:red; display: none;" ><font size="1">Es obligatorio llenar este campo</font></span>
 										</div>
-									</div>
-									<div class="form-group row " >
 										<div class="col-md-4">
 											<label>Nombre Aval</label>
 											<input required=""  type="text" class="form-control" id="nombre_aval" name="nombre_aval" >
@@ -1293,20 +1291,66 @@
 					$('#SinAjuste').removeAttr('display','none');
 					$('#ConAjustePrimero').removeAttr('display','block');
 					$('#ConAjusteUltimo').removeAttr('display','block');
+					$('#sumaTotalMontos').removeAttr('display','block');
+
 					$('#SinAjuste').css('display','block');
 					$('#ConAjustePrimero').css('display','none');
 					$('#ConAjusteUltimo').css('display','none');
+					$('#sumaTotalMontos').css('display','none');
 
 				}else if($('#ajustemensual').val()=="Con Ajuste"){
 
 					$('#SinAjuste').removeAttr('display','block');
 					$('#ConAjustePrimero').removeAttr('display','none');
 					$('#ConAjusteUltimo').removeAttr('display','none');
+					$('#sumaTotalMontos').removeAttr('display','none');
 					$('#SinAjuste').css('display','none');
 					$('#ConAjustePrimero').css('display','block');
 					$('#ConAjusteUltimo').css('display','block');
+					$('#sumaTotalMontos').css('display','block');
 
 				}
+			}
+			function MontoMensualFormato(){
+				var TotalDevengado=$("#MontoMensual").val();
+				TotalDevengado = TotalDevengado.replace(/,/g, "");
+				var Nparcialidades=$("#Nparcialidades").val();
+				var calculo=TotalDevengado*Nparcialidades;
+
+				var CostoTotal=$("#CostoTotal").val();
+
+				 CostoTotal= CostoTotal.replace(/,/g, "");
+				 console.log('calculo'+calculo);
+				 console.log('costototal'+CostoTotal);
+				if (calculo >= CostoTotal ) {
+					$("#validaMontoMensual").removeAttr('display','none');
+					$("#validaMontoMensual").css('color','green');
+					$("#validaMontoMensual").html(' La suma de las mensualidades es de $'+Intl.NumberFormat('es-MX').format(calculo));
+					
+				}else{
+
+					$("#validaMontoMensual").removeAttr('display','none');
+					$("#validaMontoMensual").css('color','red');
+					$("#validaMontoMensual").html('La suma de las mensualidades es de $'+Intl.NumberFormat('es-MX').format(calculo));
+				}
+				$("#MontoMensual").val(Intl.NumberFormat('es-MX').format(TotalDevengado));
+
+			}
+			function montosobraPrimeras(){
+				var MontoMensualParcialidadesPrimeras= $("#MontoMensualParcialidadesPrimeras").val();
+				 MontoMensualParcialidadesPrimeras= MontoMensualParcialidadesPrimeras.replace(/,/g, "");
+				
+				var Nparcialidades=$("#Nparcialidades").val();
+				var CostoTotal=$("#CostoTotal").val();
+
+				 CostoTotal= CostoTotal.replace(/,/g, "");
+				var calcula= CostoTotal -( MontoMensualParcialidadesPrimeras * (Nparcialidades-1));
+
+				$("#MontoMensualParcialidadesUltima").val(Intl.NumberFormat('es-MX').format(calcula));
+				$("#sumatotalmontos").val(Intl.NumberFormat('es-MX').format(calcula+(MontoMensualParcialidadesPrimeras * (Nparcialidades-1))));
+
+				$("#MontoMensualParcialidadesPrimeras").val(Intl.NumberFormat('es-MX').format(MontoMensualParcialidadesPrimeras));
+				
 			}
 			function validaAdquisicion(){
 
@@ -1329,6 +1373,14 @@
 					$("#Porcentaje").prop('disabled', false);
 
 
+					$("#ajustemensual").prop('disabled', false);
+					$("#MontoMensualParcialidadesPrimeras").prop('disabled', false);
+					$("#MontoMensualParcialidadesUltima").prop('disabled', false);
+					$("#sumatotalmontos").prop('disabled', false);
+
+
+
+
 					$("#FechaPago option[value='0']").attr("selected",false);
 
 
@@ -1339,6 +1391,10 @@
 					console.log('a'+financiado2);
 					console.log('b'+parcialidades2);
 							$("#MontoMensual").val(Intl.NumberFormat('es-MX').format(financiado2 / parcialidades2));
+							$("#MontoMensualParcialidadesPrimeras").val(Intl.NumberFormat('es-MX').format(financiado2 / parcialidades2));
+							$("#sumatotalmontos").val(Intl.NumberFormat('es-MX').format(financiado2));
+
+
 				}else if(Adquisición=="Contado"){
 
 					$("#CostoTotal").val(contado);
@@ -1352,6 +1408,15 @@
 					$("#nombre_aval").prop('disabled', true);
 					$("#Parentesco").prop('disabled', true);
 					$("#Porcentaje").prop('disabled', true);
+							$("#MontoMensualParcialidadesPrimeras").val('');
+							$("#sumatotalmontos").val('');
+
+
+
+					$("#ajustemensual").prop('disabled', true);
+					$("#MontoMensualParcialidadesPrimeras").prop('disabled', true);
+					$("#MontoMensualParcialidadesUltima").prop('disabled', true);
+					$("#sumatotalmontos").prop('disabled', true);
 
 					$("#Telefono_2").val('');
 					$("#Nparcialidades").val('');
@@ -1459,6 +1524,10 @@
 							$("#Vendedor").val(data[0].idElemento);
 							$("#Nparcialidades").val(data[0].plazo);
 							$("#Enganche").val(data[0].enganche);
+							var nparci=data[0].plazo - 1;
+							$("#MontoMensualPrimer").html('Monto mensual (1-'+nparci+')');
+							$("#MontoMensualUltima").html('Monto mensual ('+data[0].plazo+')');
+
 							
 
 
@@ -1506,6 +1575,7 @@
 
 							}
 							mensaje("success","Lote Encontrao");
+							MontoMensualFormato();
 
 
 						}
@@ -1731,11 +1801,7 @@ $('#llenaTabla2').html("");
 				TotalDevengado = TotalDevengado.replace(/,/g, "");
 				$("#Comisión2Co").val(Intl.NumberFormat('es-MX').format(TotalDevengado));
 			}
-			function MontoMensualFormato(){
-				var TotalDevengado=$("#MontoMensual").val();
-				TotalDevengado = TotalDevengado.replace(/,/g, "");
-				$("#MontoMensual").val(Intl.NumberFormat('es-MX').format(TotalDevengado));
-			}
+			
 			function CostodelLoteFormato(){
 				var TotalDevengado=$("#CostodelLoteCo").val();
 				TotalDevengado = TotalDevengado.replace(/,/g, "");
@@ -2012,6 +2078,13 @@ $('#llenaTabla2').html("");
 							"MontoMensual":$('#MontoMensual').val(),
 							"Porcentaje":$('#Porcentaje').val(),
 							"Telefono_2":$('#Telefono_2').val(),
+
+							"ajustemensual":$('#ajustemensual').val(),
+							"MontoMensualParcialidadesPrimeras":$('#MontoMensualParcialidadesPrimeras').val(),
+							"MontoMensualParcialidadesUltima":$('#MontoMensualParcialidadesUltima').val(),
+							
+
+
 						}, 
 						url:   "{{url('alta/capturaContratos')}}",
 						type:  'get',

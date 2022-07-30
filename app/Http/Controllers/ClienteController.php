@@ -96,7 +96,7 @@ $bitacora=DB::select('insert into tb_bitacora (ID_Bitacora,ID_EMPLEADO,nomemplea
 		$validaExistente=DB::select('select p.superficie,p.plazo,p.CostoFinanciadoTotal ,p.CostoContadoTotal , p.enganche, p.TipoSuperficie,p.TipoPredio,t.mz,t.lt,t.proyecto, p.TipoVenta, 
 			CONCAT(u.Nombre," ",u.Apellido_Paterno," ",u.Apellido_Materno) as idElemento, p.TipoVenta,t.created_at , p.CostoContadoTotal, p.CostoFinanciadoTotal from tratosVendedores t 
 			inner join  proyectoLote p ON p.mz=t.mz AND p.lt=t.lt AND p.proyecto=t.proyecto
-			inner join users u on u.id=p.idElemento  where t.proyecto="'.$proyecto.'" and t.mz="'.$Mz.'" and t.lt="'.$Lote.'" AND t.idCliente="'.$NclienteHide.'"');
+			inner join users u on u.id=p.idElemento  where t.proyecto="'.$proyecto.'" and t.mz="'.$Mz.'" and t.lt="'.$Lote.'" AND t.idCliente="'.$NclienteHide.'" and p.estatus="Apartado"');
 
 date_default_timezone_set("America/Mexico_City");
 $fechaPHP=date('Y-m-d H:i:s');
@@ -178,12 +178,25 @@ $bitacora=DB::select('insert into tb_bitacora (ID_Bitacora,ID_EMPLEADO,nomemplea
 		$Parentesco= $request->input("Parentesco");
 
 
-
 		$FechaPago= $request->input("FechaPago");
 		$MontoMensual= $request->input("MontoMensual");
 		$Porcentaje= $request->input("Porcentaje");
 		$Telefono_2= $request->input("Telefono_2");
 		$Ncliente= $request->input("NclienteHide");
+
+
+		$ajustemensual= $request->input("ajustemensual");
+		$MontoMensualParcialidadesPrimeras= $request->input("MontoMensualParcialidadesPrimeras");
+		$MontoMensualParcialidadesUltima= $request->input("MontoMensualParcialidadesUltima");
+
+		if($ajustemensual=='Sin Ajuste'){
+			$MontoMensualParcialidadesPrimeras=0;
+			$MontoMensualParcialidadesUltima=0;
+		}else if($ajustemensual=='Con Ajuste'){
+			$MontoMensual=0;
+		}
+
+
         //$no_cliente=DB::select("select Date_format(now(),'%d%m%y%H%i%s') as no_cliente");
 		//$no_contrato=$no_cliente[99]->no_cliente;
 		$anioCont=substr($Fecha_Venta, 2, 2);
@@ -218,7 +231,7 @@ $bitacora=DB::select('insert into tb_bitacora (ID_Bitacora,ID_EMPLEADO,nomemplea
 		$id = Auth::user()->id;
 		date_default_timezone_set("America/Mexico_City");
 $fechaPHP=date('Y-m-d H:i:s');
-		$insert =DB::select('insert into contratos (id_contratos,N_Cliente,FechaVenta, FechaContrato, Proyecto, Mz, Lt, Superficie, TipoSuperficie, TipoPredio, Vendedor, Adquisicion, N_Parcialidades, Costo, Enganche, DiaPago, MontoMensual, Interes,nombre_aval,Parentesco, TelefonoAval,created_at) values ('.$no_contrato.','.$Ncliente.',"'.$Fecha_Venta.'","'.$Fecha_Contrato.'","'.$proyecto.'","'.$Mz.'","'.$Lote.'","'.$Superficie.'","'.$TipoSuperficie.'","'.$TipoPredio.'","'.$Vendedor.'","'.$Adquisición.'","'.$Nparcialidades.'","'.$CostoTotal.'","'.$Enganche.'","'.$FechaPago.'","'.$MontoMensual.'","'.$Porcentaje.'","'.$nombre_aval.'","'.$Parentesco.'","'.$Telefono_2.'","'.$fechaPHP.'")');
+		$insert =DB::select('insert into contratos (id_contratos,N_Cliente,FechaVenta, FechaContrato, Proyecto, Mz, Lt, Superficie, TipoSuperficie, TipoPredio, Vendedor, Adquisicion, N_Parcialidades, Costo, Enganche, DiaPago, MontoMensual, Interes,nombre_aval,Parentesco, TelefonoAval,ajustemensual , MontoMensualParcialidadesPrimeras ,MontoMensualParcialidadesUltima , created_at) values ('.$no_contrato.','.$Ncliente.',"'.$Fecha_Venta.'","'.$Fecha_Contrato.'","'.$proyecto.'","'.$Mz.'","'.$Lote.'","'.$Superficie.'","'.$TipoSuperficie.'","'.$TipoPredio.'","'.$Vendedor.'","'.$Adquisición.'","'.$Nparcialidades.'","'.$CostoTotal.'","'.$Enganche.'","'.$FechaPago.'","'.$MontoMensual.'","'.$Porcentaje.'","'.$nombre_aval.'","'.$Parentesco.'","'.$Telefono_2.'","'.$ajustemensual.'","'.$MontoMensualParcialidadesPrimeras.'","'.$MontoMensualParcialidadesUltima.'","'.$fechaPHP.'")');
 
 
 		$idUsuarioSistema = Auth::user()->id;
@@ -226,9 +239,9 @@ $fechaPHP=date('Y-m-d H:i:s');
 				$bitacora=DB::select('insert into tb_bitacora (ID_Bitacora,ID_EMPLEADO,nomempleado,created_at, CVE_MOVIMIENTO, MOVIMIENTO) values (null,"'.$idUsuarioSistema.'","'.$nombreUsuarioSistema[0]->nombre.'","'.$fechaPHP.'",6,"Registro un nuevo contrato con el numero '.$no_contrato.' " )');
 
 		
-		if($Adquisición="Contado"){
+		if($Adquisición=="Contado"){
 			$updates=DB::select('update proyectoLote set estatus="Liquidado" where lt="'.$Lote.'" and mz="'.$Mz.'" and proyecto="'.$proyecto.'" ');
-		}else{
+		}else if($Adquisición=="Financiado"){
 			$updates=DB::select('update proyectoLote set estatus="Al corriente" where lt="'.$Lote.'" and mz="'.$Mz.'" and proyecto="'.$proyecto.'" ');
 		}
 		
