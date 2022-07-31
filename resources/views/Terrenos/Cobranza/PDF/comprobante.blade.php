@@ -187,7 +187,7 @@
 				<p><table width="100%" style="margin:-15px;">
 				<tr>
 					<td align="center" style="font-size: 10px; color: #646464;" width="50%">APORTACIóNES</td>
-					<td align="center" style="font-size: 10px; color: #646464;" width="50%">DEDUCCIONES</td>
+
 				</tr>
 			</table></p>
 			<p>
@@ -203,15 +203,7 @@
 							<td align="center" width="10%" style="height: 10px;" class="tablaPrincipal" >
 								IMPORTE
 							</td>
-							<td align="center" width="5%" style="height: 10px;" class="tablaPrincipal" >
-								NO.DEDUCC.
-							</td>
-							<td align="center" width="35%" style="height: 10px;" class="tablaPrincipal" >
-								CONCEPTO
-							</td>
-							<td  style=" border-top-right-radius:  50%; height: 10px;" align="center" width="10%"  class="tablaPrincipal" >
-								IMPORTE
-							</td>
+							
 						</tr>
 					</thead>
 					<tbody>
@@ -233,7 +225,7 @@
 							</td>
 							
 							<td valign="top" align="center" width="10%" style="height:90px; border-top:0px solid black;" class="tablaPrincipal" >
-								$ {{$datos[0]->MontoMensual}}
+								$ {{$datos[0]->pago_a_cubrir}}
 								<br><br>
 								$ {{$datos[0]->cantidadrecibida}}
 								<br><br>
@@ -241,18 +233,7 @@
 								
 									
 							</td>
-							<td valign="top" align="center" width="5%" style="height:90px; border-top:0px solid black;" class="tablaPrincipal" >
-								
-							</td>
-							<td valign="top" align="left" width="35%" style="height:90px; border-top:0px solid black;" class="tablaPrincipal" >
-								
-
-								
-							</td>
-							<td valign="top" align="center" width="10%" style="height:90px; border-top:0px solid black;" class="tablaPrincipal" >
-								$0
-								
-							</td>
+							
 						</tr>
 						
 
@@ -265,19 +246,11 @@
 				<table width="100%" border="1" style="border:0px solid #646464; border-collapse: collapse; margin:-15px;" >
 					<thead>
 						<tr >
-							<td  align="center" width="16%" style="border-top:0px solid black;" class="tablaPrincipal" >
+							<td  align="center" width="80%" style="border-top:0px solid black;" class="tablaPrincipal" >
 								TOTAL $
 							</td>
-							<td align="center" width="4%" style="border-top:0px solid black;" class="tablaPrincipal" >
+							<td align="center" width="20%" style="border-top:0px solid black;" class="tablaPrincipal" >
 								$ {{$datos[0]->MontoMensual}}
-							</td>
-							<td align="center" width="16%" style="border-top:0px solid black;" class="tablaPrincipal" >
-								TOTAL $
-							</td>
-							<td align="center" width="4%" style=" border-top:0px solid black;" class="tablaPrincipal" >
-								$0
-								
-								
 							</td>
 							
 						</tr>
@@ -421,7 +394,6 @@
 				<p><table width="100%" style="margin:-15px;">
 				<tr>
 					<td align="center" style="font-size: 10px; color: #646464;" width="50%">APORTACIóNES</td>
-					<td align="center" style="font-size: 10px; color: #646464;" width="50%">DEDUCCIONES</td>
 				</tr>
 			</table></p>
 			<p>
@@ -437,15 +409,7 @@
 							<td align="center" width="10%" style="height: 10px;" class="tablaPrincipal" >
 								IMPORTE
 							</td>
-							<td align="center" width="5%" style="height: 10px;" class="tablaPrincipal" >
-								NO.DEDUCC.
-							</td>
-							<td align="center" width="35%" style="height: 10px;" class="tablaPrincipal" >
-								CONCEPTO
-							</td>
-							<td  style=" border-top-right-radius:  50%; height: 10px;" align="center" width="10%"  class="tablaPrincipal" >
-								IMPORTE
-							</td>
+						
 						</tr>
 					</thead>
 					<tbody>
@@ -476,18 +440,7 @@
 								
 									
 							</td>
-							<td valign="top" align="center" width="5%" style="height:90px; border-top:0px solid black;" class="tablaPrincipal" >
-								
-							</td>
-							<td valign="top" align="left" width="35%" style="height:90px; border-top:0px solid black;" class="tablaPrincipal" >
-								
-
-								
-							</td>
-							<td valign="top" align="center" width="10%" style="height:90px; border-top:0px solid black;" class="tablaPrincipal" >
-								
-								$0
-							</td>
+						
 						</tr>
 						
 

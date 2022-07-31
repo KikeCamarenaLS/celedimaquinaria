@@ -290,7 +290,7 @@ $("#btnConsultar").click(function(event)  {
 			var content = {};
 
 			content.message = mensaje;
-			content.title = 'Comodato ';
+			content.title = 'Bitacora ';
 			if (color == "success") {
 				content.icon = 'la la-check';
 			} else {

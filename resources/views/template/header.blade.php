@@ -332,6 +332,30 @@
 
                          @endcan
 
+                          @can('Ejecutivo de proyectos')
+                        <li class="nav-item ">
+                            <a data-toggle="collapse" href="#estadoDeCuentas">
+                                <i class="la la-money"></i>
+                                <p>Estado de cuentas </p>
+                                <span class="caret"></span>
+                            </a>
+                            <div class="collapse" id="estadoDeCuentas">
+                                <ul class="nav nav-collapse">
+
+                                    <li>
+                                        <a href="{{url('/estadoDeCuentas')}}">
+                                            <span class="sub-item">Consultar Estado de Cuentas</span>
+                                        </a>
+                                    </li>
+                                  
+                                    
+                                   
+                                </ul>
+                            </div>
+                        </li>
+
+                         @endcan
+
                           @can('Clientes')
 
                         <li class="nav-item ">

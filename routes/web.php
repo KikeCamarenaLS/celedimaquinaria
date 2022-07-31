@@ -13,6 +13,7 @@ Route::get('/update/updateSerie/ID_Inventario={ID_Inventario}/no_serie={no_serie
 Route::post('/prueba/upload','Inventario\AndroidController@subirfoto');
 
 
+Route::get('/estadoDeCuentas', 'estadoDeCuentas@estadoDeCuentas');
 
 
 Route::get('/', 'HomeController@Index')->middleware('auth');
@@ -374,6 +375,8 @@ Route::get('/realizarPagos', 'TerrenoController\Cobranza@realizarPagos');
 Route::get('/busqueda/capturaCobranza', 'TerrenoController\Cobranza@busquedaContrato');
 
 Route::get('/busqueda/realizarPagos', 'TerrenoController\Cobranza@busquedaContratos');
+Route::get('/busqueda/realizarPagos/estadodecuenta', 'estadoDeCuentas@busquedaContratos');
+
 Route::get('/AgregarDatos/personal', 'recursosHumanosController@viewArchiveroPersonal');
 Route::get('/AgregarDatos/personal2', 'recursosHumanosController@viewArchiveroPersonal2');
 Route::get('/buscar/Vendedor', 'recursosHumanosController@buscarVendedor');
@@ -486,6 +489,8 @@ Route::get('/registrarNuevo/codigoPostal', 'ClienteController@RegistranuevoCodig
 Route::get('/user/validaExistencia', 'Inventario\UsuarioController@validaExistencia');
 Route::get('/registrar/CobroMes', 'TerrenoController\Cobranza@insertaCobro');
 Route::get('/busqueda/pagosRealizadoscontrato', 'TerrenoController\Cobranza@pagosRealizadoscontrato');
+
+
 
 
 
