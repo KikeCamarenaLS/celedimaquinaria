@@ -482,6 +482,9 @@ Route::get('/ventalotesView39', 'VentasController@ventalotesView39');
 
 
 
+
+
+
 Route::get('/cliente/ConsultaCliente', 'ClienteController@ConsultaCliente');
 Route::get('/nuevo/CodigoPostal', 'ClienteController@nuevoCodigoPostal');
 Route::get('/registrarNuevo/codigoPostal', 'ClienteController@RegistranuevoCodigoPostal');
@@ -489,6 +492,7 @@ Route::get('/registrarNuevo/codigoPostal', 'ClienteController@RegistranuevoCodig
 Route::get('/user/validaExistencia', 'Inventario\UsuarioController@validaExistencia');
 Route::get('/registrar/CobroMes', 'TerrenoController\Cobranza@insertaCobro');
 Route::get('/busqueda/pagosRealizadoscontrato', 'TerrenoController\Cobranza@pagosRealizadoscontrato');
+Route::get('/pruebacorreo', 'TerrenoController\Cobranza@pruebacorreo');
 
 
 

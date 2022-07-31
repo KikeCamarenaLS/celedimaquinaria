@@ -156,7 +156,7 @@ $masmenos='';
         INNER JOIN proyectoLote ON proyectoLote.Proyecto=contratos.Proyecto and proyectoLote.Mz=contratos.Mz and proyectoLote.Lt=contratos.Lt
         INNER JOIN cat_proyectos ON cat_proyectos.id_proyecto=contratos.Proyecto
         INNER JOIN cobroslotes ON cobroslotes.n_contrato=contratos.id_contratos
-        WHERE cobroslotes.n_contrato="'.$numeroContr.'" && cobroslotes.no_pago="'.$numpagos.'" order by cobroslotes.no_pago desc');
+        WHERE cobroslotes.n_contrato="'.$numeroContr.'"  order by cobroslotes.no_pago desc');
     
 
         $for = $mensaje_corrreo[0]->Correo;
@@ -165,6 +165,28 @@ $masmenos='';
         Mail::to($for)->send(new correoCobranzaPagos($mensaje_corrreo));
     return $interes;
 
+}
+
+public function pruebacorreo(){
+    $mensaje_corrreo=DB::select('SELECT contratos.id_contratos,contratos.N_Cliente,contratos.FechaVenta,
+          contratos.Mz,contratos.Lt,
+          contratos.Vendedor,cat_proyectos.proyecto AS nom_proyecto,
+        contratos.Adquisicion,contratos.N_Parcialidades,contratos.Costo,
+        contratos.DiaPago,contratos.MontoMensual,contratos.N_Parcialidades,
+        CONCAT (clientes.nombre," ",clientes.A_paterno," ",clientes.A_materno) AS NombreCompleto,clientes.Correo,
+        contratos.Interes, clientes.id_clientes,contratos.Costo,cobroslotes.pago_a_cubrir,cobroslotes.cantidadrecibida,cobroslotes.created_at,cobroslotes.saldo_favor,cobroslotes.masmenos,cobroslotes.no_pago FROM contratos
+        INNER JOIN clientes ON clientes.N_Cliente=contratos.N_Cliente 
+
+        INNER JOIN proyectoLote ON proyectoLote.Proyecto=contratos.Proyecto and proyectoLote.Mz=contratos.Mz and proyectoLote.Lt=contratos.Lt
+        INNER JOIN cat_proyectos ON cat_proyectos.id_proyecto=contratos.Proyecto
+        INNER JOIN cobroslotes ON cobroslotes.n_contrato=contratos.id_contratos');
+    
+
+        $for = $mensaje_corrreo[0]->Correo;
+
+        
+       return view('mails.correoModuloCobranza',compact('mensaje_corrreo'));
+      //  Mail::to($for)->send(new correoCobranzaPagos($mensaje_corrreo));
 }
 public function pagosRealizadoscontrato(Request $request)
 {
