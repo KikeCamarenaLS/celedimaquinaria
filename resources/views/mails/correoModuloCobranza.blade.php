@@ -45,7 +45,7 @@
 
 			<td align="center" style="text-align:center;padding:0px 40px;font-family:'Proxima Nova',_apple_system,'Helvetica Neue',Helvetica,Roboto,Arial,sans-serif;font-size:14px;line-height:1.21;color:rgb(51,51,51);font-weight:400">
 			Te invitamos a que continues con tus pagos {{($mensaje_corrreo[0]->NombreCompleto)}}.<br>
-			Si deseas consultar el historial de tus pagos, da click <a href="https://terrenosdelvalledemexico.ga/public/correoModuloCobranza">aqui</a> 
+			Si deseas consultar el historial de tus pagos, da click <a href="https://terrenosdelvalledemexico.ga/public/estadoDeCuentas">aqui</a> 
 			
 			<br>
 			<table>
