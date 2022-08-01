@@ -411,6 +411,23 @@
                                 </ul>
                             </div>
                         </li>
+                        <li class="nav-item ">
+                            <a data-toggle="collapse" href="#IngresosEgresos">
+                                <i class="la la-plus-square"></i>
+                                <p>Ingresos y Egresos </p>
+                                <span class="caret"></span>
+                            </a>
+                            <div class="collapse" id="IngresosEgresos">
+                                <ul class="nav nav-collapse">
+                                    <li>
+                                        <a href="{{url('/IngresosEgresos')}}">
+                                            <span class="sub-item">Exportar Ingreso y Egresos</span>
+                                        </a>
+                                    </li>
+                                    
+                                </ul>
+                            </div>
+                        </li>
 
                          @endcan
                         

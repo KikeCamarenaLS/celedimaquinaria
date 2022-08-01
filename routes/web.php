@@ -492,6 +492,11 @@ Route::get('/registrarNuevo/codigoPostal', 'ClienteController@RegistranuevoCodig
 Route::get('/user/validaExistencia', 'Inventario\UsuarioController@validaExistencia');
 Route::get('/registrar/CobroMes', 'TerrenoController\Cobranza@insertaCobro');
 Route::get('/busqueda/pagosRealizadoscontrato', 'TerrenoController\Cobranza@pagosRealizadoscontrato');
+Route::get('/IngresosEgresos', 'ingresosegresosController@ventalotesView');
+
+Route::get('/busqueda/realizarPagos/IngresosEgresos', 'ingresosegresosController@busquedaContratos');
+
+
 Route::get('/pruebacorreo', 'TerrenoController\Cobranza@pruebacorreo');
 
 
