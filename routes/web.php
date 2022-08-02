@@ -391,7 +391,12 @@ Route::post('/Archivero/AgregarArchivo', 'recursosHumanosController@AgregarArchi
 Route::get('/ventaMapasInicio', 'VentasController@ventaMapasInicio');
 Route::get('/ventalotesView1', 'VentasController@ventalotesView');
 Route::get('/Captura/proyectos', 'VentasController@capturaProyectos');
+Route::get('/edita/proyectos', 'VentasController@editaProductos');
+
 Route::get('/alta/capturaProyectosLotes', 'VentasController@capturaProyectosLotes');
+Route::get('/Actualizar/capturaProyectosLotes', 'VentasController@ActualizaInventario');
+
+Route::get('/consulta/capturaProyectosLotes', 'VentasController@consultacapturaProyectosLotes');
 Route::get('/buscar/ProyectosLotes', 'VentasController@buscarProyectosLotes');
 Route::get('/buscar/clientesListaEspera', 'VentasController@clientesListaEspera');
 Route::get('/agregar/clienteListaEspera', 'VentasController@agregarclientesListaEspera');
@@ -495,6 +500,7 @@ Route::get('/busqueda/pagosRealizadoscontrato', 'TerrenoController\Cobranza@pago
 Route::get('/IngresosEgresos', 'ingresosegresosController@ventalotesView');
 
 Route::get('/busqueda/realizarPagos/IngresosEgresos', 'ingresosegresosController@busquedaContratos');
+Route::get('/PDF/realizarPagos/IngresosEgresos/{consulta}', 'ingresosegresosController@PDFingresoegresos');
 
 
 Route::get('/pruebacorreo', 'TerrenoController\Cobranza@pruebacorreo');
