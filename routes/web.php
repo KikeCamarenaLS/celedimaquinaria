@@ -504,6 +504,8 @@ Route::get('/PDF/realizarPagos/IngresosEgresos/{consulta}', 'ingresosegresosCont
 
 
 Route::get('/pruebacorreo', 'TerrenoController\Cobranza@pruebacorreo');
+Route::get('/registroEgresos', 'ingresosegresosController@registroEgresos');
+
 
 
 

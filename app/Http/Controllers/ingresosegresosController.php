@@ -24,6 +24,12 @@ class ingresosegresosController extends Controller
       return view('Terrenos.IngresosEgresos.reporteIngresosEgresos',compact('proyectos'));
 
     }
+    public function registroEgresos()
+    {
+        $proyectos=DB::select('SELECT * FROM cat_proyectos  ORDER BY PROYECTO ASC');
+        return view('Terrenos.IngresosEgresos.registrarEgresos',compact('proyectos'));
+    }
+
     public function busquedaContratos(Request $request)
     {
         $Busqueda= $request->input("Busqueda");

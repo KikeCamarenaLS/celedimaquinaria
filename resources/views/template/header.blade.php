@@ -430,6 +430,12 @@
                                         </a>
                                     </li>
                                     
+                                    <li>
+                                        <a href="{{url('/registroEgresos')}}">
+                                            <span class="sub-item">Registro Egresos</span>
+                                        </a>
+                                    </li>
+                                    
                                 </ul>
                             </div>
                         </li>
