@@ -29,6 +29,19 @@ $bitacora=DB::select('insert into tb_bitacora (ID_Bitacora,ID_EMPLEADO,nomemplea
   return view('Terrenos.Ventas.ventasLotes',compact('proyectos','lotes','id_proy'));
 
 }
+
+public function editaProductos()
+{
+  $proyectos=\App::call('App\Http\Controllers\VentasController@cat_proyect');
+  $situaciones=DB::select('SELECT * FROM cat_situacion');
+ date_default_timezone_set("America/Mexico_City");
+$fechaPHP=date('Y-m-d H:i:s');
+$idUsuarioSistema = Auth::user()->id;
+$nombreUsuarioSistema=DB::select('select CONCAT(Nombre," ",Apellido_Paterno," ",Apellido_Materno)as nombre from users where id='.$idUsuarioSistema);
+$bitacora=DB::select('insert into tb_bitacora (ID_Bitacora,ID_EMPLEADO,nomempleado,created_at, CVE_MOVIMIENTO, MOVIMIENTO,tipo_movimiento ) values (null,"'.$idUsuarioSistema.'","'.$nombreUsuarioSistema[0]->nombre.'","'.$fechaPHP.'",6," Ingreso al modulo de editar proyectos","Visualización de módulo" )');
+  return view('Terrenos.Ventas.editaProductos',compact('proyectos','situaciones'));
+
+}
 public function ventalotesView6()
 {
   $proyectos=\App::call('App\Http\Controllers\VentasController@cat_proyect');
@@ -636,6 +649,8 @@ $bitacora=DB::select('insert into tb_bitacora (ID_Bitacora,ID_EMPLEADO,nomemplea
 
 }
 
+
+
 public function notificacionesview()
 {
   $proyectos=\App::call('App\Http\Controllers\VentasController@cat_proyect');
@@ -712,7 +727,88 @@ public function actualizaBandejaSolicitud(){
   public function mail(){
    return view('mails.PRUEBASCORREO');
   }
+public function consultacapturaProyectosLotes(Request $request){
+ $proyecto= Request::input("proyecto");
+  $Mz= Request::input("Mz");
+  $Lt= Request::input("Lt");
+   $validExiste=DB::select('select * from proyectoLote where mz='.$Mz.' and lt='.$Lt.' and proyecto='.$proyecto.'  ');
+  if($validExiste){
+    date_default_timezone_set("America/Mexico_City");
+$fechaPHP=date('Y-m-d H:i:s');
+$idUsuarioSistema = Auth::user()->id;
+$nombreUsuarioSistema=DB::select('select CONCAT(Nombre," ",Apellido_Paterno," ",Apellido_Materno)as nombre from users where id='.$idUsuarioSistema);
+$bitacora=DB::select('insert into tb_bitacora (ID_Bitacora,ID_EMPLEADO,nomempleado,created_at, CVE_MOVIMIENTO, MOVIMIENTO,tipo_movimiento ) values (null,"'.$idUsuarioSistema.'","'.$nombreUsuarioSistema[0]->nombre.'","'.$fechaPHP.'",6,"Consulto el registro con exito del Lote '.$Lt.', mz '.$Mz.'y con el proyecto '.$proyecto.'","Consulta" )');
+    return $validExiste;
+  }else{
+     date_default_timezone_set("America/Mexico_City");
+$fechaPHP=date('Y-m-d H:i:s');
+$idUsuarioSistema = Auth::user()->id;
+$nombreUsuarioSistema=DB::select('select CONCAT(Nombre," ",Apellido_Paterno," ",Apellido_Materno)as nombre from users where id='.$idUsuarioSistema);
+$bitacora=DB::select('insert into tb_bitacora (ID_Bitacora,ID_EMPLEADO,nomempleado,created_at, CVE_MOVIMIENTO, MOVIMIENTO,tipo_movimiento ) values (null,"'.$idUsuarioSistema.'","'.$nombreUsuarioSistema[0]->nombre.'","'.$fechaPHP.'",6,"Consulto el registro sin exito (ya que el inventario buscado no esta en la base de datos) del Lote '.$Lt.', mz '.$Mz.'y con el proyecto '.$proyecto.'","Consulta" )');
+return 'Este lote ya esta registrado en el sistema';
+  }
+}
+public function ActualizaInventario(Request $request){
+  $proyecto= Request::input("proyecto");
+  $Mz= Request::input("Mz");
+  $Lt= Request::input("Lt");
+  $Superficie= Request::input("Superficie");
+  $Medidas= Request::input("Medidas");
+  $TipoSuperficie= Request::input("TipoSuperficie");
+  $TipoPredio= Request::input("TipoPredio");
+  $Localización= Request::input("Localización");
+  $Estatus= Request::input("Estatus");
+  $TipoVenta= Request::input("TipoVenta");
+  $CostoContado= Request::input("CostoContado");
+  $CostoContadoTotal= Request::input("CostoContadoTotal");
+  $CostoFinanciado= Request::input("CostoFinanciado");
+  $CostoFinanciadoTotal= Request::input("CostoFinanciadoTotal");
+  $ClaveCatastralPredio= Request::input("ClaveCatastralPredio");
+  $FechaClaveCatastralPredio= Request::input("FechaClaveCatastralPredio");
+  $ClaveCatastralLote= Request::input("ClaveCatastralLote");
+  $FechaClaveCatastralLote= Request::input("FechaClaveCatastralLote");
+  $ColinanciaNorte= Request::input("ColinanciaNorte");
+  $ColinanciaSur= Request::input("ColinanciaSur");
+  $ColinanciaEste= Request::input("ColinanciaEste");
+  $ColinanciaOeste= Request::input("ColinanciaOeste");
+  $TipoSuelo= Request::input("TipoSuelo");
+  $FechaPredial= Request::input("FechaPredial");
+  $ValorCompra= Request::input("ValorCompra");
+  $Detalle= Request::input("Detalle");
+  $NumeroEscritura= Request::input("NumeroEscritura");
+  $Enganche= Request::input("Enganche");
+  $Anualidad= Request::input("Anualidad");
+  $NoAnualidad= Request::input("NoAnualidad");
+  $Plazo= Request::input("Plazo");
+  $Luz= Request::input("Luz");
+  $Agua= Request::input("Agua");
+  $Drenaje= Request::input("Drenaje");
+  $id = Auth::user()->id;
 
+  date_default_timezone_set("America/Mexico_City");
+$fechaPHP=date('Y-m-d H:i:s');
+   $validExiste=DB::select('select * from proyectoLote where mz='.$Mz.' and lt='.$Lt.' and proyecto='.$proyecto.'  ');
+  if($validExiste){
+    $insert =DB::select('update proyectoLote  set idElemento="'.$id.'",proyecto="'.$proyecto.'",mz="'.$Mz.'",lt="'.$Lt.'", superficie="'.$Superficie.'", Medidas="'.$Medidas.'",TipoSuperficie="'.$TipoSuperficie.'", TipoPredio="'.$TipoPredio.'", Localización="'.$Localización.'", Estatus="'.$Estatus.'", TipoVenta="'.$TipoVenta.'", CostoContado="'.$CostoContado.'", CostoContadoTotal="'.$CostoContadoTotal.'", CostoFinanciado="'.$CostoFinanciado.'", CostoFinanciadoTotal="'.$CostoFinanciadoTotal.'", ClaveCatastralPredio="'.$ClaveCatastralPredio.'", FechaClaveCatastralPredio="'.$FechaClaveCatastralPredio.'", ClaveCatastralLote="'.$ClaveCatastralLote.'", FechaClaveCatastralLote="'.$FechaClaveCatastralLote.'",created_at="'.$fechaPHP.'",enganche ="'.$Enganche.'",anualidad="'.$Anualidad.'",plazo="'.$Plazo.'",servicioluz="'.$Luz.'",servicioagua="'.$Agua.'" ,serviciodrenaje="'.$Drenaje.'",ColinanciaNorte ="'.$ColinanciaNorte.'", ColinanciaSur="'.$ColinanciaSur.'",ColinanciaEste="'.$ColinanciaEste.'", ColinanciaOeste ="'.$ColinanciaOeste.'", TipoSuelo="'.$TipoSuelo.'", FechaPredial="'.$FechaPredial.'", ValorCompra="'.$ValorCompra.'", Detalle="'.$Detalle.'", NumeroEscritura="'.$NumeroEscritura.'", NoAnualidad="'.$NoAnualidad.'" where mz='.$Mz.' and lt='.$Lt.' and proyecto='.$proyecto.' ');
+ 
+    $proyect=DB::select('select proyecto from cat_proyectos where id_proyecto='.$proyecto);
+    date_default_timezone_set("America/Mexico_City");
+$fechaPHP=date('Y-m-d H:i:s');
+$idUsuarioSistema = Auth::user()->id;
+$nombreUsuarioSistema=DB::select('select CONCAT(Nombre," ",Apellido_Paterno," ",Apellido_Materno)as nombre from users where id='.$idUsuarioSistema);
+$bitacora=DB::select('insert into tb_bitacora (ID_Bitacora,ID_EMPLEADO,nomempleado,created_at, CVE_MOVIMIENTO, MOVIMIENTO,tipo_movimiento ) values (null,"'.$idUsuarioSistema.'","'.$nombreUsuarioSistema[0]->nombre.'","'.$fechaPHP.'",6,"Se hicieron modificaciones en el lote '.$Lt.', mz '.$Mz.', con el proyecto '.$proyect[0]->proyecto.'","Cambios" )');
+
+  
+  return $insert;
+  }else{
+    return 'Este lote ya esta registrado en el sistema';
+     
+
+  }
+
+
+ 
+}
 public function capturaProyectosLotes(Request $request)
 {
   $proyecto= Request::input("proyecto");

@@ -297,6 +297,11 @@
                                             <span class="sub-item">Captura de Productos</span>
                                         </a>
                                     </li>
+                                    <li>
+                                        <a href="{{url('/edita/proyectos')}}">
+                                            <span class="sub-item">Edita Productos</span>
+                                        </a>
+                                    </li>
                                    
                                 </ul>
                             </div>

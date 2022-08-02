@@ -37,25 +37,25 @@
 	    }
 
 	    .Rejillas{
-	    	border-top: 1px solid #646464;
+	    	border-top: 1px solid black;
 	    	border-top-left-radius: 100%;
 	    	border-top-right-radius: 50%;
-	    	border-right: 1px solid #646464;
-	    	border-bottom: 1px solid #646464;
-	    	border-left: 1px solid #646464;
-	    	font-size: 8px;
+	    	border-right: 1px solid black;
+	    	border-bottom: 1px solid black;
+	    	border-left: 1px solid black;
+	    	font-size: 14px;
 	    	
-	    	color: #646464;
-	    	font-weight: bold;
+	    	color: black;
+	    	font-weight: arial;
 
 	    }
 	    .Rejillas2{
-	    	border-top: 0px solid #646464;
-	    	border-right: 1px solid #646464;
-	    	border-bottom: 1px solid #646464;
-	    	border-left: 1px solid #646464;
+	    	border-top: 0px solid black;
+	    	border-right: 1px solid black;
+	    	border-bottom: 1px solid black;
+	    	border-left: 1px solid black;
 
-	    	font-size: 12px;
+	    	font-size: 11px;
 	    	height: 20px;
 	    	color: #646464;
 
@@ -96,423 +96,289 @@
 	
 		<div id="vale">
 			<div class="inline-block" style="margin:-5px;">
-				<img class="img-responsive " style="margin:-20px;" src="{{url('assets/LogosTerreno/logo.png')}}" width="100px" align="right">
+				<img class="img-responsive " style="margin:-20px;" src="{{url('assets/LogosTerreno/logo.png')}}" width="100px" align="left">
 			</div>
 			<br>
 			<br>
 
 			<p align=left style="margin-right: 0in; margin-top: 0px;">
 
-				<font face="times new roman, serif" style="font-color: #666666 !important;">
+				<font face="Times New Roman" style="font-color: #666666 !important;">
 					<center>
-						RECIBO DE PAGO - Terrenos y Edificaciones del Valle de México.
+						<font face="Times New Roman" style="font-family: 'Times New Roman';">{{$datos[0]->nom_proyecto}}</font>
+						<br>
+						<?php date_default_timezone_set("America/Mexico_City");?>
+						{{ date('d/m/Y') }}
 					</center>
 				</font>
 
 			</p>
 
 			<p>
-				<table width="100%" style=" border:0px solid #646464; border-collapse: collapse; margin: -15px;">
+				<table width="100%" style=" border:0px solid #646464; border-collapse: collapse;">
 					<thead>
 						<tr>
-							<td align="center" width="35%"  class="Rejillas" >
-								NOMBRE
-							</td>
-							<td align="center" width="1%"  class="Rejillas3">
-								&nbsp;
-							</td>
-							<td align="center" width="30%"  class="Rejillas" >
-								PROYECTO
-							</td>
-							<td align="center" width="1%"  class="Rejillas3">
-								&nbsp;
+							<td align="center" width="100%"  class="Rejillas" style="border:1px black solid;" >
+								INGRESOS
 							</td>
 							
-							<td align="center" width="1%"  class="Rejillas3">
-								&nbsp;
-							</td>
-							<td align="center" width="15%"  class="Rejillas" >
-								MZ
-							</td>
-							<td align="center" width="1%"  class="Rejillas3">
-								&nbsp;
-							</td>
-							<td align="center" width="15%"  class="Rejillas" >
-								LT
-							</td>
-							<td align="center" width="1%"  class="Rejillas3">
-								&nbsp;
-							</td>
-							<td align="center" width="10%"  class="Rejillas" >
-								NO. RECIBO 
-							</td>
 						</tr>
 					</thead>
+				</table>
+				<table width="100%" style=" border:0px solid #646464; border-collapse: collapse; ">
 					<tbody>
 						<tr>
+							<td align="center" width="15%"  class="Rejillas2" >
+								<b>FECHA DE PAGARÉ</b>
+							</td>
+						
+							<td align="center" width="10%"  class="Rejillas2" >
+								<b>PAGARÉ</b>
+							</td>
+
+							<td align="center" width="10%"  class="Rejillas2" >
+								<b>MZ</b>
+							</td>
+							<td align="center" width="10%"  class="Rejillas2" >
+								<b>LOTE</b>
+							</td>
 							<td align="center" width="35%"  class="Rejillas2" >
-								<b>{{$datos[0]->NombreCompleto}}</b>
+								<b>CLIENTE/CONCEPTO</b>
 							</td>
-							<td align="center" width="1%"  class="Rejillas4">
-								&nbsp;
+							<td align="center" width="10%"  class="Rejillas2" >
+								<b>TOTAL</b>
 							</td>
-							<td align="center" width="30%"  class="Rejillas2" >
-								<b>{{$datos[0]->nom_proyecto}}</b>
-							</td><td align="center" width="1%"  class="Rejillas4">
-								&nbsp;
+							<td align="center" width="10%"  class="Rejillas2" >
+								<b>INTERÉS</b>
 							</td>
-							<td align="center" width="1%"  class="Rejillas4">
-								&nbsp;
-							</td>
+						</tr>
+						@foreach($datos as $dato)
+						<tr>
 							<td align="center" width="15%"  class="Rejillas2" >
-								<b>{{$datos[0]->Mz}}</b>
-							</td><td align="center" width="1%"  class="Rejillas4">
-								&nbsp;
+								<b>{{$datos[0]->created_at}}</b>
 							</td>
-							<td align="center" width="15%"  class="Rejillas2" >
-								<b>{{$datos[0]->Lt}}</b>
-							</td><td align="center" width="1%"  class="Rejillas4">
-								&nbsp;
-							</td>
+						
 							<td align="center" width="10%"  class="Rejillas2" >
 								<b>{{$datos[0]->no_pago}}</b>
 							</td>
+							
+							<td align="center" width="10%"  class="Rejillas2" >
+								<b>{{$datos[0]->Mz}}</b>
+							</td>
+							<td align="center" width="10%"  class="Rejillas2" >
+								<b>{{$datos[0]->Lt}}</b>
+							</td>
+							<td align="center" width="35%"  class="Rejillas2" >
+								<b>{{$datos[0]->NombreCompleto}}</b>
+							</td>
+							<td align="center" width="10%"  class="Rejillas2" >
+								<b>$ {{$datos[0]->MontoMensual}}</b>
+							</td>
+							<td align="center" width="10%"  class="Rejillas2" >
+								<b>$ {{$datos[0]->pago_a_cubrir}}</b>
+							</td>
 						</tr>
 
+						@endforeach
+						<tr>
+							<td align="center" width="15%"  style="border: 0px black solid;" >
+								<b></b>
+							</td>
+						
+							<td align="center" width="10%"  style="border: 0px black solid;" >
+								<b></b>
+							</td>
+							
+							<td align="center" width="10%"  style="border: 0px black solid;" >
+								<b></b>
+							</td>
+							<td align="center" width="10%"  style="border: 0px black solid;" >
+								<b></b>
+							</td>
+							<td align="center" width="35%"  style="border: 0px black solid; text-align: right; font-size: 12px;" >
+								<b>TOTAL DE INGRESOS</b>
+							</td>
+							<td align="center" width="10%"  style="border: 0px black solid; font-size: 11px; border-bottom: 1px black solid;" >
+								<b>$ {{$datos[0]->MontoMensual}}</b>
+							</td>
+							<td align="center" width="10%"  style="border: 0px black solid; font-size: 11px; border-bottom: 1px black solid;" >
+								<b>$ {{$datos[0]->pago_a_cubrir}}</b>
+							</td>
+						</tr>
 					</tbody>
 
 				</table>
 			</p>
 		
-				<p><table width="100%" style="margin:-15px;">
-				<tr>
-					<td align="center" style="font-size: 10px; color: #646464;" width="50%">APORTACIóNES</td>
-
-				</tr>
-			</table></p>
+				<p>
+				</p>
 			<p>
-				<table width="100%" border="1" style="border:0px solid #646464; border-collapse: collapse; margin:-15px;">
+				<table width="100%" style=" border:0px solid #646464; border-collapse: collapse;">
 					<thead>
-						<tr >
-							<td style=" border-top-left-radius:  50%; height: 10px;" align="center" width="5%"  class="tablaPrincipal" >
-								NO. PAGO
+						<tr>
+							<td align="center" width="15%"   style="border:0px black solid;" >
+								
 							</td>
-							<td align="center" width="35%" style="height: 10px;" class="tablaPrincipal" >
-								CONCEPTO
+							<td align="center" width="70%"  class="Rejillas" style="border:1px black solid;" >
+								EGRESOS
 							</td>
-							<td align="center" width="10%" style="height: 10px;" class="tablaPrincipal" >
-								IMPORTE
+							<td align="center" width="15%"   style="border:0px black solid;" >
+								
 							</td>
 							
 						</tr>
 					</thead>
+				</table>
+				<table width="100%" style=" border:0px solid #646464; border-collapse: collapse; ">
 					<tbody>
 						<tr>
-							<td align="center" width="5%" style="height:90px; border-top:0px solid black;" class="tablaPrincipal" >
-								{{$datos[0]->no_pago}}
-							</td>
-							
-							<td valign="top" width="35%" style="height:90px; border-top:0px solid black;" class="tablaPrincipal" >
-								
-								Monto a cubrir
-
-								<br><br>
-								Monto aportado
-								<br><br>
-								Saldo a favor
-								
+							<td align="center" width="15%"   style="border:0px black solid;" >
 								
 							</td>
-							
-							<td valign="top" align="center" width="10%" style="height:90px; border-top:0px solid black;" class="tablaPrincipal" >
-								$ {{$datos[0]->pago_a_cubrir}}
-								<br><br>
-								$ {{$datos[0]->cantidadrecibida}}
-								<br><br>
-								$ {{$datos[0]->masmenos}}
-								
-									
-							</td>
-							
-						</tr>
 						
-
-					</tbody>
-
-				</table>
-				
-			</p>
-			<p>
-				<table width="100%" border="1" style="border:0px solid #646464; border-collapse: collapse; margin:-15px;" >
-					<thead>
-						<tr >
-							<td  align="center" width="80%" style="border-top:0px solid black;" class="tablaPrincipal" >
-								TOTAL $
-							</td>
-							<td align="center" width="20%" style="border-top:0px solid black;" class="tablaPrincipal" >
-								$ {{$datos[0]->MontoMensual}}
-							</td>
-							
-						</tr>
-					</thead>
-				</table>
-				
-			</p>
-			<p>
-				<table width="100%" border="1" style="border:0px solid #646464; border-collapse: collapse; margin:-15px;" >
-					<thead>
-						<tr >
-							<td  align="left" width="74%" style="border-top:0px solid black; border-left:0px solid black; border-bottom:0px solid black;" class="tablaPrincipal" >
-								EXIGE Y CONSERVA SUS RECIBOS, ESTO ES INDISPENSABLE PARA ACLARACIONES. <br>
-
-							</td>
-							<td align="left" width="16%" style="border-top:0px solid black;" class="tablaPrincipal">
-								<Strong>IMPORTE NETO $</Strong>
-							</td>
-							<td align="center" width="10%" style="border-top:0px solid black;" class="tablaPrincipal" >
-								$ {{$datos[0]->MontoMensual}}
-								
-								
-							</td>
-							
-						</tr>
-					</thead>
-				</table>
-				
-			</p>
-			<p>
-				<table width="100%" border="1" style="border:0px solid #646464; border-collapse: collapse; margin:-15px;" >
-					<thead>
-						<tr >
-							<td  align="left" width="100%" style="border-top:0px solid black; border-left:0px solid black;  border-right:0px solid black; border-bottom:0px solid black;" class="tablaPrincipal" >
-
-
-							</td>
-							
-							
-						</tr>
-					</thead>
-				</table>
-				
-			</p>
-			<p align=left style="margin-right: 0in; margin-top: 10px;"><font face="times new roman, serif" style="font-color: #666666 !important;"><font size=3><font face="arial narrow, sans-serif"><font size=2 style="font-size: 8pt"><span lang="en-us"><b style="color: #666666 !important;"><span style="color: #666666 !important;"> <strong>CLIENTE</strong></span></b></span></font></font></font></font></p>
-
-
-			<br>
-
-			<div class="contenido" style="margin-top: 60px">
-	
-		<div id="vale">
-			<div class="inline-block" style="margin:-5px;">
-				<img class="img-responsive " style="margin:-20px;"src="{{url('assets/LogosTerreno/logo.png')}}" width="100px" align="right">
-			</div>
-			<br>
-			<br>
-
-			<p align=left style="margin-right: 0in; margin-top: 0px;">
-
-				<font face="times new roman, serif" style="font-color: #666666 !important;">
-					<center>
-						RECIBO DE PAGO - Terrenos y Edificaciones del Valle de México.
-					</center>
-				</font>
-
-			</p>
-
-			<p>
-				<table width="100%" style=" border:0px solid #646464; border-collapse: collapse; margin: -15px;">
-					<thead>
-						<tr>
-							<td align="center" width="35%"  class="Rejillas" >
-								NOMBRE
-							</td>
-							<td align="center" width="1%"  class="Rejillas3">
-								&nbsp;
-							</td>
-							<td align="center" width="30%"  class="Rejillas" >
-								PROYECTO
-							</td>
-							<td align="center" width="1%"  class="Rejillas3">
-								&nbsp;
-							</td>
-							<td align="center" width="1%"  class="Rejillas3">
-								&nbsp;
-							</td>
-							<td align="center" width="15%"  class="Rejillas" >
-								MZ
-							</td>
-							<td align="center" width="1%"  class="Rejillas3">
-								&nbsp;
-							</td>
-							<td align="center" width="15%"  class="Rejillas" >
-								LT
-							</td>
-							<td align="center" width="1%"  class="Rejillas3">
-								&nbsp;
-							</td>
-							<td align="center" width="10%"  class="Rejillas" >
-								NO. RECIBO 
-							</td>
-						</tr>
-					</thead>
-					<tbody>
-						<tr>
-							<td align="center" width="35%"  class="Rejillas2" >
-								<b>{{$datos[0]->NombreCompleto}}</b>
-							</td>
-							<td align="center" width="1%"  class="Rejillas4">
-								&nbsp;
-							</td>
-							<td align="center" width="30%"  class="Rejillas2" >
-								<b>{{$datos[0]->nom_proyecto}}</b>
-							</td><td align="center" width="1%"  class="Rejillas4">
-								&nbsp;
-							</td>
-							<td align="center" width="1%"  class="Rejillas4">
-								&nbsp;
-							</td>
-							<td align="center" width="15%"  class="Rejillas2" >
-								<b>{{$datos[0]->Mz}}</b>
-							</td><td align="center" width="1%"  class="Rejillas4">
-								&nbsp;
-							</td>
-							<td align="center" width="15%"  class="Rejillas2" >
-								<b>{{$datos[0]->Lt}}</b>
-							</td><td align="center" width="1%"  class="Rejillas4">
-								&nbsp;
+							<td align="center" width="10%"  class="Rejillas2" >
+								<b>MZ</b>
 							</td>
 							<td align="center" width="10%"  class="Rejillas2" >
-								<b>{{$datos[0]->no_pago}}</b>
+								<b>LOTE</b>
+							</td>
+							<td align="center" width="40%"  class="Rejillas2" >
+								<b>CLIENTE/CONCEPTO</b>
+							</td>
+							<td align="center" width="10%"  class="Rejillas2" >
+								<b>TOTAL</b>
+							</td>
+						<td align="center" width="15%"   style="border:0px black solid;" >
+								
+							</td>
+						</tr>
+						@foreach($datos as $dato)
+						<tr>
+							<td align="center" width="15%"   style="border:0px black solid;" >
+								
+							</td>
+						
+
+							<td align="center" width="10%"  class="Rejillas2" >
+								<b>{{$datos[0]->Mz}}</b>
+							</td>
+							<td align="center" width="10%"  class="Rejillas2" >
+								<b>{{$datos[0]->Lt}}</b>
+							</td>
+							<td align="center" width="40%"  class="Rejillas2" >
+								<b>{{$datos[0]->NombreCompleto}}</b>
+							</td>
+							<td align="center" width="10%"  class="Rejillas2" >
+								<b>$ {{$datos[0]->MontoMensual}}</b>
+							</td>
+							<td align="center" width="15%"   style="border:0px black solid;" >
+								
 							</td>
 						</tr>
 
+						@endforeach
+						<tr>
+							<td align="center" width="15%"  style="border: 0px black solid;" >
+								<b></b>
+							</td>
+						
+							
+							<td align="center" width="10%"  style="border: 0px black solid;" >
+								<b></b>
+							</td>
+							<td align="center" width="10%"  style="border: 0px black solid;" >
+								<b></b>
+							</td>
+							<td align="center" width="40%"  style="border: 0px black solid; text-align: right; font-size: 12px;" >
+								<b>TOTAL DE EGRESOS</b>
+							</td>
+							<td align="center" width="10%"  style="border: 0px black solid; border-bottom: 1px black solid; font-size: 11px;" >
+								<b>$ {{$datos[0]->MontoMensual}}</b>
+							</td>
+
+
+							<td align="center" width="15%"  style="border: 0px black solid;" >
+								<b></b>
+							</td>
+						</tr>
 					</tbody>
 
 				</table>
 			</p>
-		
-				<p><table width="100%" style="margin:-15px;">
-				<tr>
-					<td align="center" style="font-size: 10px; color: #646464;" width="50%">APORTACIóNES</td>
-				</tr>
-			</table></p>
+
+
+			<br>
 			<p>
-				<table width="100%" border="1" style="border:0px solid #646464; border-collapse: collapse; margin:-15px;">
-					<thead>
-						<tr >
-							<td style=" border-top-left-radius:  50%; height: 10px;" align="center" width="5%"  class="tablaPrincipal" >
-								NO. PAGO
-							</td>
-							<td align="center" width="35%" style="height: 10px;" class="tablaPrincipal" >
-								CONCEPTO
-							</td>
-							<td align="center" width="10%" style="height: 10px;" class="tablaPrincipal" >
-								IMPORTE
-							</td>
-						
-						</tr>
-					</thead>
+				<table width="100%" style=" border:0px solid #646464; border-collapse: collapse; ">
 					<tbody>
 						<tr>
-							<td align="center" width="5%" style="height:90px; border-top:0px solid black;" class="tablaPrincipal" >
-								{{$datos[0]->no_pago}}
-
+							<td align="center" width="20%"   style="border:0px black solid;" >
 							</td>
-							
-							<td valign="top" width="35%" style="height:90px; border-top:0px solid black;" class="tablaPrincipal" >
-								
-								Monto a cubrir
-
-								<br><br>
-								Monto aportado
-								<br><br>
-								Saldo a favor
-								
-								
+							<td align="center" width="20%"  style="border:1px black solid; Font-size: 12px;" >
+								<b>UTILIDAD</b>
 							</td>
-							
-							<td valign="top" align="center" width="10%" style="height:90px; border-top:0px solid black;" class="tablaPrincipal" >
-								$ {{$datos[0]->MontoMensual}}
-								<br><br>
-								$ {{$datos[0]->cantidadrecibida}}
-								<br><br>
-								$ {{$datos[0]->masmenos}}
-								
-									
+							<td align="center" width="20%"  style="border:1px black solid; Font-size: 12px;" >
+								<b>CÉSAR CORTÉS</b>
 							</td>
-						
+							<td align="center" width="20%"  style="border:1px black solid; Font-size: 12px;" >
+								<b>TOTAL INTERES</b>
+							</td>
+							<td align="center" width="20%"   style="border:0px black solid;" >
+							</td>
 						</tr>
-						
-
+						<tr>
+							<td align="center" width="15%"   style="border:0px black solid;" >
+							</td>
+							<td align="center" width="20%"  style="border:0px black solid; font-size: 12px;" >
+								INGRESOS
+							</td>
+							<td align="center" width="20%"  style="border:0px black solid;" >
+								<b>${{$datos[0]->MontoMensual}}</b>
+							</td>
+							<td align="center" width="20%"  style="border:0px black solid;" >
+								<b>${{$datos[0]->MontoMensual}}</b>
+							</td>
+							<td align="center" width="20%"   style="border:0px black solid;" >
+							</td>
+						</tr>
+						<tr>
+							<td align="center" width="15%"   style="border:0px black solid; " >
+							</td>
+							<td align="center" width="20%"  style="border-bottom:1px black solid; font-size: 12px; " >
+								EGRESOS
+							</td>
+							<td align="center" width="20%"  style="border-bottom:1px black solid; " >
+								<b>${{$datos[0]->MontoMensual}}</b>
+							</td>
+							<td align="center" width="20%"  style="border-bottom:1px black solid; " >
+								<b>${{$datos[0]->MontoMensual}}</b>
+							</td>
+							<td align="center" width="20%"   style="border:0px black solid;" >
+							</td>
+						</tr>
+						<tr>
+							<td align="center" width="15%"   style="border:0px black solid; " >
+							</td>
+							<td align="center" width="20%"  style="border-bottom:2px black solid; font-size: 12px; " >
+								<b>
+									TOTAL
+								</b>
+							</td>
+							<td align="center" width="20%"  style="border-bottom:2px black solid; " >
+								<b>${{$datos[0]->MontoMensual}}</b>
+							</td>
+							<td align="center" width="20%"  style="border-bottom:2px black solid; " >
+								<b>${{$datos[0]->MontoMensual}}</b>
+							</td>
+							<td align="center" width="20%"   style="border:0px black solid;" >
+							</td>
+						</tr>
 					</tbody>
 
 				</table>
-				
 			</p>
-			<p>
-				<table width="100%" border="1" style="border:0px solid #646464; border-collapse: collapse; margin:-15px;" >
-					<thead>
-						<tr >
-							<td  align="center" width="16%" style="border-top:0px solid black;" class="tablaPrincipal" >
-								TOTAL $
-							</td>
-							<td align="center" width="4%" style="border-top:0px solid black;" class="tablaPrincipal" >
-									$ {{$datos[0]->MontoMensual}}
-							</td>
-							<td align="center" width="16%" style="border-top:0px solid black;" class="tablaPrincipal" >
-								TOTAL $
-							</td>
-							<td align="center" width="4%" style=" border-top:0px solid black;" class="tablaPrincipal" >
 
-								$0
-								
-							</td>
-							
-						</tr>
-					</thead>
-				</table>
-				
-			</p>
-			<p>
-				<table width="100%" border="1" style="border:0px solid #646464; border-collapse: collapse; margin:-15px;" >
-					<thead>
-						<tr >
-							<td  align="left" width="74%" style="border-top:0px solid black; border-left:0px solid black; border-bottom:0px solid black;" class="tablaPrincipal" >
-								EXIGE Y CONSERVA SUS RECIBOS, ESTO ES INDISPENSABLE PARA ACLARACIONES. <br>
-
-							</td>
-							<td align="left" width="16%" style="border-top:0px solid black;" class="tablaPrincipal">
-								<Strong>IMPORTE NETO $</Strong>
-							</td>
-							<td align="center" width="10%" style="border-top:0px solid black;" class="tablaPrincipal" >
-									$ {{$datos[0]->MontoMensual}}
-								
-								
-							</td>
-							
-						</tr>
-					</thead>
-				</table>
-				
-			</p>
-			<p>
-				<table width="100%" border="1" style="border:0px solid #646464; border-collapse: collapse; margin:-15px;" >
-					<thead>
-						<tr >
-							<td  align="left" width="100%" style="border-top:0px solid black; border-left:0px solid black;  border-right:0px solid black; border-bottom:0px solid black;" class="tablaPrincipal" >
-
-
-							</td>
-							
-							
-						</tr>
-					</thead>
-				</table>
-				
-			</p>
-			<p align=left style="margin-right: 0in; margin-top: 10px;"><font face="times new roman, serif" style="font-color: #666666 !important;"><font size=3><font face="arial narrow, sans-serif"><font size=2 style="font-size: 8pt"><span lang="en-us"><b style="color: #666666 !important;"><span style="color: #666666 !important;"> <strong>EXPEDIENTE</strong></span></b></span></font></font></font></font></p>
-
-
+			
 	
 		
 		  </body>
