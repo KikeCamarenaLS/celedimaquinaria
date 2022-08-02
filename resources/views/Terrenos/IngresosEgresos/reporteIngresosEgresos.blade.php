@@ -268,7 +268,6 @@
 							html+="<td> <FONT  SIZE=2>"+response[i].NombreCompleto+"</FONT></td>";
 							html+="<td> <FONT  SIZE=2>"+response[i].MontoMensual+"</FONT></td>";
 							html+="<td> <FONT  SIZE=2>"+response[i].pago_a_cubrir+"</FONT></td>";
-							
 							html+="</tr>";
 						}$('#llenaTabla').html("");
 						$('#llenaTabla').html(html);
