@@ -55,7 +55,7 @@
 											<span class="text-muted fw-bold"> <i class="flaticon-home"></i></span>
 										</div>
 										<div class="progress mb-2" style="height: 7px;">
-											<div class="progress-bar bg-success" role="progressbar" id="barradeprogreso" style="width: 100%" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" data-toggle="tooltip" data-placement="top" title="" data-original-title="100%"></div>
+											<div class="progress-bar bg-success" role="progressbar" id="barradeprogreso" style="width: 100%; " aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" data-toggle="tooltip" data-placement="top" title="" data-original-title="100%"></div>
 										</div>
 									</div>
 
