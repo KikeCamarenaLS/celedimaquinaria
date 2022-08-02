@@ -75,7 +75,11 @@
 				</div>
 				<div class="card-footer">{{-- inicio del row --}}
 					<div class="row">
-
+						<div class="col-md-12">
+							<center>
+								<input  type="submit" class="btn btn-success" value="PDF" onclick="Buscar()">
+							</center>
+						</div>
 					</div>
 					{{-- fin del row --}}
 				</div>
