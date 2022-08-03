@@ -435,6 +435,11 @@
                                             <span class="sub-item">Registro Egresos</span>
                                         </a>
                                     </li>
+                                    <li>
+                                        <a href="{{url('/ImprimirCortes')}}">
+                                            <span class="sub-item">Realizar Cortes</span>
+                                        </a>
+                                    </li>
                                     
                                 </ul>
                             </div>

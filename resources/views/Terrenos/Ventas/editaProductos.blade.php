@@ -126,24 +126,24 @@
 						</div>
 						<div class="form-group row " >
 
-							<div class="col-md-2">
-								<label>Costo por m<sup>2</sup> de contado</label>
+							<div class="col-md-2" id="validaContadoCosto1">
+								<label>Costo por m<sup>2</sup> de contado($)</label>
 								<input  type="text" class="form-control" onkeyup="calculaCostoContado()" onKeypress="if (event.keyCode < 45 || event.keyCode > 57) event.returnValue = false;" id="CostoContado" name="CostoContado" >
 
 							</div>
-							<div class="col-md-2">
-								<label>Costo total de contado</label>
+							<div class="col-md-2" id="validaContadoCosto2">
+								<label>Costo total de contado($)</label>
 								<input  type="text" class="form-control" onKeypress="if (event.keyCode < 45 || event.keyCode > 57) event.returnValue = false;" id="CostoContadoTotal" name="CostoContadoTotal" >
 
 							</div>
 							<div class="col-md-2" id="validaFinanciadoCosto">
-								<label>Costo por m<sup>2</sup> financiado</label>
+								<label>Costo por m<sup>2</sup> financiado($)</label>
 								<input  type="text" class="form-control" onkeyup="calculaCostofinanciado()" onKeypress="if (event.keyCode < 45 || event.keyCode > 57) event.returnValue = false;" id="CostoFinanciado" name="CostoFinanciado" >
 
 							</div>
 
 							<div class="col-md-2" id="validaFinanciadoCosto2">
-								<label>Costo total financiado</label>
+								<label>Costo total financiado($)</label>
 								<input  type="text" class="form-control" onKeypress="if (event.keyCode < 45 || event.keyCode > 57) event.returnValue = false;" id="CostoFinanciadoTotal" name="CostoFinanciadoTotal" >
 
 							</div>
@@ -331,7 +331,7 @@
 		$( "#CostoContadoTotal" ).keyup(function() {
 			var TotalDevengado=$("#CostoContadoTotal").val();
 			TotalDevengado = TotalDevengado.replace(/,/g, "");
-			$("#CostoContadoTotal").val(Intl.NumberFormat('es-MX').format(TotalDevengado));
+			$("#CostoContadoTotal").val(Intl.NumberFormat('es-MX', {minimumFractionDigits: 2}).format(TotalDevengado));
 		});
 		$( "#CostoFinanciado" ).keyup(function() {
 			var TotalDevengado=$("#CostoFinanciado").val();
@@ -341,7 +341,7 @@
 		$( "#CostoFinanciadoTotal" ).keyup(function() {
 			var TotalDevengado=$("#CostoFinanciadoTotal").val();
 			TotalDevengado = TotalDevengado.replace(/,/g, "");
-			$("#CostoFinanciadoTotal").val(Intl.NumberFormat('es-MX').format(TotalDevengado));
+			$("#CostoFinanciadoTotal").val(Intl.NumberFormat('es-MX', {minimumFractionDigits: 2}).format(TotalDevengado));
 		});
 
 		$( "#Enganche" ).keyup(function() {
@@ -410,24 +410,38 @@
 		}
 
 		function cambioTipoVenta(){
-			if($('#TipoVenta').val()=="Contado y Financiado" || $('#TipoVenta').val()=="Financiado"){
-
+			if($('#TipoVenta').val()=="Contado y Financiado" )
+			{
 				$('#validaFinanciadoEnganche').css('display','block');
 				$('#validaFinanciadoAnualida').css('display','block');
 				$('#validaFinanciadoNoAnualida').css('display','block');
 				$('#validaFinanciadoCosto').css('display','block');
 				$('#validaFinanciadoCosto2').css('display','block');
-
-
+				$('#validaContadoCosto1').css('display','block');
+				$('#validaContadoCosto2').css('display','block');
 				$('#validaFinanciadoPlazo').css('display','block');
-			}else{
+			}
+			else if($('#TipoVenta').val()=="Contado")
+			{
 				$('#validaFinanciadoEnganche').css('display','none');
 				$('#validaFinanciadoAnualida').css('display','none');
 				$('#validaFinanciadoNoAnualida').css('display','none');
 				$('#validaFinanciadoCosto').css('display','none');
 				$('#validaFinanciadoCosto2').css('display','none');
-
+				$('#validaContadoCosto1').css('display','block');
+				$('#validaContadoCosto2').css('display','block');
 				$('#validaFinanciadoPlazo').css('display','none');
+			}
+			else if($('#TipoVenta').val()=="Financiado")
+			{
+				$('#validaFinanciadoEnganche').css('display','block');
+				$('#validaFinanciadoAnualida').css('display','block');
+				$('#validaFinanciadoNoAnualida').css('display','block');
+				$('#validaFinanciadoCosto').css('display','block');
+				$('#validaFinanciadoCosto2').css('display','block');
+				$('#validaContadoCosto1').css('display','none');
+				$('#validaContadoCosto2').css('display','none');
+				$('#validaFinanciadoPlazo').css('display','block');
 			}
 		}
 
@@ -592,6 +606,16 @@
 				});
 
 		}
+		
+		$( "#Superficie" ).change(function() {
+			calculaCostoContado();
+			calculaCostofinanciado();
+		});
+
+		$( "#Superficie" ).keyup(function() {
+			calculaCostoContado();
+			calculaCostofinanciado();
+		});
 		function calculaCostoContado(){
 
 			var TotalDevengado=$('#CostoContado').val();
@@ -601,7 +625,7 @@
 			TotalDevengado2 = TotalDevengado2.replace(/,/g, "");
 
 			var total=TotalDevengado2*TotalDevengado;
-			$("#CostoContadoTotal").val(Intl.NumberFormat('es-MX').format(total));
+			$("#CostoContadoTotal").val(Intl.NumberFormat('es-MX', {minimumFractionDigits: 2}).format(total));
 
 		}
 		function calculaCostofinanciado(){
@@ -613,7 +637,7 @@
 			TotalDevengado2 = TotalDevengado2.replace(/,/g, "");
 
 			var total=TotalDevengado2*TotalDevengado;
-			$("#CostoFinanciadoTotal").val(Intl.NumberFormat('es-MX').format(total));
+			$("#CostoFinanciadoTotal").val(Intl.NumberFormat('es-MX', {minimumFractionDigits: 2}).format(total));
 
 
 
@@ -670,7 +694,7 @@
 				var content = {};
 
 				content.message = mensaje;
-				content.title = 'Modulo Ventas';
+				content.title = 'Modulo de Productos';
 				if (color == "danger") {
 					content.icon = 'la la-close';
 				} else {

@@ -269,6 +269,7 @@
 							"DiaPagos":$('#DiaPagos').val(),
 							"utilizasaldofavor":$('#utilizasaldofavor').val(),
 							"periodo":$('#PagoCorrespondienteDelAl').val(),
+							"pryecto":$('#PagoCorrespondienteDelAl').val(),
 
 						}, 
 						url:   "{{url('registrar/CobroMes')}}",

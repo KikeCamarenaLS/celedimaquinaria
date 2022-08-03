@@ -500,11 +500,16 @@ Route::get('/busqueda/pagosRealizadoscontrato', 'TerrenoController\Cobranza@pago
 Route::get('/IngresosEgresos', 'ingresosegresosController@ventalotesView');
 
 Route::get('/busqueda/realizarPagos/IngresosEgresos', 'ingresosegresosController@busquedaContratos');
+Route::get('/busqueda/cortes/IngresosEgresos', 'ingresosegresosController@busquedaCortes');
 Route::get('/PDF/realizarPagos/IngresosEgresos/{consulta}', 'ingresosegresosController@PDFingresoegresos');
+Route::get('/PDF/realizarCortes/{consulta}', 'ingresosegresosController@PDFrealizaCortes');
+
 
 
 Route::get('/pruebacorreo', 'TerrenoController\Cobranza@pruebacorreo');
 Route::get('/registroEgresos', 'ingresosegresosController@registroEgresos');
+Route::get('/ImprimirCortes', 'ingresosegresosController@ImprimirCortes');
+
 
 
 

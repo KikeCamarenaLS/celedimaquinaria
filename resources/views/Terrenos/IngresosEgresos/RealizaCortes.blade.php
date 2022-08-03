@@ -11,7 +11,7 @@
 		<div class="col-md-12" >
 			<div class="card">
 				<div class="card-header">
-					<div class="card-title">Registro de Egresos  </div>
+					<div class="card-title">Realiza Cortes  </div>
 					
 				</div>
 				
@@ -21,58 +21,15 @@
 
 					<div class=" row " >
 						<div class="col-md-3" >
-							<label>Concepto de egreso</label>
-
-							<div class="select2-input" id="concepto2">
-								<select class="form-control success" id="concepto" name="concepto" >
-
-									<option>Gastos de Operación</option>
-									<option>Mensualidades</option>
-									<option>Pagos</option>
-									<option>Cortes</option>
-									<option>Proyectos</option>
-
-								</select> 
-							</div>
+							
 						</div>
-						<div class="col-md-2" >
-							<label>	Importe <span class="required-label"></span></label>
-							<input type="text" class="form-control success" id="Importe">
-						</div>
-
-								<div class="col-md-3" id="oculta1" style="display:none;" >
-									<label>Proyectos</label>
-
-									<div class="select2-input">
-										<select class="form-control success" id="id_proyecto" name="id_proyecto"  style="width:100%;">
-											@foreach($proyectos as $proyecto)
-											<option value="{{$proyecto->id_proyecto}}">{{$proyecto->proyecto}}</option>
-											@endforeach
-										</select> 
-									</div>
-								</div>
-
-
-							<div class="col-md-2" id="oculta2" style="display:none;" >
-								<label>Mz <span class="required-label"></span></label>
-								<input type="text" class="form-control success" id="Mz" style="width:100%;">
-							</div>
-
-							<div class="col-md-2" id="oculta3" style="display:none;">
-								<label>Lote <span class="required-label"></span></label>
-								<input type="text" class="form-control success" id="Lote" style="width:100%;">
-							</div>
-
-					
-
 						<div class="col-md-3" >
-							<label>Fecha <span class="required-label"></span></label>
-							<input type="date" class="form-control success"  id="Fecha">
+							<label>Del <span class="required-label"></span></label>
+							<input type="date" class="form-control success" id="del">
 						</div>
-						<div class="col-md-4" >
-							<label>Observaciones de los egresos <span class="required-label"></span></label>
-							<textarea class="form-control" id="Observaciones">
-							</textarea>
+						<div class="col-md-3" >
+							<label>Al <span class="required-label"></span></label>
+							<input type="date" class="form-control success" id="al">
 						</div>
 
 
@@ -86,14 +43,38 @@
 						</div>
 					</div>
 
-					
+					<div class="form-group ">
+						<div class="table-responsive" >
+							<table class="table" id="list_user">
+								<thead>
+									<tr>
+										<th class="bg-danger sorting" style="color:#ffffff; width: 10%;"><center>INGRESOS</center> </th>
+										<th class="bg-danger sorting" style="color:#ffffff; width: 10%;"><center>CÉSAR CORTÉS </center> </th>
+										<th class="bg-danger sorting" style="color:#ffffff; width: 10%;"><center>SOCIOS </center> </th>
+										<th class="bg-danger sorting" style="color:#ffffff; width: 10%;"><center>TOTAL</center> </th>
+										<th class="bg-danger sorting" style="color:#ffffff; width: 45%;"><center>INTERESES</center></th>
+										
+									</tr>
+								</thead>
+
+								<tbody id="llenaTabla">
+
+
+								</tbody>
+							</table>
+						</div>
+					</div>
 
 
 
 
 				</div>
 				<div class="card-footer">{{-- inicio del row --}}
-					
+					<div class="row">
+
+						<input type="submit" id="CrearPDF" value="Crear PDF" onclick="abrir_Popup()" style="color:#fff;" class="btn btn-success">
+
+					</div>
 					{{-- fin del row --}}
 				</div>
 
@@ -117,40 +98,19 @@
 			<?php  date_default_timezone_set("America/Mexico_City");?>
 			<?php $fechaPHP=date('Y-m-d');?>
 			console.log('{{$fechaPHP}}');
-		    $('#Fecha').val('{{$fechaPHP}}');
+		    $('#del').val('2022-07-31');
 		});
 		function abrir_Popup() {
 			var configuracion_ventana = "width=700,height=500,scrollbars=NO";
-			var consulta=$('#id_proyecto').val();
+			var consulta=$('#del').val();
 			
 
-			objeto_window_referencia = window.open('{{url('/PDF/realizarPagos/IngresosEgresos')}}'+'/'+consulta, configuracion_ventana);
+			objeto_window_referencia = window.open('{{url('/PDF/realizarCortes')}}'+'/'+consulta, configuracion_ventana);
 		}
 
 
 
 
-		$( "#concepto" ).click(function() {
-			console.log('hola');
-			var concepto=$('#concepto').val();
-			if(concepto=="Proyectos"){
-				$('#oculta1').removeAttr('display');
-				$('#oculta1').css('display','block');
-				$('#oculta2').removeAttr('display');
-				$('#oculta2').css('display','block');
-				$('#oculta3').removeAttr('display');
-				$('#oculta3').css('display','block');
-
-			}else{
-
-				$('#oculta1').removeAttr('display');
-				$('#oculta1').css('display','none');
-				$('#oculta2').removeAttr('display');
-				$('#oculta2').css('display','none');
-				$('#oculta3').removeAttr('display');
-				$('#oculta3').css('display','none');
-			}
-});
 		$('#list_user').DataTable({
 			scrollX:  false,
 			scrollCollapse: true,
@@ -204,9 +164,9 @@
 
 			$.ajax({
 				data:  {
-					"Busqueda":$('#id_proyecto').val(),
+					"Busqueda":$('#del').val(),
 				}, 
-				url:   "{{url('busqueda/realizarPagos/IngresosEgresos')}}",
+				url:   "{{url('busqueda/cortes/IngresosEgresos')}}",
 				type:  'get',
 				success:  function (response) { 
 					console.log(response);
@@ -217,33 +177,21 @@
 						mensaje('danger','No se encontraron registros');
 					}else{
 						for (var i = 0; i < response.length; i++) {
-							costocomilla='"'+response[i].Costo+'"';
-							Enganchecomilla='"'+response[i].Enganche+'"';
-							var FechaApartado='"'+response[i].FechaApartado+'"';
+							
 
-							var Apartado='"'+response[i].Apartado+'"';
-							var FechaVenta='"'+response[i].FechaVenta+'"';
-							var ComplementoEnganche='"'+response[i].ComplementoEnganche+'"';
-							var DiaPago='"'+response[i].DiaPago+'"';
-							var vendedor='"'+response[i].vendedor+'"';
-							var Comision1='"'+response[i].Comision1+'"';
-							var Comision2='"'+response[i].Comision2+'"';
-							var EstatusVenta='"'+response[i].estatus+'"';
-							var MontoMensual='"'+response[i].MontoMensual+'"';
-							var N_Parcialidades='"'+response[i].N_Parcialidades+'"';
-							var Interes='"'+response[i].Interes+'"';
-							var saldofavor='"'+response[i].saldofavor+'"';
+							var cesar= response[i].pago_a_cubrir;
+							cesar=cesar*.35;
 
-
+							var socios= response[i].pago_a_cubrir;
+							socios=socios*.65;
 
 							html+="<tr>";
-							html+="<td> <FONT  SIZE=2>"+response[i].created_at+"</FONT></td>";
-							html+="<td> <FONT  SIZE=2>"+response[i].no_pago+"</FONT></td>";
-							html+="<td> <FONT  SIZE=2>"+response[i].Mz+"</FONT></td>";
-							html+="<td> <FONT  SIZE=2>"+response[i].Lt+"</FONT></td>";
-							html+="<td> <FONT  SIZE=2>"+response[i].NombreCompleto+"</FONT></td>";
-							html+="<td> <FONT  SIZE=2>"+response[i].MontoMensual+"</FONT></td>";
-							html+="<td> <FONT  SIZE=2>"+response[i].pago_a_cubrir+"</FONT></td>";
+							html+="<td> <FONT  SIZE=2>$ "+Intl.NumberFormat('es-MX', {minimumFractionDigits: 2}).format(cesar)+"</FONT></td>";
+							html+="<td> <FONT  SIZE=2>$ "+Intl.NumberFormat('es-MX', {minimumFractionDigits: 2}).format(cesar)+"</FONT></td>";
+							html+="<td> <FONT  SIZE=2>$ "+Intl.NumberFormat('es-MX', {minimumFractionDigits: 2}).format(socios)+"</FONT></td>";
+							html+="<td> <FONT  SIZE=2>$ "+Intl.NumberFormat('es-MX', {minimumFractionDigits: 2}).format(response[i].pago_a_cubrir)+"</FONT></td>";
+							html+="<td> <FONT  SIZE=2>$ "+Intl.NumberFormat('es-MX', {minimumFractionDigits: 2}).format(response[i].interes)+"</FONT></td>";
+
 							html+="</tr>";
 						}$('#llenaTabla').html("");
 						$('#llenaTabla').html(html);
