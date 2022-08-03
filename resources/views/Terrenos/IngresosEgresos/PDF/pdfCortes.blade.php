@@ -105,10 +105,9 @@
 
 				<font face="Times New Roman" style="font-color: #666666 !important;">
 					<center>
-						<font face="Times New Roman" style="font-family: 'Times New Roman';">{{$datos[0]->nom_proyecto}}</font>
 						<br>
 						<?php date_default_timezone_set("America/Mexico_City");?>
-						{{ date('d/m/Y') }}
+						CORTESDEL VIERNES {{ date('d/m/Y') }}
 					</center>
 				</font>
 
@@ -129,21 +128,15 @@
 					<tbody>
 						<tr>
 							<td align="center" width="15%"  class="Rejillas2" >
-								<b>FECHA DE PAGARÉ</b>
+								<b>INGRESOS</b>
 							</td>
 						
 							<td align="center" width="10%"  class="Rejillas2" >
-								<b>PAGARÉ</b>
+								<b>{{$elreturn[0]['socionombre'][0]}}</b>
 							</td>
 
 							<td align="center" width="10%"  class="Rejillas2" >
-								<b>MZ</b>
-							</td>
-							<td align="center" width="10%"  class="Rejillas2" >
-								<b>LOTE</b>
-							</td>
-							<td align="center" width="35%"  class="Rejillas2" >
-								<b>CLIENTE/CONCEPTO</b>
+								<b>{{$elreturn[0]['socionombre'][1]}}</b>
 							</td>
 							<td align="center" width="10%"  class="Rejillas2" >
 								<b>TOTAL</b>
@@ -151,60 +144,40 @@
 							<td align="center" width="10%"  class="Rejillas2" >
 								<b>INTERÉS</b>
 							</td>
+							<td align="center" width="35%"  class="Rejillas2" style="border:0px black solid;" >
+								<b>TOTAL+INTERÉS</b>
+							</td>
 						</tr>
-						@foreach($datos as $dato)
+						<?php for ($i=0; $i < count($elreturn); $i++) { ?>
+							
+						
 						<tr>
 							<td align="center" width="15%"  class="Rejillas2" >
-								<b>{{$dato->created_at}}</b>
+								{{$elreturn[$i]['proyecto']}}
 							</td>
-						
-							<td align="center" width="10%"  class="Rejillas2" >
-								<b>{{$dato->no_pago}}</b>
+							<td align="center" width="15%"  class="Rejillas2" >
+								@if(count($elreturn[$i]['socio'])>0)
+								{{$elreturn[$i]['socio'][0] }}
+								@endif
+							</td>
+							<td align="center" width="15%"  class="Rejillas2" >
+								@if(count($elreturn[$i]['socio'])>0)
+								{{$elreturn[$i]['socio'][1] }}
+								@endif
+							</td>
+							<td align="center" width="15%"  class="Rejillas2" >
+								{{$elreturn[$i]['pago_a_cubrir'] - $elreturn[$i]['interes']}}
+							</td>
+							<td align="center" width="15%"  class="Rejillas2" >
+								{{$elreturn[$i]['interes']}}
+							</td>
+							<td align="center" width="35%"  class="Rejillas2" style="border:0px black solid;" >
+								<b>{{$elreturn[$i]['pago_a_cubrir'] }}</b>
 							</td>
 							
-							<td align="center" width="10%"  class="Rejillas2" >
-								<b>{{$dato->Mz}}</b>
-							</td>
-							<td align="center" width="10%"  class="Rejillas2" >
-								<b>{{$dato->Lt}}</b>
-							</td>
-							<td align="center" width="35%"  class="Rejillas2" >
-								<b>{{$dato->NombreCompleto}}</b>
-							</td>
-							<td align="center" width="10%"  class="Rejillas2" >
-								<b>$ {{$dato->MontoMensual}}</b>
-							</td>
-							<td align="center" width="10%"  class="Rejillas2" >
-								<b>$ {{$dato->pago_a_cubrir}}</b>
-							</td>
 						</tr>
+							<?php } ?>
 
-						@endforeach
-						<tr>
-							<td align="center" width="15%"  style="border: 0px black solid;" >
-								<b></b>
-							</td>
-						
-							<td align="center" width="10%"  style="border: 0px black solid;" >
-								<b></b>
-							</td>
-							
-							<td align="center" width="10%"  style="border: 0px black solid;" >
-								<b></b>
-							</td>
-							<td align="center" width="10%"  style="border: 0px black solid;" >
-								<b></b>
-							</td>
-							<td align="center" width="35%"  style="border: 0px black solid; text-align: right; font-size: 12px;" >
-								<b>TOTAL DE INGRESOS</b>
-							</td>
-							<td align="center" width="10%"  style="border: 0px black solid; font-size: 11px; border-bottom: 1px black solid;" >
-								<b>$ {{$datos[0]->MontoMensual}}</b>
-							</td>
-							<td align="center" width="10%"  style="border: 0px black solid; font-size: 11px; border-bottom: 1px black solid;" >
-								<b>$ {{$datos[0]->pago_a_cubrir}}</b>
-							</td>
-						</tr>
 					</tbody>
 
 				</table>
@@ -252,54 +225,8 @@
 								
 							</td>
 						</tr>
-						@foreach($datos as $dato)
-						<tr>
-							<td align="center" width="15%"   style="border:0px black solid;" >
-								
-							</td>
 						
-
-							<td align="center" width="10%"  class="Rejillas2" >
-								<b>{{$datos[0]->Mz}}</b>
-							</td>
-							<td align="center" width="10%"  class="Rejillas2" >
-								<b>{{$datos[0]->Lt}}</b>
-							</td>
-							<td align="center" width="40%"  class="Rejillas2" >
-								<b>{{$datos[0]->NombreCompleto}}</b>
-							</td>
-							<td align="center" width="10%"  class="Rejillas2" >
-								<b>$ {{$datos[0]->MontoMensual}}</b>
-							</td>
-							<td align="center" width="15%"   style="border:0px black solid;" >
-								
-							</td>
-						</tr>
-
-						@endforeach
-						<tr>
-							<td align="center" width="15%"  style="border: 0px black solid;" >
-								<b></b>
-							</td>
 						
-							
-							<td align="center" width="10%"  style="border: 0px black solid;" >
-								<b></b>
-							</td>
-							<td align="center" width="10%"  style="border: 0px black solid;" >
-								<b></b>
-							</td>
-							<td align="center" width="40%"  style="border: 0px black solid; text-align: right; font-size: 12px;" >
-								<b>TOTAL DE EGRESOS</b>
-							</td>
-							<td align="center" width="10%"  style="border: 0px black solid; border-bottom: 1px black solid; font-size: 11px;" >
-								<b>$ {{$datos[0]->MontoMensual}}</b>
-							</td>
-
-
-							<td align="center" width="15%"  style="border: 0px black solid;" >
-								<b></b>
-							</td>
 						</tr>
 					</tbody>
 
@@ -332,12 +259,7 @@
 							<td align="center" width="20%"  style="border:0px black solid; font-size: 12px;" >
 								INGRESOS
 							</td>
-							<td align="center" width="20%"  style="border:0px black solid;" >
-								<b>${{$datos[0]->MontoMensual}}</b>
-							</td>
-							<td align="center" width="20%"  style="border:0px black solid;" >
-								<b>${{$datos[0]->MontoMensual}}</b>
-							</td>
+							
 							<td align="center" width="20%"   style="border:0px black solid;" >
 							</td>
 						</tr>
@@ -347,12 +269,7 @@
 							<td align="center" width="20%"  style="border-bottom:1px black solid; font-size: 12px; " >
 								EGRESOS
 							</td>
-							<td align="center" width="20%"  style="border-bottom:1px black solid; " >
-								<b>${{$datos[0]->MontoMensual}}</b>
-							</td>
-							<td align="center" width="20%"  style="border-bottom:1px black solid; " >
-								<b>${{$datos[0]->MontoMensual}}</b>
-							</td>
+						
 							<td align="center" width="20%"   style="border:0px black solid;" >
 							</td>
 						</tr>
@@ -364,12 +281,7 @@
 									TOTAL
 								</b>
 							</td>
-							<td align="center" width="20%"  style="border-bottom:2px black solid; " >
-								<b>${{$datos[0]->MontoMensual}}</b>
-							</td>
-							<td align="center" width="20%"  style="border-bottom:2px black solid; " >
-								<b>${{$datos[0]->MontoMensual}}</b>
-							</td>
+							
 							<td align="center" width="20%"   style="border:0px black solid;" >
 							</td>
 						</tr>

@@ -36,7 +36,7 @@ public function busquedaContrato(Request $request)
 
     $insert =DB::select('SELECT contratos.id_contratos,contratos.N_Cliente,contratos.FechaVenta,
         contratos.Enganche,contratos.FechaContrato,contratos.Proyecto,contrato_cobranza.FechaApartado,contrato_cobranza.Apartado,contrato_cobranza.FechaEnganche,contrato_cobranza.ComplementoEnganche,contrato_cobranza.DiaPago,contrato_cobranza.vendedor,contrato_cobranza.Comision1,contrato_cobranza.Comision2,contrato_cobranza.EstatusVenta,contratos.Mz,contratos.Lt,contratos.Superficie,
-        contratos.TipoSuperficie,contratos.TipoPredio,contratos.Vendedor,cat_proyectos.proyecto AS nom_proyecto,
+        contratos.TipoSuperficie,contratos.TipoPredio,contratos.Vendedor,cat_proyectos.proyecto AS nom_proyecto,cat_proyectos.id_proyecto AS id_proyecto,
         contratos.Adquisicion,contratos.N_Parcialidades,contratos.Costo,
         contratos.DiaPago,contratos.MontoMensual,contratos.TelefonoAval,
         CONCAT (clientes.nombre," ",clientes.A_paterno," ",clientes.A_materno) AS NombreCompleto,
@@ -57,7 +57,7 @@ public function busquedaContratos(Request $request)
     $Busqueda= $request->input("Busqueda");
     $insert =DB::select('SELECT contratos.id_contratos,contratos.N_Cliente,contratos.FechaVenta,
         contratos.Enganche,contratos.FechaContrato,contratos.Proyecto,contratos.vendedor,contratos.Mz,contratos.Lt,proyectoLote.estatus,contratos.Superficie,
-        contratos.TipoSuperficie,contratos.TipoPredio,contratos.Vendedor,cat_proyectos.proyecto AS nom_proyecto,
+        contratos.TipoSuperficie,contratos.TipoPredio,contratos.Vendedor,cat_proyectos.proyecto AS nom_proyecto,cat_proyectos.id_proyecto AS id_proyecto,
         contratos.Adquisicion,contratos.N_Parcialidades,contratos.Costo,
         contratos.DiaPago,contratos.MontoMensual,contratos.TelefonoAval,
         CONCAT (clientes.nombre," ",clientes.A_paterno," ",clientes.A_materno) AS NombreCompleto,
@@ -81,7 +81,7 @@ public function ComprobanteCobranzaPDF($id_contratos,$no_pago){
           contratos.Vendedor,cat_proyectos.proyecto AS nom_proyecto,
         contratos.Adquisicion,contratos.N_Parcialidades,contratos.Costo,
         contratos.DiaPago,contratos.MontoMensual,contratos.N_Parcialidades,
-        CONCAT (clientes.nombre," ",clientes.A_paterno," ",clientes.A_materno) AS NombreCompleto,
+        CONCAT (clientes.nombre," ",clientes.A_paterno," ",clientes.A_materno) AS NombreCompleto,cat_proyectos.id_proyecto AS id_proyecto,
         contratos.Interes, clientes.id_clientes,contratos.Costo,cobroslotes.pago_a_cubrir,cobroslotes.cantidadrecibida,cobroslotes.created_at,cobroslotes.saldo_favor,cobroslotes.masmenos,cobroslotes.no_pago FROM contratos
         INNER JOIN clientes ON clientes.N_Cliente=contratos.N_Cliente 
 
@@ -107,6 +107,7 @@ public function insertaCobro(Request $request)
     $cantidadrecibida= $request->input("cantidadrecibida");
     $utilizasaldofavor= $request->input("utilizasaldofavor");
     $periodo= $request->input("periodo");
+    $proyecto= $request->input("proyecto");
 
 
 
@@ -142,14 +143,14 @@ $masmenos='';
     $numpagos=$no_pago[0]->cuantos + 1;
 
 
-   $insert=DB::select('insert into cobroslotes (id_cobroslotes,n_contrato,pago_a_cubrir ,cantidadrecibida, saldo_favor ,dia_pago ,interes ,fecha,created_at, id_personal,masmenos,no_pago ,periodo) values (null,"'.$numeroContr.'","'.$PagoMes.'","'.$cantidadrecibida.'","'.$saldofavor.'","'.$DiaPagos.'","'.$interes.'","'.$fechaPHP.'","'.$fechaPHP.'","'.$idUsuarioSistema.'","'.$masmenos.'","'.$numpagos.'","'.$periodo.'" )');
+   $insert=DB::select('insert into cobroslotes (id_cobroslotes,n_contrato,pago_a_cubrir ,cantidadrecibida, saldo_favor ,dia_pago ,interes ,fecha,created_at, id_personal,masmenos,no_pago ,periodo,id_proyecto) values (null,"'.$numeroContr.'","'.$PagoMes.'","'.$cantidadrecibida.'","'.$saldofavor.'","'.$DiaPagos.'","'.$interes.'","'.$fechaPHP.'","'.$fechaPHP.'","'.$idUsuarioSistema.'","'.$masmenos.'","'.$numpagos.'","'.$periodo.'","'.$proyecto.'" )');
 
     $mensaje_corrreo=DB::select('SELECT contratos.id_contratos,contratos.N_Cliente,contratos.FechaVenta,
           contratos.Mz,contratos.Lt,
           contratos.Vendedor,cat_proyectos.proyecto AS nom_proyecto,
         contratos.Adquisicion,contratos.N_Parcialidades,contratos.Costo,
         contratos.DiaPago,contratos.MontoMensual,contratos.N_Parcialidades,
-        CONCAT (clientes.nombre," ",clientes.A_paterno," ",clientes.A_materno) AS NombreCompleto,clientes.Correo,
+        CONCAT (clientes.nombre," ",clientes.A_paterno," ",clientes.A_materno) AS NombreCompleto,clientes.Correo,cat_proyectos.id_proyecto AS id_proyecto,
         contratos.Interes, clientes.id_clientes,contratos.Costo,cobroslotes.pago_a_cubrir,cobroslotes.cantidadrecibida,cobroslotes.created_at,cobroslotes.saldo_favor,cobroslotes.masmenos,cobroslotes.no_pago FROM contratos
         INNER JOIN clientes ON clientes.N_Cliente=contratos.N_Cliente 
 
@@ -173,7 +174,7 @@ public function pruebacorreo(){
           contratos.Vendedor,cat_proyectos.proyecto AS nom_proyecto,
         contratos.Adquisicion,contratos.N_Parcialidades,contratos.Costo,
         contratos.DiaPago,contratos.MontoMensual,contratos.N_Parcialidades,
-        CONCAT (clientes.nombre," ",clientes.A_paterno," ",clientes.A_materno) AS NombreCompleto,clientes.Correo,
+        CONCAT (clientes.nombre," ",clientes.A_paterno," ",clientes.A_materno) AS NombreCompleto,clientes.Correo,cat_proyectos.id_proyecto AS id_proyecto,
         contratos.Interes, clientes.id_clientes,contratos.Costo,cobroslotes.pago_a_cubrir,cobroslotes.cantidadrecibida,cobroslotes.created_at,cobroslotes.saldo_favor,cobroslotes.masmenos,cobroslotes.no_pago FROM contratos
         INNER JOIN clientes ON clientes.N_Cliente=contratos.N_Cliente 
 
@@ -196,7 +197,7 @@ public function pagosRealizadoscontrato(Request $request)
           contratos.Vendedor,cat_proyectos.proyecto AS nom_proyecto,
         contratos.Adquisicion,contratos.N_Parcialidades,contratos.Costo,
         contratos.DiaPago,contratos.MontoMensual,contratos.N_Parcialidades,
-        CONCAT (clientes.nombre," ",clientes.A_paterno," ",clientes.A_materno) AS NombreCompleto,
+        CONCAT (clientes.nombre," ",clientes.A_paterno," ",clientes.A_materno) AS NombreCompleto,cat_proyectos.id_proyecto AS id_proyecto,
         contratos.Interes, clientes.id_clientes,contratos.Costo,cobroslotes.pago_a_cubrir,cobroslotes.cantidadrecibida,cobroslotes.created_at,cobroslotes.saldo_favor,cobroslotes.masmenos,cobroslotes.no_pago FROM contratos
         INNER JOIN clientes ON clientes.N_Cliente=contratos.N_Cliente 
 

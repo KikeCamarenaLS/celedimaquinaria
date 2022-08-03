@@ -146,6 +146,9 @@
 												<label>Cantidad recibida </label>
 												<input required="" type="text"  class="form-control"  id="cantidadrecibida" name="cantidadrecibida" >
 											</div>
+											<div class="col-md-3">
+												<input required="" type="hidden"  class="form-control"  id="id_proyecto_hiden" name="id_proyecto_hiden" >
+											</div>
 
 
 
@@ -251,6 +254,9 @@
 		function abrir_Popup() {
 			var PagoMes=$('#Mensualidadintereses').val();
 			var cantidadrecibida=parseFloat($('#cantidadrecibida').val());
+			var id_proyecto_hiden=$('#id_proyecto_hiden').val();
+			
+			
 
 
 			PagoMes = PagoMes.replace(/,/g, "");
@@ -269,7 +275,7 @@
 							"DiaPagos":$('#DiaPagos').val(),
 							"utilizasaldofavor":$('#utilizasaldofavor').val(),
 							"periodo":$('#PagoCorrespondienteDelAl').val(),
-							"pryecto":$('#PagoCorrespondienteDelAl').val(),
+							"proyecto":id_proyecto_hiden,
 
 						}, 
 						url:   "{{url('registrar/CobroMes')}}",
@@ -302,6 +308,7 @@
 							"DiaPagos":$('#DiaPagos').val(),
 							"utilizasaldofavor":$('#utilizasaldofavor').val(),
 							"periodo":$('#PagoCorrespondienteDelAl').val(),
+							"proyecto":id_proyecto_hiden,
 
 						}, 
 						url:   "{{url('registrar/CobroMes')}}",
@@ -413,6 +420,8 @@
 							var N_Parcialidades='"'+response[i].N_Parcialidades+'"';
 							var Interes='"'+response[i].Interes+'"';
 							var saldofavor='"'+response[i].saldofavor+'"';
+							var id_proyecto='"'+response[i].id_proyecto+'"';
+
 
 
 
@@ -425,7 +434,7 @@
 							html+="<td> <FONT  SIZE=2>"+response[i].Mz+"</FONT></td>";
 							html+="<td> <FONT  SIZE=2>"+response[i].Lt+"</FONT></td>";
 							html+="<td> <FONT  SIZE=2>"+response[i].estatus+"</FONT></td>";
-							html+="<td><input type='submit' class='btn btn-success' value='Ver Detalles' onclick='abrirModal("+response[i].id_contratos+","+costocomilla+","+EstatusVenta+","+DiaPago+","+MontoMensual+","+N_Parcialidades+","+Interes+","+saldofavor+","+FechaVenta+")'></td>";
+							html+="<td><input type='submit' class='btn btn-success' value='Ver Detalles' onclick='abrirModal("+response[i].id_contratos+","+costocomilla+","+EstatusVenta+","+DiaPago+","+MontoMensual+","+N_Parcialidades+","+Interes+","+saldofavor+","+FechaVenta+","+id_proyecto+")'></td>";
 							html+="</tr>";
 						}$('#llenaTabla').html("");
 						$('#llenaTabla').html(html);
@@ -482,10 +491,13 @@
 			TotalDevengado = TotalDevengado.replace(/,/g, "");
 			$("#CostodelLoteCo").val(Intl.NumberFormat('es-MX').format(TotalDevengado));
 		}
-		function abrirModal(contrato,costo,EstatusVenta,DiaPago,MontoMensual,N_Parcialidades,Interes,saldofavor,FechaVenta){
+		function abrirModal(contrato,costo,EstatusVenta,DiaPago,MontoMensual,N_Parcialidades,Interes,saldofavor,FechaVenta,id_proyecto){
 
 			$('#modalCobranza').modal('show');
 			$('#numeroContr').val(contrato);
+			$('#id_proyecto_hiden').val(id_proyecto);
+
+			
 			$('#situacionCompra').val(EstatusVenta);
 			$('#PagoMes').val(MontoMensual);
 			$('#PagosRealizados').val('0');

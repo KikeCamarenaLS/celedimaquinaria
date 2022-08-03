@@ -48,11 +48,12 @@
 							<table class="table" id="list_user">
 								<thead>
 									<tr>
-										<th class="bg-danger sorting" style="color:#ffffff; width: 10%;"><center>INGRESOS</center> </th>
-										<th class="bg-danger sorting" style="color:#ffffff; width: 10%;"><center>CÉSAR CORTÉS </center> </th>
-										<th class="bg-danger sorting" style="color:#ffffff; width: 10%;"><center>SOCIOS </center> </th>
-										<th class="bg-danger sorting" style="color:#ffffff; width: 10%;"><center>TOTAL</center> </th>
-										<th class="bg-danger sorting" style="color:#ffffff; width: 45%;"><center>INTERESES</center></th>
+										<th class="bg-danger sorting" style="color:#ffffff; width: 25%;"><center>PROYECTO</center> </th>
+										<th class="bg-danger sorting" style="color:#ffffff; width: 15%;"><center>INGRESOS</center> </th>
+										<th class="bg-danger sorting" style="color:#ffffff; width: 10%;"><center>INTERESES</center></th>
+										<th class="bg-danger sorting" style="color:#ffffff; width: 15%;"><center>TOTAL</center> </th>
+										<th class="bg-danger sorting" style="color:#ffffff; width: 20%;"><center>CÉSAR CORTÉS </center> </th>
+										<th class="bg-danger sorting" style="color:#ffffff; width: 15%;"><center>SOCIOS </center> </th>
 										
 									</tr>
 								</thead>
@@ -186,11 +187,12 @@
 							socios=socios*.65;
 
 							html+="<tr>";
-							html+="<td> <FONT  SIZE=2>$ "+Intl.NumberFormat('es-MX', {minimumFractionDigits: 2}).format(cesar)+"</FONT></td>";
+							html+="<td> <FONT  SIZE=2>"+response[i].proyecto+"</FONT></td>";
+							html+="<td> <FONT  SIZE=2>$ "+Intl.NumberFormat('es-MX', {minimumFractionDigits: 2}).format(response[i].pago_a_cubrir - response[i].interes)+"</FONT></td>";
+							html+="<td> <FONT  SIZE=2>$ "+Intl.NumberFormat('es-MX', {minimumFractionDigits: 2}).format(response[i].interes)+"</FONT></td>";
+							html+="<td> <FONT  SIZE=2>$ "+Intl.NumberFormat('es-MX', {minimumFractionDigits: 2}).format(response[i].pago_a_cubrir)+"</FONT></td>";
 							html+="<td> <FONT  SIZE=2>$ "+Intl.NumberFormat('es-MX', {minimumFractionDigits: 2}).format(cesar)+"</FONT></td>";
 							html+="<td> <FONT  SIZE=2>$ "+Intl.NumberFormat('es-MX', {minimumFractionDigits: 2}).format(socios)+"</FONT></td>";
-							html+="<td> <FONT  SIZE=2>$ "+Intl.NumberFormat('es-MX', {minimumFractionDigits: 2}).format(response[i].pago_a_cubrir)+"</FONT></td>";
-							html+="<td> <FONT  SIZE=2>$ "+Intl.NumberFormat('es-MX', {minimumFractionDigits: 2}).format(response[i].interes)+"</FONT></td>";
 
 							html+="</tr>";
 						}$('#llenaTabla').html("");
