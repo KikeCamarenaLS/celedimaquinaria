@@ -112,6 +112,24 @@ class ingresosegresosController extends Controller
     $pdf->setPaper('A4');
     return $pdf->stream('reporte');
     }
+
+    public function registroEgresos(Request $request)
+    {
+
+        $concepto= $request->input("concepto");
+        $Importe= $request->input("Importe");
+        $id_proyecto= $request->input("id_proyecto");
+        $Mz= $request->input("Mz");
+        $Lote= $request->input("Lote");
+        $Fecha= $request->input("Fecha");
+        $Observaciones= $request->input("Observaciones");
+         date_default_timezone_set("America/Mexico_City");
+        $fechaPHP=date('Y-m-d H:i:s');
+
+        $insert=DB::select('insert into egresos (id_egresos,concepto,Importe,id_proyecto,Mz,Lote,Fecha,Observaciones,created_at) value(null,"'.$concepto.'","'.$Importe.'","'.$id_proyecto.'","'.$Mz.'","'.$Lote.'","'.$Fecha.'","'.$Observaciones.'","'.$fechaPHP.'") ');
+
+
+    }
     public function PDFrealizaCortes($consulta='')
     {
 
