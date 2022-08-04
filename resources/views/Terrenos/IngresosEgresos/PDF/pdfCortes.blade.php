@@ -144,7 +144,7 @@
 							<td align="center" width="10%"  class="Rejillas2" >
 								<b>INTERÉS</b>
 							</td>
-							<td align="center" width="35%"  class="Rejillas2" style="border:0px black solid;" >
+							<td align="center" width="35%"  class="Rejillas2" >
 								<b>TOTAL+INTERÉS</b>
 							</td>
 						</tr>
@@ -157,22 +157,23 @@
 							</td>
 							<td align="center" width="15%"  class="Rejillas2" >
 								@if(count($elreturn[$i]['socio'])>0)
-								{{$elreturn[$i]['socio'][0] }}
+								${{number_format($elreturn[$i]['socio'][0],2)}}
 								@endif
 							</td>
 							<td align="center" width="15%"  class="Rejillas2" >
 								@if(count($elreturn[$i]['socio'])>0)
-								{{$elreturn[$i]['socio'][1] }}
+
+								${{number_format($elreturn[$i]['socio'][1],2)}}
 								@endif
 							</td>
 							<td align="center" width="15%"  class="Rejillas2" >
-								{{$elreturn[$i]['pago_a_cubrir'] - $elreturn[$i]['interes']}}
+								${{number_format($elreturn[$i]['pago_a_cubrir'] - $elreturn[$i]['interes'],2)}}
 							</td>
 							<td align="center" width="15%"  class="Rejillas2" >
-								{{$elreturn[$i]['interes']}}
+								${{number_format($elreturn[$i]['interes'],2)}}
 							</td>
-							<td align="center" width="35%"  class="Rejillas2" style="border:0px black solid;" >
-								<b>{{$elreturn[$i]['pago_a_cubrir'] }}</b>
+							<td align="center" width="35%"  class="Rejillas2"  >
+								${{number_format($elreturn[$i]['pago_a_cubrir'],2)}}
 							</td>
 							
 						</tr>
@@ -189,14 +190,8 @@
 				<table width="100%" style=" border:0px solid #646464; border-collapse: collapse;">
 					<thead>
 						<tr>
-							<td align="center" width="15%"   style="border:0px black solid;" >
-								
-							</td>
-							<td align="center" width="70%"  class="Rejillas" style="border:1px black solid;" >
+							<td align="center" width="100%"  class="Rejillas" style="border:1px black solid;" >
 								EGRESOS
-							</td>
-							<td align="center" width="15%"   style="border:0px black solid;" >
-								
 							</td>
 							
 						</tr>
@@ -205,29 +200,58 @@
 				<table width="100%" style=" border:0px solid #646464; border-collapse: collapse; ">
 					<tbody>
 						<tr>
-							<td align="center" width="15%"   style="border:0px black solid;" >
-								
+							<td align="center" width="15%"  class="Rejillas2" >
+								<b>INGRESOS</b>
 							</td>
 						
 							<td align="center" width="10%"  class="Rejillas2" >
-								<b>MZ</b>
+								<b>{{$elreturn[0]['socionombre'][0]}}</b>
 							</td>
+
 							<td align="center" width="10%"  class="Rejillas2" >
-								<b>LOTE</b>
-							</td>
-							<td align="center" width="40%"  class="Rejillas2" >
-								<b>CLIENTE/CONCEPTO</b>
+								<b>{{$elreturn[0]['socionombre'][1]}}</b>
 							</td>
 							<td align="center" width="10%"  class="Rejillas2" >
 								<b>TOTAL</b>
 							</td>
-						<td align="center" width="15%"   style="border:0px black solid;" >
-								
+							<td align="center" width="10%"  class="Rejillas2" >
+								<b>INTERÉS</b>
+							</td>
+							<td align="center" width="35%"  class="Rejillas2" >
+								<b>TOTAL+INTERÉS</b>
 							</td>
 						</tr>
+						<?php for ($i=0; $i < count($elreturn); $i++) { ?>
+							
 						
-						
+					<tr>
+							<td align="center" width="15%"  class="Rejillas2" >
+								{{$elreturn[$i]['proyecto']}}
+							</td>
+							<td align="center" width="15%"  class="Rejillas2" >
+								@if(count($elreturn[$i]['socio'])>0)
+								${{number_format($elreturn[$i]['socio'][0],2)}}
+								@endif
+							</td>
+							<td align="center" width="15%"  class="Rejillas2" >
+								@if(count($elreturn[$i]['socio'])>0)
+
+								${{number_format($elreturn[$i]['socio'][1],2)}}
+								@endif
+							</td>
+							<td align="center" width="15%"  class="Rejillas2" >
+								${{number_format($elreturn[$i]['pago_a_cubrir'] - $elreturn[$i]['interes'],2)}}
+							</td>
+							<td align="center" width="15%"  class="Rejillas2" >
+								${{number_format($elreturn[$i]['interes'],2)}}
+							</td>
+							<td align="center" width="35%"  class="Rejillas2"  >
+								${{number_format($elreturn[$i]['pago_a_cubrir'],2)}}
+							</td>
+							
 						</tr>
+							<?php } ?>
+
 					</tbody>
 
 				</table>

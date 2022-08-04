@@ -199,6 +199,37 @@
 				"loadingRecords" : "Cargando..."
 			}
 		});
+		function registrarEgresos(){
+			$.ajax({
+				data:  {
+					"concepto":$('#concepto').val(),
+					"Importe":$('#Importe').val(),
+					"id_proyecto":$('#id_proyecto').val(),
+					"Mz":$('#Mz').val(),
+					"Lote":$('#Lote').val(),
+					"Fecha":$('#Fecha').val(),
+					"Observaciones":$('#Observaciones').val(),
+				}, 
+				url:   "{{url('busqueda/realizarPagos/IngresosEgresos')}}",
+				type:  'get',
+				success:  function (response) { 
+					console.log(response);
+					var html="";
+					var costocomilla="";
+					var Enganchecomilla="";
+					if(response.length==0){
+						mensaje('danger','No se encontraron registros');
+					}else{
+						
+
+						mensaje('success','registro exitoso!!');
+					}
+
+
+
+				},
+			});
+		}
 		function Buscar(){
 			$('#list_user').DataTable().destroy();
 
