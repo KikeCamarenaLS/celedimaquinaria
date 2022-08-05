@@ -26,12 +26,9 @@
 							<div class="select2-input" id="concepto2">
 								<select class="form-control success" id="concepto" name="concepto" >
 
-									<option>Gastos de Operación</option>
-									<option>Mensualidades</option>
-									<option>Pagos</option>
-									<option>Cortes</option>
-									<option>Proyectos</option>
-
+									@foreach($cat_concepto_egreso as $cat_concepto_egres)
+									<option value="{{$cat_concepto_egres->id_cat_concepto_egreso}}">{{$cat_concepto_egres->concepto}}</option>
+									@endforeach
 								</select> 
 							</div>
 						</div>
@@ -45,7 +42,9 @@
 
 							<div class="select2-input">
 								<select class="form-control success" id="id_proyecto" name="id_proyecto"  style="width:100%;">
+									
 									@foreach($proyectos as $proyecto)
+									<option value="0">-Selecciona-</option>
 									<option value="{{$proyecto->id_proyecto}}">{{$proyecto->proyecto}}</option>
 									@endforeach
 								</select> 
@@ -130,16 +129,30 @@
 
 
 
-		$( "#concepto" ).click(function() {
+		$( "#concepto" ).change(function() {
 			console.log('hola');
 			var concepto=$('#concepto').val();
-			if(concepto=="Proyectos"){
+			if(concepto=="5"){
 				$('#oculta1').removeAttr('display');
 				$('#oculta1').css('display','block');
 				$('#oculta2').removeAttr('display');
 				$('#oculta2').css('display','block');
 				$('#oculta3').removeAttr('display');
 				$('#oculta3').css('display','block');
+				$('#Mz').val('');
+				$('#Lote').val('');
+					$('#id_proyecto').html('');
+					var html='';
+				@foreach($proyectos as $proyecto)
+					html+='<option>{{$proyecto->proyecto}}</option>';
+				@endforeach
+				
+					$('#id_proyecto').html(html);
+				$('#id_proyecto').select2({
+			theme: "bootstrap"
+		});
+				
+				
 
 			}else{
 
@@ -167,10 +180,7 @@
 				type:  'get',
 				success:  function (response) { 
 					console.log(response);
-					var html="";
-					var costocomilla="";
-					var Enganchecomilla="";
-					if(response.length==0){
+					if(response.length!=""){
 						mensaje('danger','No se encontraron registros');
 					}else{
 						
@@ -195,7 +205,7 @@
 				var content = {};
 
 				content.message = mensaje;
-				content.title = 'Cobranza';
+				content.title = 'Registro de Egresos';
 				if (color == "danger") {
 					content.icon = 'la la-close';
 				} else {

@@ -509,7 +509,7 @@ Route::get('/PDF/realizarCortes/{consulta}', 'ingresosegresosController@PDFreali
 Route::get('/pruebacorreo', 'TerrenoController\Cobranza@pruebacorreo');
 Route::get('/registroEgresos', 'ingresosegresosController@registroEgresos');
 Route::get('/ImprimirCortes', 'ingresosegresosController@ImprimirCortes');
-Route::get('/registr/egresos', 'ingresosegresosController@registroEgresos');
+Route::get('/registr/egresos', 'ingresosegresosController@registregresos');
 
 
 

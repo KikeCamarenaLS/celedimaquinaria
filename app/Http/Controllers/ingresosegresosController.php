@@ -27,7 +27,8 @@ class ingresosegresosController extends Controller
     public function registroEgresos()
     {
         $proyectos=DB::select('SELECT * FROM cat_proyectos  ORDER BY PROYECTO ASC');
-        return view('Terrenos.IngresosEgresos.registrarEgresos',compact('proyectos'));
+        $cat_concepto_egreso=DB::select('SELECT * FROM cat_concepto_egreso  ');
+        return view('Terrenos.IngresosEgresos.registrarEgresos',compact('proyectos','cat_concepto_egreso'));
     }
     public function ImprimirCortes()
     {
@@ -113,7 +114,7 @@ class ingresosegresosController extends Controller
     return $pdf->stream('reporte');
     }
 
-    public function registroEgresos(Request $request)
+    public function registregresos(Request $request)
     {
 
         $concepto= $request->input("concepto");
@@ -126,7 +127,7 @@ class ingresosegresosController extends Controller
          date_default_timezone_set("America/Mexico_City");
         $fechaPHP=date('Y-m-d H:i:s');
 
-        $insert=DB::select('insert into egresos (id_egresos,concepto,Importe,id_proyecto,Mz,Lote,Fecha,Observaciones,created_at) value(null,"'.$concepto.'","'.$Importe.'","'.$id_proyecto.'","'.$Mz.'","'.$Lote.'","'.$Fecha.'","'.$Observaciones.'","'.$fechaPHP.'") ');
+        $insert=DB::select('insert into egresos (id_egresos,id_concepto,Importe,id_proyecto,Mz,Lote,Fecha,Observaciones,created_at) value(null,"'.$concepto.'","'.$Importe.'","'.$id_proyecto.'","'.$Mz.'","'.$Lote.'","'.$Fecha.'","'.$Observaciones.'","'.$fechaPHP.'") ');
 
 
     }
