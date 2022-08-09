@@ -37,7 +37,7 @@
 <body class="login">
     <div class="wrapper wrapper-login">
         <div class="container container-login animated fadeIn">
-            <div align="center"><img class="img-responsive " src="{{url('/assets/LogosTerreno/logo.png')}}"></div>
+            <div align="center"></div>
             <h6 class="text-center"> Sistema de Control  </h6>
             <h6 class="text-center">Administrativo</h6>
             <div class="login-form">
