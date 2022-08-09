@@ -50,10 +50,10 @@
 						<div class="col-md-12">
 							<center>
 								
-							<input type="submit" id="Selecciona" value="Marcar/Desmarcar" onclick="selecciona()" class="btn btn-primary">
-							<br>
-							<br>
-							<br>
+								<input type="submit" id="Selecciona" value="Marcar/Desmarcar" onclick="selecciona()" class="btn btn-primary">
+								<br>
+								<br>
+								<br>
 							</center>
 							
 						</div>
@@ -263,7 +263,7 @@
 									
 								</td>
 							</tr>
-						
+
 						</table>
 						
 						
@@ -412,19 +412,79 @@
 
 		}
 		function Exportar(){
-			var luz='';
-			var Agua='';
-			var Drenaje='';
-			if($('#Luz').prop('checked')){
-				luz=$('#Luz').val();
-			}
-			if($('#Agua').prop('checked')){
-				Agua=$('#Agua').val();
-			}
-			if($('#Drenaje').prop('checked')){
-				Drenaje=$('#Drenaje').val();
-			}
 
+			var proyecto=$('#proyecto').is(':checked');
+			var mz=$('#mz').is(':checked');
+			var lt=$('#lt').is(':checked');
+			var superficie=$('#superficie').is(':checked');
+			var Medidas=$('#Medidas').is(':checked');
+			var TipoSuperficie=$('#TipoSuperficie').is(':checked');
+			var TipoPredio=$('#TipoPredio').is(':checked');
+			var Localización=$('#Localización').is(':checked');
+			var ColinanciaNorte=$('#ColinanciaNorte').is(':checked');
+			var ColinanciaSur=$('#ColinanciaSur').is(':checked');
+			var ColinanciaEste=$('#ColinanciaEste').is(':checked');
+			var ColinanciaOeste=$('#ColinanciaOeste').is(':checked');
+			var TipoVenta=$('#TipoVenta').is(':checked');
+			var CostoContado=$('#CostoContado').is(':checked');
+			var CostoContadoTotal=$('#CostoContadoTotal').is(':checked');
+			var CostoFinanciado=$('#CostoFinanciado').is(':checked');
+			var CostoFinanciadoTotal=$('#CostoFinanciadoTotal').is(':checked');
+			var enganche=$('#enganche').is(':checked');
+			var anualidad=$('#anualidad').is(':checked');
+			var NoAnualidad=$('#NoAnualidad').is(':checked');
+			var plazo=$('#plazo').is(':checked');
+			var TipoSuelo=$('#TipoSuelo').is(':checked');
+			var Detalle=$('#Detalle').is(':checked');
+			var servicioluz=$('#servicioluz').is(':checked');
+			var servicioagua=$('#servicioagua').is(':checked');
+			var serviciodrenaje=$('#serviciodrenaje').is(':checked');
+			var FechaPredial=$('#FechaPredial').is(':checked');
+			var NumeroEscritura=$('#NumeroEscritura').is(':checked');
+			var ClaveCatastralPredio=$('#ClaveCatastralPredio').is(':checked');
+			var FechaClaveCatastralPredio=$('#FechaClaveCatastralPredio').is(':checked');
+			var ClaveCatastralLote=$('#ClaveCatastralLote').is(':checked');
+			var FechaClaveCatastralLote=$('#FechaClaveCatastralLote').is(':checked');
+			var ValorCompra=$('#ValorCompra').is(':checked');
+			var estatus=$('#estatus').is(':checked');
+			var created_at=$('#created_at').is(':checked');
+			var html="id_proyecto_lote"
+			if(proyecto==true){html+=","+$('#proyecto').val()}
+			if(mz==true){html+=","+$('#mz').val()}
+			if(lt==true){html+=","+$('#lt').val()}
+			if(superficie==true){html+=","+$('#superficie').val()}
+			if(Medidas==true){html+=","+$('#Medidas').val()}
+			if(TipoSuperficie==true){html+=","+$('#TipoSuperficie').val()}
+			if(TipoPredio==true){html+=","+$('#TipoPredio').val()}
+			if(Localización==true){html+=","+$('#Localización').val()}
+			if(ColinanciaNorte==true){html+=","+$('#ColinanciaNorte').val()}
+			if(ColinanciaSur==true){html+=","+$('#ColinanciaSur').val()}
+			if(ColinanciaEste==true){html+=","+$('#ColinanciaEste').val()}
+			if(ColinanciaOeste==true){html+=","+$('#ColinanciaOeste').val()}
+			if(TipoVenta==true){html+=","+$('#TipoVenta').val()}
+			if(CostoContado==true){html+=","+$('#CostoContado').val()}
+			if(CostoContadoTotal==true){html+=","+$('#CostoContadoTotal').val()}
+			if(CostoFinanciado==true){html+=","+$('#CostoFinanciado').val()}
+			if(CostoFinanciadoTotal==true){html+=","+$('#CostoFinanciadoTotal').val()}
+			if(enganche==true){html+=","+$('#enganche').val()}
+			if(anualidad==true){html+=","+$('#anualidad').val()}
+			if(NoAnualidad==true){html+=","+$('#NoAnualidad').val()}
+			if(plazo==true){html+=","+$('#plazo').val()}
+			if(TipoSuelo==true){html+=","+$('#TipoSuelo').val()}
+			if(Detalle==true){html+=","+$('#Detalle').val()}
+			if(servicioluz==true){html+=","+$('#servicioluz').val()}
+			if(servicioagua==true){html+=","+$('#servicioagua').val()}
+			if(serviciodrenaje==true){html+=","+$('#serviciodrenaje').val()}
+			if(FechaPredial==true){html+=","+$('#FechaPredial').val()}
+			if(NumeroEscritura==true){html+=","+$('#NumeroEscritura').val()}
+			if(ClaveCatastralPredio==true){html+=","+$('#ClaveCatastralPredio').val()}
+			if(FechaClaveCatastralPredio==true){html+=","+$('#FechaClaveCatastralPredio').val()}
+			if(ClaveCatastralLote==true){html+=","+$('#ClaveCatastralLote').val()}
+			if(FechaClaveCatastralLote==true){html+=","+$('#FechaClaveCatastralLote').val()}
+			if(ValorCompra==true){html+=","+$('#ValorCompra').val()}
+			if(estatus==true){html+=","+$('#estatus').val()}
+			if(created_at==true){html+=","+$('#created_at').val()}
+				
 			$.ajax({
 				data:  {
 					"proyecto":$('#proyecto').val(),
