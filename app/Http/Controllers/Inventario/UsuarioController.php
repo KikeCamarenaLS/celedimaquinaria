@@ -518,7 +518,6 @@ class UsuarioController extends Controller
 }
 
 
-
 public function listado_usuario()
 {
 
