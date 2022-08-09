@@ -124,12 +124,15 @@ footer {
 
 <table>
 	<thead>
-	  <tr>
+
 	  	
-	     <td align="center" style='width: 10%;'><font size="1">proyecto </font></td> 
-	     <td align="center" style='width: 10%;'><font size="1">mz </font></td> 
-       <td align="center" style='width: 60%%; '><font size="1">lt</font></td> 
+	  <tr>
+	  	<?php for($i=0; count($cabecera)>$i ; $i++ ){  ?>
+	     <td align="center" style='width: 10%;'><font size="1">{{$cabecera[$i]}} </font></td> 
+	  	<?php  }  ?>
+
 	  </tr>
+
   	</thead>
   	<tbody>
   		@foreach($datos as $dato)

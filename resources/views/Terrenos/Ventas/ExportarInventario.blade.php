@@ -222,7 +222,7 @@
 							<tr>
 								<td style="width:25%;">
 									<label>Clave Catastral de predio &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
-									<input class="" type="checkbox" id="ClaveCatastralPredio" value="ClaveCatastralPredio">
+									<input class="" type="checkbox" id="ClaveCatastralPredio"  value="ClaveCatastralPredio">
 									<hr>
 								</td>
 								<td style="width:25%;">
@@ -450,9 +450,9 @@
 			var created_at=$('#created_at').is(':checked');
 
 
-				var cabecera=[];
+				var cabecera={};
 			var html="id_proyecto_lote"
-			if(proyecto==true){html+=","+$('#proyecto').val();     cabecera.push($('#proyecto').val());}
+			if(proyecto==true){html+=","+$('#proyecto').val();     cabecera[ $('#proyecto').val() ] = $('#proyecto').val();}
 			if(mz==true){html+=","+$('#mz').val();     cabecera.push($('#mz').val());}
 			if(lt==true){html+=","+$('#lt').val();     cabecera.push($('#lt').val());}
 			if(superficie==true){html+=","+$('#superficie').val();     cabecera.push($('#superficie').val());}

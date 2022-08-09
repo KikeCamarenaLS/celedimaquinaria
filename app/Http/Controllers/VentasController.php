@@ -33,7 +33,8 @@ public function ExportarInventario()
  public function exportarPDF($select,$where,$cabecera){
 
     $datos=DB::select('select '.$select.' from proyectolote where '.$where);
-    $pdf = PDF::loadView('Terrenos.Ventas.PDF_Exportar_Inventario.exportarFichaTecnica', compact('datos'));
+    dd($cabecera);
+    $pdf = PDF::loadView('Terrenos.Ventas.PDF_Exportar_Inventario.exportarFichaTecnica', compact('datos','cabecera'));
     $pdf->setPaper('A4');
     return $pdf->stream('reporte');
 
