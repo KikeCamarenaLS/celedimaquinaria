@@ -25,361 +25,361 @@
 				<div class="card-body">
 					{{-- inicio del row --}}
 
- <form id="exampleValidation" method="post" action="{{Route('insertas.insert_usuarioPost')}}" enctype="multipart/form-data">
-        	
-				@csrf
-					<div class="form-group row"  >
-
-						<div class="col-md-3" id="clienteid" >
-							<label>ID Colaborador &nbsp;</label>
-							<input  type="text" class="form-control success" id="NclienteHide" onkeyup="buscarUser()" name="NclienteHide" >
-						</div>
-						<div class="col-md-6">
-							
-						</div>
-						<div class="col-md-3" id="Foto" >
-											<div class="input-file input-file-image">
-												<img class="img-upload-preview img-circle" id="ponerFoto" width="100" height="100" src="{{url('assets/img/profile.png')}}" alt="preview">
-												<input type="file" class="form-control form-control-file" id="uploadImg1" name="uploadImg1" accept="image/*" >
-												<label for="uploadImg1" id="FotoInput"   class=" label-input-file btn btn-icon btn-default btn-round btn-lg"><i class="la la-file-image-o"></i> Cargar Foto</label>
-											</div>
-										</div>
-					</div>
-					
-					<div class="form-group row " >
-
-						<div class="col-md-4" >
-							<label>Nombre(s)<span class="required-label">*</span></label>
-							<input required="" type="text" class="form-control success" id="Nombre" name="Nombre" >
-							<span class="required-label"  id="validaN" style="color:red; display: none;" ><font size="1">Es necesario llenar este campo</font></span>
-						</div>
-						<div class="col-md-3">
-							<label>Apellido Paterno<span class="required-label">*</span></label>
-							<input required="" type="text" class="form-control" id="Apellido_Paterno" name="Apellido_Paterno"  >
-							<span class="required-label"  id="validaP" style="color:red;  display: none;" ><font size="1">Es necesario llenar este campo</font></span>
-						</div>
-						<div class="col-md-3">
-							<label>Apellido Materno<span class="required-label">*</span></label>
-							<input  type="text" required="" class="form-control" id="Apellido_Materno" name="Apellido_Materno" >
-							<span class="required-label" id="validaM" style="color:red;  display: none;" ><font size="1">Es necesario llenar este campo</font></span>
-						</div>
+					<form id="exampleValidation" method="post" action="{{Route('insertas.insert_usuarioPost')}}" enctype="multipart/form-data">
 						
-					</div>
-					{{-- fin del row --}}
-					{{-- inicio del row --}}
-					<div id="validaexiste" >
-						<div class="form-group row " >
-							<div class="col-md-3">
-								<label>Género </label>
-								<select  class="form-control success" id="Género" name="Género"  style="width:100%;">
-									<option>Masculino</option>
-									<option>Femenino</option>
-									<option>Otro</option>
+						@csrf
+						<div class="form-group row"  >
 
-								</select>
+							<div class="col-md-3" id="clienteid" >
+								<label>ID Colaborador &nbsp;</label>
+								<input  type="text" class="form-control success" id="NclienteHide" onkeyup="buscarUser()" name="NclienteHide" >
 							</div>
-							<div class="col-md-2">
-								<label>Fecha de Nacimiento</label>
-								<input  type="date" class="form-control"   id="fechaNac" name="fechaNac" onchange="saberEdad();" >
-							</div>
-							<div class="col-md-2">
-								<label>Edad</label>
-								<input  type="text" class="form-control"   id="Edad" name="Edad" disabled>
-							</div>
-
-							<div class="col-md-2">
-								<label>Nacionalidad</label>
-								<input  type="text" class="form-control"   id="Nacionalidad" name="Nacionalidad" >
-							</div>
-
-							<div class="col-md-3">
-								<label>CURP</label>
-								<input  type="text" class="form-control" maxlength="18"   id="CURP" name="CURP"  >
-							</div>
-						</div>
-						<div class="form-group row " >
-							<div class="col-md-3">
-								<label>RFC</label>
-								<input  type="text" class="form-control"   id="RFC" name="RFC"  >
-							</div>
-							<div class="col-md-3">
-								<label>NSS(IMSS)</label>
-								<input  type="text" class="form-control"   id="NSS" name="NSS"  >
-							</div>
-						
-							<div class="col-md-3" >
-								<label>Estado civil</label>
-								<select  class="form-control success" id="Estado_civil" name="Estado_civil"  style="width:100%;">
-									<option>Soltero</option>
-									<option>Casado</option>
-									<option>Divorciado</option>
-									<option>Separación en proceso judicial</option>
-									<option>Viudo</option>
-									<option>Concubinato</option>
-
-								</select>
-
-							</div>
-							<div class="col-md-2" >
-								<label>Número de dependientes</label>
-								<input  type="number" class="form-control success" id="dependiente" name="dependiente"  >
-
-							</div>
-							</div>
-						<div class="form-group row">
-							<div class="col-md-2" >
-								<label>Número de Hijos</label>
-								<input  type="number" class="form-control success" id="Hijosdependiente" name="Hijosdependiente"  >
-
-							</div>
-							<div class="col-md-3" >
-								<label>Último nivel de estudios</label>
-								<select  class="form-control success" id="estudio" name="estudio" style="width:100%;" >
-									<option>Ninguno</option>
-									<option>Preescolar</option>
-									<option>Primaria</option>
-									<option>Secundaria</option>
-									<option>Preparatoria o bachillerato</option>
-									<option>Ingeniería</option>
-									<option>Licenciatura </option>
-									<option>Maestría</option>
-									<option>Doctorado</option>
-
-								</select>
-
-							</div>
-							<div class="col-md-2" >
-								<label>Especialidad en</label>
-								<input  type="text" class="form-control success" id="Especialidad" name="Especialidad"  >
-
-							</div>
-							<div class="col-md-3" >
-								<label>Concluido/Trunco</label>
-								<select  class="form-control success" id="ConcluidoTrunco" name="ConcluidoTrunco" style="width:100%;" >
-									<option>Concluido</option>
-									<option>Trunco</option>
-									
-
-								</select>
-
-							</div>
-							<div class="col-md-2" >
-								<label>Cédula profesional</label>
-								<input  type="text" class="form-control success" id="Cedula" name="Cedula"  >
-
-							</div>
-							
-
-							
-							
-							
-							
-
-						</div>
-
-
-
-
-						<div class="form-group row">
-							
-							<div class="col-md-12">
-								<b><center><h6>Contacto</h6> </center></b>
-
-							</div></br><br>
-
-							<div class="col-md-2" >
-								<label>Teléfono 1(Personal)</label>
-								<input  type="text" maxlength="10" onKeypress="if (event.keyCode < 45 || event.keyCode > 57) event.returnValue = false;"  class="form-control success" id="Telefono_1" name="Telefono_1"  >
-
-							</div>
-
-							<div class="col-md-2">
-								<label>Teléfono 2(Recados)</label>
-								<input  type="text" class="form-control" maxlength="10" onKeypress="if (event.keyCode < 45 || event.keyCode > 57) event.returnValue = false;"  id="Telefono_3" name="Telefono_3"  >
-							</div>
-							
-
-							<div class="col-md-4" >
-								<label>Correo electrónico<span class="required-label">*</span></label>
-								<input  type="mail" required="" class="form-control success" id="Correo" name="Correo"  >
-
-							</div>
-							<div class="col-md-4" >
-								<label>Contraseña<span class="required-label">*</span></label>
-								<input  type="password" required="" class="form-control success" id="password" name="password"  >
-
-							</div>
-							
-							
-							
-						</div>
-
-						<div class="form-group row " >
-							
-							<div class="col-md-12">
-								<b><center><h6>Domicilio</h6> </center></b>
-
-							</div></br><br>
 							<div class="col-md-6">
-								<label>Calle</label>
-								<input  type="text" class="form-control" id="Calle" name="Calle"  >
+								
 							</div>
-							<div class="col-md-2">
-								<label>Núm. Exterior</label>
-								<input  type="text" class="form-control" id="NExterior" name="NExterior"  >
+							<div class="col-md-3" id="Foto" >
+								<div class="input-file input-file-image">
+									<img class="img-upload-preview img-circle" id="ponerFoto" width="100" height="100" src="{{url('assets/img/profile.png')}}" alt="preview">
+									<input type="file" class="form-control form-control-file" id="uploadImg1" name="uploadImg1" accept="image/*" >
+									<label for="uploadImg1" id="FotoInput"   class=" label-input-file btn btn-icon btn-default btn-round btn-lg"><i class="la la-file-image-o"></i> Cargar Foto</label>
+								</div>
 							</div>
-							<div class="col-md-2">
-								<label>Núm. Interior</label>
-								<input  type="text" class="form-control" id="Ninterior" name="Ninterior"  >
-							</div>
+						</div>
+						
+						<div class="form-group row " >
 
+							<div class="col-md-4" >
+								<label>Nombre(s)<span class="required-label">*</span></label>
+								<input required="" type="text" class="form-control success" id="Nombre" name="Nombre" >
+								<span class="required-label"  id="validaN" style="color:red; display: none;" ><font size="1">Es necesario llenar este campo</font></span>
+							</div>
+							<div class="col-md-3">
+								<label>Apellido Paterno<span class="required-label">*</span></label>
+								<input required="" type="text" class="form-control" id="Apellido_Paterno" name="Apellido_Paterno"  >
+								<span class="required-label"  id="validaP" style="color:red;  display: none;" ><font size="1">Es necesario llenar este campo</font></span>
+							</div>
+							<div class="col-md-3">
+								<label>Apellido Materno<span class="required-label">*</span></label>
+								<input  type="text" required="" class="form-control" id="Apellido_Materno" name="Apellido_Materno" >
+								<span class="required-label" id="validaM" style="color:red;  display: none;" ><font size="1">Es necesario llenar este campo</font></span>
+							</div>
+							
 						</div>
 						{{-- fin del row --}}
 						{{-- inicio del row --}}
+						<div id="validaexiste" >
+							<div class="form-group row " >
+								<div class="col-md-3">
+									<label>Género </label>
+									<select  class="form-control success" id="Género" name="Género"  style="width:100%;">
+										<option>Masculino</option>
+										<option>Femenino</option>
+										<option>Otro</option>
 
-						<div class="form-group row " >
-							<div class="col-md-2">
-								<label>Código postal</label>
-								<input  type="text" class="form-control" id="CodigoPostal" name="CodigoPostal" onkeyup="codigoPOstal()" >
+									</select>
+								</div>
+								<div class="col-md-2">
+									<label>Fecha de Nacimiento</label>
+									<input  type="date" class="form-control"   id="fechaNac" name="fechaNac" onchange="saberEdad();" >
+								</div>
+								<div class="col-md-2">
+									<label>Edad</label>
+									<input  type="text" class="form-control"   id="Edad" name="Edad" disabled>
+								</div>
+
+								<div class="col-md-2">
+									<label>Nacionalidad</label>
+									<input  type="text" class="form-control"   id="Nacionalidad" name="Nacionalidad" >
+								</div>
+
+								<div class="col-md-3">
+									<label>CURP</label>
+									<input  type="text" class="form-control" maxlength="18"   id="CURP" name="CURP"  >
+								</div>
 							</div>
+							<div class="form-group row " >
+								<div class="col-md-3">
+									<label>RFC</label>
+									<input  type="text" class="form-control"   id="RFC" name="RFC"  >
+								</div>
+								<div class="col-md-3">
+									<label>NSS(IMSS)</label>
+									<input  type="text" class="form-control"   id="NSS" name="NSS"  >
+								</div>
+								
+								<div class="col-md-3" >
+									<label>Estado civil</label>
+									<select  class="form-control success" id="Estado_civil" name="Estado_civil"  style="width:100%;">
+										<option>Soltero</option>
+										<option>Casado</option>
+										<option>Divorciado</option>
+										<option>Separación en proceso judicial</option>
+										<option>Viudo</option>
+										<option>Concubinato</option>
 
-							<div class="col-md-3">
-								<label>Colonia</label>
-								<div class="select2-input">
-									<select id="Colonia" name="Colonia"  class="form-control" style="width: 100%;">
-										<div id="coloniaoption"></div>
+									</select>
+
+								</div>
+								<div class="col-md-2" >
+									<label>Número de dependientes</label>
+									<input  type="number" class="form-control success" id="dependiente" name="dependiente"  >
+
+								</div>
+							</div>
+							<div class="form-group row">
+								<div class="col-md-2" >
+									<label>Número de Hijos</label>
+									<input  type="number" class="form-control success" id="Hijosdependiente" name="Hijosdependiente"  >
+
+								</div>
+								<div class="col-md-3" >
+									<label>Último nivel de estudios</label>
+									<select  class="form-control success" id="estudio" name="estudio" style="width:100%;" >
+										<option>Ninguno</option>
+										<option>Preescolar</option>
+										<option>Primaria</option>
+										<option>Secundaria</option>
+										<option>Preparatoria o bachillerato</option>
+										<option>Ingeniería</option>
+										<option>Licenciatura </option>
+										<option>Maestría</option>
+										<option>Doctorado</option>
+
+									</select>
+
+								</div>
+								<div class="col-md-2" >
+									<label>Especialidad en</label>
+									<input  type="text" class="form-control success" id="Especialidad" name="Especialidad"  >
+
+								</div>
+								<div class="col-md-3" >
+									<label>Concluido/Trunco</label>
+									<select  class="form-control success" id="ConcluidoTrunco" name="ConcluidoTrunco" style="width:100%;" >
+										<option>Concluido</option>
+										<option>Trunco</option>
 										
+
 									</select>
+
 								</div>
-							</div>
-							<div class="col-md-3">
-								<label>Alcaldía/Municipio</label>
-								<input  type="text" class="form-control" id="Municipio" name="Municipio"  >
-							</div>
-							<div class="col-md-3">
-								<label>Localidad/Población/Ciudad</label>
-								<input  type="text" class="form-control" id="Poblacion" name="Poblacion"  >
-							</div>
+								<div class="col-md-2" >
+									<label>Cédula profesional</label>
+									<input  type="text" class="form-control success" id="Cedula" name="Cedula"  >
 
-						</div>
-
-						{{-- fin del row --}}
-						{{-- inicio del row --}}
-
-						<div class="form-group row " >
-							<div class="col-md-3">
-								<label>Estado</label>
-								<input  type="text" class="form-control" id="Estado" name="Estado"  >
-							</div>
-							<div class="col-md-6">
-								<label>Referencia domiciliaria (Ejem: Color de la casa, entre que calles se ubica,etc.)</label>
-								<textarea id="Referencia" class="form-control" name="Referencia"  ></textarea>
-							</div>
-							<div class="col-md-3">
-								<label>Geolocalización (Link Google Maps)</label>
-								<input  type="text" class="form-control" id="Geolocalización" name="Geolocalización"  >
-							</div>
-
-
-						</div>
-						<div class="form-group row " >
-							<div class="col-md-12">
-								<b><center><h6>Información laboral </h6> </center></b>
-
-							</div></br><br>
-							<div class="col-md-2">
-								<label>Fecha de ingreso</label>
-								<input  type="date" class="form-control" id="ingreso" name="ingreso"  >
-							</div>
-							<div class="col-md-2">
-								<label>Ubicación de la Oficina</label>
-								<input  type="text" class="form-control" id="Ubicación" name="Ubicación"  >
-							</div>
-							<div class="col-md-2">
-								<label>Área</label>
-								<input  type="text" class="form-control" id="Área" name="Área"  >
-							</div>
-							<div class="col-md-3" >
-							<label for="name" class="text-right">Puesto <span class="required-label">*</span></label>
-								<div style="border:1px rgb(128, 128, 128) solid;">
-									<select  name="rolesuser[]" id="rolesuser" class="form-control multrol" multiple="multiple" required>
-										@foreach($roles as $rol)
-										<option value="{{ $rol->name }}">{{$rol->name}}</option>
-										@endforeach							
-									</select>
-									
 								</div>
+								
+
+								
+								
+								
+								
+
 							</div>
-							<div class="col-md-3" >
-								<label>Jefe(a) Inmediato(a)  </label>
-								<input  type="text" class="form-control" id="JefeInmediato" name="JefeInmediato"  >
+
+
+
+
+							<div class="form-group row">
+								
+								<div class="col-md-12">
+									<b><center><h6>Contacto</h6> </center></b>
+
+								</div></br><br>
+
+								<div class="col-md-2" >
+									<label>Teléfono 1(Personal)</label>
+									<input  type="text" maxlength="10" onKeypress="if (event.keyCode < 45 || event.keyCode > 57) event.returnValue = false;"  class="form-control success" id="Telefono_1" name="Telefono_1"  >
+
+								</div>
+
+								<div class="col-md-2">
+									<label>Teléfono 2(Recados)</label>
+									<input  type="text" class="form-control" maxlength="10" onKeypress="if (event.keyCode < 45 || event.keyCode > 57) event.returnValue = false;"  id="Telefono_3" name="Telefono_3"  >
+								</div>
+								
+
+								<div class="col-md-4" >
+									<label>Correo electrónico<span class="required-label">*</span></label>
+									<input  type="mail" required="" class="form-control success" id="Correo" name="Correo"  >
+
+								</div>
+								<div class="col-md-4" >
+									<label>Contraseña<span class="required-label">*</span></label>
+									<input  type="password" required="" class="form-control success" id="password" name="password"  >
+
+								</div>
+								
+								
+								
 							</div>
-							
-							
-						</div>
-						<div class="form-group row " >
-							<div class="col-md-3">
-								<label>Tipo de contrato</label>
-								<select required="" id="TipoContrato" name="TipoContrato"  class="form-control" style="width: 100%;">
+
+							<div class="form-group row " >
+								
+								<div class="col-md-12">
+									<b><center><h6>Domicilio</h6> </center></b>
+
+								</div></br><br>
+								<div class="col-md-6">
+									<label>Calle</label>
+									<input  type="text" class="form-control" id="Calle" name="Calle"  >
+								</div>
+								<div class="col-md-2">
+									<label>Núm. Exterior</label>
+									<input  type="text" class="form-control" id="NExterior" name="NExterior"  >
+								</div>
+								<div class="col-md-2">
+									<label>Núm. Interior</label>
+									<input  type="text" class="form-control" id="Ninterior" name="Ninterior"  >
+								</div>
+
+							</div>
+							{{-- fin del row --}}
+							{{-- inicio del row --}}
+
+							<div class="form-group row " >
+								<div class="col-md-2">
+									<label>Código postal</label>
+									<input  type="text" class="form-control" id="CodigoPostal" name="CodigoPostal" onkeyup="codigoPOstal()" >
+								</div>
+
+								<div class="col-md-3">
+									<label>Colonia</label>
+									<div class="select2-input">
+										<select id="Colonia" name="Colonia"  class="form-control" style="width: 100%;">
+											<div id="coloniaoption"></div>
+											
+										</select>
+									</div>
+								</div>
+								<div class="col-md-3">
+									<label>Alcaldía/Municipio</label>
+									<input  type="text" class="form-control" id="Municipio" name="Municipio"  >
+								</div>
+								<div class="col-md-3">
+									<label>Localidad/Población/Ciudad</label>
+									<input  type="text" class="form-control" id="Poblacion" name="Poblacion"  >
+								</div>
+
+							</div>
+
+							{{-- fin del row --}}
+							{{-- inicio del row --}}
+
+							<div class="form-group row " >
+								<div class="col-md-3">
+									<label>Estado</label>
+									<input  type="text" class="form-control" id="Estado" name="Estado"  >
+								</div>
+								<div class="col-md-6">
+									<label>Referencia domiciliaria (Ejem: Color de la casa, entre que calles se ubica,etc.)</label>
+									<textarea id="Referencia" class="form-control" name="Referencia"  ></textarea>
+								</div>
+								<div class="col-md-3">
+									<label>Geolocalización (Link Google Maps)</label>
+									<input  type="text" class="form-control" id="Geolocalización" name="Geolocalización"  >
+								</div>
+
+
+							</div>
+							<div class="form-group row " >
+								<div class="col-md-12">
+									<b><center><h6>Información laboral </h6> </center></b>
+
+								</div></br><br>
+								<div class="col-md-2">
+									<label>Fecha de ingreso</label>
+									<input  type="date" class="form-control" id="ingreso" name="ingreso"  >
+								</div>
+								<div class="col-md-2">
+									<label>Ubicación de la Oficina</label>
+									<input  type="text" class="form-control" id="Ubicación" name="Ubicación"  >
+								</div>
+								<div class="col-md-2">
+									<label>Área</label>
+									<input  type="text" class="form-control" id="Área" name="Área"  >
+								</div>
+								<div class="col-md-3" >
+									<label for="name" class="text-right">Puesto <span class="required-label">*</span></label>
+									<div style="border:1px rgb(128, 128, 128) solid;">
+										<select  name="rolesuser[]" id="rolesuser" class="form-control multrol" multiple="multiple" required>
+											@foreach($roles as $rol)
+											<option value="{{ $rol->name }}">{{$rol->name}}</option>
+											@endforeach							
+										</select>
+										
+									</div>
+								</div>
+								<div class="col-md-3" >
+									<label>Jefe(a) Inmediato(a)  </label>
+									<input  type="text" class="form-control" id="JefeInmediato" name="JefeInmediato"  >
+								</div>
+								
+								
+							</div>
+							<div class="form-group row " >
+								<div class="col-md-3">
+									<label>Tipo de contrato</label>
+									<select required="" id="TipoContrato" name="TipoContrato"  class="form-control" style="width: 100%;">
 										<option value="Determinado">Determinado</option>
 										<option value="Por Obra">Por Obra</option>
 										<option value="Indeterminado">Indeterminado</option>
 										<option value="Sin Definir">Sin Definir</option>
 										
 									</select>
+								</div>
+								<div class="col-md-2">
+									<label>Sueldo Diario<span class="required-label">*</span></label>
+									<input  type="text" class="form-control" onkeyup="calculaSalario()" id="SueldoDiario" name="SueldoDiario"  >
+								</div>
+								<div class="col-md-2">
+									<label>Sueldo Semanal</label>
+									<input required=""  type="text" class="form-control"  id="SueldoSemanal" name="SueldoSemanal" disabled >
+								</div>
+								
+								<div class="col-md-2">
+									<label>Sueldo Mensual</label>
+									<input  type="text" class="form-control" id="SueldoMensual" name="SueldoMensual" disabled >
+								</div>
+								<div class="col-md-2">
+
+									<input  type="hidden" class="form-control" id="bton" name="bton" value="Registrar" >
+								</div>
+
+
 							</div>
-							<div class="col-md-2">
-								<label>Sueldo Diario</label>
-								<input  type="text" class="form-control" onkeyup="calculaSalario()" id="SueldoDiario" name="SueldoDiario"  >
-							</div>
-							<div class="col-md-2">
-								<label>Sueldo Semanal<span class="required-label">*</span></label>
-								<input required=""  type="text" class="form-control"  id="SueldoSemanal" name="SueldoSemanal" disabled >
-							</div>
+
 							
-							<div class="col-md-2">
-								<label>Sueldo Mensual</label>
-								<input  type="text" class="form-control" id="SueldoMensual" name="SueldoMensual" disabled >
-							</div>
-							<div class="col-md-2">
-
-								<input  type="hidden" class="form-control" id="bton" name="bton" value="Registrar" >
-							</div>
-
-
-						</div>
-
-						
-						
-						{{-- fin del row --}}
+							
+							{{-- fin del row --}}
 
 
 
 
-						<div class="card-footer">{{-- inicio del row --}}
-							<div class="row">
-								<div class="col-md-12">
-									<center>
-										<input type="submit" class="btn btn-success"  id="Registrar" value="Registrar">
-									</center>
+							<div class="card-footer">{{-- inicio del row --}}
+								<div class="row">
+									<div class="col-md-12">
+										<center>
+											<input type="submit" class="btn btn-success"  id="Registrar" value="Registrar">
+										</center>
+									</div>
 								</div>
-							</div>
-							<div class="row" >
-								<div class="col-md-12">
-									<center>
-										<input type="submit" style="display:none;" class="btn btn-success" id="Actualizar" value="Actualizar">
-									</center>
+								<div class="row" >
+									<div class="col-md-12">
+										<center>
+											<input type="submit" style="display:none;" class="btn btn-success" id="Actualizar" value="Actualizar">
+										</center>
+									</div>
 								</div>
+
 							</div>
 
 						</div>
-
-					</div>
-				</form>
+					</form>
 
 
 
-				
+					
 
 
 
@@ -395,50 +395,50 @@
 		@section('jscustom')
 		<script type="text/javascript">
 			$('#rolesuser').select2({
-		theme: "bootstrap",
-	});
+				theme: "bootstrap",
+			});
 			function limpiarDatosval(){
 				$('#Nombre').val('');
-						           $('#Apellido_Paterno').val('');
-						           $('#Apellido_Materno').val('');
-						           $('#Género').val('');
-						           $('#Nacionalidad').val('');
-						           $('#CURP').val('');
-						           $('#RFC').val('');
-						           $('#NSS').val('');
-						           $('#Estado_civil').val('');
-						           $('#dependiente').val('');
-						           $('#Hijosdependiente').val('');
-						           $('#estudio').val('');
-						           $('#rolesuser').val('');
-						           $('#Especialidad').val('');
-						           $('#ConcluidoTrunco').val('');
-						           $('#Cedula').val('');
-						           $('#Telefono_1').val('');
-						           $('#Telefono_3').val('');
-						           $('#fechaNac').val('');
-						           
-						           $('#Calle').val('');
-						           $('#CodigoPostal').val('');
-						           $('#Ninterior').val('');
-						           $('#NExterior').val('');
-						           $('#Colonia').val('');
-						           $('#Municipio').val('');
-						           $('#Estado').val('');
-						           $('#Referencia').val('');
-						           $('#Geolocalización').val('');
-						           $('#ingreso').val('');
-						           $('#Área').val('');
-						           $('#Ubicación').val('');
-						           $('#TipoContrato').val('');
-						           $('#SueldoSemanal').val('');
-						           $('#estatus').val('');
-								$('#ponerFoto').attr("src","{{url('assets/img/profile.png')}}");
-								$('#Registrar').css("display","block");
-						            $('#Actualizar').css("display","none");
+				$('#Apellido_Paterno').val('');
+				$('#Apellido_Materno').val('');
+				$('#Género').val('');
+				$('#Nacionalidad').val('');
+				$('#CURP').val('');
+				$('#RFC').val('');
+				$('#NSS').val('');
+				$('#Estado_civil').val('');
+				$('#dependiente').val('');
+				$('#Hijosdependiente').val('');
+				$('#estudio').val('');
+				$('#rolesuser').val('');
+				$('#Especialidad').val('');
+				$('#ConcluidoTrunco').val('');
+				$('#Cedula').val('');
+				$('#Telefono_1').val('');
+				$('#Telefono_3').val('');
+				$('#fechaNac').val('');
+				
+				$('#Calle').val('');
+				$('#CodigoPostal').val('');
+				$('#Ninterior').val('');
+				$('#NExterior').val('');
+				$('#Colonia').val('');
+				$('#Municipio').val('');
+				$('#Estado').val('');
+				$('#Referencia').val('');
+				$('#Geolocalización').val('');
+				$('#ingreso').val('');
+				$('#Área').val('');
+				$('#Ubicación').val('');
+				$('#TipoContrato').val('');
+				$('#SueldoSemanal').val('');
+				$('#estatus').val('');
+				$('#ponerFoto').attr("src","{{url('assets/img/profile.png')}}");
+				$('#Registrar').css("display","block");
+				$('#Actualizar').css("display","none");
 
-						           $('#bton').val('Registrar');
-						            
+				$('#bton').val('Registrar');
+				
 			}
 			function buscarUser(){
 				if($('#NclienteHide').val() != "" ){
@@ -446,65 +446,65 @@
 						data:  {
 							"NclienteHide":$('#NclienteHide').val(),
 						}, 
-						 async: true,
+						async: true,
 						url:   "{{url('user/validaExistencia')}}",
 						type:  'get',
 						success:  function (data) { 
 
-						console.log(data);
+							console.log(data);
 
 							if(data.length>0){
 								if(data[0].Foto==""){
-								$('#ponerFoto').attr("src","{{url('assets/img/profile.png')}}");
+									$('#ponerFoto').attr("src","{{url('assets/img/profile.png')}}");
 
 								}else{
 									$('#ponerFoto').attr("src","{{url('archivero')}}/"+ data[0].Foto );
 								}
 
-								   $('#Nombre').val(data[0].Nombre);
-						           $('#Apellido_Paterno').val(data[0].Apellido_Paterno);
-						           $('#Apellido_Materno').val(data[0].Apellido_Materno);
-						           $('#Género').val(data[0].Género);
-						           $('#Nacionalidad').val(data[0].Nacionalidad);
-						           $('#CURP').val(data[0].CURP);
-						           $('#RFC').val(data[0].RFC);
-						           $('#NSS').val(data[0].NSS);
-						           $('#Estado_civil').val(data[0].Estado_civil);
-						           $('#dependiente').val(data[0].dependiente);
-						           $('#Hijosdependiente').val(data[0].Hijosdependiente);
-						           $('#estudio').val(data[0].estudio);
-						           $('#rolesuser').val(data[0].rolesuser);
-						           $('#Especialidad').val(data[0].Especialidad);
-						           $('#ConcluidoTrunco').val(data[0].ConcluidoTrunco);
-						           $('#Cedula').val(data[0].Cedula);
-						           $('#Telefono_1').val(data[0].Telefono_1);
-						           $('#Telefono_3').val(data[0].Telefono_2);
-						           $('#fechaNac').val(data[0].fechaNac);
+								$('#Nombre').val(data[0].Nombre);
+								$('#Apellido_Paterno').val(data[0].Apellido_Paterno);
+								$('#Apellido_Materno').val(data[0].Apellido_Materno);
+								$('#Género').val(data[0].Género);
+								$('#Nacionalidad').val(data[0].Nacionalidad);
+								$('#CURP').val(data[0].CURP);
+								$('#RFC').val(data[0].RFC);
+								$('#NSS').val(data[0].NSS);
+								$('#Estado_civil').val(data[0].Estado_civil);
+								$('#dependiente').val(data[0].dependiente);
+								$('#Hijosdependiente').val(data[0].Hijosdependiente);
+								$('#estudio').val(data[0].estudio);
+								$('#rolesuser').val(data[0].rolesuser);
+								$('#Especialidad').val(data[0].Especialidad);
+								$('#ConcluidoTrunco').val(data[0].ConcluidoTrunco);
+								$('#Cedula').val(data[0].Cedula);
+								$('#Telefono_1').val(data[0].Telefono_1);
+								$('#Telefono_3').val(data[0].Telefono_2);
+								$('#fechaNac').val(data[0].fechaNac);
 
-						           $('#Calle').val(data[0].Calle);
-						           codigoPOstal2(data[0].CodigoPostal,data[0].Colonia , data[0].Municipio , data[0].Estado ,  data[0].Poblacion);
-						           $('#Ninterior').val(data[0].Ninterior);
-						           $('#NExterior').val(data[0].NExterior);
-						           $('#Referencia').val(data[0].Referencia);
-						           $('#Geolocalización').val(data[0].Geolocalización);
-						           $('#ingreso').val(data[0].ingreso);
-						           $('#Área').val(data[0].Área);
-						           $('#Ubicación').val(data[0].Ubicación);
-						           $('#TipoContrato').val(data[0].TipoContrato);
-						           $('#SueldoSemanal').val(data[0].SueldoSemanal);
-						           $('#estatus').val(data[0].estatus);
+								$('#Calle').val(data[0].Calle);
+								codigoPOstal2(data[0].CodigoPostal,data[0].Colonia , data[0].Municipio , data[0].Estado ,  data[0].Poblacion);
+								$('#Ninterior').val(data[0].Ninterior);
+								$('#NExterior').val(data[0].NExterior);
+								$('#Referencia').val(data[0].Referencia);
+								$('#Geolocalización').val(data[0].Geolocalización);
+								$('#ingreso').val(data[0].ingreso);
+								$('#Área').val(data[0].Área);
+								$('#Ubicación').val(data[0].Ubicación);
+								$('#TipoContrato').val(data[0].TipoContrato);
+								$('#SueldoSemanal').val(data[0].SueldoSemanal);
+								$('#estatus').val(data[0].estatus);
 
-						           $('#Correo').val(data[0].email);
-						           $('#bton').val('Actualizar');
-						           var html="";
-						           saberEdad();
+								$('#Correo').val(data[0].email);
+								$('#bton').val('Actualizar');
+								var html="";
+								saberEdad();
 
 
-						           $('#rolesuser').attr("disabled","");
-						           $('#Correo').attr("disabled","");
-						           $('#password').attr("disabled","");
-						            $('#Registrar').css("display","none");
-						            $('#Actualizar').css("display","block");
+								$('#rolesuser').attr("disabled","");
+								$('#Correo').attr("disabled","");
+								$('#password').attr("disabled","");
+								$('#Registrar').css("display","none");
+								$('#Actualizar').css("display","block");
 
 
 
@@ -731,9 +731,9 @@
 							$("#Nparcialidades").val(data[0].plazo);
 							$("#Enganche").val(data[0].enganche);
 							var financiado2=financiado;
-				financiado2 = financiado2.replace(/,/g, "");
+							financiado2 = financiado2.replace(/,/g, "");
 							var parcialidades2=parcialidades;
-				parcialidades2 = parcialidades2.replace(/,/g, "");
+							parcialidades2 = parcialidades2.replace(/,/g, "");
 
 							console.log(financiado2+' '+parcialidades2);
 
@@ -818,8 +818,8 @@
 						type:  'get',
 						success:  function (data) { 
 
-					$('#Foto').css("display", "block");
-					$('#clienteid').css("display", "block");
+							$('#Foto').css("display", "block");
+							$('#clienteid').css("display", "block");
 							console.log(data);
 							$('#Ncliente').html(data[0].N_Cliente);
 							$('#NclienteHide').html(data[0].N_Cliente);
@@ -860,8 +860,8 @@
 						var html;
 
 						if(response=="no existe"){
-$('#llenaTabla2').html("");
-						$('#llenaTabla2').html("No tiene contratos por concluir");
+							$('#llenaTabla2').html("");
+							$('#llenaTabla2').html("No tiene contratos por concluir");
 						}else{
 
 							for (var i = 0; i < response.length; i++) {
@@ -1028,22 +1028,22 @@ $('#llenaTabla2').html("");
 					success:  function (response) { 
 						console.log(response);
 						
-							$('#Telefono_1Actualiza').val(response[0].Telefono1);
-							$('#Telefono_3Actualiza').val(response[0].Telefono2);
-							$('#CorreoActualiza').val(response[0].Correo);
-							$('#CalleActualiza').val(response[0].Calle);
-							$('#CodigoPostalActualiza').val(response[0].CP);
-							$('#NinteriorActualiza').val(response[0].Ninterior);
-							$('#NExteriorActualiza').val(response[0].Nexterior);
-							$('#ColoniaActualiza').val(response[0].Colonia);
-							$('#MunicipioActualiza').val(response[0].Municipio);
-							$('#EstadoActualiza').val(response[0].Estado);
-							$('#ReferenciaActualiza').html(response[0].Referencia);
-							$('#CURPActualiza').val(response[0].CURP);
-							$('#RFCActualiza').val(response[0].RFC);
-							$('#fechaNacActualiza').val(response[0].fechaNac);
-							$('#OcupaciónActualiza').val(response[0].Ocupación);
-							$('#PoblacionActualiza').val(response[0].Poblacion);
+						$('#Telefono_1Actualiza').val(response[0].Telefono1);
+						$('#Telefono_3Actualiza').val(response[0].Telefono2);
+						$('#CorreoActualiza').val(response[0].Correo);
+						$('#CalleActualiza').val(response[0].Calle);
+						$('#CodigoPostalActualiza').val(response[0].CP);
+						$('#NinteriorActualiza').val(response[0].Ninterior);
+						$('#NExteriorActualiza').val(response[0].Nexterior);
+						$('#ColoniaActualiza').val(response[0].Colonia);
+						$('#MunicipioActualiza').val(response[0].Municipio);
+						$('#EstadoActualiza').val(response[0].Estado);
+						$('#ReferenciaActualiza').html(response[0].Referencia);
+						$('#CURPActualiza').val(response[0].CURP);
+						$('#RFCActualiza').val(response[0].RFC);
+						$('#fechaNacActualiza').val(response[0].fechaNac);
+						$('#OcupaciónActualiza').val(response[0].Ocupación);
+						$('#PoblacionActualiza').val(response[0].Poblacion);
 							//$('#RedesActualiza').val(response[0].id_contratos);
 							//$('#BoletínActualiza').val(response[0].id_contratos);
 							//$('#AmigosActualiza').val(response[0].id_contratos);
@@ -1061,11 +1061,11 @@ $('#llenaTabla2').html("");
 							$('#HijosdependienteActualiza').val(response[0].HijoDependiente);
 							$('#IdenificacionActualiza').val(response[0].Identificacion);
 							$('#NoIdentificaciónActualiza').val(response[0].NoIdentificacion);
-							 saberEdad();
+							saberEdad();
 
-					},
-				});
-			
+						},
+					});
+				
 			}
 			function actualizaTabla(){
 				console.log(numcliente);
@@ -1461,13 +1461,13 @@ $('#llenaTabla2').html("");
 						data:  {
 							"codigo":cp,
 						}, 
-						 async: true,
+						async: true,
 						url:   "{{url('consulta/codigoPostal')}}",
 						type:  'get',
 						success:  function (data) { 
 							console.log(data);
 
-						           $('#CodigoPostal').val(cp);
+							$('#CodigoPostal').val(cp);
 							var html='';
 							console.log(data.length);
 							for (var i = 0; i < data.length; i++) {
@@ -1476,10 +1476,10 @@ $('#llenaTabla2').html("");
 							}
 
 							$('#Colonia').html(html);
-							 $('#Colonia').val(Colonia);
-						           $('#Municipio').val(Municipio);
-						           $('#Poblacion').val(Poblacion);
-						           $('#Estado').val(Estado);
+							$('#Colonia').val(Colonia);
+							$('#Municipio').val(Municipio);
+							$('#Poblacion').val(Poblacion);
+							$('#Estado').val(Estado);
 
 						},
 					});
