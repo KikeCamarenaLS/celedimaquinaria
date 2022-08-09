@@ -196,7 +196,7 @@
 						</div>
 
 						<div class="col-md-4">
-							<label>Numero de escritura</label>
+							<label>Núm. de escritura</label>
 							<input  type="text" class="form-control" id="NumeroEscritura" name="NumeroEscritura">
 							
 						</div>

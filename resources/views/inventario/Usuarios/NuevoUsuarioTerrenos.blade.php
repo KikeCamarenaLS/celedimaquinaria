@@ -1,6 +1,11 @@
 @extends('template.header')
 
 @section('content_header')
+<style type="text/css">
+	.form-control{
+		border: 1px rgb(128, 128, 128) solid;
+	}
+</style>
 @stop
 
 @section('content')
@@ -26,7 +31,7 @@
 					<div class="form-group row"  >
 
 						<div class="col-md-3" id="clienteid" >
-							<label>Numero de cliente &nbsp;</label>
+							<label>ID Colaborador &nbsp;</label>
 							<input  type="text" class="form-control success" id="NclienteHide" onkeyup="buscarUser()" name="NclienteHide" >
 						</div>
 						<div class="col-md-6">
@@ -70,7 +75,6 @@
 									<option>Masculino</option>
 									<option>Femenino</option>
 									<option>Otro</option>
-									<option>Prefiero no decirlo</option>
 
 								</select>
 							</div>
@@ -112,7 +116,6 @@
 									<option>Separación en proceso judicial</option>
 									<option>Viudo</option>
 									<option>Concubinato</option>
-									<option>Prefiero no decirlo</option>
 
 								</select>
 
@@ -125,12 +128,12 @@
 							</div>
 						<div class="form-group row">
 							<div class="col-md-2" >
-								<label>Hijos dependientes</label>
+								<label>Número de Hijos</label>
 								<input  type="number" class="form-control success" id="Hijosdependiente" name="Hijosdependiente"  >
 
 							</div>
 							<div class="col-md-3" >
-								<label>Ultimo nivel de estudios</label>
+								<label>Último nivel de estudios</label>
 								<select  class="form-control success" id="estudio" name="estudio" style="width:100%;" >
 									<option>Ninguno</option>
 									<option>Preescolar</option>
@@ -141,7 +144,6 @@
 									<option>Licenciatura </option>
 									<option>Maestría</option>
 									<option>Doctorado</option>
-									<option>Prefiero no decirlo</option>
 
 								</select>
 
@@ -162,7 +164,7 @@
 
 							</div>
 							<div class="col-md-2" >
-								<label>Cedula</label>
+								<label>Cédula profesional</label>
 								<input  type="text" class="form-control success" id="Cedula" name="Cedula"  >
 
 							</div>
@@ -186,13 +188,13 @@
 							</div></br><br>
 
 							<div class="col-md-2" >
-								<label>Telefono 1(Cliente)</label>
+								<label>Teléfono 1(Personal)</label>
 								<input  type="text" maxlength="10" onKeypress="if (event.keyCode < 45 || event.keyCode > 57) event.returnValue = false;"  class="form-control success" id="Telefono_1" name="Telefono_1"  >
 
 							</div>
 
 							<div class="col-md-2">
-								<label>Telefono 2(Recados)</label>
+								<label>Teléfono 2(Recados)</label>
 								<input  type="text" class="form-control" maxlength="10" onKeypress="if (event.keyCode < 45 || event.keyCode > 57) event.returnValue = false;"  id="Telefono_3" name="Telefono_3"  >
 							</div>
 							
@@ -223,11 +225,11 @@
 								<input  type="text" class="form-control" id="Calle" name="Calle"  >
 							</div>
 							<div class="col-md-2">
-								<label>Num. Exterior</label>
+								<label>Núm. Exterior</label>
 								<input  type="text" class="form-control" id="NExterior" name="NExterior"  >
 							</div>
 							<div class="col-md-2">
-								<label>Num. Interior</label>
+								<label>Núm. Interior</label>
 								<input  type="text" class="form-control" id="Ninterior" name="Ninterior"  >
 							</div>
 
@@ -255,7 +257,7 @@
 								<input  type="text" class="form-control" id="Municipio" name="Municipio"  >
 							</div>
 							<div class="col-md-3">
-								<label>Localidad/Poblacion/Ciudad</label>
+								<label>Localidad/Población/Ciudad</label>
 								<input  type="text" class="form-control" id="Poblacion" name="Poblacion"  >
 							</div>
 
@@ -281,30 +283,25 @@
 
 						</div>
 						<div class="form-group row " >
+							<div class="col-md-12">
+								<b><center><h6>Información laboral </h6> </center></b>
+
+							</div></br><br>
 							<div class="col-md-2">
 								<label>Fecha de ingreso</label>
 								<input  type="date" class="form-control" id="ingreso" name="ingreso"  >
-							</div>
-							<div class="col-md-2">
-								<label>Área</label>
-								<input  type="text" class="form-control" id="Área" name="Área"  >
 							</div>
 							<div class="col-md-2">
 								<label>Ubicación de la Oficina</label>
 								<input  type="text" class="form-control" id="Ubicación" name="Ubicación"  >
 							</div>
 							<div class="col-md-2">
-								<label>Tipo de contrato</label>
-								<select required="" id="TipoContrato" name="TipoContrato"  class="form-control" style="width: 100%;">
-										<option value="Determinado">Determinado</option>
-										<option value="Por Obra">Por Obra</option>
-										<option value="Indeterminado">Indeterminado</option>
-										
-									</select>
+								<label>Área</label>
+								<input  type="text" class="form-control" id="Área" name="Área"  >
 							</div>
 							<div class="col-md-3" >
 							<label for="name" class="text-right">Puesto <span class="required-label">*</span></label>
-								<div >
+								<div style="border:1px rgb(128, 128, 128) solid;">
 									<select  name="rolesuser[]" id="rolesuser" class="form-control multrol" multiple="multiple" required>
 										@foreach($roles as $rol)
 										<option value="{{ $rol->name }}">{{$rol->name}}</option>
@@ -313,17 +310,33 @@
 									
 								</div>
 							</div>
+							<div class="col-md-3" >
+								<label>Jefe(a) Inmediato(a)  </label>
+								<input  type="text" class="form-control" id="JefeInmediato" name="JefeInmediato"  >
+							</div>
+							
+							
 						</div>
 						<div class="form-group row " >
-
-							<div class="col-md-2">
-								<label>Sueldo Semanal<span class="required-label">*</span></label>
-								<input required=""  type="text" class="form-control" onkeyup="calculaSalario()" id="SueldoSemanal" name="SueldoSemanal"  >
+							<div class="col-md-3">
+								<label>Tipo de contrato</label>
+								<select required="" id="TipoContrato" name="TipoContrato"  class="form-control" style="width: 100%;">
+										<option value="Determinado">Determinado</option>
+										<option value="Por Obra">Por Obra</option>
+										<option value="Indeterminado">Indeterminado</option>
+										<option value="Sin Definir">Sin Definir</option>
+										
+									</select>
 							</div>
 							<div class="col-md-2">
 								<label>Sueldo Diario</label>
-								<input  type="text" class="form-control" id="SueldoDiario" name="SueldoDiario"  disabled>
+								<input  type="text" class="form-control" onkeyup="calculaSalario()" id="SueldoDiario" name="SueldoDiario"  >
 							</div>
+							<div class="col-md-2">
+								<label>Sueldo Semanal<span class="required-label">*</span></label>
+								<input required=""  type="text" class="form-control"  id="SueldoSemanal" name="SueldoSemanal" disabled >
+							</div>
+							
 							<div class="col-md-2">
 								<label>Sueldo Mensual</label>
 								<input  type="text" class="form-control" id="SueldoMensual" name="SueldoMensual" disabled >
@@ -528,7 +541,7 @@
 					"infoFiltered": "(mostrando los datos filtrados: _MAX_)",
 					"paginate" : {
 						"first": "Primero",
-						"last": "Ultimo",
+						"last": "Último",
 						"next": "Siguiente",
 						"previous": "Anterior"
 					},
@@ -538,8 +551,13 @@
 				}
 			});
 			function calculaSalario(){
-				$('#SueldoDiario').val($('#SueldoSemanal').val() / 7)
-				$('#SueldoMensual').val(($('#SueldoSemanal').val() /7 ) *30 )
+
+				var TotalDevengado=$("#SueldoDiario").val();
+				TotalDevengado = TotalDevengado.replace(/,/g, "");
+				TotalDevengado = TotalDevengado.replace("$", "");
+				$('#SueldoSemanal').val('$ '+Intl.NumberFormat('es-MX').format(TotalDevengado * 7));
+				$('#SueldoMensual').val('$ '+Intl.NumberFormat('es-MX').format(TotalDevengado * 28));
+				$('#SueldoDiario').val('$'+Intl.NumberFormat('es-MX').format(TotalDevengado));
 			}
 			var ncontrato='';
 			
