@@ -512,6 +512,7 @@ Route::get('/ImprimirCortes', 'ingresosegresosController@ImprimirCortes');
 Route::get('/registr/egresos', 'ingresosegresosController@registregresos');
 Route::get('/ExportarInventario', 'VentasController@ExportarInventario');
 
+Route::get('/crea/PDF/inventarioExportar/{select}/{where}/{cabecera}', 'VentasController@exportarPDF');
 
 
 

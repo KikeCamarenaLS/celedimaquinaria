@@ -448,108 +448,70 @@
 			var ValorCompra=$('#ValorCompra').is(':checked');
 			var estatus=$('#estatus').is(':checked');
 			var created_at=$('#created_at').is(':checked');
+
+
+				var cabecera=[];
 			var html="id_proyecto_lote"
-			if(proyecto==true){html+=","+$('#proyecto').val()}
-			if(mz==true){html+=","+$('#mz').val()}
-			if(lt==true){html+=","+$('#lt').val()}
-			if(superficie==true){html+=","+$('#superficie').val()}
-			if(Medidas==true){html+=","+$('#Medidas').val()}
-			if(TipoSuperficie==true){html+=","+$('#TipoSuperficie').val()}
-			if(TipoPredio==true){html+=","+$('#TipoPredio').val()}
-			if(Localización==true){html+=","+$('#Localización').val()}
-			if(ColinanciaNorte==true){html+=","+$('#ColinanciaNorte').val()}
-			if(ColinanciaSur==true){html+=","+$('#ColinanciaSur').val()}
-			if(ColinanciaEste==true){html+=","+$('#ColinanciaEste').val()}
-			if(ColinanciaOeste==true){html+=","+$('#ColinanciaOeste').val()}
-			if(TipoVenta==true){html+=","+$('#TipoVenta').val()}
-			if(CostoContado==true){html+=","+$('#CostoContado').val()}
-			if(CostoContadoTotal==true){html+=","+$('#CostoContadoTotal').val()}
-			if(CostoFinanciado==true){html+=","+$('#CostoFinanciado').val()}
-			if(CostoFinanciadoTotal==true){html+=","+$('#CostoFinanciadoTotal').val()}
-			if(enganche==true){html+=","+$('#enganche').val()}
-			if(anualidad==true){html+=","+$('#anualidad').val()}
-			if(NoAnualidad==true){html+=","+$('#NoAnualidad').val()}
-			if(plazo==true){html+=","+$('#plazo').val()}
-			if(TipoSuelo==true){html+=","+$('#TipoSuelo').val()}
-			if(Detalle==true){html+=","+$('#Detalle').val()}
-			if(servicioluz==true){html+=","+$('#servicioluz').val()}
-			if(servicioagua==true){html+=","+$('#servicioagua').val()}
-			if(serviciodrenaje==true){html+=","+$('#serviciodrenaje').val()}
-			if(FechaPredial==true){html+=","+$('#FechaPredial').val()}
-			if(NumeroEscritura==true){html+=","+$('#NumeroEscritura').val()}
-			if(ClaveCatastralPredio==true){html+=","+$('#ClaveCatastralPredio').val()}
-			if(FechaClaveCatastralPredio==true){html+=","+$('#FechaClaveCatastralPredio').val()}
-			if(ClaveCatastralLote==true){html+=","+$('#ClaveCatastralLote').val()}
-			if(FechaClaveCatastralLote==true){html+=","+$('#FechaClaveCatastralLote').val()}
-			if(ValorCompra==true){html+=","+$('#ValorCompra').val()}
-			if(estatus==true){html+=","+$('#estatus').val()}
-			if(created_at==true){html+=","+$('#created_at').val()}
+			if(proyecto==true){html+=","+$('#proyecto').val();     cabecera.push($('#proyecto').val());}
+			if(mz==true){html+=","+$('#mz').val();     cabecera.push($('#mz').val());}
+			if(lt==true){html+=","+$('#lt').val();     cabecera.push($('#lt').val());}
+			if(superficie==true){html+=","+$('#superficie').val();     cabecera.push($('#superficie').val());}
+			if(Medidas==true){html+=","+$('#Medidas').val();     cabecera.push($('#Medidas').val());}
+			if(TipoSuperficie==true){html+=","+$('#TipoSuperficie').val();     cabecera.push($('#TipoSuperficie').val());}
+			if(TipoPredio==true){html+=","+$('#TipoPredio').val();     cabecera.push($('#TipoPredio').val());}
+			if(Localización==true){html+=","+$('#Localización').val();     cabecera.push($('#Localización').val());}
+			if(ColinanciaNorte==true){html+=","+$('#ColinanciaNorte').val();     cabecera.push($('#ColinanciaNorte').val());}
+			if(ColinanciaSur==true){html+=","+$('#ColinanciaSur').val();     cabecera.push($('#ColinanciaSur').val());}
+			if(ColinanciaEste==true){html+=","+$('#ColinanciaEste').val();     cabecera.push($('#ColinanciaEste').val());}
+			if(ColinanciaOeste==true){html+=","+$('#ColinanciaOeste').val();     cabecera.push($('#ColinanciaOeste').val());}
+			if(TipoVenta==true){html+=","+$('#TipoVenta').val();     cabecera.push($('#TipoVenta').val());}
+			if(CostoContado==true){html+=","+$('#CostoContado').val();     cabecera.push($('#CostoContado').val());}
+			if(CostoContadoTotal==true){html+=","+$('#CostoContadoTotal').val();     cabecera.push($('#CostoContadoTotal').val());}
+			if(CostoFinanciado==true){html+=","+$('#CostoFinanciado').val();     cabecera.push($('#CostoFinanciado').val());}
+			if(CostoFinanciadoTotal==true){html+=","+$('#CostoFinanciadoTotal').val();     cabecera.push($('#CostoFinanciadoTotal').val());}
+			if(enganche==true){html+=","+$('#enganche').val();     cabecera.push($('#enganche').val());}
+			if(anualidad==true){html+=","+$('#anualidad').val();     cabecera.push($('#anualidad').val());}
+			if(NoAnualidad==true){html+=","+$('#NoAnualidad').val();     cabecera.push($('#NoAnualidad').val());}
+			if(plazo==true){html+=","+$('#plazo').val();     cabecera.push($('#plazo').val());}
+			if(TipoSuelo==true){html+=","+$('#TipoSuelo').val();     cabecera.push($('#TipoSuelo').val());}
+			if(Detalle==true){html+=","+$('#Detalle').val();     cabecera.push($('#Detalle').val());}
+			if(servicioluz==true){html+=","+$('#servicioluz').val();     cabecera.push($('#servicioluz').val());}
+			if(servicioagua==true){html+=","+$('#servicioagua').val();     cabecera.push($('#servicioagua').val());}
+			if(serviciodrenaje==true){html+=","+$('#serviciodrenaje').val();     cabecera.push($('#serviciodrenaje').val());}
+			if(FechaPredial==true){html+=","+$('#FechaPredial').val();     cabecera.push($('#FechaPredial').val());}
+			if(NumeroEscritura==true){html+=","+$('#NumeroEscritura').val();     cabecera.push($('#NumeroEscritura').val());}
+			if(ClaveCatastralPredio==true){html+=","+$('#ClaveCatastralPredio').val();     cabecera.push($('#ClaveCatastralPredio').val());}
+			if(FechaClaveCatastralPredio==true){html+=","+$('#FechaClaveCatastralPredio').val();     cabecera.push($('#FechaClaveCatastralPredio').val());}
+			if(ClaveCatastralLote==true){html+=","+$('#ClaveCatastralLote').val();     cabecera.push($('#ClaveCatastralLote').val());}
+			if(FechaClaveCatastralLote==true){html+=","+$('#FechaClaveCatastralLote').val();     cabecera.push($('#FechaClaveCatastralLote').val());}
+			if(ValorCompra==true){html+=","+$('#ValorCompra').val();     cabecera.push($('#ValorCompra').val());}
+			if(estatus==true){html+=","+$('#estatus').val();     cabecera.push($('#estatus').val());}
+			if(created_at==true){html+=","+$('#created_at').val();     cabecera.push($('#created_at').val());}
+
 				
-			$.ajax({
-				data:  {
-					"proyecto":$('#proyecto').val(),
-					"Mz":$('#Mz').val(),
-					"Lt":$('#Lt').val(),
-					"Superficie":$('#Superficie').val(),
-					"Medidas":$('#Medidas').val(),
-					"TipoSuperficie":$('#TipoSuperficie').val(),
-					"TipoPredio":$('#TipoPredio').val(),
-					"Localización":$('#Localización').val(),
-					"Estatus":$('#Estatus').val(),
-					"TipoVenta":$('#TipoVenta').val(),
-					"CostoContado":$('#CostoContado').val(),
-					"CostoContadoTotal":$('#CostoContadoTotal').val(),
-					"CostoFinanciado":$('#CostoFinanciado').val(),
-					"CostoFinanciadoTotal":$('#CostoFinanciadoTotal').val(),
-					"ClaveCatastralPredio":$('#ClaveCatastralPredio').val(),
-					"FechaClaveCatastralPredio":$('#FechaClaveCatastralPredio').val(),
-					"ClaveCatastralLote":$('#ClaveCatastralLote').val(),
-					"FechaClaveCatastralLote":$('#FechaClaveCatastralLote').val(),
 
-					"Enganche":$('#Enganche').val(),
-					"Anualidad":$('#Anualidad').val(),
-					"NoAnualidad":$('#NoAnualidad').val(),
+			console.log(cabecera);
+			var configuracion_ventana = "width=700,height=500,scrollbars=NO";
 
-					"Plazo":$('#Plazo').val(),
-					"Luz":luz,
-					"Agua":Agua,
-					"Drenaje":Drenaje,
-
-
-					"ColinanciaNorte":$('#ColinanciaNorte').val(),
-					"ColinanciaSur":$('#ColinanciaSur').val(),
-					"ColinanciaEste":$('#ColinanciaEste').val(),
-					"ColinanciaOeste":$('#ColinanciaOeste').val(),
-					"TipoSuelo":$('#TipoSuelo').val(),
-					"FechaPredial":$('#FechaPredial').val(),
-					"ValorCompra":$('#ValorCompra').val(),
-					"Detalle":$('#Detalle').val(),
-					"NumeroEscritura":$('#NumeroEscritura').val(),
-
-
-
-
-				}, 
-				url:   "{{url('alta/capturaProyectosLotes')}}",
-				type:  'get',
-				success:  function (data) { 
-					if (data=='Este lote ya esta registrado en el sistema') {
-						console.log(data);
-							//limpiar();
-							mensaje('danger',data);
-						}else{
-							console.log(data);
-							//limpiar();
-							mensaje('success','registro exitoso!!');
-						}
-
-
-
-
-					},
-				});
-
+		var where="";
+		if ($('#proyectoCombo').val()!='-Selecciona-') 
+		{
+			where+=" proyecto="+$('#proyectoCombo').val()+" and ";
 		}
+		if ($('#Mz').val()!='') 
+		{
+			where+=" mz="+$('#proyectoCombo').val()+" and ";
+		}
+		if ($('#Lt').val()!='') 
+		{
+			where+=" lt="+$('#proyectoCombo').val()+" and ";
+		}
+		where+=" mz>0";
+
+		
+
+  objeto_window_referencia = window.open('{{url('crea/PDF/inventarioExportar')}}'+'/'+html+'/'+where+'/'+cabecera, configuracion_ventana);
+}
 
 
 		function mensaje(color,mensaje){

@@ -7,6 +7,9 @@ use DB;
 use Auth;
 use Mail;
 
+use Excel;
+use Barryvdh\DomPDF\Facade as PDF;
+
 class VentasController extends Controller
 {
 
@@ -25,6 +28,18 @@ public function ExportarInventario()
     $bitacora=DB::select('insert into tb_bitacora (ID_Bitacora,ID_EMPLEADO,nomempleado,created_at, CVE_MOVIMIENTO, MOVIMIENTO) values (null,"'.$idUsuarioSistema.'","'.$nombreUsuarioSistema[0]->nombre.'","'.$fechaPHP.'",4,"Ingreso al modulo de Exportar Inventarios " )');
 
     return view('Terrenos.Ventas.ExportarInventario',compact('proyectos'));
+}
+
+ public function exportarPDF($select,$where,$cabecera){
+
+    $datos=DB::select('select '.$select.' from proyectolote where '.$where);
+    $pdf = PDF::loadView('Terrenos.Ventas.PDF_Exportar_Inventario.exportarFichaTecnica', compact('datos'));
+    $pdf->setPaper('A4');
+    return $pdf->stream('reporte');
+
+
+
+
 }
 
 public function ventalotesView()
