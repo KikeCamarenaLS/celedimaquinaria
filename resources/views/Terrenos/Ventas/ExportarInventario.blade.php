@@ -453,7 +453,7 @@
 				var cabecera={};
 			var html="id_proyecto_lote"
 			if(proyecto==true){html+=","+$('#proyecto').val();     cabecera[ $('#proyecto').val() ] = $('#proyecto').val();}
-			if(mz==true){html+=","+$('#mz').val();     cabecera.push($('#mz').val());}
+			if(mz==true){html+=","+$('#mz').val();     cabecera[ $('#mz').val() ] = $('#mz').val();}
 			if(lt==true){html+=","+$('#lt').val();     cabecera.push($('#lt').val());}
 			if(superficie==true){html+=","+$('#superficie').val();     cabecera.push($('#superficie').val());}
 			if(Medidas==true){html+=","+$('#Medidas').val();     cabecera.push($('#Medidas').val());}
