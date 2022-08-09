@@ -61,12 +61,12 @@ class UsuarioController extends Controller
         $roles= Role::all();
         $mensaje="sin_mensaje";
         $color="sin_mensaje";
-       
-date_default_timezone_set("America/Mexico_City");
-$fechaPHP=date('Y-m-d H:i:s');
-$idUsuarioSistema = Auth::user()->id;
-$nombreUsuarioSistema=DB::select('select CONCAT(Nombre," ",Apellido_Paterno," ",Apellido_Materno)as nombre from users where id='.$idUsuarioSistema);
-$bitacora=DB::select('insert into tb_bitacora (ID_Bitacora,ID_EMPLEADO,nomempleado,created_at, CVE_MOVIMIENTO, MOVIMIENTO) values (null,"'.$idUsuarioSistema.'","'.$nombreUsuarioSistema[0]->nombre.'","'.$fechaPHP.'",4,"Ingreso al modulo de nuevo usuario de sistema " )');
+
+        date_default_timezone_set("America/Mexico_City");
+        $fechaPHP=date('Y-m-d H:i:s');
+        $idUsuarioSistema = Auth::user()->id;
+        $nombreUsuarioSistema=DB::select('select CONCAT(Nombre," ",Apellido_Paterno," ",Apellido_Materno)as nombre from users where id='.$idUsuarioSistema);
+        $bitacora=DB::select('insert into tb_bitacora (ID_Bitacora,ID_EMPLEADO,nomempleado,created_at, CVE_MOVIMIENTO, MOVIMIENTO) values (null,"'.$idUsuarioSistema.'","'.$nombreUsuarioSistema[0]->nombre.'","'.$fechaPHP.'",4,"Ingreso al modulo de nuevo usuario de sistema " )');
 
 
         return view('inventario.Usuarios.NuevoUsuarioTerrenos',compact('roles','mensaje','color'));
@@ -102,33 +102,33 @@ $bitacora=DB::select('insert into tb_bitacora (ID_Bitacora,ID_EMPLEADO,nomemplea
 
 
         $guardar=User::create([
-         'Nombre'=>$request->input("Nombre"),
-         'Apellido_Paterno'=>$Apellido_Paterno,
-         'Apellido_Materno'=>$Apellido_Materno,
-         'Tel1'=>$Telefono1,
-         'Tel2'=>$Telefono2,
-         'Calle'=>$Calle,
-         'Ninterior'=>$Ninterior,
-         'Nexterior'=>$NExterior,
-         'Colonia'=>$Colonia,
-         'Municipio'=>$Municipio,
-         'Estado'=>$Estado,
-         'Referencia'=>$Referencia,
-         'Rol'=>$rolesuser[0],
-         'email'=>$email,
-         'password'=>$password,
-         'CP'=>$CP,
-         'estatus'=>'1'
-     ]);
+           'Nombre'=>$request->input("Nombre"),
+           'Apellido_Paterno'=>$Apellido_Paterno,
+           'Apellido_Materno'=>$Apellido_Materno,
+           'Tel1'=>$Telefono1,
+           'Tel2'=>$Telefono2,
+           'Calle'=>$Calle,
+           'Ninterior'=>$Ninterior,
+           'Nexterior'=>$NExterior,
+           'Colonia'=>$Colonia,
+           'Municipio'=>$Municipio,
+           'Estado'=>$Estado,
+           'Referencia'=>$Referencia,
+           'Rol'=>$rolesuser[0],
+           'email'=>$email,
+           'password'=>$password,
+           'CP'=>$CP,
+           'estatus'=>'1'
+       ]);
         if($guardar){
-          
-date_default_timezone_set("America/Mexico_City");
-$fechaPHP=date('Y-m-d H:i:s');
-$idUsuarioSistema = Auth::user()->id;
-$nombreUsuarioSistema=DB::select('select CONCAT(Nombre," ",Apellido_Paterno," ",Apellido_Materno)as nombre from users where id='.$idUsuarioSistema);
-$bitacora=DB::select('insert into tb_bitacora (ID_Bitacora,ID_EMPLEADO,nomempleado,created_at, CVE_MOVIMIENTO, MOVIMIENTO) values (null,"'.$idUsuarioSistema.'","'.$nombreUsuarioSistema[0]->nombre.'","'.$fechaPHP.'",4,"registro al empleao '.$request->input("Nombre").' '.$Apellido_Paterno.' '.$Apellido_Materno.' " )');
-       }
-       foreach ($request['rolesuser'] as $key) {
+
+            date_default_timezone_set("America/Mexico_City");
+            $fechaPHP=date('Y-m-d H:i:s');
+            $idUsuarioSistema = Auth::user()->id;
+            $nombreUsuarioSistema=DB::select('select CONCAT(Nombre," ",Apellido_Paterno," ",Apellido_Materno)as nombre from users where id='.$idUsuarioSistema);
+            $bitacora=DB::select('insert into tb_bitacora (ID_Bitacora,ID_EMPLEADO,nomempleado,created_at, CVE_MOVIMIENTO, MOVIMIENTO) values (null,"'.$idUsuarioSistema.'","'.$nombreUsuarioSistema[0]->nombre.'","'.$fechaPHP.'",4,"registro al empleao '.$request->input("Nombre").' '.$Apellido_Paterno.' '.$Apellido_Materno.' " )');
+        }
+        foreach ($request['rolesuser'] as $key) {
           $guardar->assignRole($key);
       }
   }
@@ -137,197 +137,186 @@ $bitacora=DB::select('insert into tb_bitacora (ID_Bitacora,ID_EMPLEADO,nomemplea
   public function insert_usuarioPost(Request $request)
   {
 
+   if($request->input("bton")=="Actualizar"){
+
+    $foto="profile.png";
+
+    $no_cliente=DB::select("select CONCAT( Date_format(now(),'%y%m%d%H%i%s'),'', FLOOR(5 + RAND()*(10-5))) as no_cliente");
+    $no_cli=$no_cliente[0]->no_cliente;
+    $vendedores=DB::select('SELECT concat(nombre," ",Apellido_Paterno," ",Apellido_Materno)as vendedores,id FROM users ');
 
 
+    $validator = Validator::make($request->all(), [
+        'uploadImg1' => 'required|image|mimes:jpg,png,jpeg',
+    ]);
+    $fotito="";
+
+    if ($validator->fails()) {
+
+        $fotito="SinFoto";
 
 
-     if($request->input("bton")=="Actualizar"){
-
-        $foto="profile.png";
-
-        $no_cliente=DB::select("select CONCAT( Date_format(now(),'%y%m%d%H%i%s'),'', FLOOR(5 + RAND()*(10-5))) as no_cliente");
-        $no_cli=$no_cliente[0]->no_cliente;
-        $vendedores=DB::select('SELECT concat(nombre," ",Apellido_Paterno," ",Apellido_Materno)as vendedores,id FROM users ');
+    }else if ($validator->passes()){
 
 
-        $validator = Validator::make($request->all(), [
-            'uploadImg1' => 'required|image|mimes:jpg,png,jpeg',
-        ]);
-        $fotito="";
+        $time =$no_cli."-". date("d-m-Y")."-".time();
+        if($request->file('uploadImg1')!=null){
+            $foto = $time.''.rand(11111,99999).'.jpg'; 
+            $destinationPath = public_path().'/archivero';
 
-        if ($validator->fails()) {
-
-            $fotito="SinFoto";
-
-
-        }else if ($validator->passes()){
-
-
-            $time =$no_cli."-". date("d-m-Y")."-".time();
-            if($request->file('uploadImg1')!=null){
-                $foto = $time.''.rand(11111,99999).'.jpg'; 
-                $destinationPath = public_path().'/archivero';
-
-            }else{
-                $foto="profile.png";
-            }
-
-
-            if($request->file('uploadImg1')!=null){
-
-                $file = $request->file('uploadImg1');
-                $file->move($destinationPath,$foto);
-
-            }
+        }else{
+            $foto="profile.png";
         }
 
-        $Nombre= $request->input("Nombre");
-        $Apellido_Paterno= $request->input("Apellido_Paterno");
-        $Apellido_Materno= $request->input("Apellido_Materno");
-        $Género= $request->input("Género");
 
-        $fechaNac= $request->input("fechaNac");
+        if($request->file('uploadImg1')!=null){
 
+            $file = $request->file('uploadImg1');
+            $file->move($destinationPath,$foto);
 
-        $Nacionalidad= $request->input("Nacionalidad");
-        if($Nacionalidad==null){   $Nacionalidad=""; }
+        }
+    }
 
-        $CURP= $request->input("CURP");
-        $RFC= $request->input("RFC");
-        $NSS= $request->input("NSS");
-        $Estado_civil= $request->input("Estado_civil");
-        $dependiente= $request->input("dependiente");
-        $Hijosdependiente= $request->input("Hijosdependiente");
-        $estudio= $request->input("estudio");
-        $Especialidad= $request->input("Especialidad");
-        $ConcluidoTrunco= $request->input("ConcluidoTrunco");
-        $Cedula= $request->input("Cedula");
-        $Telefono_1= $request->input("Telefono_1");
-        $Telefono_2= $request->input("Telefono_3");
-        $fechaNac= $request->input("fechaNac");
+    $Nombre= $request->input("Nombre");
+    $Apellido_Paterno= $request->input("Apellido_Paterno");
+    $Apellido_Materno= $request->input("Apellido_Materno");
+    $Género= $request->input("Género");
+
+    $fechaNac= $request->input("fechaNac");
 
 
-        $Correo= $request->input("Correo");
-        $password= bcrypt($request->input('password'));
-        $Calle= $request->input("Calle");
-        $CodigoPostal= $request->input("CodigoPostal");
-        $Ninterior= $request->input("Ninterior");
-        $NExterior= $request->input("NExterior");
-        $Colonia= $request->input("Colonia");
-        $Municipio= $request->input("Municipio");
-        $Estado= $request->input("Estado");
-        $Referencia= $request->input("Referencia");
-        $Geolocalización= $request->input("Geolocalización");
-        $ingreso= $request->input("ingreso");
-        $Área= $request->input("Área");
-        $Ubicación= $request->input("Ubicación");
-        $TipoContrato= $request->input("TipoContrato");
-        $rolesuser= $request->input("rolesuser");
-        $SueldoSemanal= $request->input("SueldoSemanal");
-        $Poblacion= $request->input("Poblacion");
+    $Nacionalidad= $request->input("Nacionalidad");
+    if($Nacionalidad==null){   $Nacionalidad=""; }
+
+    $CURP= $request->input("CURP");
+    $RFC= $request->input("RFC");
+    $NSS= $request->input("NSS");
+    $Estado_civil= $request->input("Estado_civil");
+    $dependiente= $request->input("dependiente");
+    $Hijosdependiente= $request->input("Hijosdependiente");
+    $estudio= $request->input("estudio");
+    $Especialidad= $request->input("Especialidad");
+    $ConcluidoTrunco= $request->input("ConcluidoTrunco");
+    $Cedula= $request->input("Cedula");
+    $Telefono_1= $request->input("Telefono_1");
+    $Telefono_2= $request->input("Telefono_3");
+    $fechaNac= $request->input("fechaNac");
 
 
-
-        if($CURP==null){   $CURP=""; }
-        if($fechaNac==null){   $fechaNac=""; }
-        if($RFC==null){   $RFC=""; }
-        if($NSS==null){   $NSS=""; }
-        if($Estado_civil==null){   $Estado_civil=""; }
-        if($dependiente==null){   $dependiente=""; }
-        if($Hijosdependiente==null){   $Hijosdependiente=""; }
-        if($estudio==null){   $estudio=""; }
-        if($Especialidad==null){   $Especialidad=""; }
-        if($ConcluidoTrunco==null){   $ConcluidoTrunco=""; }
-        if($Cedula==null){   $Cedula=""; }
-        if($Telefono_1==null){   $Telefono_1=""; }
-        if($Telefono_2==null){   $Telefono_2=""; }
-        if($Calle==null){   $Calle=""; }
-        if($CodigoPostal==null){   $CodigoPostal=""; }
-        if($Ninterior==null){   $Ninterior=""; }
-        if($NExterior==null){   $NExterior=""; }
-        if($Colonia==null){   $Colonia=""; }
-        if($Municipio==null){   $Municipio=""; }
-        if($Estado==null){   $Estado=""; }
-        if($Referencia==null){   $Referencia=""; }
-        if($Geolocalización==null){   $Geolocalización=""; }
-        if($ingreso==null){   $ingreso=""; }
-        if($Área==null){   $Área=""; }
-        if($Ubicación==null){   $Ubicación=""; }
-        if($TipoContrato==null){   $TipoContrato=""; }
-        if($rolesuser==null){   $rolesuser=""; }
-        if($SueldoSemanal==null){   $SueldoSemanal=""; }
-        if($Poblacion==null){   $Poblacion=""; }
-
-
-        $id = Auth::user()->id;
-        $uno=1;
-        $actualizar = User::where('id', $request->input("NclienteHide"))->first();
-        $actualizar->update([
-         'Nombre'=>$Nombre,
-         'Apellido_Paterno'=>$Apellido_Paterno,
-         'Apellido_Materno'=>$Apellido_Materno,
-         'Género'=>$Género,
-         'Nacionalidad'=>$Nacionalidad,
-         'CURP'=>$CURP,
-         'RFC'=>$RFC,
-         'NSS'=>$NSS,
-         'Estado_civil'=>$Estado_civil,
-         'dependiente'=>$dependiente,
-         'Hijosdependiente'=>$Hijosdependiente,
-         'estudio'=>$estudio,
-         'Especialidad'=>$Especialidad,
-         'ConcluidoTrunco'=>$ConcluidoTrunco,
-         'Cedula'=>$Cedula,
-         'Telefono_1'=>$Telefono_1,
-         'Telefono_2'=>$Telefono_2,
-
-         'Calle'=>$Calle,
-         'CodigoPostal'=>$CodigoPostal,
-         'Ninterior'=>$Ninterior,
-         'NExterior'=>$NExterior,
-         'Colonia'=>$Colonia,
-         'Municipio'=>$Municipio,
-         'Poblacion'=>$Poblacion,
-         'Estado'=>$Estado,
-         'Referencia'=>$Referencia,
-         'Geolocalización'=>$Geolocalización,
-         'ingreso'=>$ingreso,
-         'Área'=>$Área,
-         'Ubicación'=>$Ubicación,
-         'TipoContrato'=>$TipoContrato,
-         'SueldoSemanal'=>$SueldoSemanal,
-         'estatus'=>$uno,
-         'Foto'=>$foto,
-         'fechaNac'=>$fechaNac,
-         'id_personal'=>Auth::user()->id
-     ]);
-        if($actualizar){
-           
-date_default_timezone_set("America/Mexico_City");
-$fechaPHP=date('Y-m-d H:i:s');
-$idUsuarioSistema = Auth::user()->id;
-$nombreUsuarioSistema=DB::select('select CONCAT(Nombre," ",Apellido_Paterno," ",Apellido_Materno)as nombre from users where id='.$idUsuarioSistema);
-$bitacora=DB::select('insert into tb_bitacora (ID_Bitacora,ID_EMPLEADO,nomempleado,created_at, CVE_MOVIMIENTO, MOVIMIENTO) values (null,"'.$idUsuarioSistema.'","'.$nombreUsuarioSistema[0]->nombre.'","'.$fechaPHP.'",4,"Actualizo la informacion del empleado '.$request->input("Nombre").' '.$Apellido_Paterno.' '.$Apellido_Materno.' " )');
-       }
-
-
-       $roles= Role::all();
-       $mensaje="Usuario actualizado con exito!";
-       $color="success";
-       return view('inventario.Usuarios.NuevoUsuarioTerrenos',compact('roles','mensaje','color'));
+    $Correo= $request->input("Correo");
+    $password= bcrypt($request->input('password'));
+    $Calle= $request->input("Calle");
+    $CodigoPostal= $request->input("CodigoPostal");
+    $Ninterior= $request->input("Ninterior");
+    $NExterior= $request->input("NExterior");
+    $Colonia= $request->input("Colonia");
+    $Municipio= $request->input("Municipio");
+    $Estado= $request->input("Estado");
+    $Referencia= $request->input("Referencia");
+    $Geolocalización= $request->input("Geolocalización");
+    $ingreso= $request->input("ingreso");
+    $Área= $request->input("Área");
+    $Ubicación= $request->input("Ubicación");
+    $TipoContrato= $request->input("TipoContrato");
+    $rolesuser= $request->input("rolesuser");
+    $SueldoSemanal= $request->input("SueldoDiario");
+    $Poblacion= $request->input("Poblacion");
+    $JefeInmediato= $request->input("JefeInmediato");
 
 
 
+    if($CURP==null){   $CURP=""; }
+    if($fechaNac==null){   $fechaNac=""; }
+    if($RFC==null){   $RFC=""; }
+    if($NSS==null){   $NSS=""; }
+    if($Estado_civil==null){   $Estado_civil=""; }
+    if($dependiente==null){   $dependiente=""; }
+    if($Hijosdependiente==null){   $Hijosdependiente=""; }
+    if($estudio==null){   $estudio=""; }
+    if($Especialidad==null){   $Especialidad=""; }
+    if($ConcluidoTrunco==null){   $ConcluidoTrunco=""; }
+    if($Cedula==null){   $Cedula=""; }
+    if($Telefono_1==null){   $Telefono_1=""; }
+    if($Telefono_2==null){   $Telefono_2=""; }
+    if($Calle==null){   $Calle=""; }
+    if($CodigoPostal==null){   $CodigoPostal=""; }
+    if($Ninterior==null){   $Ninterior=""; }
+    if($NExterior==null){   $NExterior=""; }
+    if($Colonia==null){   $Colonia=""; }
+    if($Municipio==null){   $Municipio=""; }
+    if($Estado==null){   $Estado=""; }
+    if($Referencia==null){   $Referencia=""; }
+    if($Geolocalización==null){   $Geolocalización=""; }
+    if($ingreso==null){   $ingreso=""; }
+    if($Área==null){   $Área=""; }
+    if($Ubicación==null){   $Ubicación=""; }
+    if($TipoContrato==null){   $TipoContrato=""; }
+    if($rolesuser==null){   $rolesuser=""; }
+    if($SueldoSemanal==null){   $SueldoSemanal=""; }
+    if($Poblacion==null){   $Poblacion=""; }
+    if($JefeInmediato==null){   $JefeInmediato=""; }
+
+
+    $id = Auth::user()->id;
+    $uno=1;
+    $actualizar = User::where('id', $request->input("NclienteHide"))->first();
+    $actualizar->update([
+       'Nombre'=>$Nombre,
+       'Apellido_Paterno'=>$Apellido_Paterno,
+       'Apellido_Materno'=>$Apellido_Materno,
+       'Género'=>$Género,
+       'Nacionalidad'=>$Nacionalidad,
+       'CURP'=>$CURP,
+       'RFC'=>$RFC,
+       'NSS'=>$NSS,
+       'Estado_civil'=>$Estado_civil,
+       'dependiente'=>$dependiente,
+       'Hijosdependiente'=>$Hijosdependiente,
+       'estudio'=>$estudio,
+       'Especialidad'=>$Especialidad,
+       'ConcluidoTrunco'=>$ConcluidoTrunco,
+       'Cedula'=>$Cedula,
+       'Telefono_1'=>$Telefono_1,
+       'Telefono_2'=>$Telefono_2,
+       'Calle'=>$Calle,
+       'CodigoPostal'=>$CodigoPostal,
+       'Ninterior'=>$Ninterior,
+       'NExterior'=>$NExterior,
+       'Colonia'=>$Colonia,
+       'Municipio'=>$Municipio,
+       'Poblacion'=>$Poblacion,
+       'Estado'=>$Estado,
+       'Referencia'=>$Referencia,
+       'Geolocalización'=>$Geolocalización,
+       'ingreso'=>$ingreso,
+       'Área'=>$Área,
+       'Ubicación'=>$Ubicación,
+       'TipoContrato'=>$TipoContrato,
+       'SueldoSemanal'=>$SueldoSemanal,
+       'estatus'=>$uno,
+       'Foto'=>$foto,
+       'fechaNac'=>$fechaNac,
+       'JefeInmediato'=>$JefeInmediato,
+       'id_personal'=>Auth::user()->id
+   ]);
+    if($actualizar){
+
+        date_default_timezone_set("America/Mexico_City");
+        $fechaPHP=date('Y-m-d H:i:s');
+        $idUsuarioSistema = Auth::user()->id;
+        $nombreUsuarioSistema=DB::select('select CONCAT(Nombre," ",Apellido_Paterno," ",Apellido_Materno)as nombre from users where id='.$idUsuarioSistema);
+        $bitacora=DB::select('insert into tb_bitacora (ID_Bitacora,ID_EMPLEADO,nomempleado,created_at, CVE_MOVIMIENTO, MOVIMIENTO) values (null,"'.$idUsuarioSistema.'","'.$nombreUsuarioSistema[0]->nombre.'","'.$fechaPHP.'",4,"Actualizo la informacion del empleado '.$request->input("Nombre").' '.$Apellido_Paterno.' '.$Apellido_Materno.' " )');
+    }
+
+
+    $roles= Role::all();
+    $mensaje="Usuario actualizado con exito!";
+    $color="success";
+    return view('inventario.Usuarios.NuevoUsuarioTerrenos',compact('roles','mensaje','color'));
 
 
 
-
-
-
-
-
-
-   }else{
+}else{
     $NombreVal= $request->input("Nombre");
     $Apellido_PaternoVal= $request->input("Apellido_Paterno");
     $Apellido_MaternoVal= $request->input("Apellido_Materno");
@@ -422,8 +411,9 @@ $bitacora=DB::select('insert into tb_bitacora (ID_Bitacora,ID_EMPLEADO,nomemplea
         $Ubicación= $request->input("Ubicación");
         $TipoContrato= $request->input("TipoContrato");
         $rolesuser= $request->input("rolesuser");
-        $SueldoSemanal= $request->input("SueldoSemanal");
+        $SueldoSemanal= $request->input("SueldoDiario");
         $Poblacion= $request->input("Poblacion");
+    $JefeInmediato= $request->input("JefeInmediato");
 
 
 
@@ -456,60 +446,62 @@ $bitacora=DB::select('insert into tb_bitacora (ID_Bitacora,ID_EMPLEADO,nomemplea
         if($rolesuser==null){   $rolesuser=""; }
         if($SueldoSemanal==null){   $SueldoSemanal=""; }
         if($Poblacion==null){   $Poblacion=""; }
+        if($JefeInmediato==null){   $JefeInmediato=""; }
 
 
         $id = Auth::user()->id;
         $uno=1;
         $guardar=User::create([
-         'Nombre'=>$Nombre,
-         'Apellido_Paterno'=>$Apellido_Paterno,
-         'Apellido_Materno'=>$Apellido_Materno,
-         'Género'=>$Género,
-         'Nacionalidad'=>$Nacionalidad,
-         'CURP'=>$CURP,
-         'RFC'=>$RFC,
-         'NSS'=>$NSS,
-         'Estado_civil'=>$Estado_civil,
-         'dependiente'=>$dependiente,
-         'Hijosdependiente'=>$Hijosdependiente,
-         'estudio'=>$estudio,
-         'rolesuser'=>$rolesuser[0],
-         'Especialidad'=>$Especialidad,
-         'ConcluidoTrunco'=>$ConcluidoTrunco,
-         'Cedula'=>$Cedula,
-         'Telefono_1'=>$Telefono_1,
-         'Telefono_2'=>$Telefono_2,
-         'email'=>$Correo,
-         'password'=>$password,
-         'Calle'=>$Calle,
-         'CodigoPostal'=>$CodigoPostal,
-         'Ninterior'=>$Ninterior,
-         'NExterior'=>$NExterior,
-         'Colonia'=>$Colonia,
-         'Municipio'=>$Municipio,
-         'Poblacion'=>$Poblacion,
-         'Estado'=>$Estado,
-         'Referencia'=>$Referencia,
-         'Geolocalización'=>$Geolocalización,
-         'ingreso'=>$ingreso,
-         'Área'=>$Área,
-         'Ubicación'=>$Ubicación,
-         'TipoContrato'=>$TipoContrato,
-         'SueldoSemanal'=>$SueldoSemanal,
-         'estatus'=>$uno,
-         'Foto'=>$foto,
-         'fechaNac'=>$fechaNac,
-         'id_personal'=>Auth::user()->id
-     ]);
+           'Nombre'=>$Nombre,
+           'Apellido_Paterno'=>$Apellido_Paterno,
+           'Apellido_Materno'=>$Apellido_Materno,
+           'Género'=>$Género,
+           'Nacionalidad'=>$Nacionalidad,
+           'CURP'=>$CURP,
+           'RFC'=>$RFC,
+           'NSS'=>$NSS,
+           'Estado_civil'=>$Estado_civil,
+           'dependiente'=>$dependiente,
+           'Hijosdependiente'=>$Hijosdependiente,
+           'estudio'=>$estudio,
+           'rolesuser'=>$rolesuser[0],
+           'Especialidad'=>$Especialidad,
+           'ConcluidoTrunco'=>$ConcluidoTrunco,
+           'Cedula'=>$Cedula,
+           'Telefono_1'=>$Telefono_1,
+           'Telefono_2'=>$Telefono_2,
+           'email'=>$Correo,
+           'password'=>$password,
+           'Calle'=>$Calle,
+           'CodigoPostal'=>$CodigoPostal,
+           'Ninterior'=>$Ninterior,
+           'NExterior'=>$NExterior,
+           'Colonia'=>$Colonia,
+           'Municipio'=>$Municipio,
+           'Poblacion'=>$Poblacion,
+           'Estado'=>$Estado,
+           'Referencia'=>$Referencia,
+           'Geolocalización'=>$Geolocalización,
+           'ingreso'=>$ingreso,
+           'Área'=>$Área,
+           'Ubicación'=>$Ubicación,
+           'TipoContrato'=>$TipoContrato,
+           'SueldoSemanal'=>$SueldoSemanal,
+           'estatus'=>$uno,
+           'Foto'=>$foto,
+           'fechaNac'=>$fechaNac,
+            'JefeInmediato'=>$JefeInmediato,
+           'id_personal'=>Auth::user()->id
+       ]);
         if($guardar){
-          
-date_default_timezone_set("America/Mexico_City");
-$fechaPHP=date('Y-m-d H:i:s');
-$idUsuarioSistema = Auth::user()->id;
-$nombreUsuarioSistema=DB::select('select CONCAT(Nombre," ",Apellido_Paterno," ",Apellido_Materno)as nombre from users where id='.$idUsuarioSistema);
-$bitacora=DB::select('insert into tb_bitacora (ID_Bitacora,ID_EMPLEADO,nomempleado,created_at, CVE_MOVIMIENTO, MOVIMIENTO) values (null,"'.$idUsuarioSistema.'","'.$nombreUsuarioSistema[0]->nombre.'","'.$fechaPHP.'",4,"Registro al empleado '.$request->input("Nombre").' '.$Apellido_Paterno.' '.$Apellido_Materno.' " )');
-       }
-       foreach ($request['rolesuser'] as $key) {
+
+            date_default_timezone_set("America/Mexico_City");
+            $fechaPHP=date('Y-m-d H:i:s');
+            $idUsuarioSistema = Auth::user()->id;
+            $nombreUsuarioSistema=DB::select('select CONCAT(Nombre," ",Apellido_Paterno," ",Apellido_Materno)as nombre from users where id='.$idUsuarioSistema);
+            $bitacora=DB::select('insert into tb_bitacora (ID_Bitacora,ID_EMPLEADO,nomempleado,created_at, CVE_MOVIMIENTO, MOVIMIENTO) values (null,"'.$idUsuarioSistema.'","'.$nombreUsuarioSistema[0]->nombre.'","'.$fechaPHP.'",4,"Registro al empleado '.$request->input("Nombre").' '.$Apellido_Paterno.' '.$Apellido_Materno.' " )');
+        }
+        foreach ($request['rolesuser'] as $key) {
           $guardar->assignRole($key);
       }
 
@@ -526,19 +518,18 @@ $bitacora=DB::select('insert into tb_bitacora (ID_Bitacora,ID_EMPLEADO,nomemplea
 }
 
 
-
 public function listado_usuario()
 {
 
     $usuarios=User::all();
     $roles= Role::all();
 
-   
-date_default_timezone_set("America/Mexico_City");
-$fechaPHP=date('Y-m-d H:i:s');
-$idUsuarioSistema = Auth::user()->id;
-$nombreUsuarioSistema=DB::select('select CONCAT(Nombre," ",Apellido_Paterno," ",Apellido_Materno)as nombre from users where id='.$idUsuarioSistema);
-$bitacora=DB::select('insert into tb_bitacora (ID_Bitacora,ID_EMPLEADO,nomempleado,created_at, CVE_MOVIMIENTO, MOVIMIENTO) values (null,"'.$idUsuarioSistema.'","'.$nombreUsuarioSistema[0]->nombre.'","'.$fechaPHP.'",4,"Ingreso al modulo de listado de usuarios " )');
+
+    date_default_timezone_set("America/Mexico_City");
+    $fechaPHP=date('Y-m-d H:i:s');
+    $idUsuarioSistema = Auth::user()->id;
+    $nombreUsuarioSistema=DB::select('select CONCAT(Nombre," ",Apellido_Paterno," ",Apellido_Materno)as nombre from users where id='.$idUsuarioSistema);
+    $bitacora=DB::select('insert into tb_bitacora (ID_Bitacora,ID_EMPLEADO,nomempleado,created_at, CVE_MOVIMIENTO, MOVIMIENTO) values (null,"'.$idUsuarioSistema.'","'.$nombreUsuarioSistema[0]->nombre.'","'.$fechaPHP.'",4,"Ingreso al modulo de listado de usuarios " )');
 
     return view('inventario.Usuarios.ListadoUsuarios',compact('usuarios','roles'));
 }
@@ -548,12 +539,12 @@ $bitacora=DB::select('insert into tb_bitacora (ID_Bitacora,ID_EMPLEADO,nomemplea
 
 public function mi_perfil()
 {
-        
-date_default_timezone_set("America/Mexico_City");
-$fechaPHP=date('Y-m-d H:i:s');
-$idUsuarioSistema = Auth::user()->id;
-$nombreUsuarioSistema=DB::select('select CONCAT(Nombre," ",Apellido_Paterno," ",Apellido_Materno)as nombre from users where id='.$idUsuarioSistema);
-$bitacora=DB::select('insert into tb_bitacora (ID_Bitacora,ID_EMPLEADO,nomempleado,created_at, CVE_MOVIMIENTO, MOVIMIENTO) values (null,"'.$idUsuarioSistema.'","'.$nombreUsuarioSistema[0]->nombre.'","'.$fechaPHP.'",4,"Ingreso al modulo de mi perfil")');
+
+    date_default_timezone_set("America/Mexico_City");
+    $fechaPHP=date('Y-m-d H:i:s');
+    $idUsuarioSistema = Auth::user()->id;
+    $nombreUsuarioSistema=DB::select('select CONCAT(Nombre," ",Apellido_Paterno," ",Apellido_Materno)as nombre from users where id='.$idUsuarioSistema);
+    $bitacora=DB::select('insert into tb_bitacora (ID_Bitacora,ID_EMPLEADO,nomempleado,created_at, CVE_MOVIMIENTO, MOVIMIENTO) values (null,"'.$idUsuarioSistema.'","'.$nombreUsuarioSistema[0]->nombre.'","'.$fechaPHP.'",4,"Ingreso al modulo de mi perfil")');
     $mis_datos=User::where('id',Auth::user()->id)->first();
     return view('inventario.Usuarios.MiPerfil',compact('mis_datos'));
 }
@@ -565,40 +556,40 @@ public function update_mi_perfil(Request $request)
     $no_cliente=DB::select("select * from users where id=".Auth::user()->id);
     $no_cli=$no_cliente[0]->id;
     $foto=$no_cliente[0]->Foto;
-   
-
-       $validator = Validator::make($request->all(), [
-            'uploadImg1' => 'required|image|mimes:jpg,png,jpeg',
-        ]);
-        $fotito="";
-
-        if ($validator->fails()) {
-
-            $fotito="SinFoto";
 
 
-        }else if ($validator->passes()){
+    $validator = Validator::make($request->all(), [
+        'uploadImg1' => 'required|image|mimes:jpg,png,jpeg',
+    ]);
+    $fotito="";
+
+    if ($validator->fails()) {
+
+        $fotito="SinFoto";
 
 
-            $time =$no_cli."-". date("d-m-Y")."-".time();
-            if($request->file('uploadImg1')!=null){
-                $foto = $time.''.rand(11111,99999).'.jpg'; 
-                $destinationPath = public_path().'/archivero';
-
-            }else{
-                $foto=$no_cliente[0]->Foto;
-            }
+    }else if ($validator->passes()){
 
 
-            if($request->file('uploadImg1')!=null){
+        $time =$no_cli."-". date("d-m-Y")."-".time();
+        if($request->file('uploadImg1')!=null){
+            $foto = $time.''.rand(11111,99999).'.jpg'; 
+            $destinationPath = public_path().'/archivero';
 
-                $file = $request->file('uploadImg1');
-                $file->move($destinationPath,$foto);
-
-            }
+        }else{
+            $foto=$no_cliente[0]->Foto;
         }
 
-        
+
+        if($request->file('uploadImg1')!=null){
+
+            $file = $request->file('uploadImg1');
+            $file->move($destinationPath,$foto);
+
+        }
+    }
+
+
     $validator = Validator::make($request->all(), [
 
     ]);
@@ -624,11 +615,11 @@ public function update_mi_perfil(Request $request)
       'Foto'=>$foto
   ]);
 
-date_default_timezone_set("America/Mexico_City");
-$fechaPHP=date('Y-m-d H:i:s');
-$idUsuarioSistema = Auth::user()->id;
-$nombreUsuarioSistema=DB::select('select CONCAT(Nombre," ",Apellido_Paterno," ",Apellido_Materno)as nombre from users where id='.$idUsuarioSistema);
-$bitacora=DB::select('insert into tb_bitacora (ID_Bitacora,ID_EMPLEADO,nomempleado,created_at, CVE_MOVIMIENTO, MOVIMIENTO) values (null,"'.$idUsuarioSistema.'","'.$nombreUsuarioSistema[0]->nombre.'","'.$fechaPHP.'",4,"Actualizo su informacion de perfil")');
+    date_default_timezone_set("America/Mexico_City");
+    $fechaPHP=date('Y-m-d H:i:s');
+    $idUsuarioSistema = Auth::user()->id;
+    $nombreUsuarioSistema=DB::select('select CONCAT(Nombre," ",Apellido_Paterno," ",Apellido_Materno)as nombre from users where id='.$idUsuarioSistema);
+    $bitacora=DB::select('insert into tb_bitacora (ID_Bitacora,ID_EMPLEADO,nomempleado,created_at, CVE_MOVIMIENTO, MOVIMIENTO) values (null,"'.$idUsuarioSistema.'","'.$nombreUsuarioSistema[0]->nombre.'","'.$fechaPHP.'",4,"Actualizo su informacion de perfil")');
     
 
     return redirect('/miperfil')->with(['message' => 'Actualización correcta', 'color' => 'success']);
@@ -644,13 +635,13 @@ public function update_usuario(Request $request)
 {
 
 
- $validator = Validator::make($request->all(), [
+   $validator = Validator::make($request->all(), [
 
- ]);
+   ]);
 
- if ($validator->fails()) {
-  return redirect('/listado_usuario')->withErrors($validator)->withInput();
-}else{
+   if ($validator->fails()) {
+      return redirect('/listado_usuario')->withErrors($validator)->withInput();
+  }else{
 
 
 
@@ -674,21 +665,21 @@ public function update_usuario(Request $request)
 
         $actualizar->assignRole($key);
         
-date_default_timezone_set("America/Mexico_City");
-$fechaPHP=date('Y-m-d H:i:s');
-$idUsuarioSistema = Auth::user()->id;
-$nombreUsuarioSistema=DB::select('select CONCAT(Nombre," ",Apellido_Paterno," ",Apellido_Materno)as nombre from users where id='.$idUsuarioSistema);
-$bitacora=DB::select('insert into tb_bitacora (ID_Bitacora,ID_EMPLEADO,nomempleado,created_at, CVE_MOVIMIENTO, MOVIMIENTO) values (null,"'.$idUsuarioSistema.'","'.$nombreUsuarioSistema[0]->nombre.'","'.$fechaPHP.'",4,"Actualizo al usuario con el id '.$request['id'].' asignandole el rol  '.$key.'" )');
+        date_default_timezone_set("America/Mexico_City");
+        $fechaPHP=date('Y-m-d H:i:s');
+        $idUsuarioSistema = Auth::user()->id;
+        $nombreUsuarioSistema=DB::select('select CONCAT(Nombre," ",Apellido_Paterno," ",Apellido_Materno)as nombre from users where id='.$idUsuarioSistema);
+        $bitacora=DB::select('insert into tb_bitacora (ID_Bitacora,ID_EMPLEADO,nomempleado,created_at, CVE_MOVIMIENTO, MOVIMIENTO) values (null,"'.$idUsuarioSistema.'","'.$nombreUsuarioSistema[0]->nombre.'","'.$fechaPHP.'",4,"Actualizo al usuario con el id '.$request['id'].' asignandole el rol  '.$key.'" )');
 
     }
 
 
 
-date_default_timezone_set("America/Mexico_City");
-$fechaPHP=date('Y-m-d H:i:s');
-$idUsuarioSistema = Auth::user()->id;
-$nombreUsuarioSistema=DB::select('select CONCAT(Nombre," ",Apellido_Paterno," ",Apellido_Materno)as nombre from users where id='.$idUsuarioSistema);
-$bitacora=DB::select('insert into tb_bitacora (ID_Bitacora,ID_EMPLEADO,nomempleado,created_at, CVE_MOVIMIENTO, MOVIMIENTO) values (null,"'.$idUsuarioSistema.'","'.$nombreUsuarioSistema[0]->nombre.'","'.$fechaPHP.'",4,"Actualizo al usuario '.$request['id'].' con el correo '.$request['email'].' y contraseña '.$request['password'].' " )');
+    date_default_timezone_set("America/Mexico_City");
+    $fechaPHP=date('Y-m-d H:i:s');
+    $idUsuarioSistema = Auth::user()->id;
+    $nombreUsuarioSistema=DB::select('select CONCAT(Nombre," ",Apellido_Paterno," ",Apellido_Materno)as nombre from users where id='.$idUsuarioSistema);
+    $bitacora=DB::select('insert into tb_bitacora (ID_Bitacora,ID_EMPLEADO,nomempleado,created_at, CVE_MOVIMIENTO, MOVIMIENTO) values (null,"'.$idUsuarioSistema.'","'.$nombreUsuarioSistema[0]->nombre.'","'.$fechaPHP.'",4,"Actualizo al usuario '.$request['id'].' con el correo '.$request['email'].' y contraseña '.$request['password'].' " )');
 
 
     return redirect('/listado_usuario')->with(['message' => 'Actualización correcta', 'color' => 'success']);
@@ -708,11 +699,11 @@ public function admin_rolespermisos()
 
     $roles= Role::all();
     
-date_default_timezone_set("America/Mexico_City");
-$fechaPHP=date('Y-m-d H:i:s');
-$idUsuarioSistema = Auth::user()->id;
-$nombreUsuarioSistema=DB::select('select CONCAT(Nombre," ",Apellido_Paterno," ",Apellido_Materno)as nombre from users where id='.$idUsuarioSistema);
-$bitacora=DB::select('insert into tb_bitacora (ID_Bitacora,ID_EMPLEADO,nomempleado,created_at, CVE_MOVIMIENTO, MOVIMIENTO) values (null,"'.$idUsuarioSistema.'","'.$nombreUsuarioSistema[0]->nombre.'","'.$fechaPHP.'",4,"Ingreso al modulo de roles y permisos " )');
+    date_default_timezone_set("America/Mexico_City");
+    $fechaPHP=date('Y-m-d H:i:s');
+    $idUsuarioSistema = Auth::user()->id;
+    $nombreUsuarioSistema=DB::select('select CONCAT(Nombre," ",Apellido_Paterno," ",Apellido_Materno)as nombre from users where id='.$idUsuarioSistema);
+    $bitacora=DB::select('insert into tb_bitacora (ID_Bitacora,ID_EMPLEADO,nomempleado,created_at, CVE_MOVIMIENTO, MOVIMIENTO) values (null,"'.$idUsuarioSistema.'","'.$nombreUsuarioSistema[0]->nombre.'","'.$fechaPHP.'",4,"Ingreso al modulo de roles y permisos " )');
     return view('inventario.Usuarios.adminRolesPermisos',compact('permisos','roles'));
 }
 
@@ -721,11 +712,11 @@ public function save_permiso(Request $request)
 {
   Permission::create(['name' => $request['name']]);
   
-date_default_timezone_set("America/Mexico_City");
-$fechaPHP=date('Y-m-d H:i:s');
-$idUsuarioSistema = Auth::user()->id;
-$nombreUsuarioSistema=DB::select('select CONCAT(Nombre," ",Apellido_Paterno," ",Apellido_Materno)as nombre from users where id='.$idUsuarioSistema);
-$bitacora=DB::select('insert into tb_bitacora (ID_Bitacora,ID_EMPLEADO,nomempleado,created_at, CVE_MOVIMIENTO, MOVIMIENTO) values (null,"'.$idUsuarioSistema.'","'.$nombreUsuarioSistema[0]->nombre.'","'.$fechaPHP.'",4,"Se registro el permiso  '.$request['name'].'" )');
+  date_default_timezone_set("America/Mexico_City");
+  $fechaPHP=date('Y-m-d H:i:s');
+  $idUsuarioSistema = Auth::user()->id;
+  $nombreUsuarioSistema=DB::select('select CONCAT(Nombre," ",Apellido_Paterno," ",Apellido_Materno)as nombre from users where id='.$idUsuarioSistema);
+  $bitacora=DB::select('insert into tb_bitacora (ID_Bitacora,ID_EMPLEADO,nomempleado,created_at, CVE_MOVIMIENTO, MOVIMIENTO) values (null,"'.$idUsuarioSistema.'","'.$nombreUsuarioSistema[0]->nombre.'","'.$fechaPHP.'",4,"Se registro el permiso  '.$request['name'].'" )');
   return redirect('/rolesypermisos')->with(['message' => 'Permiso Creado', 'color' => 'success']);
 }
 
@@ -733,26 +724,26 @@ public function save_rol(Request $request)
 {
   Role::create(['name' => $request['name']]);
 
-date_default_timezone_set("America/Mexico_City");
-$fechaPHP=date('Y-m-d H:i:s');
-$idUsuarioSistema = Auth::user()->id;
-$nombreUsuarioSistema=DB::select('select CONCAT(Nombre," ",Apellido_Paterno," ",Apellido_Materno)as nombre from users where id='.$idUsuarioSistema);
-$bitacora=DB::select('insert into tb_bitacora (ID_Bitacora,ID_EMPLEADO,nomempleado,created_at, CVE_MOVIMIENTO, MOVIMIENTO) values (null,"'.$idUsuarioSistema.'","'.$nombreUsuarioSistema[0]->nombre.'","'.$fechaPHP.'",4,"Se registro el rol '.$request['name'].'"');
+  date_default_timezone_set("America/Mexico_City");
+  $fechaPHP=date('Y-m-d H:i:s');
+  $idUsuarioSistema = Auth::user()->id;
+  $nombreUsuarioSistema=DB::select('select CONCAT(Nombre," ",Apellido_Paterno," ",Apellido_Materno)as nombre from users where id='.$idUsuarioSistema);
+  $bitacora=DB::select('insert into tb_bitacora (ID_Bitacora,ID_EMPLEADO,nomempleado,created_at, CVE_MOVIMIENTO, MOVIMIENTO) values (null,"'.$idUsuarioSistema.'","'.$nombreUsuarioSistema[0]->nombre.'","'.$fechaPHP.'",4,"Se registro el rol '.$request['name'].'"');
   return redirect('/rolesypermisos')->with(['message' => 'Rol Creado', 'color' => 'success']);
 }
 
 public function get_permisos_rol($id)
 {
 
-   $role = Role::find($id);
+ $role = Role::find($id);
 
 
-   $rolePermissions = Permission::select("name")
-   ->join("role_has_permissions","role_has_permissions.permission_id","=","permissions.id")
-   ->where("role_has_permissions.role_id",$id)
-   ->get();
+ $rolePermissions = Permission::select("name")
+ ->join("role_has_permissions","role_has_permissions.permission_id","=","permissions.id")
+ ->where("role_has_permissions.role_id",$id)
+ ->get();
 
-   return json_encode($rolePermissions);
+ return json_encode($rolePermissions);
 }
 
 
@@ -766,34 +757,34 @@ public function rol_permisos($rol,$permisos)
   $role->permissions()->detach();
 
   foreach ($porciones as $key) {
-   $role->givePermissionTo($key);
-}
+     $role->givePermissionTo($key);
+ }
 
      // $role->givePermissionTo($permisos);
-return  count($porciones);
+ return  count($porciones);
 }
 
 public function roles()
 {   
-   $roles= Role::all();
-   return json_encode($roles);
+ $roles= Role::all();
+ return json_encode($roles);
 }
 
 public function user_roles($id)
 {    
 
-   $user=User::find($id);
-   $roles = $user->getRoleNames();
-   return $roles;
+ $user=User::find($id);
+ $roles = $user->getRoleNames();
+ return $roles;
 }
 
 public function update_estatus(Request $request)
 {    
 
-   $request['id_user'];
-   $request['estatus_user'];
+ $request['id_user'];
+ $request['estatus_user'];
 
-   if($request['estatus_user']==1){
+ if($request['estatus_user']==1){
     $new_status=0;
     $new_status_text="Inactivo";
 }else{

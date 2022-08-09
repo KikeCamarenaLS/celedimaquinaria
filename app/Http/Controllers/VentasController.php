@@ -15,6 +15,17 @@ class VentasController extends Controller
   $this->middleware(['auth','checkstatus']);
 }
 
+public function ExportarInventario()
+{
+ $proyectos=\App::call('App\Http\Controllers\VentasController@cat_proyect');
+    date_default_timezone_set("America/Mexico_City");
+    $fechaPHP=date('Y-m-d H:i:s');
+    $idUsuarioSistema = Auth::user()->id;
+    $nombreUsuarioSistema=DB::select('select CONCAT(Nombre," ",Apellido_Paterno," ",Apellido_Materno)as nombre from users where id='.$idUsuarioSistema);
+    $bitacora=DB::select('insert into tb_bitacora (ID_Bitacora,ID_EMPLEADO,nomempleado,created_at, CVE_MOVIMIENTO, MOVIMIENTO) values (null,"'.$idUsuarioSistema.'","'.$nombreUsuarioSistema[0]->nombre.'","'.$fechaPHP.'",4,"Ingreso al modulo de Exportar Inventarios " )');
+
+    return view('Terrenos.Ventas.ExportarInventario',compact('proyectos'));
+}
 
 public function ventalotesView()
 {

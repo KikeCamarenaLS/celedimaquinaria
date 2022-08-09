@@ -302,6 +302,11 @@
                                             <span class="sub-item">Edita Productos</span>
                                         </a>
                                     </li>
+                                    <li>
+                                        <a href="{{url('/ExportarInventario')}}">
+                                            <span class="sub-item">Exportar Inventario</span>
+                                        </a>
+                                    </li>
                                    
                                 </ul>
                             </div>

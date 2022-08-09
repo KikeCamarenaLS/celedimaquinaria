@@ -510,6 +510,9 @@ Route::get('/pruebacorreo', 'TerrenoController\Cobranza@pruebacorreo');
 Route::get('/registroEgresos', 'ingresosegresosController@registroEgresos');
 Route::get('/ImprimirCortes', 'ingresosegresosController@ImprimirCortes');
 Route::get('/registr/egresos', 'ingresosegresosController@registregresos');
+Route::get('/ExportarInventario', 'VentasController@ExportarInventario');
+
+
 
 
 
