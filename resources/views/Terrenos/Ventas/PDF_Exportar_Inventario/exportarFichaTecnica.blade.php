@@ -69,9 +69,13 @@ footer {
 <body>
 <!--header-->
 <div class="header">
+	<div class="right" style=" float: left;">
+		<img src="{{url('/assets/LogosTerreno/logo_mini.png')}}" alt="logo img"  width="80px;"  class="logo-img">
+
+	</div>
 <img class="left"  width="250"  >
 	
-	<div style=" float: right;"><label class="texto_general"> <?php  date_default_timezone_set('UTC'); 
+	<div style=" float: right;"><label class="texto_general">Reporte de proyecto <?php  date_default_timezone_set('UTC'); 
     date_default_timezone_set("America/Mexico_City"); setlocale(LC_TIME, 'esp_esp'); echo strftime("%d de "); 
     $mes=strftime("%m");
      if($mes==01){
@@ -127,26 +131,27 @@ footer {
 
 	  	
 	  <tr>
-	  	<?php for($i=0; count($cabecera)>$i ; $i++ ){  ?>
-	     <td align="center" style='width: 10%;'><font size="1">{{$cabecera[$i]}} </font></td> 
+	  	<?php for($i=0; count($arraisito) > $i ; $i++ ){  ?>
+	     <td align="center" style='width: 10%;'><font size="1">{{$arraisito[$i]}} </font></td> 
 	  	<?php  }  ?>
 
 	  </tr>
 
   	</thead>
   	<tbody>
-  		@foreach($datos as $dato)
+  		<?php for($i=0; count($datos) > $i ; $i++ ){  ?>
   		
   		<tr> 
-      <td  align="center" style='width: 20px;'><font size="1">{{$dato->proyecto}} </font></td>
+  			<?php for($j=0; count($arraisito) > $j ; $j++ ){  ?>
+  			<?php $vari=$arraisito[$j];?>
+      <td  align="center" style='width: 20px;'><font size="1"><?php echo $datos[$i]->$vari ?> </font></td>
+			<?php  }  ?>
 			
-			<td  align="center" style='width: 15%;'><font size="1">{{$dato->mz}}</font></td>
-			<td  align="center" style='width: 8%;'><font size="1">{{$dato->lt}}</font></td>
 
 			
 
 		</tr>
-		@endforeach
+			<?php  }  ?>
   	</tbody>
 
 

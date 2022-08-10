@@ -21,6 +21,9 @@
 				<div class="card-body">
 					{{-- inicio del row --}}
 
+						<form id="exampleValidation" method="post" action="{{Route('form.crea.pdf.inventariExportar')}}" enctype="multipart/form-data">
+						
+						@csrf
 					<div class="form-group row " >
 						<div class="col-md-3">
 							<label>Proyecto</label>
@@ -33,12 +36,12 @@
 						</div>
 						<div class="col-md-2" >
 							<label>Mz</label>
-							<input required="" type="text" onKeypress="if (event.keyCode < 45 || event.keyCode > 57) event.returnValue = false;" class="form-control success" id="Mz" name="Mz" >
+							<input  type="text" onKeypress="if (event.keyCode < 45 || event.keyCode > 57) event.returnValue = false;" class="form-control success" id="Mz" name="Mz" >
 							
 						</div>
 						<div class="col-md-2">
 							<label>Lt</label>
-							<input required="" type="text" onKeypress="if (event.keyCode < 45 || event.keyCode > 57) event.returnValue = false;" class="form-control" id="Lt" name="Lt"  >
+							<input  type="text" onKeypress="if (event.keyCode < 45 || event.keyCode > 57) event.returnValue = false;" class="form-control" id="Lt" name="Lt"  >
 							
 						</div>
 						
@@ -50,7 +53,7 @@
 						<div class="col-md-12">
 							<center>
 								
-								<input type="submit" id="Selecciona" value="Marcar/Desmarcar" onclick="selecciona()" class="btn btn-primary">
+								<input type="button" id="Selecciona" value="Marcar/Desmarcar" onclick="selecciona()" class="btn btn-primary">
 								<br>
 								<br>
 								<br>
@@ -61,202 +64,202 @@
 							<tr>
 								<td style="width:25%;">
 									<label>Proyecto &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
-									<input class="" type="checkbox" id="proyecto" value="proyecto">
+									<input class="" type="checkbox" name="arrai[]" id="proyecto" value="proyecto">
 									<hr>
 								</td>
 								<td style="width:25%;">
 									<label>Mz&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
-									<input class="" type="checkbox" id="mz" value="mz">
+									<input class="" type="checkbox" name="arrai[]" id="mz" value="mz">
 									<hr>
 
 								</td>
 								<td style="width:25%;">
 									<label>Lt&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
-									<input class="" type="checkbox" id="lt" value="lt">
+									<input class="" type="checkbox" name="arrai[]" id="lt" value="lt">
 									<hr>
 								</td>
 								<td style="width:25%;">
 									<label>Superficie&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
-									<input class="" type="checkbox" align="right" id="superficie" value="superficie">
+									<input class="" type="checkbox" align="right" name="arrai[]" id="superficie" value="superficie">
 									<hr>
 								</td>
 							</tr>
 							<tr>
 								<td style="width:25%;">
 									<label>Medidas (m) &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
-									<input class="" type="checkbox" id="Medidas" value="Medidas">
+									<input class="" type="checkbox" name="arrai[]" id="Medidas" value="Medidas">
 									<hr>
 								</td>
 								<td style="width:25%;">
 									<label>Tipo de superficie&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
-									<input class="" type="checkbox" id="TipoSuperficie" value="TipoSuperficie">
+									<input class="" type="checkbox" name="arrai[]" id="TipoSuperficie" value="TipoSuperficie">
 									<hr>
 
 								</td>
 								<td style="width:25%;">
 									<label>Tipo de predio&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
-									<input class="" type="checkbox" id="TipoPredio" value="TipoPredio">
+									<input class="" type="checkbox" name="arrai[]" id="TipoPredio" value="TipoPredio">
 									<hr>
 								</td>
 								<td style="width:25%;">
 									<label>Localización&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
-									<input class="" type="checkbox" align="right" id="Localización" value="Localización">
+									<input class="" type="checkbox" align="right" name="arrai[]" id="Localización" value="Localización">
 									<hr>
 								</td>
 							</tr>
 							<tr>
 								<td style="width:25%;">
 									<label>Colindancia Norte &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
-									<input class="" type="checkbox" id="ColinanciaNorte" value="ColinanciaNorte">
+									<input class="" type="checkbox" name="arrai[]" id="ColinanciaNorte" value="ColinanciaNorte">
 									<hr>
 								</td>
 								<td style="width:25%;">
 									<label>Colindancia Sur&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
-									<input class="" type="checkbox" id="ColinanciaSur" value="ColinanciaSur">
+									<input class="" type="checkbox" name="arrai[]" id="ColinanciaSur" value="ColinanciaSur">
 									<hr>
 
 								</td>
 								<td style="width:25%;">
 									<label>Colindancia Este&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
-									<input class="" type="checkbox" id="ColinanciaEste" value="ColinanciaEste">
+									<input class="" type="checkbox" name="arrai[]" id="ColinanciaEste" value="ColinanciaEste">
 									<hr>
 								</td>
 								<td style="width:25%;">
 									<label>Colindancia Oeste&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
-									<input class="" type="checkbox" align="right" id="ColinanciaOeste" value="ColinanciaOeste">
+									<input class="" type="checkbox" align="right" name="arrai[]" id="ColinanciaOeste" value="ColinanciaOeste">
 									<hr>
 								</td>
 							</tr>
 							<tr>
 								<td style="width:25%;">
 									<label>Tipo de venta &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
-									<input class="" type="checkbox" id="TipoVenta" value="TipoVenta">
+									<input class="" type="checkbox" name="arrai[]" id="TipoVenta" value="TipoVenta">
 									<hr>
 								</td>
 								<td style="width:25%;">
 									<label>Costo por m2 de contado($)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
-									<input class="" type="checkbox" id="CostoContado" value="CostoContado">
+									<input class="" type="checkbox" name="arrai[]" id="CostoContado" value="CostoContado">
 									<hr>
 
 								</td>
 								<td style="width:25%;">
 									<label>Costo total de contado($)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
-									<input class="" type="checkbox" id="CostoContadoTotal" value="CostoContadoTotal">
+									<input class="" type="checkbox" name="arrai[]" id="CostoContadoTotal" value="CostoContadoTotal">
 									<hr>
 								</td>
 								<td style="width:25%;">
 									<label>Costo por m2 financiado($)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
-									<input class="" type="checkbox" align="right" id="CostoFinanciado" value="CostoFinanciado">
+									<input class="" type="checkbox" align="right" name="arrai[]" id="CostoFinanciado" value="CostoFinanciado">
 									<hr>
 								</td>
 							</tr>
 							<tr>
 								<td style="width:25%;">
 									<label>Costo total financiado($) &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
-									<input class="" type="checkbox" id="CostoFinanciadoTotal" value="CostoFinanciadoTotal">
+									<input class="" type="checkbox" name="arrai[]" id="CostoFinanciadoTotal" value="CostoFinanciadoTotal">
 									<hr>
 								</td>
 								<td style="width:25%;">
 									<label>Enganche&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
-									<input class="" type="checkbox" id="enganche" value="enganche">
+									<input class="" type="checkbox" name="arrai[]" id="enganche" value="enganche">
 									<hr>
 
 								</td>
 								<td style="width:25%;">
 									<label>Anualidad&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
-									<input class="" type="checkbox" id="anualidad" value="anualidad">
+									<input class="" type="checkbox" name="arrai[]" id="anualidad" value="anualidad">
 									<hr>
 								</td>
 								<td style="width:25%;">
 									<label>No.Anualidad&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
-									<input class="" type="checkbox" align="right" id="NoAnualidad" value="NoAnualidad">
+									<input class="" type="checkbox" align="right" name="arrai[]" id="NoAnualidad" value="NoAnualidad">
 									<hr>
 								</td>
 							</tr>
 							<tr>
 								<td style="width:25%;">
 									<label>Plazo (Mensualidades) &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
-									<input class="" type="checkbox" id="plazo" value="plazo">
+									<input class="" type="checkbox" name="arrai[]" id="plazo" value="plazo">
 									<hr>
 								</td>
 								<td style="width:25%;">
 									<label>Tipo de suelo&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
-									<input class="" type="checkbox" id="TipoSuelo" value="TipoSuelo">
+									<input class="" type="checkbox" name="arrai[]" id="TipoSuelo" value="TipoSuelo">
 									<hr>
 
 								</td>
 								<td style="width:25%;">
 									<label>Detalles&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
-									<input class="" type="checkbox" id="Detalle" value="Detalle">
+									<input class="" type="checkbox" name="arrai[]" id="Detalle" value="Detalle">
 									<hr>
 								</td>
 								<td style="width:25%;">
 									<label>Servicio Luz&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
-									<input class="" type="checkbox" align="right" id="servicioluz" value="servicioluz">
+									<input class="" type="checkbox" align="right" name="arrai[]" id="servicioluz" value="servicioluz">
 									<hr>
 								</td>
 							</tr>
 							<tr>
 								<td style="width:25%;">
 									<label>Servicio Agua &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
-									<input class="" type="checkbox" id="servicioagua" value="servicioagua">
+									<input class="" type="checkbox" name="arrai[]" id="servicioagua" value="servicioagua">
 									<hr>
 								</td>
 								<td style="width:25%;">
 									<label>Servicio Drenaje&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
-									<input class="" type="checkbox" id="serviciodrenaje" value="serviciodrenaje">
+									<input class="" type="checkbox" name="arrai[]" id="serviciodrenaje" value="serviciodrenaje">
 									<hr>
 
 								</td>
 								<td style="width:25%;">
 									<label>Fecha Pago Predial&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
-									<input class="" type="checkbox" id="FechaPredial" value="FechaPredial">
+									<input class="" type="checkbox" name="arrai[]" id="FechaPredial" value="FechaPredial">
 									<hr>
 								</td>
 								<td style="width:25%;">
 									<label>Núm. de escritura&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
-									<input class="" type="checkbox" align="right" id="NumeroEscritura" value="NumeroEscritura">
+									<input class="" type="checkbox" align="right" name="arrai[]" id="NumeroEscritura" value="NumeroEscritura">
 									<hr>
 								</td>
 							</tr>
 							<tr>
 								<td style="width:25%;">
 									<label>Clave Catastral de predio &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
-									<input class="" type="checkbox" id="ClaveCatastralPredio"  value="ClaveCatastralPredio">
+									<input class="" type="checkbox" name="arrai[]" id="ClaveCatastralPredio"  value="ClaveCatastralPredio">
 									<hr>
 								</td>
 								<td style="width:25%;">
 									<label>Fecha Clave Catastral de predio&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
-									<input class="" type="checkbox" id="FechaClaveCatastralPredio" value="FechaClaveCatastralPredio">
+									<input class="" type="checkbox" name="arrai[]" id="FechaClaveCatastralPredio" value="FechaClaveCatastralPredio">
 									<hr>
 
 								</td>
 								<td style="width:25%;">
 									<label>Clave Catastral de lote&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
-									<input class="" type="checkbox" id="ClaveCatastralLote" value="ClaveCatastralLote">
+									<input class="" type="checkbox" name="arrai[]" id="ClaveCatastralLote" value="ClaveCatastralLote">
 									<hr>
 								</td>
 								<td style="width:25%;">
 									<label>Fecha Clave Catastral de lote&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
-									<input class="" type="checkbox" align="right" id="FechaClaveCatastralLote" value="FechaClaveCatastralLote">
+									<input class="" type="checkbox" align="right" name="arrai[]" id="FechaClaveCatastralLote" value="FechaClaveCatastralLote">
 									<hr>
 								</td>
 							</tr>
 							<tr>
 								<td style="width:25%;">
 									<label>Valor a la compra &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
-									<input class="" type="checkbox" id="ValorCompra" value="ValorCompra">
+									<input class="" type="checkbox" name="arrai[]" id="ValorCompra" value="ValorCompra">
 									<hr>
 								</td>
 								<td style="width:25%;">
 									<label>Situación&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
-									<input class="" type="checkbox" id="estatus" value="estatus">
+									<input class="" type="checkbox" name="arrai[]" id="estatus" value="estatus">
 									<hr>
 
 								</td>
 								<td style="width:25%;">
 									<label>Fecha de Registro&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
-									<input class="" type="checkbox" id="created_at" value="created_at">
+									<input class="" type="checkbox" name="arrai[]" id="created_at" value="created_at">
 									<hr>
 								</td>
 								<td style="width:25%;">
@@ -283,13 +286,18 @@
 					<div class="card-footer">{{-- inicio del row --}}
 						<div class="row">
 							<div class="col-md-12">
+								
 								<center>
-									<input  type="submit" class="btn btn-success" value="Exportar" onclick="Exportar()">
+									<input  type="submit" class="btn btn-success" name="Exportar" value="Exportar PDF" >
+								</center>
+								<center>
+									<input  type="submit" class="btn btn-success" name="Exportar" value="Exportar Excel" >
 								</center>
 							</div>
 						</div>
 
 					</div>
+				</form>
 
 				</div>
 
@@ -450,7 +458,7 @@
 			var created_at=$('#created_at').is(':checked');
 
 
-				var cabecera={};
+				var cabecera=[];
 			var html="id_proyecto_lote"
 			if(proyecto==true){html+=","+$('#proyecto').val();     cabecera[ $('#proyecto').val() ] = $('#proyecto').val();}
 			if(mz==true){html+=","+$('#mz').val();     cabecera[ $('#mz').val() ] = $('#mz').val();}
