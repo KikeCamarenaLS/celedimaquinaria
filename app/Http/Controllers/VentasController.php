@@ -8,6 +8,7 @@ use Auth;
 use Mail;
 
 use Excel;
+use App\Exports\tablaReporteFichaTecnicaInventario;
 use Barryvdh\DomPDF\Facade as PDF;
 
 class VentasController extends Controller
@@ -82,7 +83,7 @@ else if(Request::input('Exportar')=="Exportar Excel")
 {
   $consultaCompleta= 'select '.$asterisco.' from proyectolote where '.$where;
 
-return Excel::download(new tablaReportesUsuarios($consultaCompleta),'Reporte_Bitacora.xlsx');
+return Excel::download(new tablaReporteFichaTecnicaInventario($consultaCompleta,$arraisito),'Reporte_Bitacora.xlsx');
 }
 
 

@@ -132,7 +132,7 @@ footer {
 	  	
 	  <tr>
 	  	<?php for($i=0; count($arraisito) > $i ; $i++ ){  ?>
-	     <td align="center" style='width: 10%;'><font size="1">{{$arraisito[$i]}} </font></td> 
+	     <td align="center" style='width: auto; border: 1px black solid; text-transform:uppercase"'><font size="1" style="text-transform:uppercase">{{$arraisito[$i]}} </font></td> 
 	  	<?php  }  ?>
 
 	  </tr>
@@ -144,7 +144,7 @@ footer {
   		<tr> 
   			<?php for($j=0; count($arraisito) > $j ; $j++ ){  ?>
   			<?php $vari=$arraisito[$j];?>
-      <td  align="center" style='width: 20px;'><font size="1"><?php echo $datos[$i]->$vari ?> </font></td>
+      <td  align="center" style='width: auto; border: 1px black solid;'><font size="1"><?php echo $datos[$i]->$vari ?> </font></td>
 			<?php  }  ?>
 			
 
