@@ -73,7 +73,7 @@ public function exportarPDF2()
   if(Request::input('Exportar')=="Exportar PDF")
   {
     
-  $datos=DB::select('select '.$asterisco.' from proyectolote where '.$where);
+  $datos=DB::select('select '.$asterisco.' from proyectoLote where '.$where);
      // dd($asterisco);
   $pdf = PDF::loadView('Terrenos.Ventas.PDF_Exportar_Inventario.exportarFichaTecnica', compact('datos','arraisito'));
   $pdf->setPaper('A4','landscape');
@@ -81,7 +81,7 @@ public function exportarPDF2()
 }
 else if(Request::input('Exportar')=="Exportar Excel")
 {
-  $consultaCompleta= 'select '.$asterisco.' from proyectolote where '.$where;
+  $consultaCompleta= 'select '.$asterisco.' from proyectoLote where '.$where;
 
 return Excel::download(new tablaReporteFichaTecnicaInventario($consultaCompleta,$arraisito),'Reporte_Bitacora.xlsx');
 }
