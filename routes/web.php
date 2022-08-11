@@ -511,6 +511,10 @@ Route::get('/registroEgresos', 'ingresosegresosController@registroEgresos');
 Route::get('/ImprimirCortes', 'ingresosegresosController@ImprimirCortes');
 Route::get('/registr/egresos', 'ingresosegresosController@registregresos');
 Route::get('/ExportarInventario', 'VentasController@ExportarInventario');
+Route::get('/IngresosSocios', 'socioController@IngresosSocios');
+Route::get('/IngresosSocios/cortes', 'socioController@cortes');
+
+
 
 Route::get('/crea/PDF/inventarioExportar/{select}/{where}/{cabecera}', 'VentasController@exportarPDF');
 Route::POST('/form/crea/PDF/inventarioExportar', 'VentasController@exportarPDF2')->name('form.crea.pdf.inventariExportar');

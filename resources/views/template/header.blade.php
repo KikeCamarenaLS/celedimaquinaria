@@ -450,6 +450,26 @@
                             </div>
                         </li>
 
+                        <li class="nav-item ">
+                            <a data-toggle="collapse" href="#Socios">
+                                <i class="la la-plus-square"></i>
+                                <p>Socios </p>
+                                <span class="caret"></span>
+                            </a>
+                            <div class="collapse" id="Socios">
+                                <ul class="nav nav-collapse">
+                                    <li>
+                                        <a href="{{url('/IngresosSocios')}}">
+                                            <span class="sub-item">Ingresos de Socios</span>
+                                        </a>
+                                    </li>
+                                    
+                                    
+                                    
+                                </ul>
+                            </div>
+                        </li>
+
                          @endcan
                         
 
