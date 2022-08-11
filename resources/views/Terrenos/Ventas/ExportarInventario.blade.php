@@ -269,7 +269,23 @@
 
 						</table>
 						
-						
+						<div class="row">
+							<div class="col-md-12">
+								
+								<center>
+
+									<button  type="submit"  style="border:0px black solid; background-color: rgb(100, 200, 100,0); " name="Exportar" value="Exportar PDF" >
+										 <img src="{{url('/assets/LogosTerreno/pngegg.png')}}" height ="80" width="100" />
+									</button>
+									<button  type="submit" name="Exportar" value="Exportar Excel" style="border:0px black solid; background-color: rgb(100, 200, 100,0); ">
+										 <img src="{{url('/assets/LogosTerreno/excel2.png')}}" height ="80" width="100" />
+									</button>
+								</center>
+								<center>
+									
+								</center>
+							</div>
+						</div>
 						
 						
 						
@@ -284,17 +300,7 @@
 
 
 					<div class="card-footer">{{-- inicio del row --}}
-						<div class="row">
-							<div class="col-md-12">
-								
-								<center>
-									<input  type="submit" class="btn btn-success" name="Exportar" value="Exportar PDF" >
-								</center>
-								<center>
-									<input  type="submit" class="btn btn-success" name="Exportar" value="Exportar Excel" >
-								</center>
-							</div>
-						</div>
+						
 
 					</div>
 				</form>

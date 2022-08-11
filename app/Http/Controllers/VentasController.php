@@ -83,7 +83,7 @@ else if(Request::input('Exportar')=="Exportar Excel")
 {
   $consultaCompleta= 'select '.$asterisco.' from proyectoLote where '.$where;
 
-return Excel::download(new tablaReporteFichaTecnicaInventario($consultaCompleta,$arraisito),'Reporte_Bitacora.xlsx');
+return Excel::download(new tablaReporteFichaTecnicaInventario($consultaCompleta,$arraisito),'Inventarios_ficha_tecnica.xlsx');
 }
 
 
