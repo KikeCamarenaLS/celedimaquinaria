@@ -77,6 +77,18 @@
 
 					</div>
 					<div class="col-md-2">
+						<label>Disponible (De Contado)</label>
+						<table>
+							<tr>
+								<td style="width: 30px; height:30px; background-color: #008f39;">
+									&nbsp;
+								</td>
+							</tr>
+
+						</table>
+
+					</div>
+					<div class="col-md-1">
 						<label>Apartado</label>
 						<table>
 							<tr>
@@ -100,7 +112,7 @@
 						</table>
 
 					</div>
-					<div class="col-md-2">
+					<div class="col-md-1">
 						<label>En Pausa</label>
 						<table>
 							<tr>
