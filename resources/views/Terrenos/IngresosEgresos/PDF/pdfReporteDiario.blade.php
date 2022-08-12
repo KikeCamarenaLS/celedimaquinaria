@@ -172,10 +172,11 @@
 								<b>{{$dato->NombreCompleto}}</b>
 							</td>
 							<td align="center" width="10%"  class="Rejillas2" >
-								<b>$ {{$dato->MontoMensual}}</b>
+
+								<b>$ {{number_format($dato->MontoMensual, 2)}} </b>
 							</td>
 							<td align="center" width="10%"  class="Rejillas2" >
-								<b>$ {{$dato->pago_a_cubrir}}</b>
+								<b>$ {{number_format($dato->pago_a_cubrir, 2)}} </b>
 							</td>
 						</tr>
 
@@ -199,10 +200,10 @@
 								<b>TOTAL DE INGRESOS</b>
 							</td>
 							<td align="center" width="10%"  style="border: 0px black solid; font-size: 11px; border-bottom: 1px black solid;" >
-								<b>$ {{$datos[0]->MontoMensual}}</b>
+								<b>$ {{number_format($montomens, 2)}}</b>
 							</td>
 							<td align="center" width="10%"  style="border: 0px black solid; font-size: 11px; border-bottom: 1px black solid;" >
-								<b>$ {{$datos[0]->pago_a_cubrir}}</b>
+								<b>$ {{number_format($Intere, 2)}}</b>
 							</td>
 						</tr>
 					</tbody>
@@ -252,7 +253,7 @@
 								
 							</td>
 						</tr>
-						@foreach($datos as $dato)
+						@foreach($datos2 as $dato2)
 						<tr>
 							<td align="center" width="15%"   style="border:0px black solid;" >
 								
@@ -260,16 +261,16 @@
 						
 
 							<td align="center" width="10%"  class="Rejillas2" >
-								<b>{{$datos[0]->Mz}}</b>
+								<b>{{$dato2->Mz}}</b>
 							</td>
 							<td align="center" width="10%"  class="Rejillas2" >
-								<b>{{$datos[0]->Lt}}</b>
+								<b>{{$dato2->Lote}}</b>
 							</td>
 							<td align="center" width="40%"  class="Rejillas2" >
-								<b>{{$datos[0]->NombreCompleto}}</b>
+								<b>{{$dato2->Observaciones}}</b>
 							</td>
 							<td align="center" width="10%"  class="Rejillas2" >
-								<b>$ {{$datos[0]->MontoMensual}}</b>
+								<b>$ {{number_format($dato2->Importe, 2)}}</b>
 							</td>
 							<td align="center" width="15%"   style="border:0px black solid;" >
 								
@@ -293,7 +294,8 @@
 								<b>TOTAL DE EGRESOS</b>
 							</td>
 							<td align="center" width="10%"  style="border: 0px black solid; border-bottom: 1px black solid; font-size: 11px;" >
-								<b>$ {{$datos[0]->MontoMensual}}</b>
+								<b>$ {{number_format($montimport, 2)}}
+								</b>
 							</td>
 
 
@@ -317,42 +319,42 @@
 							<td align="center" width="20%"  style="border:1px black solid; Font-size: 12px;" >
 								<b>UTILIDAD</b>
 							</td>
+							@foreach($datos3 as $dato3)
 							<td align="center" width="20%"  style="border:1px black solid; Font-size: 12px;" >
-								<b>CÉSAR CORTÉS</b>
+								<b>{{$dato3->Socio}}</b>
 							</td>
-							<td align="center" width="20%"  style="border:1px black solid; Font-size: 12px;" >
-								<b>TOTAL INTERES</b>
-							</td>
+							
+						@endforeach
 							<td align="center" width="20%"   style="border:0px black solid;" >
 							</td>
 						</tr>
 						<tr>
 							<td align="center" width="15%"   style="border:0px black solid;" >
 							</td>
-							<td align="center" width="20%"  style="border:0px black solid; font-size: 12px;" >
+							<td align="center" width="20%"  style="border:1px black solid; font-size: 12px;" >
 								INGRESOS
 							</td>
-							<td align="center" width="20%"  style="border:0px black solid;" >
-								<b>${{$datos[0]->MontoMensual}}</b>
+							@foreach($datos3 as $dato3)
+							<td align="center" width="20%"  style="border:1px black solid; Font-size: 12px;" >
+								<b>$ {{number_format($dato3->porcentaje, 2)}} </b>
 							</td>
-							<td align="center" width="20%"  style="border:0px black solid;" >
-								<b>${{$datos[0]->MontoMensual}}</b>
-							</td>
+							
+						@endforeach
 							<td align="center" width="20%"   style="border:0px black solid;" >
 							</td>
 						</tr>
 						<tr>
 							<td align="center" width="15%"   style="border:0px black solid; " >
 							</td>
-							<td align="center" width="20%"  style="border-bottom:1px black solid; font-size: 12px; " >
+							<td align="center" width="20%"  style="border:1px black solid; font-size: 12px; " >
 								EGRESOS
 							</td>
-							<td align="center" width="20%"  style="border-bottom:1px black solid; " >
-								<b>${{$datos[0]->MontoMensual}}</b>
+							@foreach($datos3 as $dato3)
+							<td align="center" width="20%"  style="border:1px black solid; Font-size: 12px;" >
+								<b>$ {{number_format($dato3->id_proyecto, 2)}} </b>
 							</td>
-							<td align="center" width="20%"  style="border-bottom:1px black solid; " >
-								<b>${{$datos[0]->MontoMensual}}</b>
-							</td>
+							
+						@endforeach
 							<td align="center" width="20%"   style="border:0px black solid;" >
 							</td>
 						</tr>
@@ -364,12 +366,14 @@
 									TOTAL
 								</b>
 							</td>
+							@foreach($datos3 as $dato3)
 							<td align="center" width="20%"  style="border-bottom:2px black solid; " >
-								<b>${{$datos[0]->MontoMensual}}</b>
+								<b>${{number_format($dato3->porcentaje - $dato3->id_proyecto, 2)}} </b>
 							</td>
-							<td align="center" width="20%"  style="border-bottom:2px black solid; " >
-								<b>${{$datos[0]->MontoMensual}}</b>
-							</td>
+							
+						@endforeach
+							
+							
 							<td align="center" width="20%"   style="border:0px black solid;" >
 							</td>
 						</tr>

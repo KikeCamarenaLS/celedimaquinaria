@@ -108,8 +108,39 @@ class ingresosegresosController extends Controller
         INNER JOIN cat_proyectos ON cat_proyectos.id_proyecto=contratos.Proyecto
         INNER JOIN cobroslotes ON cobroslotes.n_contrato=contratos.id_contratos
         WHERE cat_proyectos.id_proyecto="'.$consulta.'"');
-        //dd($datos);
-    $pdf = PDF::loadView('Terrenos.IngresosEgresos.PDF.pdfReporteDiario', compact('datos'));
+       // dd($datos);
+        $montomens=0;
+        $Intere=0;
+        for ($i=0; $i < count($datos); $i++) { 
+            $transforma=(float)str_replace(",", "", $datos[$i]->MontoMensual);
+            $transforma2=(float)str_replace(",", "", $datos[$i]->pago_a_cubrir);
+            $datos[$i]->pago_a_cubrir=$transforma2-$transforma;
+            $datos[$i]->MontoMensual=$transforma;
+
+            $montomens=$montomens+$transforma;
+            $Intere=$Intere+$transforma2;
+        }
+        $Intere=$Intere-$montomens;
+        $datos2=DB::select('SELECT* FROM egresos WHERE id_proyecto="'.$consulta.'"');
+        $montimport=0;
+        for ($i=0; $i < count($datos2); $i++) { 
+            $transforma=(float)str_replace(",", "", $datos2[$i]->Importe);
+           
+            $datos2[$i]->Importe=$transforma;
+
+            $montimport=$montimport+$transforma;
+        }
+        $datos3=DB::select('SELECT* FROM porcentajeproyectos WHERE id_proyecto="'.$consulta.'"');
+        for ($i=0; $i < count($datos3); $i++) { 
+            $transforma= (($montomens+$Intere)*$datos3[$i]->porcentaje )/100;
+            $transforma2= (($montimport)*$datos3[$i]->porcentaje )/100;
+            
+            $datos3[$i]->porcentaje=$transforma;
+            $datos3[$i]->id_proyecto=$transforma2;
+
+        }
+
+    $pdf = PDF::loadView('Terrenos.IngresosEgresos.PDF.pdfReporteDiario', compact('datos','montomens','Intere','datos2','montimport','datos3'));
     $pdf->setPaper('A4');
     return $pdf->stream('reporte');
     }

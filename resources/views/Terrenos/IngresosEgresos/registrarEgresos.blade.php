@@ -40,15 +40,13 @@
 						<div class="col-md-3" id="oculta1" style="display:none;" >
 							<label>Proyectos</label>
 
-							<div class="select2-input">
 								<select class="form-control success" id="id_proyecto" name="id_proyecto"  style="width:100%;">
 									
-									@foreach($proyectos as $proyecto)
 									<option value="0">-Selecciona-</option>
+									@foreach($proyectos as $proyecto)
 									<option value="{{$proyecto->id_proyecto}}">{{$proyecto->proyecto}}</option>
 									@endforeach
 								</select> 
-							</div>
 						</div>
 
 
@@ -109,9 +107,7 @@
 	@section('jscustom')
 	<script type="text/javascript">
 
-		$('#id_proyecto').select2({
-			theme: "bootstrap"
-		});
+		
 		$( document ).ready(function() {
 			<?php  date_default_timezone_set("America/Mexico_City");?>
 			<?php $fechaPHP=date('Y-m-d');?>
@@ -144,7 +140,7 @@
 					$('#id_proyecto').html('');
 					var html='';
 				@foreach($proyectos as $proyecto)
-					html+='<option>{{$proyecto->proyecto}}</option>';
+					html+='<option value="{{$proyecto->id_proyecto}}">{{$proyecto->proyecto}}</option>';
 				@endforeach
 				
 					$('#id_proyecto').html(html);
