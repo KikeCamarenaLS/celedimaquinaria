@@ -227,7 +227,7 @@
 
 
                          @can('Personal')
-
+                         <!--
                         <li class="nav-item ">
                             <a data-toggle="collapse" href="#personal_captura">
                                 <i class="la la-plus-square"></i>
@@ -249,7 +249,7 @@
                                 </ul>
                             </div>
                         </li>
-
+    -->
                          @endcan
 
                          @can('Recursos Humanos')
@@ -284,7 +284,7 @@
                          @can('Ejecutivo de Inventarios')
                          <li class="nav-item ">
                             <a data-toggle="collapse" href="#Inventarios">
-                                <i class="la la-money"></i>
+                                <i class="la la-edit"></i>
                                 <p>Inventarios </p>
                                 <span class="caret"></span>
                             </a>
@@ -345,7 +345,7 @@
                           @can('Ejecutivo de proyectos')
                         <li class="nav-item ">
                             <a data-toggle="collapse" href="#estadoDeCuentas">
-                                <i class="la la-money"></i>
+                                <i class="la la-calculator"></i>
                                 <p>Estado de cuentas </p>
                                 <span class="caret"></span>
                             </a>
@@ -370,7 +370,7 @@
 
                         <li class="nav-item ">
                             <a data-toggle="collapse" href="#Clientes">
-                                <i class="la la-pencil-square-o"></i>
+                                <i class="la la-users"></i>
                                 <p>Clientes </p>
                                 <span class="caret"></span>
                             </a>
@@ -397,7 +397,7 @@
 
                         <li class="nav-item ">
                             <a data-toggle="collapse" href="#Cobranza">
-                                <i class="la la-plus-square"></i>
+                                <i class="la la-money"></i>
                                 <p>Cobranza </p>
                                 <span class="caret"></span>
                             </a>
