@@ -413,11 +413,13 @@
                                             <span class="sub-item">Contratos</span>
                                         </a>
                                     </li>
+                                    <!--
                                     <li>
                                         <a href="{{url('/actualiza_contratos')}}">
                                             <span class="sub-item">Actualización y Modificación Contratos</span>
                                         </a>
                                     </li>
+                                -->
                                 </ul>
                             </div>
                         </li>

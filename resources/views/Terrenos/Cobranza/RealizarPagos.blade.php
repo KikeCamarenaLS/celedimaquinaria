@@ -69,10 +69,9 @@
 												<label>Situación de la compra</label>
 												<input required="" type="text"  class="form-control"  id="situacionCompra" name="situacionCompra"  disabled>
 											</div>
-											<div class="col-md-3">
-												<label>Día de pagos (Mensualidades)</label>
+											<div class="col-md-3" style="display:none;">
 
-												<input required="" type="text"  class="form-control"  id="DiaPagos" name="DiaPagos"  disabled>
+												<input required="" type="hiden"  class="form-control"  id="DiaPagos" name="DiaPagos"  disabled>
 											</div>
 											<div class="col-md-3">
 												<label>Fecha Contrato</label>

@@ -82,7 +82,7 @@
 					label: "Personas por sector",
 					backgroundColor :["#f3545d","#1d7af3","#fdaf4b","#f3545d","#1d7af3","#f3545d","#fdaf4b","#f3545d","#1d7af3","#f3545d","#fdaf4b","#f3545d","#f3545d","#fdaf4b","#f3545d","#1d7af3","#f3545d","#fdaf4b","#f3545d","#1d7af3","#1d7af3"],
 					borderColor: 'rgb(23, 125, 255)',
-					data: [response[0].sec50,response[0].sec51, response[0].sec52, response[0].sec53, response[0].sec54, response[0].sec56,response[0].sec58, response[0].sec59, response[0].sec60, response[0].sec61, response[0].sec63,response[0].sec64, response[0].sec65, response[0].sec66, response[0].sec68, response[0].sec69,response[0].sec70, response[0].sec73, response[0].sec74, response[0].sec76, response[0].sinArea],
+					data: [54000,32500,12480,36857,66852	],
 				}],
 			},
 			options: {
