@@ -1,0 +1,12 @@
+BEGIN:VCARD
+VERSION:3.0
+N:Maquinaria;CELEDI;;;
+FN:CELEDI Maquinaria
+ORG:CELEDI Maquinaria, Plataformas de elevación y Manipuladores telescópicos;
+TITLE:Informes;
+TEL;TYPE=WORK,VOICE:(551) 499-3135
+TEL;TYPE=HOME,VOICE:(551) 149-6961
+ADR;TYPE=WORK:;;Dr. Jorge Jiménez Cantú 12;San Pedro Atzompa;Méx;55765;Méx
+EMAIL;TYPE=PREF,INTERNET:informes@celedimaquinaria.com
+URL:www.celedimaquinaria.com
+END:VCARD

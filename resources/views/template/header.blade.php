@@ -2,19 +2,19 @@
 <html lang="en">
 <head>
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <title>Terrenos y Edificaciones del Valle de México.</title>
+    <title>CELEDI</title>
     <meta content='width=device-width, initial-scale=1.0, shrink-to-fit=no' name='viewport' />
-    <link rel="icon" href="{{url('/images')}}/logo_mini.ico" type="image/x-icon"/>
+    <link rel="icon" href="{{url('/')}}/celedi.jpeg" type="image/x-icon"/>
 
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
 
     <!-- Fonts and icons -->
-    <script src="{{url('/assets')}}/js/plugin/webfont/webfont.min.js"></script>
+    <script src="{{url('/assets2')}}/js/plugin/webfont/webfont.min.js"></script>
     <script>
         WebFont.load({
             google: {"families":["Montserrat:100,200,300,400,500,600,700,800,900"]},
-            custom: {"families":["Flaticon", "LineAwesome"], urls: ['{{url('/assets')}}/css/fonts.css']},
+            custom: {"families":["Flaticon", "LineAwesome"], urls: ['{{url('/assets2')}}/css/fonts.css']},
             active: function() {
                 sessionStorage.fonts = true;
             }
@@ -22,11 +22,11 @@
     </script>
 
     <!-- CSS Files -->
-    <link rel="stylesheet" href="{{url('/assets')}}/css/bootstrap.min.css">
-    <link rel="stylesheet" href="{{url('/assets')}}/css/ready.min.css">
+    <link rel="stylesheet" href="{{url('/assets2')}}/css/bootstrap.min.css">
+    <link rel="stylesheet" href="{{url('/assets2')}}/css/ready.min.css">
 
     <!-- CSS Just for demo purpose, don't include it in your project -->
-    <link rel="stylesheet" href="{{url('/assets')}}/css/demo.css">
+    <link rel="stylesheet" href="{{url('/assets2')}}/css/demo.css">
 </head>
 <body>
     <div class="wrapper">
@@ -36,11 +36,9 @@
                 <!--
                     Tip 1: You can change the background color of the logo header using: data-background-color="black | dark | blue | purple | light-blue | green | orange | red"
                 -->
-                <a href="{{url('/home')}}" class="big-logo">
-                    <img src="{{url('/assets/LogosTerreno/logo_mini.png')}}" alt="logo img" class="logo-img">
-                </a>
+                
                 <a href="{{url('/home')}}" class="logo" >
-                     <img src="{{url('/assets/LogosTerreno/NombreTerreno.png')}}" width="140px" alt="logo img" class="logo-img">
+                     <img src="{{url('/celedi.jpeg')}}" width="140px" alt="logo img" class="logo-img">
                     
                    
                 </a>
@@ -54,7 +52,7 @@
             <!-- End Logo Header -->
 
             <!-- Navbar Header -->
-            <nav class="navbar navbar-header navbar-expand-lg" data-background-color="red">
+            <nav class="navbar navbar-header navbar-expand-lg" data-background-color="blue">
                 <!--
                     Tip 1: You can change the background color of the navbar header using: data-background-color="black | dark | blue | purple | light-blue | green | orange | red"
                 -->
@@ -85,11 +83,11 @@
 
 
                         <li class="nav-item dropdown hidden-caret">
-                            <a class="dropdown-toggle profile-pic" data-toggle="dropdown" href="#" aria-expanded="false"  > <img src="{{url('/archivero')}}/{{ Auth::user()->Foto }}" alt="image profile" width="45" class="img-circle"></a>
+                            <a class="dropdown-toggle profile-pic" data-toggle="dropdown" href="#" aria-expanded="false"  > <img src="{{url('/archivero2')}}/{{ Auth::user()->Foto }}" alt="image profile" width="45" class="img-circle"></a>
                             <ul class="dropdown-menu dropdown-user animated fadeIn">
                                 <li>
                                     <div class="user-box">
-                                        <div class="u-img"><img src="{{url('/archivero')}}/{{ Auth::user()->Foto }}"  alt="image profile"></div>
+                                        <div class="u-img"><img src="{{url('/archivero2')}}/{{ Auth::user()->Foto }}"  alt="image profile"></div>
                                         <div class="u-text">
                                             <h4> {{ Auth::user()->name }} </h4>
                                             <p class="text-muted">{{ Auth::user()->email }}</p>
@@ -130,7 +128,7 @@
                 <div class="sidebar-content">
                     <div class="user">
                         <div class="photo">
-                            <img src="{{url('/archivero')}}/{{ Auth::user()->Foto }}" alt="image profile">
+                            <img src="{{url('/archivero2')}}/{{ Auth::user()->Foto }}" alt="image profile">
                         </div>
                         <div class="info" style="word-wrap: break-word; ">
                              <div data-toggle="collapse" href="#collapseExample" aria-expanded="true" style="word-wrap: break-word; color:black;">
@@ -156,8 +154,7 @@
                             </span>
                             <h4 class="text-section">Menú</h4>
                         </li>
-
-                        @can('Administrador')
+                        <!--
                         <li class="nav-item ">
                             <a data-toggle="collapse" href="#usuario_collapse">
                                 <i class="flaticon-users"></i>
@@ -185,45 +182,33 @@
                                 </ul>
                             </div>
                         </li>
-                         <li class="nav-item ">
-                            <a data-toggle="collapse" href="#notificaciones">
-                                <i class="la la-plus-square"></i>
-                                <p>Notificaciones </p>
-                                <span class="caret"></span>
-                            </a>
-                            <div class="collapse" id="notificaciones">
-                                <ul class="nav nav-collapse">
-                                    <li>
-                                        <a href="{{url('/notificaciones')}}">
-                                            <span class="sub-item">Notificaciones</span>
-                                        </a>
-                                    </li>
-                                  
-                                </ul>
-                            </div>
-                        </li>
+    -->
                         <li class="nav-item ">
-                            <a data-toggle="collapse" href="#Bitacora_collapse">
+                            <a href="{{url('/registraColaborador')}}">
                                 <i class="la la-book"></i>
-                                <p>Bitacora</p>
-                                <span class="caret"></span>
+                                <p>Registrar Empleado</p>
+                                
                             </a>
-                            <div class="collapse" id="Bitacora_collapse">
-                                <ul class="nav nav-collapse">
-                                    <li>
-                                        <a href="{{url('/bitacoraView')}}">
-                                            <span class="sub-item">Buscar</span>
-                                        </a>
-                                    </li>
-                                    
-
-                                </ul>
-                            </div>
+                           
                         </li>
                         
+                         <li class="nav-item ">
+                            <a href="{{url('/qrcolaborador')}}">
+                                <i class="la la-book"></i>
+                                <p>QR colaborador</p>
+                                
+                            </a>
+                           
+                        </li>
+                        <li class="nav-item ">
+                            <a href="{{url('/historial_visitas')}}">
+                                <i class="la la-book"></i>
+                                <p>Historial de visitas</p>
+                                
+                            </a>
+                           
+                        </li>
 
-
-                        @endcan
 
 
                          @can('Personal')
@@ -512,71 +497,71 @@
 
     </div>
     <!--   Core JS Files   -->
-    <script src="{{url('/assets')}}/js/core/jquery.3.2.1.min.js"></script>
-    <script src="{{url('/assets')}}/js/core/popper.min.js"></script>
-    <script src="{{url('/assets')}}/js/core/bootstrap.min.js"></script>
+    <script src="{{url('/assets2')}}/js/core/jquery.3.2.1.min.js"></script>
+    <script src="{{url('/assets2')}}/js/core/popper.min.js"></script>
+    <script src="{{url('/assets2')}}/js/core/bootstrap.min.js"></script>
 
     <!-- jQuery UI -->
-    <script src="{{url('/assets')}}/js/plugin/jquery-ui-1.12.1.custom/jquery-ui.min.js"></script>
-    <script src="{{url('/assets')}}/js/plugin/jquery-ui-touch-punch/jquery.ui.touch-punch.min.js"></script>
+    <script src="{{url('/assets2')}}/js/plugin/jquery-ui-1.12.1.custom/jquery-ui.min.js"></script>
+    <script src="{{url('/assets2')}}/js/plugin/jquery-ui-touch-punch/jquery.ui.touch-punch.min.js"></script>
 
     <!-- jQuery Scrollbar -->
-    <script src="{{url('/assets')}}/js/plugin/jquery-scrollbar/jquery.scrollbar.min.js"></script>
+    <script src="{{url('/assets2')}}/js/plugin/jquery-scrollbar/jquery.scrollbar.min.js"></script>
 
     <!-- Moment JS -->
-    <script src="{{url('/assets')}}/js/plugin/moment/moment.min.js"></script>
+    <script src="{{url('/assets2')}}/js/plugin/moment/moment.min.js"></script>
 
     <!-- Chart JS -->
-    <script src="{{url('/assets')}}/js/plugin/chart.js/chart.min.js"></script>
+    <script src="{{url('/assets2')}}/js/plugin/chart.js/chart.min.js"></script>
 
     <!-- Chart Circle -->
-    <script src="{{url('/assets')}}/js/plugin/chart-circle/circles.min.js"></script>
+    <script src="{{url('/assets2')}}/js/plugin/chart-circle/circles.min.js"></script>
 
     <!-- Datatables -->
-    <script src="{{url('/assets')}}/js/plugin/datatables/datatables.min.js"></script>
+    <script src="{{url('/assets2')}}/js/plugin/datatables/datatables.min.js"></script>
 
     <!-- Bootstrap Notify -->
-    <script src="{{url('/assets')}}/js/plugin/bootstrap-notify/bootstrap-notify.min.js"></script>
+    <script src="{{url('/assets2')}}/js/plugin/bootstrap-notify/bootstrap-notify.min.js"></script>
 
     <!-- Bootstrap Toggle -->
-    <script src="{{url('/assets')}}/js/plugin/bootstrap-toggle/bootstrap-toggle.min.js"></script>
+    <script src="{{url('/assets2')}}/js/plugin/bootstrap-toggle/bootstrap-toggle.min.js"></script>
 
     <!-- jQuery Vector Maps -->
-    <script src="{{url('/assets')}}/js/plugin/jqvmap/jquery.vmap.min.js"></script>
-    <script src="{{url('/assets')}}/js/plugin/jqvmap/maps/jquery.vmap.world.js"></script>
+    <script src="{{url('/assets2')}}/js/plugin/jqvmap/jquery.vmap.min.js"></script>
+    <script src="{{url('/assets2')}}/js/plugin/jqvmap/maps/jquery.vmap.world.js"></script>
 
     <!-- Google Maps Plugin -->
-    <script src="{{url('/assets')}}/js/plugin/gmaps/gmaps.js"></script>
+    <script src="{{url('/assets2')}}/js/plugin/gmaps/gmaps.js"></script>
 
     <!-- Dropzone -->
-    <script src="{{url('/assets')}}/js/plugin/dropzone/dropzone.min.js"></script>
+    <script src="{{url('/assets2')}}/js/plugin/dropzone/dropzone.min.js"></script>
 
     <!-- Fullcalendar -->
-    <script src="{{url('/assets')}}/js/plugin/fullcalendar/fullcalendar.min.js"></script>
+    <script src="{{url('/assets2')}}/js/plugin/fullcalendar/fullcalendar.min.js"></script>
 
     <!-- DateTimePicker -->
-    <script src="{{url('/assets')}}/js/plugin/datepicker/bootstrap-datetimepicker.min.js"></script>
+    <script src="{{url('/assets2')}}/js/plugin/datepicker/bootstrap-datetimepicker.min.js"></script>
 
     <!-- Bootstrap Tagsinput -->
-    <script src="{{url('/assets')}}/js/plugin/bootstrap-tagsinput/bootstrap-tagsinput.min.js"></script>
+    <script src="{{url('/assets2')}}/js/plugin/bootstrap-tagsinput/bootstrap-tagsinput.min.js"></script>
 
     <!-- Bootstrap Wizard -->
-    <script src="{{url('/assets')}}/js/plugin/bootstrap-wizard/bootstrapwizard.js"></script>
+    <script src="{{url('/assets2')}}/js/plugin/bootstrap-wizard/bootstrapwizard.js"></script>
 
     <!-- jQuery Validation -->
-    <script src="{{url('/assets')}}/js/plugin/jquery.validate/jquery.validate.min.js"></script>
+    <script src="{{url('/assets2')}}/js/plugin/jquery.validate/jquery.validate.min.js"></script>
 
     <!-- Summernote -->
-    <script src="{{url('/assets')}}/js/plugin/summernote/summernote-bs4.min.js"></script>
+    <script src="{{url('/assets2')}}/js/plugin/summernote/summernote-bs4.min.js"></script>
 
     <!-- Select2 -->
-    <script src="{{url('/assets')}}/js/plugin/select2/select2.full.min.js"></script>
+    <script src="{{url('/assets2')}}/js/plugin/select2/select2.full.min.js"></script>
 
     <!-- Sweet Alert -->
-    <script src="{{url('/assets')}}/js/plugin/sweetalert/sweetalert.min.js"></script>
+    <script src="{{url('/assets2')}}/js/plugin/sweetalert/sweetalert.min.js"></script>
 
     <!-- Ready Pro JS -->
-    <script src="{{url('/assets')}}/js/ready.min.js"></script>
+    <script src="{{url('/assets2')}}/js/ready.min.js"></script>
 
     <script>
 

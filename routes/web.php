@@ -14,7 +14,12 @@ Route::post('/prueba/upload','Inventario\AndroidController@subirfoto');
 
 
 Route::get('/estadoDeCuentas', 'estadoDeCuentas@estadoDeCuentas');
+Route::get('/inicio', 'estadoDeCuentas@inicio')->name('inicios');
+Route::get('/historial_visitas', 'estadoDeCuentas@historial_visitas')->name('historial_visitas');
+Route::get('/catalogo', 'estadoDeCuentas@catalogo')->name('catalogo');
+Route::get('/tarjeta_presentacion', 'estadoDeCuentas@tarjeta_presentacion')->name('tarjeta_presentacion');
 
+Route::get('/colaborador_{cadena}','estadoDeCuentas@colaborador_presentacion')->name('colaborador_presentacion');
 
 Route::get('/', 'HomeController@Index')->middleware('auth');
 Auth::routes();
@@ -24,6 +29,21 @@ Route::get('/home', 'HomeController@index')->name('home');
 //Mi Usuario
 Route::get('/miperfil', 'Inventario\UsuarioController@mi_perfil');
 Route::post('/actualizar_miperfil', 'Inventario\UsuarioController@update_mi_perfil');
+Route::post('/actualiza_carrucel_edita', 'Inventario\UsuarioController@actualiza_carrucel_edita');
+Route::post('/actualiza_servicios_edita', 'Inventario\UsuarioController@actualiza_servicios_edita');
+
+
+
+
+Route::get('/actualizafotoscarrusel', 'Inventario\UsuarioController@actualizafotoscarrusel');
+Route::get('/nuestros_servicios', 'Inventario\UsuarioController@nuestros_servicios');
+Route::get('/registraColaborador', 'Inventario\UsuarioController@registraColaborador');
+Route::POST('/guardarColaborador', 'Inventario\UsuarioController@guardarColaboradores')->name('registrar.colaboradores');
+Route::get('/generar_codigo_qr', 'Inventario\UsuarioController@generarCodigoQr')->name('generar_codigo_qr');
+
+Route::get('/qrcolaborador', 'Inventario\UsuarioController@qrcolaborador');
+
+
 
 
 //Usuarios

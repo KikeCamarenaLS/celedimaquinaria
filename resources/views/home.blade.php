@@ -78,7 +78,7 @@
         <section class="banner">
           <div class="banner-content">
             <h1>Bienvenido</h1>
-            <h1><b>Terrenos y Edificaciones del Valle de México</b></h1>
+            <h1><b>CELEDI Maquinaria</b></h1>
           </div>
           
         </section>

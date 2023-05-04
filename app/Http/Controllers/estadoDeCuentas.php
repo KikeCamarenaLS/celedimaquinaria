@@ -6,35 +6,70 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use DB;
 use Auth;
+use DeviceDetector\DeviceDetector;
+use UAParser\Parser;
+
+
+use DeviceDetector\Parser\Client\Browser;
+
 
 class estadoDeCuentas extends Controller
 {
     
     
 
-    public function estadoDeCuentas()
+    public function inicio()
     {
-        return view('Terrenos.EstadodeCuentas.estadoDeCuentas');
+
+        return view('pestanias.index');
     }
-    public function busquedaContratos(Request $request)
-{
-    $Busqueda= $request->input("Busqueda");
-    $insert =DB::select('SELECT contratos.id_contratos,contratos.N_Cliente,contratos.FechaVenta,
-        contratos.Enganche,contratos.FechaContrato,contratos.Proyecto,contratos.vendedor,contratos.Mz,contratos.Lt,proyectoLote.estatus,contratos.Superficie,
-        contratos.TipoSuperficie,contratos.TipoPredio,contratos.Vendedor,cat_proyectos.proyecto AS nom_proyecto,
-        contratos.Adquisicion,contratos.N_Parcialidades,contratos.Costo,
-        contratos.DiaPago,contratos.MontoMensual,contratos.TelefonoAval,
-        CONCAT (clientes.nombre," ",clientes.A_paterno," ",clientes.A_materno) AS NombreCompleto,
-        contratos.Interes, clientes.id_clientes FROM contratos
-        INNER JOIN clientes ON clientes.N_Cliente=contratos.N_Cliente 
+    public function historial_visitas()
+    {
 
-        INNER JOIN proyectoLote ON proyectoLote.Proyecto=contratos.Proyecto and proyectoLote.Mz=contratos.Mz and proyectoLote.Lt=contratos.Lt
-        INNER JOIN cat_proyectos ON cat_proyectos.id_proyecto=contratos.Proyecto
-        LEFT OUTER JOIN contrato_cobranza ON contrato_cobranza.N_Cliente=contratos.id_contratos
-        WHERE contratos.id_contratos="'.$Busqueda.'" ');
+       $consulta=DB::select('SELECT * FROM dispositivos ');
+        return view('pestanias.historial_visitas',compact('consulta'));
+    }
 
-    return $insert;
+    public function catalogo()
+    {
+        return view('pestanias.catalogo');
+    }
+    public function tarjeta_presentacion(Request $request)
+    {
+
+$direccion_ip = $request->ip();
+
+    // Obtener el agente de usuario del cliente
+    $agente_usuario = $request->header('User-Agent');
+    
+
+    // Detectar el dispositivo del cliente
+    $deviceDetector = new DeviceDetector($agente_usuario);
+    $deviceDetector->parse();
+    $cliente = $deviceDetector->getClient();
+    $dispositivo = $deviceDetector->getDeviceName() . '/'. $deviceDetector->getBrandName() . '/'. $deviceDetector->getModel().'/'. $deviceDetector->getOs('short_name') . ' ' . $deviceDetector->getOs('version');
+;
+    $marca = $deviceDetector->getBrandName();
+$modelo = $deviceDetector->getModel();
+//dd($modelo);
+
+    // Insertar los datos en la tabla
+    DB::table('dispositivos')->insert([
+        'direccion_ip' => $direccion_ip,
+        'agente_usuario' => $agente_usuario,
+        'dispositivo' => $dispositivo,
+        'navegador'=>$cliente['name'],
+    ]);
+    
 
 
-}
+
+        return view('pestanias.tarjeta_presentacion');
+        
+    }
+    public function colaborador_presentacion($cadena)
+    {
+        $consulta=DB::select('SELECT * FROM t_colaboradores where cadena="'.$cadena.'"');
+        return view('pestanias.colaborador_presentacion',compact('consulta'));
+    }
 }

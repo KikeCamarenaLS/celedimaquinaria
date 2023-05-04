@@ -9,6 +9,7 @@ use App\User;
 use Auth;
 use DB;
 use Illuminate\Support\Facades\Validator;
+use SimpleSoftwareIO\QrCode\Facades\QrCode;
 
 use Spatie\Permission\Models\Role;
 use Spatie\Permission\Models\Permission;
@@ -28,22 +29,13 @@ class UsuarioController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function actualizafotoscarrusel()
     {
-        //
+        $carrucel=DB::select('select * from carrucel where estatus="activo"');
+        return view('pestanias.actualizarFotos',compact('carrucel'));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
-
-
+  
     
     public function nuevo_usuario()
     {
@@ -54,6 +46,63 @@ class UsuarioController extends Controller
 
 
     }
+
+    public function registraColaborador()
+    {
+        $mensaje="entro";
+        $color="success";
+        return view('celedi.colaboradores.registraColaborador',compact('mensaje','color'));
+    }
+
+    public function qrcolaborador()
+    {
+        $mensaje="entro";
+        $color="success";
+        $consulta=DB::select('select * from t_colaboradores ');
+        return view('celedi.colaboradores.qrcolaborador',compact('mensaje','color','consulta'));
+    }
+    public function generarCodigoQr()
+{
+    QrCode::generate('Make me into a QrCode!');
+   return QrCode::backgroundColor(255, 0, 0, 25);;
+    
+}
+
+
+    public function guardarColaboradores(Request $request)
+    {
+        $mensaje="Se registro correctamente!";
+        $color="success";
+        $nombre = $request->input('Nombre');
+        $Apellido_Paterno = $request->input('Apellido_Paterno');
+        $Apellido_Materno = $request->input('Apellido_Materno');
+        $Telefono = $request->input('Telefono');
+        $Telefono2 = $request->input('Telefono2');
+        $LINKfacebook = $request->input('LINKfacebook');
+        $longitud = 8; // longitud de la cadena
+        $cadena = '';
+        $validaDuplicado=DB::select('select * from t_colaboradores where nombre="'.$nombre.'" and apellido_p="'.$Apellido_Paterno.'" and apellido_m="'.$Apellido_Materno.'"');
+        if($validaDuplicado)
+        {
+            $mensaje="Registro duplicado";
+            $color="danger";
+            return view('celedi.colaboradores.registraColaborador', compact("mensaje",'color'));
+        }else
+        {
+            for ($i = 0; $i < $longitud; $i++) {
+                $digito = rand(0, 9);
+                $cadena .= $digito;
+            }
+
+            $cadena; // Imprimir la cadena de 8 dígitos generada
+
+
+            $carrucel=DB::select('insert into t_colaboradores (nombre,apellido_p,apellido_m,telefono_1,telefono_2,link_f,cadena,estatus) value ("'.$nombre.'","'.$Apellido_Paterno.'","'.$Apellido_Materno.'","'.$Telefono.'","'.$Telefono2.'","'.$LINKfacebook.'","'.$cadena.'","Activo" )');
+            return view('celedi.colaboradores.registraColaborador', compact("mensaje",'color'));
+        }
+       
+    }
+    
     public function nuevo_usuarioTerreno()
     {
 
@@ -162,7 +211,7 @@ class UsuarioController extends Controller
         $time =$no_cli."-". date("d-m-Y")."-".time();
         if($request->file('uploadImg1')!=null){
             $foto = $time.''.rand(11111,99999).'.jpg'; 
-            $destinationPath = public_path().'/archivero';
+            $destinationPath = public_path().'/archivero2';
 
         }else{
             $foto="profile.png";
@@ -353,7 +402,7 @@ class UsuarioController extends Controller
             $time =$no_cli."-". date("d-m-Y")."-".time();
             if($request->file('uploadImg1')!=null){
                 $foto = $time.''.rand(11111,99999).'.jpg'; 
-                $destinationPath = public_path().'/archivero';
+                $destinationPath = public_path().'/archivero2';
 
             }else{
                 $foto="profile.png";
@@ -517,6 +566,12 @@ class UsuarioController extends Controller
 
 }
 
+public function nuestros_servicios()
+{
+     $servicios=DB::select('select * from servicios');
+     return view('pestanias.nuestros_servicios',compact('servicios'));
+}
+
 
 public function listado_usuario()
 {
@@ -550,6 +605,126 @@ public function mi_perfil()
 }
 
 
+public function actualiza_servicios_edita(Request $request)
+{
+     $foto_consulta=DB::select('select foto from servicios where id_servicios = '.$request['id']);
+
+    $validator = Validator::make($request->all(), [
+        'uploadImg1' => 'required|image|mimes:jpg,png,jpeg',
+    ]);
+    $fotito="";
+
+    if ($validator->fails()) {
+
+        $fotito="SinFoto";
+
+
+    }else if ($validator->passes()){
+
+
+        $time = date("d-m-Y")."-".time();
+        if($request->file('uploadImg1')!=null){
+            $foto = $time.''.rand(11111,99999).'.jpg'; 
+            $fotito=$foto;
+            $destinationPath = public_path().'/img/servicios';
+
+        }else{
+            $foto=$no_cliente[0]->Foto;
+        }
+
+
+        if($request->file('uploadImg1')!=null){
+
+            $file = $request->file('uploadImg1');
+            $file->move($destinationPath,$foto);
+
+        }
+    }
+    $validator = Validator::make($request->all(), [
+
+    ]);
+
+    if ($validator->fails()) {
+        $resulrt= DB::select("UPDATE servicios SET foto = '".$fotito."', nombre = '".$request['texto']."', descripcion = '".$request['Descripcion']."', precio = '".$request['Precio']."', duracion = '".$request['Duracion']."' WHERE id_servicios = 
+ ".$request['id']);
+      return redirect('/nuestros_servicios')->withErrors($validator)->withInput();
+  }else{
+    if($fotito=="SinFoto")
+    {
+        $resulrt= DB::select("UPDATE servicios SET foto = '".$foto_consulta[0]->foto."', nombre = '".$request['texto']."', descripcion = '".$request['Descripcion']."', precio = '".$request['Precio']."', duracion = '".$request['Duracion']."' WHERE id_servicios = 
+ ".$request['id']);
+    }else
+    {
+        $resulrt= DB::select("UPDATE servicios SET foto = '".$fotito."', nombre = '".$request['texto']."', descripcion = '".$request['Descripcion']."', precio = '".$request['Precio']."', duracion = '".$request['Duracion']."' WHERE id_servicios = 
+ ".$request['id']);
+    }
+    
+
+    return redirect('/nuestros_servicios')->with(['message' => 'Actualización correcta', 'color' => 'success']);
+
+}
+
+}
+public function actualiza_carrucel_edita(Request $request)
+{
+     $foto_consulta=DB::select('select foto from carrucel where id_carrucel = '.$request['id']);
+
+    $validator = Validator::make($request->all(), [
+        'uploadImg1' => 'required|image|mimes:jpg,png,jpeg',
+    ]);
+    $fotito="";
+
+    if ($validator->fails()) {
+
+        $fotito="SinFoto";
+
+
+    }else if ($validator->passes()){
+
+
+        $time = date("d-m-Y")."-".time();
+        if($request->file('uploadImg1')!=null){
+            $foto = $time.''.rand(11111,99999).'.jpg'; 
+            $fotito=$foto;
+            $destinationPath = public_path().'/img/carrucel';
+
+        }else{
+            $foto=$no_cliente[0]->Foto;
+        }
+
+
+        if($request->file('uploadImg1')!=null){
+
+            $file = $request->file('uploadImg1');
+            $file->move($destinationPath,$foto);
+
+        }
+    }
+    $validator = Validator::make($request->all(), [
+
+    ]);
+
+    if ($validator->fails()) {
+        $resulrt= DB::select("UPDATE carrucel SET foto = '".$fotito."', texto = '".$request['texto']."' WHERE id_carrucel = 
+ ".$request['id']);
+      return redirect('/actualizafotoscarrusel')->withErrors($validator)->withInput();
+  }else{
+    if($fotito=="SinFoto")
+    {
+        $resulrt= DB::select("UPDATE carrucel SET foto = '".$foto_consulta[0]->foto."', texto = '".$request['texto']."' WHERE id_carrucel = 
+ ".$request['id']);
+    }else
+    {
+        $resulrt= DB::select("UPDATE carrucel SET foto = '".$fotito."', texto = '".$request['texto']."' WHERE id_carrucel = 
+ ".$request['id']);
+    }
+    
+
+    return redirect('/actualizafotoscarrusel')->with(['message' => 'Actualización correcta', 'color' => 'success']);
+
+}
+
+}
 public function update_mi_perfil(Request $request)
 {
 
@@ -574,7 +749,7 @@ public function update_mi_perfil(Request $request)
         $time =$no_cli."-". date("d-m-Y")."-".time();
         if($request->file('uploadImg1')!=null){
             $foto = $time.''.rand(11111,99999).'.jpg'; 
-            $destinationPath = public_path().'/archivero';
+            $destinationPath = public_path().'/archivero2';
 
         }else{
             $foto=$no_cliente[0]->Foto;

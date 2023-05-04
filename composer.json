@@ -15,6 +15,7 @@
         "laravel/tinker": "^1.0",
         "laravelcollective/html": "^5.8",
         "maatwebsite/excel": "^3.1",
+        "piwik/device-detector": "^6.1",
         "spatie/laravel-permission": "^2.37"
     },
     "require-dev": {
@@ -29,7 +30,10 @@
     "config": {
         "optimize-autoloader": true,
         "preferred-install": "dist",
-        "sort-packages": true
+        "sort-packages": true,
+        "allow-plugins": {
+            "kylekatarnls/update-helper": true
+        }
     },
     "extra": {
         "laravel": {

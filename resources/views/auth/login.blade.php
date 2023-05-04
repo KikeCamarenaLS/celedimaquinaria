@@ -14,16 +14,16 @@
 <html lang="en">
 <head>
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <title>Terrenos y Edificaciones del Valle de México.</title>
+    <title>CELEDI</title>
     <meta content='width=device-width, initial-scale=1.0, shrink-to-fit=no' name='viewport' />
     <link rel="icon" href="{{url('/images')}}/logo_mini.ico" type="image/x-icon"/>
 
     <!-- Fonts and icons -->
-    <script src="{{url('/assets')}}/js/plugin/webfont/webfont.min.js"></script>
+    <script src="{{url('/assets2')}}/js/plugin/webfont/webfont.min.js"></script>
     <script>
         WebFont.load({
             google: {"families":["Montserrat:100,200,300,400,500,600,700,800,900"]},
-            custom: {"families":["Flaticon", "LineAwesome"], urls: ['{{url('/assets')}}/css/fonts.css']},
+            custom: {"families":["Flaticon", "LineAwesome"], urls: ['{{url('/assets2')}}/css/fonts.css']},
             active: function() {
                 sessionStorage.fonts = true;
             }
@@ -31,8 +31,8 @@
     </script>
     
     <!-- CSS Files -->
-    <link rel="stylesheet" href="{{url('/assets')}}/css/bootstrap.min.css">
-    <link rel="stylesheet" href="{{url('/assets')}}/css/ready.min.css">
+    <link rel="stylesheet" href="{{url('/assets2')}}/css/bootstrap.min.css">
+    <link rel="stylesheet" href="{{url('/assets2')}}/css/ready.min.css">
 </head>
 <body class="login">
     <div class="wrapper wrapper-login">
@@ -105,7 +105,7 @@
         </div>
 
         <!--<div class="container container-signup animated fadeIn">
-            <div align="center"><img class="img-responsive " src="{{url('/assets/img/SeguridadCiudadana__compacto.png')}}"></div>
+            <div align="center"><img class="img-responsive " src="{{url('/assets2/img/SeguridadCiudadana__compacto.png')}}"></div>
             <h5 class="text-center"> Policía Auxiliar </h5>
             <h6 class="text-center">Registro</h6>
             <div class="login-form">
@@ -148,11 +148,11 @@
             </div>
         </div>-->
     </div>
-    <script src="{{url('/assets')}}/js/core/jquery.3.2.1.min.js"></script>
-    <script src="{{url('/assets')}}/js/plugin/jquery-ui-1.12.1.custom/jquery-ui.min.js"></script>
-    <script src="{{url('/assets')}}/js/core/popper.min.js"></script>
-    <script src="{{url('/assets')}}/js/core/bootstrap.min.js"></script>
-    <script src="{{url('/assets')}}/js/ready.js"></script>
+    <script src="{{url('/assets2')}}/js/core/jquery.3.2.1.min.js"></script>
+    <script src="{{url('/assets2')}}/js/plugin/jquery-ui-1.12.1.custom/jquery-ui.min.js"></script>
+    <script src="{{url('/assets2')}}/js/core/popper.min.js"></script>
+    <script src="{{url('/assets2')}}/js/core/bootstrap.min.js"></script>
+    <script src="{{url('/assets2')}}/js/ready.js"></script>
 </body>
 </html>
 
